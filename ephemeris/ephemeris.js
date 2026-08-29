@@ -7,7 +7,29 @@
 /* ═══════════════════════════════════════
    ÉLÉMENTS HTML
 ═══════════════════════════════════════ */
+/* ╔══════════════════════════════════════════════╗
+   🔐 EPHEMERIS — PASSWORD
+   ╚══════════════════════════════════════════════╝ */
 
+const EPHEMERIS_PASSWORD = "7023";
+
+const ephemerisPage =
+    document.getElementById("page-ephemeris");
+
+const ephemerisLock =
+    document.getElementById("ephemeris-lock");
+
+const ephemerisPassword =
+    document.getElementById("ephemeris-password");
+
+const ephemerisUnlock =
+    document.getElementById("ephemeris-unlock");
+
+const passwordError =
+    document.getElementById("password-error");
+
+
+let ephemerisUnlocked = false;
 const calendarDays =
     document.getElementById("calendar-days");
 
