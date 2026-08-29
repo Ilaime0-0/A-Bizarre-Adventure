@@ -153,6 +153,19 @@ function renderCalendar() {
     }
 
 
+    if (!ephemerisUnlocked) {
+
+        calendarDays.innerHTML = "";
+
+        return;
+
+    }
+
+
+    /* Vider les anciens jours */
+
+    calendarDays.innerHTML = "";
+
     /* Vider les anciens jours */
 
     calendarDays.innerHTML = "";
