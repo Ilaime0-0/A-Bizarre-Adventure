@@ -1379,3 +1379,140 @@ a {
         scale(1);
 
 }
+/* ╔══════════════════════════════════════╗
+   🌙 04 — CARPE NOCTEM
+   ╚══════════════════════════════════════╝ */
+
+
+/* ═══════════════════════════════════════
+   TITRE
+═══════════════════════════════════════ */
+
+.noctem-title {
+
+    top: 4%;
+    left: 7%;
+
+    transform: rotate(-3deg);
+
+}
+
+
+/* ═══════════════════════════════════════
+   PETIT MESSAGE
+═══════════════════════════════════════ */
+
+.noctem-whisper {
+
+    position: absolute;
+
+    top: 8%;
+    right: 8%;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: rgba(255, 255, 255, 0.4);
+
+    transform: rotate(5deg);
+
+    pointer-events: none;
+
+}
+
+
+/* ═══════════════════════════════════════
+   SYMBOLE SECRET
+═══════════════════════════════════════ */
+
+.noctem-secret {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.2);
+
+    font-family: "Times New Roman", serif;
+
+    font-size: 18px;
+
+    cursor: none;
+
+    z-index: 60;
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.5s ease;
+
+}
+
+
+.noctem-secret:hover {
+
+    opacity: 1;
+
+    transform:
+        rotate(180deg)
+        scale(1.4);
+
+}
+
+
+/* ═══════════════════════════════════════
+   MESSAGE SECRET
+═══════════════════════════════════════ */
+
+#noctem-secret-message {
+
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.8);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 9000;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 13px;
+
+    letter-spacing: 4px;
+
+    text-align: center;
+
+    color: white;
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+
+}
+
+
+#noctem-secret-message.visible {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+
+}
