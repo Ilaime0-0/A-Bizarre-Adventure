@@ -2175,7 +2175,10 @@ a {
 
     border-bottom:
         1px solid
-        rgba(255,255,255,0.2);
+        rgba(255,255,255,0.9);
+
+    background:
+        #090909;
 
 }
 
@@ -2186,14 +2189,19 @@ a {
 
     padding: 10px 0;
 
+    font-family:
+        "Courier New",
+        monospace;
+
     font-size: 9px;
 
     letter-spacing: 2px;
 
-    opacity: 0.45;
+    color: #ffffff;
+
+    opacity: 0.9;
 
 }
-
 
 /* ═══════════════════════════════════════
    CASES DU CALENDRIER
