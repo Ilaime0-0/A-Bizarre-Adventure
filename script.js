@@ -261,3 +261,86 @@ if (secretSymbol) {
     );
 
 }
+/* ╔══════════════════════════════════════╗
+   ☾ 02 — THE DIVIDE
+   ╚══════════════════════════════════════╝ */
+
+
+/* ═══════════════════════════════════════
+   👁️ RESTART
+═══════════════════════════════════════ */
+
+const restartButton =
+    document.querySelector(".restart-button");
+
+
+const restartMessage =
+    document.getElementById("restart-message");
+
+
+if (restartButton) {
+
+    restartButton.addEventListener(
+        "click",
+        function() {
+
+            restartMessage.classList.add(
+                "visible"
+            );
+
+
+            setTimeout(function() {
+
+                restartMessage.classList.remove(
+                    "visible"
+                );
+
+            }, 2200);
+
+        }
+    );
+
+}
+
+
+/* ═══════════════════════════════════════
+   ✦ SECRET DE THE DIVIDE
+═══════════════════════════════════════ */
+
+const divideSecret =
+    document.querySelector(".divide-secret");
+
+
+if (divideSecret) {
+
+    divideSecret.addEventListener(
+        "click",
+        function() {
+
+            const clock =
+                document.querySelector(".strange-clock");
+
+
+            if (clock) {
+
+                clock.textContent =
+                    "00:00:00";
+
+            }
+
+
+            setTimeout(function() {
+
+                if (clock) {
+
+                    clock.textContent =
+                        "01:??:??";
+
+                }
+
+            }, 1800);
+
+        }
+    );
+
+}
