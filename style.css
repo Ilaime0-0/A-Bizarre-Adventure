@@ -227,6 +227,210 @@ body {
 
 
 /* ═══════════════════════════════════════
+   👁️ FAUX BOUTON — DON'T
+═══════════════════════════════════════ */
+
+.strange-button {
+
+    position: absolute;
+
+    border: none;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-family: "Courier New", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    cursor: none;
+
+    z-index: 60;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+
+}
+
+
+.strange-button-one {
+
+    top: 81%;
+    right: 13%;
+
+    transform: rotate(-7deg);
+
+}
+
+
+.strange-button:hover {
+
+    opacity: 1;
+
+    transform:
+        rotate(-7deg)
+        scale(1.15);
+
+}
+
+
+/* ═══════════════════════════════════════
+   ✦ SYMBOLE SECRET
+═══════════════════════════════════════ */
+
+.secret-symbol {
+
+    position: absolute;
+
+    top: 18%;
+    right: 9%;
+
+    border: none;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.6);
+
+    font-size: 18px;
+
+    cursor: none;
+
+    z-index: 60;
+
+    animation:
+        strangePulse
+        2.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes strangePulse {
+
+    0%,
+    100% {
+
+        opacity: 0.25;
+
+        transform: rotate(0deg);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform: rotate(180deg);
+
+    }
+
+}
+
+
+/* ═══════════════════════════════════════
+   🕯️ MESSAGE SECRET
+═══════════════════════════════════════ */
+
+#strange-message {
+
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.8);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 9000;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    text-align: center;
+
+    color: white;
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+
+}
+
+
+#strange-message.visible {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+
+}
+
+
+/* ═══════════════════════════════════════
+   🌀 PETIT GLITCH SECRET
+═══════════════════════════════════════ */
+
+.strange-glitch {
+
+    animation:
+        strangeGlitch
+        0.7s
+        steps(2);
+
+}
+
+
+@keyframes strangeGlitch {
+
+    0% {
+
+        transform: translate(0);
+
+    }
+
+    25% {
+
+        transform: translate(2px, -1px);
+
+    }
+
+    50% {
+
+        transform: translate(-2px, 1px);
+
+    }
+
+    75% {
+
+        transform: translate(1px, 2px);
+
+    }
+
+    100% {
+
+        transform: translate(0);
+
+    }
+
+}
+
+
+/* ═══════════════════════════════════════
    02 — LIFE
 ═══════════════════════════════════════ */
 
@@ -408,7 +612,8 @@ a {
 
     z-index: 9999;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
 
 }
 
@@ -420,7 +625,11 @@ a {
     width: 45px;
     height: 45px;
 
-    animation: webFloat 2s ease-in-out infinite;
+    animation:
+        webFloat
+        2s
+        ease-in-out
+        infinite;
 
 }
 
@@ -441,7 +650,8 @@ a {
 
     transform-origin: center;
 
-    background: rgba(255, 255, 255, 0.8);
+    background:
+        rgba(255, 255, 255, 0.8);
 
 }
 
@@ -529,19 +739,22 @@ a {
 
     0% {
 
-        transform: translateY(0);
+        transform:
+            translateY(0);
 
     }
 
     50% {
 
-        transform: translateY(-3px);
+        transform:
+            translateY(-3px);
 
     }
 
     100% {
 
-        transform: translateY(0);
+        transform:
+            translateY(0);
 
     }
 
