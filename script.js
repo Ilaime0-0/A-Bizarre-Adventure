@@ -1,528 +1,414 @@
-/* ═══════════════════════════════════════
-   🕸️ NAVIGATION DES PAGES
-═══════════════════════════════════════ */
+/* ╔════════════════════════════════════════════════════╗
+   A BIZARRE ADVENTURE
+   MAIN INTERACTION ENGINE
+   ╚════════════════════════════════════════════════════╝ */
 
-let pageHistory = [];
+(function () {
 
-let currentPage = "page-01";
+    "use strict";
 
 
-function showPage(pageId) {
+    /* ═══════════════════════════════════════════════════
+       PAGE NAVIGATION
+    ═══════════════════════════════════════════════════ */
 
-    const nextPage =
-        document.getElementById(pageId);
+    let pageHistory = [];
 
-    if (!nextPage || currentPage === pageId) {
+    let currentPage = "page-01";
 
-        return;
 
-    }
+    function showPage(pageId) {
 
+        const nextPage =
+            document.getElementById(pageId);
 
-    /* Garder la page actuelle
-       dans l'historique */
-
-    pageHistory.push(currentPage);
-
-
-    /* Cacher toutes les pages */
-
-    const pages =
-        document.querySelectorAll(".page");
-
-    pages.forEach(function(page) {
-
-        page.classList.remove("active");
-
-    });
-
-
-    /* Afficher la nouvelle page */
-
-    nextPage.classList.add("active");
-
-
-    /* Mettre à jour la page actuelle */
-
-    currentPage = pageId;
-
-
-    window.scrollTo({
-
-        top: 0,
-
-        behavior: "instant"
-
-    });
-
-}
-
-
-/* ═══════════════════════════════════════
-   🕰️ REVENIR EN ARRIÈRE DANS LE TEMPS
-═══════════════════════════════════════ */
-
-function goBackInTime() {
-
-    if (pageHistory.length === 0) {
-
-        return;
-
-    }
-
-
-    const previousPage =
-        pageHistory.pop();
-
-
-    const pages =
-        document.querySelectorAll(".page");
-
-    pages.forEach(function(page) {
-
-        page.classList.remove("active");
-
-    });
-
-
-    const previous =
-        document.getElementById(previousPage);
-
-
-    if (previous) {
-
-        previous.classList.add("active");
-
-        currentPage = previousPage;
-
-    }
-
-
-    window.scrollTo({
-
-        top: 0,
-
-        behavior: "instant"
-
-    });
-
-}
-
-
-/* ═══════════════════════════════════════
-   ⌨️ TOUCHE ←
-═══════════════════════════════════════ */
-
-document.addEventListener("keydown", function(event) {
-
-    if (event.key === "ArrowLeft") {
-
-        goBackInTime();
-
-    }
-
-});
-
-
-/* ═══════════════════════════════════════
-   🕸️ TOILE QUI SUIT LA SOURIS
-═══════════════════════════════════════ */
-
-const spiderCursor =
-    document.getElementById("spider-cursor");
-
-
-document.addEventListener("mousemove", function(event) {
-
-    if (!spiderCursor) {
-
-        return;
-
-    }
-
-    spiderCursor.style.left =
-        event.clientX + "px";
-
-    spiderCursor.style.top =
-        event.clientY + "px";
-
-});
-
-
-/* ═══════════════════════════════════════
-   🕷️ L'ARAIGNÉE S'ÉCHAPPE AU CLIC
-═══════════════════════════════════════ */
-
-document.addEventListener("click", function(event) {
-
-    const spider =
-        document.createElement("div");
-
-    spider.classList.add(
-        "escaping-spider"
-    );
-
-    spider.textContent = "🕷️";
-
-    spider.style.left =
-        event.clientX + "px";
-
-    spider.style.top =
-        event.clientY + "px";
-
-    document.body.appendChild(spider);
-
-
-    setTimeout(function() {
-
-        spider.remove();
-
-    }, 1400);
-
-});
-
-
-/* ╔══════════════════════════════════════╗
-   👁️ ÉLÉMENTS ÉTRANGES — PAGE 01
-   ╚══════════════════════════════════════╝ */
-
-
-/* ═══════════════════════════════════════
-   DON'T
-═══════════════════════════════════════ */
-
-const strangeButton =
-    document.querySelector(
-        ".strange-button-one"
-    );
-
-
-const strangeMessage =
-    document.getElementById(
-        "strange-message"
-    );
-
-
-if (strangeButton) {
-
-    strangeButton.addEventListener(
-        "click",
-        function() {
-
-            strangeMessage.classList.add(
-                "visible"
-            );
-
-
-            setTimeout(function() {
-
-                strangeMessage.classList.remove(
-                    "visible"
-                );
-
-            }, 2200);
-
+        if (!nextPage || currentPage === pageId) {
+            return;
         }
-    );
 
-}
+        pageHistory.push(currentPage);
 
+        document
+            .querySelectorAll(".page")
+            .forEach(page => {
+                page.classList.remove("active");
+            });
 
-/* ═══════════════════════════════════════
-   ✦ SYMBOLE SECRET
-═══════════════════════════════════════ */
+        nextPage.classList.add("active");
 
-const secretSymbol =
-    document.querySelector(
-        ".secret-symbol"
-    );
+        currentPage = pageId;
 
+        window.scrollTo({
+            top: 0,
+            behavior: "instant"
+        });
 
-if (secretSymbol) {
-
-    secretSymbol.addEventListener(
-        "click",
-        function() {
-
-            document.body.classList.add(
-                "strange-glitch"
-            );
+    }
 
 
-            setTimeout(function() {
+    function goBackInTime() {
 
-                document.body.classList.remove(
-                    "strange-glitch"
-                );
-
-            }, 700);
-
+        if (pageHistory.length === 0) {
+            return;
         }
-    );
 
-}
-/* ╔══════════════════════════════════════╗
-   ☾ 02 — THE DIVIDE
-   ╚══════════════════════════════════════╝ */
+        const previousPageId =
+            pageHistory.pop();
 
+        const previousPage =
+            document.getElementById(previousPageId);
 
-/* ═══════════════════════════════════════
-   👁️ RESTART
-═══════════════════════════════════════ */
-
-const restartButton =
-    document.querySelector(".restart-button");
-
-
-const restartMessage =
-    document.getElementById("restart-message");
-
-
-if (restartButton) {
-
-    restartButton.addEventListener(
-        "click",
-        function() {
-
-            restartMessage.classList.add(
-                "visible"
-            );
-
-
-            setTimeout(function() {
-
-                restartMessage.classList.remove(
-                    "visible"
-                );
-
-            }, 2200);
-
+        if (!previousPage) {
+            return;
         }
-    );
 
-}
+        document
+            .querySelectorAll(".page")
+            .forEach(page => {
+                page.classList.remove("active");
+            });
 
+        previousPage.classList.add("active");
 
-/* ═══════════════════════════════════════
-   ✦ SECRET DE THE DIVIDE
-═══════════════════════════════════════ */
+        currentPage =
+            previousPageId;
 
-const divideSecret =
-    document.querySelector(".divide-secret");
+        window.scrollTo({
+            top: 0,
+            behavior: "instant"
+        });
 
-
-if (divideSecret) {
-
-    divideSecret.addEventListener(
-        "click",
-        function() {
-
-            const clock =
-                document.querySelector(".strange-clock");
+    }
 
 
-            if (clock) {
+    window.showPage = showPage;
+    window.goBackInTime = goBackInTime;
 
-                clock.textContent =
-                    "00:00:00";
+
+    /* ═══════════════════════════════════════════════════
+       KEYBOARD NAVIGATION
+    ═══════════════════════════════════════════════════ */
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "ArrowLeft" ||
+                event.key === "Backspace"
+            ) {
+
+                if (
+                    event.target.tagName !== "INPUT"
+                ) {
+                    goBackInTime();
+                }
 
             }
 
+            if (event.key === "Escape") {
+                goBackInTime();
+            }
 
-            setTimeout(function() {
+        }
+    );
 
-                if (clock) {
 
-                    clock.textContent =
-                        "01:??:??";
+    /* ═══════════════════════════════════════════════════
+       SPIDER CURSOR
+    ═══════════════════════════════════════════════════ */
+
+    const spiderCursor =
+        document.getElementById("spider-cursor");
+
+
+    document.addEventListener(
+        "mousemove",
+        event => {
+
+            if (!spiderCursor) {
+                return;
+            }
+
+            spiderCursor.style.left =
+                `${event.clientX}px`;
+
+            spiderCursor.style.top =
+                `${event.clientY}px`;
+
+        }
+    );
+
+
+    /* ═══════════════════════════════════════════════════
+       CLICKING CREATES AN ESCAPING SPIDER
+    ═══════════════════════════════════════════════════ */
+
+    document.addEventListener(
+        "click",
+        event => {
+
+            if (
+                event.target.closest("input")
+            ) {
+                return;
+            }
+
+            const spider =
+                document.createElement("div");
+
+            spider.className =
+                "escaping-spider";
+
+            spider.textContent = "🕷️";
+
+            spider.style.left =
+                `${event.clientX}px`;
+
+            spider.style.top =
+                `${event.clientY}px`;
+
+            document.body.appendChild(spider);
+
+            setTimeout(
+                () => spider.remove(),
+                1400
+            );
+
+        }
+    );
+
+
+    /* ═══════════════════════════════════════════════════
+       SECRET MESSAGE SYSTEM
+    ═══════════════════════════════════════════════════ */
+
+    function bindSecretReveal(
+        trigger,
+        message,
+        duration = 2200
+    ) {
+
+        if (!trigger || !message) {
+            return;
+        }
+
+        let hideTimeout;
+
+        trigger.addEventListener(
+            "click",
+            event => {
+
+                event.stopPropagation();
+
+                message.classList.add("visible");
+
+                clearTimeout(hideTimeout);
+
+                hideTimeout =
+                    setTimeout(
+                        () => {
+                            message.classList.remove(
+                                "visible"
+                            );
+                        },
+                        duration
+                    );
+
+            }
+        );
+
+    }
+
+
+    bindSecretReveal(
+        document.querySelector(
+            ".strange-button-one"
+        ),
+        document.getElementById(
+            "strange-message"
+        )
+    );
+
+
+    bindSecretReveal(
+        document.querySelector(
+            ".restart-button"
+        ),
+        document.getElementById(
+            "restart-message"
+        )
+    );
+
+
+    bindSecretReveal(
+        document.querySelector(
+            ".life-secret"
+        ),
+        document.getElementById(
+            "life-secret-message"
+        )
+    );
+
+
+    bindSecretReveal(
+        document.querySelector(
+            ".death-secret"
+        ),
+        document.getElementById(
+            "death-secret-message"
+        )
+    );
+
+
+    bindSecretReveal(
+        document.querySelector(
+            ".noctem-secret"
+        ),
+        document.getElementById(
+            "noctem-secret-message"
+        )
+    );
+
+
+    bindSecretReveal(
+        document.querySelector(
+            ".chronicle-secret"
+        ),
+        document.getElementById(
+            "chronicle-secret-message"
+        ),
+        2500
+    );
+
+
+    bindSecretReveal(
+        document.querySelector(
+            ".library-secret"
+        ),
+        document.getElementById(
+            "library-secret-message"
+        ),
+        2500
+    );
+
+
+    /* ═══════════════════════════════════════════════════
+       01 — STRANGE SYMBOL GLITCH
+    ═══════════════════════════════════════════════════ */
+
+    const secretSymbol =
+        document.querySelector(
+            ".secret-symbol"
+        );
+
+
+    if (secretSymbol) {
+
+        secretSymbol.addEventListener(
+            "click",
+            event => {
+
+                event.stopPropagation();
+
+                document.body
+                    .classList
+                    .add("strange-glitch");
+
+                setTimeout(
+                    () => {
+                        document.body
+                            .classList
+                            .remove("strange-glitch");
+                    },
+                    700
+                );
+
+            }
+        );
+
+    }
+
+
+    /* ═══════════════════════════════════════════════════
+       02 — STRANGE CLOCK
+    ═══════════════════════════════════════════════════ */
+
+    const divideSecret =
+        document.querySelector(
+            ".divide-secret"
+        );
+
+    const strangeClock =
+        document.querySelector(
+            ".strange-clock"
+        );
+
+
+    if (
+        divideSecret &&
+        strangeClock
+    ) {
+
+        divideSecret.addEventListener(
+            "click",
+            event => {
+
+                event.stopPropagation();
+
+                strangeClock.textContent =
+                    "00 : 00 : 00";
+
+                setTimeout(
+                    () => {
+
+                        strangeClock.textContent =
+                            "01 : ?? : ??";
+
+                    },
+                    1800
+                );
+
+            }
+        );
+
+    }
+
+
+    /* ═══════════════════════════════════════════════════
+       HOVER EFFECT — HOTSPOTS
+    ═══════════════════════════════════════════════════ */
+
+    document
+        .querySelectorAll(".hotspot")
+        .forEach(hotspot => {
+
+            hotspot.addEventListener(
+                "mouseenter",
+                () => {
+
+                    document.body.style.setProperty(
+                        "--cursor-intensity",
+                        "1"
+                    );
 
                 }
-
-            }, 1800);
-
-        }
-    );
-
-}
- /* ═══════════════════════════════════════
-    ✦ SECRET — THE LIVING SIDE
- ═══════════════════════════════════════ */
-
-const lifeSecret =
-    document.querySelector(".life-secret");
-
-
-const lifeSecretMessage =
-    document.getElementById("life-secret-message");
-
-
-if (lifeSecret) {
-
-    lifeSecret.addEventListener(
-        "click",
-        function() {
-
-            lifeSecretMessage.classList.add(
-                "visible"
             );
 
+            hotspot.addEventListener(
+                "mouseleave",
+                () => {
 
-            setTimeout(function() {
+                    document.body.style.setProperty(
+                        "--cursor-intensity",
+                        "0"
 
-                lifeSecretMessage.classList.remove(
-                    "visible"
-                );
+                    );
 
-            }, 2200);
-
-        }
-    );
-
-}
-/* ╔══════════════════════════════════════╗
-   🕷️ SECRET — THE OTHER SIDE
-   ╚══════════════════════════════════════╝ */
-
-const deathSecret =
-    document.querySelector(".death-secret");
-
-
-const deathSecretMessage =
-    document.getElementById(
-        "death-secret-message"
-    );
-
-
-if (deathSecret) {
-
-    deathSecret.addEventListener(
-        "click",
-        function() {
-
-            deathSecretMessage.classList.add(
-                "visible"
+                }
             );
 
-
-            setTimeout(function() {
-
-                deathSecretMessage.classList.remove(
-                    "visible"
-                );
-
-            }, 2200);
-
-        }
-    );
-
-}
-/* ╔══════════════════════════════════════╗
-   🌙 SECRET — CARPE NOCTEM
-   ╚══════════════════════════════════════╝ */
-
-const noctemSecret =
-    document.querySelector(".noctem-secret");
+        });
 
 
-const noctemSecretMessage =
-    document.getElementById(
-        "noctem-secret-message"
-    );
-
-
-if (noctemSecret) {
-
-    noctemSecret.addEventListener(
-        "click",
-        function() {
-
-            noctemSecretMessage.classList.add(
-                "visible"
-            );
-
-
-            setTimeout(function() {
-
-                noctemSecretMessage.classList.remove(
-                    "visible"
-                );
-
-            }, 2200);
-
-        }
-    );
-
-}
-/* ╔══════════════════════════════════════╗
-   📖 SECRET — CHRONIQUES
-   ╚══════════════════════════════════════╝ */
-
-const chronicleSecret =
-    document.querySelector(".chronicle-secret");
-
-
-const chronicleSecretMessage =
-    document.getElementById(
-        "chronicle-secret-message"
-    );
-
-
-if (chronicleSecret) {
-
-    chronicleSecret.addEventListener(
-        "click",
-        function() {
-
-            chronicleSecretMessage.classList.add(
-                "visible"
-            );
-
-
-            setTimeout(function() {
-
-                chronicleSecretMessage.classList.remove(
-                    "visible"
-                );
-
-            }, 2500);
-
-        }
-    );
-
-}
-/* ╔══════════════════════════════════════╗
-   📚 SECRET — LIBRARY
-   ╚══════════════════════════════════════╝ */
-
-const librarySecret =
-    document.querySelector(".library-secret");
-
-
-const librarySecretMessage =
-    document.getElementById(
-        "library-secret-message"
-    );
-
-
-if (librarySecret) {
-
-    librarySecret.addEventListener(
-        "click",
-        function() {
-
-            librarySecretMessage.classList.add(
-                "visible"
-            );
-
-
-            setTimeout(function() {
-
-                librarySecretMessage.classList.remove(
-                    "visible"
-                );
-
-            }, 2500);
-
-        }
-    );
-}
+})();
