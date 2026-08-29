@@ -2743,38 +2743,45 @@ a {
     pointer-events: none;
 
     font-family:
-        "Courier New",
-        monospace;
+        "UnifrakturCook",
+        Georgia,
+        serif;
 
-    color: #6f4bd8;
+    font-weight: 700;
+
+    color: #b52a50;
 
     text-align: center;
 
+    text-shadow:
+        0 0 10px rgba(181, 42, 80, 0.35);
+
 }
 
-
 .welcome-number {
+
+    font-family:
+        "Courier New",
+        monospace;
 
     font-size: 11px;
 
     letter-spacing: 5px;
 
-    opacity: 0.65;
+    color: #8f1d3f;
+
+    opacity: 0.85;
 
 }
 
 
 .welcome-name {
 
-    font-size: clamp(15px, 2vw, 23px);
+    font-size: clamp(18px, 2.5vw, 28px);
 
-    letter-spacing: 4px;
+    letter-spacing: 2px;
 
     line-height: 1.3;
-
-    text-shadow:
-        0 0 8px
-        rgba(111, 75, 216, 0.25);
 
 }
 
