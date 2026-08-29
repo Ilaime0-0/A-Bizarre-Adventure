@@ -2127,9 +2127,22 @@ a {
 
 .calendar-month {
 
-    font-size: 14px;
+    font-family:
+        "UnifrakturCook",
+        Georgia,
+        serif;
 
-    letter-spacing: 5px;
+    font-size: 27px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: #b52a50;
+
+    text-shadow:
+        0 0 9px
+        rgba(181, 42, 80, 0.35);
 
 }
 
@@ -2148,19 +2161,21 @@ a {
 
     cursor: none;
 
-    opacity: 0.6;
+    opacity: 0.8;
 
-    transition: opacity 0.2s ease;
+    transition:
+        opacity 0.2s ease,
+        color 0.2s ease;
 
 }
-
 
 .calendar-arrow:hover {
 
     opacity: 1;
 
-}
+    color: #b52a50;
 
+}
 
 /* ═══════════════════════════════════════
    JOURS DE LA SEMAINE
