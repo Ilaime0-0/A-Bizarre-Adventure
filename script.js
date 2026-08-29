@@ -527,3 +527,361 @@ if (librarySecret) {
     );
 
 }
+/* ╔══════════════════════════════════════════════╗
+   📅 EPHEMERIS — CALENDRIER
+═══════════════════════════════════════════════ */
+
+const calendarDays =
+    document.getElementById("calendar-days");
+
+const calendarMonth =
+    document.getElementById("calendar-month");
+
+const dateEntry =
+    document.getElementById("date-entry");
+
+const entryDate =
+    dateEntry.querySelector(".entry-date");
+
+const entryContent =
+    dateEntry.querySelector(".entry-content");
+
+
+let calendarDate =
+    new Date(2026, 7, 1);
+
+
+/* ═══════════════════════════════════════
+   ENTRÉES ÉTRANGES
+═══════════════════════════════════════ */
+
+const strangeEvents = {
+
+    "2026-08-17":
+        "This date has been recorded twice.",
+
+    "2026-08-29":
+        "Nothing unusual happened today.",
+
+    "2026-09-03":
+        "You already missed this.",
+
+    "2026-09-17":
+        "This date should not exist.",
+
+    "2026-10-31":
+        "Something is waiting here.",
+
+    "2026-12-31":
+        "LAST RECORDED DATE."
+
+};
+
+
+/* ═══════════════════════════════════════
+   NOMS DES MOIS
+═══════════════════════════════════════ */
+
+const monthNames = [
+
+    "JANUARY",
+    "FEBRUARY",
+    "MARCH",
+    "APRIL",
+    "MAY",
+    "JUNE",
+    "JULY",
+    "AUGUST",
+    "SEPTEMBER",
+    "OCTOBER",
+    "NOVEMBER",
+    "DECEMBER"
+
+];
+
+
+/* ═══════════════════════════════════════
+   FORMAT DATE
+═══════════════════════════════════════ */
+
+function getDateKey(year, month, day) {
+
+    return (
+        year +
+        "-" +
+        String(month + 1).padStart(2, "0") +
+        "-" +
+        String(day).padStart(2, "0")
+    );
+
+}
+
+
+/* ═══════════════════════════════════════
+   AFFICHER LE CALENDRIER
+═══════════════════════════════════════ */
+
+function renderCalendar() {
+
+    calendarDays.innerHTML = "";
+
+    const year =
+        calendarDate.getFullYear();
+
+    const month =
+        calendarDate.getMonth();
+
+
+    calendarMonth.textContent =
+        monthNames[month] +
+        " " +
+        year;
+
+
+    const firstDay =
+        new Date(year, month, 1);
+
+    let startingDay =
+        firstDay.getDay();
+
+    /* Lundi = premier jour */
+
+    startingDay =
+        startingDay === 0
+            ? 6
+            : startingDay - 1;
+
+
+    const daysInMonth =
+        new Date(
+            year,
+            month + 1,
+            0
+        ).getDate();
+
+
+    /* CASES VIDES */
+
+    for (
+        let i = 0;
+        i < startingDay;
+        i++
+    ) {
+
+        const empty =
+            document.createElement("div");
+
+        empty.classList.add(
+            "calendar-day",
+            "empty"
+        );
+
+        calendarDays.appendChild(empty);
+
+    }
+
+
+    /* JOURS */
+
+    for (
+        let day = 1;
+        day <= daysInMonth;
+        day++
+    ) {
+
+        const button =
+            document.createElement("button");
+
+        button.classList.add(
+            "calendar-day"
+        );
+
+
+        const number =
+            document.createElement("span");
+
+        number.classList.add(
+            "day-number"
+        );
+
+        number.textContent =
+            String(day).padStart(2, "0");
+
+
+        button.appendChild(number);
+
+
+        const key =
+            getDateKey(
+                year,
+                month,
+                day
+            );
+
+
+        /* Événement étrange */
+
+        if (strangeEvents[key]) {
+
+            button.classList.add(
+                "strange"
+            );
+
+
+            const symbol =
+                document.createElement("span");
+
+            symbol.classList.add(
+                "day-symbol"
+            );
+
+            symbol.textContent =
+                "✦";
+
+            button.appendChild(symbol);
+
+        }
+
+
+        /* Aujourd'hui */
+
+        if (
+            year === 2026 &&
+            month === 7 &&
+            day === 29
+        ) {
+
+            button.classList.add(
+                "today"
+            );
+
+        }
+
+
+        button.addEventListener(
+            "click",
+            function() {
+
+                selectDate(
+                    year,
+                    month,
+                    day,
+                    key
+                );
+
+            }
+        );
+
+
+        calendarDays.appendChild(
+            button
+        );
+
+    }
+
+}
+
+
+/* ═══════════════════════════════════════
+   CLIQUER SUR UNE DATE
+═══════════════════════════════════════ */
+
+function selectDate(
+    year,
+    month,
+    day,
+    key
+) {
+
+    entryDate.textContent =
+        String(day).padStart(2, "0") +
+        " / " +
+        String(month + 1).padStart(2, "0") +
+        " / " +
+        year;
+
+
+    if (strangeEvents[key]) {
+
+        entryContent.textContent =
+            strangeEvents[key];
+
+    } else {
+
+        entryContent.textContent =
+            "nothing has been recorded.";
+
+    }
+
+}
+
+
+/* ═══════════════════════════════════════
+   MOIS PRÉCÉDENT
+═══════════════════════════════════════ */
+
+document
+    .getElementById("previous-month")
+    .addEventListener(
+        "click",
+        function() {
+
+            calendarDate.setMonth(
+                calendarDate.getMonth() - 1
+            );
+
+            renderCalendar();
+
+        }
+    );
+
+
+/* ═══════════════════════════════════════
+   MOIS SUIVANT
+═══════════════════════════════════════ */
+
+document
+    .getElementById("next-month")
+    .addEventListener(
+        "click",
+        function() {
+
+            calendarDate.setMonth(
+                calendarDate.getMonth() + 1
+            );
+
+            renderCalendar();
+
+        }
+    );
+
+
+/* ═══════════════════════════════════════
+   PREMIER AFFICHAGE
+═══════════════════════════════════════ */
+
+renderCalendar();
+
+
+/* ═══════════════════════════════════════
+   ✦ SECRET
+═══════════════════════════════════════ */
+
+const ephemerisSecret =
+    document.getElementById(
+        "ephemeris-secret"
+    );
+
+
+ephemerisSecret.addEventListener(
+    "click",
+    function() {
+
+        entryDate.textContent =
+            "UNKNOWN DATE";
+
+        entryContent.textContent =
+            "You weren't supposed to find this.";
+
+    }
+);
