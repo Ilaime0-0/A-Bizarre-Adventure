@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Welcome to a Bizarre Adventure</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <main class="adventure">
+
+
+        <!-- ╔══════════════════════════════════╗
+             01 — WELCOME
+        ╚══════════════════════════════════╝ -->
+
+        <section class="page active" id="page-01">
+
+            <img
+                src="images/welcome.png"
+                alt="Welcome to a bizarre adventure"
+                class="interface-image"
+            >
+
+            <!-- WELCOME TO A BIZARRE ADVENTURE -->
+
+            <button
+                class="hotspot welcome"
+                onclick="showPage('page-02')"
+                aria-label="Enter the bizarre adventure"
+            ></button>
+
+        </section>
+
+
+
+        <!-- ╔══════════════════════════════════╗
+             02 — LIFE / DEATH
+        ╚══════════════════════════════════╝ -->
+
+        <section class="page" id="page-02">
+
+            <img
+                src="images/life_death.png"
+                alt="Life or Death"
+                class="interface-image"
+            >
+
+            <!-- LIFE -->
+
+            <button
+                class="hotspot life"
+                onclick="showPage('page-03')"
+                aria-label="Life"
+            ></button>
+
+
+            <!-- DEATH -->
+
+            <button
+                class="hotspot death"
+                onclick="showPage('page-03-death')"
+                aria-label="Death"
+            ></button>
+
+        </section>
+
+
+
+        <!-- ╔══════════════════════════════════╗
+             03 — LIFE
+        ╚══════════════════════════════════╝ -->
+
+        <section class="page" id="page-03">
+
+            <img
+                src="images/reality_inbetween_ficition.png"
+                alt="Reality, In Between and Fiction"
+                class="interface-image"
+            >
+
+
+            <!-- REALITY -->
+
+            <button
+                class="hotspot reality"
+                aria-label="Reality"
+            ></button>
+
+
+            <!-- IN BETWEEN -->
+
+            <button
+                class="hotspot between"
+                aria-label="In Between"
+            ></button>
+
+
+            <!-- FICTION -->
+
+            <button
+                class="hotspot fiction"
+                aria-label="Fiction"
+            ></button>
+
+        </section>
+
+
+
+        <!-- ╔══════════════════════════════════╗
+             03' — DEATH
+        ╚══════════════════════════════════╝ -->
+
+        <section class="page" id="page-03-death">
+
+            <img
+                src="images/obss_ca_cons.png"
+                alt="Obsession, Carpe Noctem and Conspirations"
+                class="interface-image"
+            >
+
+
+            <!-- OBSESSION -->
+
+            <button
+                class="hotspot obsession"
+                aria-label="Obsession"
+            ></button>
+
+
+            <!-- CARPE NOCTEM -->
+
+            <button
+                class="hotspot noctem"
+                onclick="showPage('page-04')"
+                aria-label="Carpe Noctem"
+            ></button>
+
+
+            <!-- CONSPIRATIONS -->
+
+            <button
+                class="hotspot conspirations"
+                aria-label="Conspirations"
+            ></button>
+
+        </section>
+
+
+
+        <!-- ╔══════════════════════════════════╗
+             04 — CARPE NOCTEM
+        ╚══════════════════════════════════╝ -->
+
+        <section class="page" id="page-04">
+
+            <img
+                src="images/chronique_library.png"
+                alt="Carpe Noctem — Chroniques and Library"
+                class="interface-image"
+            >
+
+
+            <!-- CŒUR GAUCHE → CHRONIQUES -->
+
+            <button
+                class="hotspot heart-left"
+                onclick="showPage('page-chroniques')"
+                aria-label="Chroniques"
+            ></button>
+
+
+            <!-- CŒUR DROIT → LIBRARY -->
+
+            <button
+                class="hotspot heart-right"
+                onclick="showPage('page-library')"
+                aria-label="Library"
+            ></button>
+
+        </section>
+
+
+
+        <!-- ╔══════════════════════════════════╗
+             CHRONIQUES
+        ╚══════════════════════════════════╝ -->
+
+        <section class="page" id="page-chroniques">
+
+            <img
+                src="images/chroniques.png"
+                alt="Chroniques"
+                class="interface-image"
+            >
+
+        </section>
+
+
+
+        <!-- ╔══════════════════════════════════╗
+             LIBRARY
+        ╚══════════════════════════════════╝ -->
+
+        <section class="page" id="page-library">
+
+            <img
+                src="images/library.png"
+                alt="Library"
+                class="interface-image"
+            >
+
+        </section>
+
+
+    </main>
+
+
+
+    <script>
+
+        function showPage(pageId) {
+
+            const pages = document.querySelectorAll(".page");
+
+            pages.forEach(function(page) {
+                page.classList.remove("active");
+            });
+
+
+            const nextPage = document.getElementById(pageId);
+
+            if (nextPage) {
+
+                nextPage.classList.add("active");
+
+            }
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: "instant"
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
