@@ -301,10 +301,11 @@
          REALITY
     ═══════════════════════════════════════ -->
 
-    <button
-        class="hotspot reality"
-        aria-label="Reality"
-    ></button>
+   <button 
+    class="hotspot reality"
+    onclick="showPage('page-ephemeris')"
+    aria-label="Reality — Ephemeris"
+></button>
 
 
 
@@ -354,7 +355,162 @@
 
 </section>
 
+<!-- ╔══════════════════════════════════╗
+     EPHEMERIS
+     REALITY
+╚══════════════════════════════════╝ -->
 
+<section
+    class="page"
+    id="page-ephemeris"
+>
+
+    <div class="ephemeris-interface">
+
+        <!-- TITRE -->
+
+        <div class="ephemeris-header">
+
+            <span class="ephemeris-number">
+                03 / REALITY
+            </span>
+
+            <h1>
+                EPHEMERIS
+            </h1>
+
+            <span class="ephemeris-subtitle">
+                a record of things that happened
+            </span>
+
+        </div>
+
+
+        <!-- CALENDRIER -->
+
+        <div class="calendar">
+
+            <div class="calendar-top">
+
+                <button
+                    class="calendar-arrow"
+                    id="previous-month"
+                    aria-label="Previous month"
+                >
+                    ‹
+                </button>
+
+                <div
+                    id="calendar-month"
+                    class="calendar-month"
+                >
+                    AUGUST 2026
+                </div>
+
+                <button
+                    class="calendar-arrow"
+                    id="next-month"
+                    aria-label="Next month"
+                >
+                    ›
+                </button>
+
+            </div>
+
+
+            <div class="calendar-weekdays">
+
+                <span>MON</span>
+                <span>TUE</span>
+                <span>WED</span>
+                <span>THU</span>
+                <span>FRI</span>
+                <span>SAT</span>
+                <span>SUN</span>
+
+            </div>
+
+
+            <div
+                id="calendar-days"
+                class="calendar-days"
+            >
+            </div>
+
+        </div>
+
+
+        <!-- INFORMATION SUR LA DATE -->
+
+        <div
+            id="date-entry"
+            class="date-entry"
+        >
+
+            <div class="entry-date">
+                SELECT A DATE
+            </div>
+
+            <div class="entry-content">
+                nothing has been recorded.
+            </div>
+
+        </div>
+
+
+        <!-- INFORMATIONS ÉTRANGES -->
+
+        <div class="ephemeris-footer">
+
+            <div>
+                LAST RECORDED:
+                <span id="last-recorded">
+                    29 / 08 / 2026
+                </span>
+            </div>
+
+            <div>
+                NEXT EVENT:
+                <span class="unknown">
+                    ██████████
+                </span>
+            </div>
+
+        </div>
+
+
+        <!-- PETITE PHRASE -->
+
+        <div class="ephemeris-whisper">
+            time moves whether you do.
+        </div>
+
+
+        <!-- RETOUR -->
+
+        <button
+            class="ephemeris-return"
+            onclick="goBackInTime()"
+            aria-label="Return"
+        >
+            ← RETURN
+        </button>
+
+
+        <!-- SECRET -->
+
+        <button
+            id="ephemeris-secret"
+            class="ephemeris-secret"
+            aria-label="Something strange"
+        >
+            ✦
+        </button>
+
+
+    </div>
+
+</section>
     <!-- ╔══════════════════════════════════╗
      03' — DEATH
 ╚══════════════════════════════════╝ -->
