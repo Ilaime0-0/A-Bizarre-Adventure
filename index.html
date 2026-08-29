@@ -388,6 +388,54 @@
 
         <!-- CALENDRIER -->
 
+        <!-- ═══════════════════════════════════════
+     🔐 ACCÈS RESTRICTED
+═══════════════════════════════════════ -->
+
+<div
+    id="ephemeris-lock"
+    class="ephemeris-lock"
+>
+
+    <div class="lock-symbol">
+        ✦
+    </div>
+
+    <div class="lock-title">
+        ACCESS RESTRICTED
+    </div>
+
+    <div class="lock-text">
+        this record is not meant for everyone.
+    </div>
+
+    <div class="password-area">
+
+        <input
+            type="password"
+            id="ephemeris-password"
+            maxlength="4"
+            placeholder="••••"
+            autocomplete="off"
+        >
+
+        <button
+            id="ephemeris-unlock"
+            type="button"
+        >
+            ENTER
+        </button>
+
+    </div>
+
+    <div
+        id="password-error"
+        class="password-error"
+    >
+        incorrect.
+    </div>
+
+</div>
         <div class="calendar">
 
             <div class="calendar-top">
