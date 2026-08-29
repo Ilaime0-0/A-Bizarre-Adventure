@@ -453,3 +453,40 @@ if (noctemSecret) {
     );
 
 }
+/* ╔══════════════════════════════════════╗
+   📖 SECRET — CHRONIQUES
+   ╚══════════════════════════════════════╝ */
+
+const chronicleSecret =
+    document.querySelector(".chronicle-secret");
+
+
+const chronicleSecretMessage =
+    document.getElementById(
+        "chronicle-secret-message"
+    );
+
+
+if (chronicleSecret) {
+
+    chronicleSecret.addEventListener(
+        "click",
+        function() {
+
+            chronicleSecretMessage.classList.add(
+                "visible"
+            );
+
+
+            setTimeout(function() {
+
+                chronicleSecretMessage.classList.remove(
+                    "visible"
+                );
+
+            }, 2500);
+
+        }
+    );
+
+}
