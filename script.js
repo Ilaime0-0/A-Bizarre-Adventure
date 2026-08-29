@@ -531,24 +531,24 @@ if (librarySecret) {
    📅 EPHEMERIS — CALENDRIER
 ═══════════════════════════════════════════════ */
 
-const calendarDays =
-    document.getElementById("calendar-days");
+const calendarDays = document.getElementById("calendar-days");
+const calendarMonth = document.getElementById("calendar-month");
+const dateEntry = document.getElementById("date-entry");
 
-const calendarMonth =
-    document.getElementById("calendar-month");
-
-const dateEntry =
-    document.getElementById("date-entry");
-
-const entryDate =
-    dateEntry.querySelector(".entry-date");
-
-const entryContent =
-    dateEntry.querySelector(".entry-content");
+let calendarDate = new Date(2026, 7, 1);
 
 
-let calendarDate =
-    new Date(2026, 7, 1);
+/* ═══════════════════════════════════════
+   ÉLÉMENTS DE LA DATE
+═══════════════════════════════════════ */
+
+const entryDate = dateEntry
+    ? dateEntry.querySelector(".entry-date")
+    : null;
+
+const entryContent = dateEntry
+    ? dateEntry.querySelector(".entry-content")
+    : null;
 
 
 /* ═══════════════════════════════════════
@@ -601,7 +601,7 @@ const monthNames = [
 
 
 /* ═══════════════════════════════════════
-   FORMAT DATE
+   FORMAT DE LA DATE
 ═══════════════════════════════════════ */
 
 function getDateKey(year, month, day) {
@@ -623,20 +623,27 @@ function getDateKey(year, month, day) {
 
 function renderCalendar() {
 
+    if (!calendarDays || !calendarMonth) {
+        return;
+    }
+
+
+    /* Vider le calendrier */
+
     calendarDays.innerHTML = "";
 
-    const year =
-        calendarDate.getFullYear();
 
-    const month =
-        calendarDate.getMonth();
+    const year = calendarDate.getFullYear();
+    const month = calendarDate.getMonth();
 
+
+    /* Titre du mois */
 
     calendarMonth.textContent =
-        monthNames[month] +
-        " " +
-        year;
+        monthNames[month] + " " + year;
 
+
+    /* Premier jour du mois */
 
     const firstDay =
         new Date(year, month, 1);
@@ -644,13 +651,26 @@ function renderCalendar() {
     let startingDay =
         firstDay.getDay();
 
-    /* Lundi = premier jour */
+
+    /*
+       JavaScript :
+       dimanche = 0
+       lundi = 1
+       mardi = 2...
+
+       Nous voulons :
+       lundi = 0
+       mardi = 1...
+       dimanche = 6
+    */
 
     startingDay =
         startingDay === 0
             ? 6
             : startingDay - 1;
 
+
+    /* Nombre de jours dans le mois */
 
     const daysInMonth =
         new Date(
@@ -660,7 +680,9 @@ function renderCalendar() {
         ).getDate();
 
 
-    /* CASES VIDES */
+    /* ═══════════════════════════════
+       CASES VIDES AVANT LE 1ER
+    ═══════════════════════════════ */
 
     for (
         let i = 0;
@@ -668,20 +690,24 @@ function renderCalendar() {
         i++
     ) {
 
-        const empty =
+        const emptyDay =
             document.createElement("div");
 
-        empty.classList.add(
+        emptyDay.classList.add(
             "calendar-day",
             "empty"
         );
 
-        calendarDays.appendChild(empty);
+        calendarDays.appendChild(
+            emptyDay
+        );
 
     }
 
 
-    /* JOURS */
+    /* ═══════════════════════════════
+       CRÉER LES JOURS
+    ═══════════════════════════════ */
 
     for (
         let day = 1;
@@ -692,10 +718,16 @@ function renderCalendar() {
         const button =
             document.createElement("button");
 
+
+        button.type = "button";
+
+
         button.classList.add(
             "calendar-day"
         );
 
+
+        /* Numéro du jour */
 
         const number =
             document.createElement("span");
@@ -711,6 +743,8 @@ function renderCalendar() {
         button.appendChild(number);
 
 
+        /* Date complète */
+
         const key =
             getDateKey(
                 year,
@@ -719,7 +753,9 @@ function renderCalendar() {
             );
 
 
-        /* Événement étrange */
+        /* ═══════════════════════════════
+           DATE ÉTRANGE
+        ═══════════════════════════════ */
 
         if (strangeEvents[key]) {
 
@@ -735,15 +771,17 @@ function renderCalendar() {
                 "day-symbol"
             );
 
-            symbol.textContent =
-                "✦";
+            symbol.textContent = "✦";
+
 
             button.appendChild(symbol);
 
         }
 
 
-        /* Aujourd'hui */
+        /* ═══════════════════════════════
+           AUJOURD'HUI
+        ═══════════════════════════════ */
 
         if (
             year === 2026 &&
@@ -757,6 +795,10 @@ function renderCalendar() {
 
         }
 
+
+        /* ═══════════════════════════════
+           CLIQUER SUR LE JOUR
+        ═══════════════════════════════ */
 
         button.addEventListener(
             "click",
@@ -793,6 +835,11 @@ function selectDate(
     key
 ) {
 
+    if (!entryDate || !entryContent) {
+        return;
+    }
+
+
     entryDate.textContent =
         String(day).padStart(2, "0") +
         " / " +
@@ -820,9 +867,15 @@ function selectDate(
    MOIS PRÉCÉDENT
 ═══════════════════════════════════════ */
 
-document
-    .getElementById("previous-month")
-    .addEventListener(
+const previousMonth =
+    document.getElementById(
+        "previous-month"
+    );
+
+
+if (previousMonth) {
+
+    previousMonth.addEventListener(
         "click",
         function() {
 
@@ -835,14 +888,22 @@ document
         }
     );
 
+}
+
 
 /* ═══════════════════════════════════════
    MOIS SUIVANT
 ═══════════════════════════════════════ */
 
-document
-    .getElementById("next-month")
-    .addEventListener(
+const nextMonth =
+    document.getElementById(
+        "next-month"
+    );
+
+
+if (nextMonth) {
+
+    nextMonth.addEventListener(
         "click",
         function() {
 
@@ -855,6 +916,8 @@ document
         }
     );
 
+}
+
 
 /* ═══════════════════════════════════════
    PREMIER AFFICHAGE
@@ -864,7 +927,7 @@ renderCalendar();
 
 
 /* ═══════════════════════════════════════
-   ✦ SECRET
+   ✦ SECRET EPHEMERIS
 ═══════════════════════════════════════ */
 
 const ephemerisSecret =
@@ -873,15 +936,28 @@ const ephemerisSecret =
     );
 
 
-ephemerisSecret.addEventListener(
-    "click",
-    function() {
+if (ephemerisSecret) {
 
-        entryDate.textContent =
-            "UNKNOWN DATE";
+    ephemerisSecret.addEventListener(
+        "click",
+        function() {
 
-        entryContent.textContent =
-            "You weren't supposed to find this.";
+            if (entryDate) {
 
-    }
-);
+                entryDate.textContent =
+                    "UNKNOWN DATE";
+
+            }
+
+
+            if (entryContent) {
+
+                entryContent.textContent =
+                    "You weren't supposed to find this.";
+
+            }
+
+        }
+    );
+
+}
