@@ -598,7 +598,118 @@ if (ephemerisSecret) {
 
 }
 
+/* ╔══════════════════════════════════════════════╗
+   🔐 DÉVERROUILLAGE EPHEMERIS
+   ╚══════════════════════════════════════════════╝ */
 
+
+if (ephemerisPage) {
+
+    ephemerisPage.classList.add(
+        "is-locked"
+    );
+
+}
+
+
+function unlockEphemeris() {
+
+    if (!ephemerisPassword) {
+
+        return;
+
+    }
+
+
+    if (
+        ephemerisPassword.value ===
+        EPHEMERIS_PASSWORD
+    ) {
+
+        ephemerisUnlocked = true;
+
+
+        if (ephemerisPage) {
+
+            ephemerisPage.classList.remove(
+                "is-locked"
+            );
+
+            ephemerisPage.classList.add(
+                "is-unlocked"
+            );
+
+        }
+
+
+        if (passwordError) {
+
+            passwordError.classList.remove(
+                "visible"
+            );
+
+        }
+
+
+        renderCalendar();
+
+
+        ephemerisPassword.blur();
+
+
+    } else {
+
+        if (passwordError) {
+
+            passwordError.classList.add(
+                "visible"
+            );
+
+        }
+
+
+        ephemerisPassword.value = "";
+
+
+        ephemerisPassword.focus();
+
+    }
+
+}
+
+
+/* BOUTON ENTER */
+
+if (ephemerisUnlock) {
+
+    ephemerisUnlock.addEventListener(
+        "click",
+        unlockEphemeris
+    );
+
+}
+
+
+/* TOUCHE ENTER */
+
+if (ephemerisPassword) {
+
+    ephemerisPassword.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                unlockEphemeris();
+
+            }
+
+        }
+    );
+
+}
 /* ═══════════════════════════════════════
    PREMIER AFFICHAGE
 ═══════════════════════════════════════ */
