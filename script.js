@@ -490,3 +490,40 @@ if (chronicleSecret) {
     );
 
 }
+/* ╔══════════════════════════════════════╗
+   📚 SECRET — LIBRARY
+   ╚══════════════════════════════════════╝ */
+
+const librarySecret =
+    document.querySelector(".library-secret");
+
+
+const librarySecretMessage =
+    document.getElementById(
+        "library-secret-message"
+    );
+
+
+if (librarySecret) {
+
+    librarySecret.addEventListener(
+        "click",
+        function() {
+
+            librarySecretMessage.classList.add(
+                "visible"
+            );
+
+
+            setTimeout(function() {
+
+                librarySecretMessage.classList.remove(
+                    "visible"
+                );
+
+            }, 2500);
+
+        }
+    );
+
+}
