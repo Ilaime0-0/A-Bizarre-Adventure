@@ -2587,11 +2587,24 @@ a {
 
 .lock-title {
 
-    font-size: 13px;
+    font-family:
+        "UnifrakturCook",
+        Georgia,
+        serif;
 
-    letter-spacing: 5px;
+    font-size: 27px;
 
-    margin-bottom: 12px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: #b52a50;
+
+    text-shadow:
+        0 0 10px
+        rgba(181, 42, 80, 0.35);
+
+    margin-bottom: 14px;
 
 }
 
@@ -2604,12 +2617,13 @@ a {
 
     line-height: 1.8;
 
-    opacity: 0.45;
+    opacity: 0.55;
 
     margin-bottom: 25px;
 
-}
+    color: white;
 
+}
 
 .password-area {
 
