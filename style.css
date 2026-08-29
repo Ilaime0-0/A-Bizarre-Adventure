@@ -48,9 +48,13 @@ body {
 .page {
     position: relative;
 
-    width: min(1000px, 100vw);
+    width: 100vw;
+    height: 100vh;
 
     display: none;
+
+    justify-content: center;
+    align-items: center;
 }
 
 
