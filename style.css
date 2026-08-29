@@ -1101,3 +1101,144 @@ a {
         scale(1);
 
 }
+/* ╔══════════════════════════════════════╗
+   ✦ 03 — THE LIVING SIDE
+   ╚══════════════════════════════════════╝ */
+
+
+/* ═══════════════════════════════════════
+   TITRE
+═══════════════════════════════════════ */
+
+.life-title {
+
+    top: 4%;
+    right: 7%;
+
+    transform: rotate(4deg);
+
+}
+
+
+/* ═══════════════════════════════════════
+   PETIT MESSAGE
+═══════════════════════════════════════ */
+
+.life-whisper {
+
+    position: absolute;
+
+    left: 6%;
+    bottom: 7%;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    line-height: 1.8;
+
+    letter-spacing: 3px;
+
+    text-align: left;
+
+    color: rgba(255, 255, 255, 0.38);
+
+    transform: rotate(-4deg);
+
+    pointer-events: none;
+
+}
+
+
+/* ═══════════════════════════════════════
+   PETIT +
+═══════════════════════════════════════ */
+
+.life-secret {
+
+    position: absolute;
+
+    right: 7%;
+    bottom: 7%;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.3);
+
+    font-family: "Courier New", monospace;
+
+    font-size: 17px;
+
+    cursor: none;
+
+    z-index: 60;
+
+    transition:
+        transform 0.4s ease,
+        opacity 0.3s ease;
+
+}
+
+
+.life-secret:hover {
+
+    opacity: 1;
+
+    transform:
+        rotate(90deg)
+        scale(1.4);
+
+}
+
+
+/* ═══════════════════════════════════════
+   MESSAGE SECRET
+═══════════════════════════════════════ */
+
+#life-secret-message {
+
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.8);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 9000;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 13px;
+
+    letter-spacing: 4px;
+
+    text-align: center;
+
+    color: white;
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+
+}
+
+
+#life-secret-message.visible {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+
+}
