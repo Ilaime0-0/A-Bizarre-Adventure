@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -12,24 +13,35 @@
     <title>Welcome to a Bizarre Adventure</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 
 <body>
-<!-- ═══════════════════════════════════════
-     🕷️ CURSEUR — TOILE D'ARAIGNÉE
-═══════════════════════════════════════ -->
 
-<div id="spider-cursor">
-    <div class="web">
-        <span class="web-line line-1"></span>
-        <span class="web-line line-2"></span>
-        <span class="web-line line-3"></span>
-        <span class="web-line line-4"></span>
-        <span class="web-ring ring-1"></span>
-        <span class="web-ring ring-2"></span>
+
+    <!-- ═══════════════════════════════════════
+         🕷️ CURSEUR — TOILE D'ARAIGNÉE
+    ═══════════════════════════════════════ -->
+
+    <div id="spider-cursor">
+
+        <div class="web">
+
+            <span class="web-line line-1"></span>
+            <span class="web-line line-2"></span>
+            <span class="web-line line-3"></span>
+            <span class="web-line line-4"></span>
+
+            <span class="web-ring ring-1"></span>
+            <span class="web-ring ring-2"></span>
+
+        </div>
+
     </div>
-</div>
+
+
+
     <main class="adventure">
 
 
@@ -44,6 +56,23 @@
                 alt="Welcome to a bizarre adventure"
                 class="interface-image"
             >
+
+
+            <!-- 🕰️ WARNING -->
+
+            <div class="time-warning">
+
+                <span class="warning-title">
+                    WARNING
+                </span>
+
+                <span>
+                    to go back in time, press
+                    <strong>←</strong>
+                </span>
+
+            </div>
+
 
             <!-- WELCOME TO A BIZARRE ADVENTURE -->
 
@@ -68,6 +97,7 @@
                 alt="Life or Death"
                 class="interface-image"
             >
+
 
             <!-- LIFE -->
 
@@ -240,35 +270,13 @@
 
 
 
-    <script>
+    <!-- ═══════════════════════════════════════
+         🕷️ JAVASCRIPT
+    ═══════════════════════════════════════ -->
 
-        function showPage(pageId) {
-
-            const pages = document.querySelectorAll(".page");
-
-            pages.forEach(function(page) {
-                page.classList.remove("active");
-            });
+    <script src="script.js"></script>
 
 
-            const nextPage = document.getElementById(pageId);
-
-            if (nextPage) {
-
-                nextPage.classList.add("active");
-
-            }
-
-
-            window.scrollTo({
-                top: 0,
-                behavior: "instant"
-            });
-
-        }
-
-    </script>
-<script src="script.js"></script>
 </body>
 
 </html>
