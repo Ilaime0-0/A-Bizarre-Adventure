@@ -20,7 +20,7 @@ const strangeEvents = {
         "Something is waiting here.",
 
     "2026-12-31":
-        "LAST RECORDED DATE."
+        "LAST RECORDED DATE.",
 
   "2026-08-29":
         "Simbiosis in Québec."
