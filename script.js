@@ -344,3 +344,38 @@ if (divideSecret) {
     );
 
 }
+ /* ═══════════════════════════════════════
+    ✦ SECRET — THE LIVING SIDE
+ ═══════════════════════════════════════ */
+
+const lifeSecret =
+    document.querySelector(".life-secret");
+
+
+const lifeSecretMessage =
+    document.getElementById("life-secret-message");
+
+
+if (lifeSecret) {
+
+    lifeSecret.addEventListener(
+        "click",
+        function() {
+
+            lifeSecretMessage.classList.add(
+                "visible"
+            );
+
+
+            setTimeout(function() {
+
+                lifeSecretMessage.classList.remove(
+                    "visible"
+                );
+
+            }, 2200);
+
+        }
+    );
+
+}
