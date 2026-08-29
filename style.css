@@ -31,14 +31,15 @@ body {
 ═══════════════════════════════════════════════ */
 
 .adventure {
-    width: 100%;
-    min-height: 100vh;
+    width: 100vw;
+    height: 100vh;
 
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-}
+    align-items: center;
 
+    overflow: hidden;
+}
 
 /* ═══════════════════════════════════════════════
    CHAQUE INTERFACE
