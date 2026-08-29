@@ -6,46 +6,57 @@
 
 html,
 body {
+
     margin: 0;
     padding: 0;
+
     width: 100%;
     min-height: 100%;
+
 }
 
 
 body {
+
     min-height: 100vh;
 
     background: #111;
 
     display: flex;
+
     justify-content: center;
     align-items: flex-start;
 
-    overflow-x: hidden;
+    overflow: hidden;
+
 }
 
+
 /* ═══════════════════════════════════════
-   UNIVERS
+   🕸️ UNIVERS
 ═══════════════════════════════════════ */
 
 .adventure {
+
     width: 100vw;
     height: 100vh;
 
     display: flex;
+
     justify-content: center;
     align-items: center;
 
     overflow: hidden;
+
 }
 
 
 /* ═══════════════════════════════════════
-   INTERFACE
+   🕸️ INTERFACES
 ═══════════════════════════════════════ */
 
 .page {
+
     position: relative;
 
     width: fit-content;
@@ -55,19 +66,23 @@ body {
     max-height: 95vh;
 
     display: none;
+
 }
 
 
 .page.active {
+
     display: block;
+
 }
 
 
 /* ═══════════════════════════════════════
-   IMAGE
+   🖼️ IMAGES
 ═══════════════════════════════════════ */
 
 .interface-image {
+
     display: block;
 
     width: auto;
@@ -79,46 +94,54 @@ body {
     object-fit: contain;
 
     user-select: none;
+
     -webkit-user-drag: none;
+
 }
-/* ═══════════════════════════════════════════════
-   ZONES CLIQUABLES
-═══════════════════════════════════════════════ */
+
+
+/* ═══════════════════════════════════════
+   🕸️ ZONES CLIQUABLES
+═══════════════════════════════════════ */
 
 .hotspot {
+
     position: absolute;
 
     padding: 0;
     margin: 0;
 
     border: none;
+
     background: transparent;
 
-    cursor: pointer;
+    cursor: none;
 
     z-index: 50;
 
     transition:
         transform 0.25s ease,
         background 0.25s ease;
+
 }
 
 
-/* ═══════════════════════════════════════════════
-   EFFET AU SURVOL
-═══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   ✦ EFFET TEMPORAIRE AU SURVOL
+═══════════════════════════════════════ */
 
 .hotspot:hover {
+
     background: rgba(255, 255, 255, 0.06);
 
     transform: scale(1.03);
+
 }
 
 
-/* ═══════════════════════════════════════════════
-   01
-   WELCOME TO A BIZARRE ADVENTURE
-═══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   01 — WELCOME
+═══════════════════════════════════════ */
 
 .welcome {
 
@@ -127,13 +150,85 @@ body {
 
     width: 54%;
     height: 18%;
+
 }
 
 
-/* ═══════════════════════════════════════════════
-   02
-   LIFE
-═══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   🕰️ WARNING — TIME TRAVEL
+═══════════════════════════════════════ */
+
+.time-warning {
+
+    position: absolute;
+
+    bottom: 7%;
+    right: 7%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    text-align: center;
+
+    color: rgba(255, 255, 255, 0.75);
+
+    transform: rotate(-3deg);
+
+    pointer-events: none;
+
+}
+
+
+.warning-title {
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.time-warning strong {
+
+    font-size: 17px;
+
+    font-weight: normal;
+
+    animation: arrowPulse 1.5s ease-in-out infinite;
+
+}
+
+
+@keyframes arrowPulse {
+
+    0%,
+    100% {
+
+        opacity: 0.4;
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* ═══════════════════════════════════════
+   02 — LIFE
+═══════════════════════════════════════ */
 
 .life {
 
@@ -142,13 +237,13 @@ body {
 
     width: 56%;
     height: 27%;
+
 }
 
 
-/* ═══════════════════════════════════════════════
-   02
-   DEATH
-═══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   02 — DEATH
+═══════════════════════════════════════ */
 
 .death {
 
@@ -157,13 +252,13 @@ body {
 
     width: 56%;
     height: 27%;
+
 }
 
 
-/* ═══════════════════════════════════════════════
-   03
-   REALITY
-═══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   03 — REALITY
+═══════════════════════════════════════ */
 
 .reality {
 
@@ -172,45 +267,43 @@ body {
 
     width: 60%;
     height: 29%;
+
 }
 
 
-/* ═══════════════════════════════════════════════
-   03
-   IN BETWEEN
-═══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   03 — IN BETWEEN
+═══════════════════════════════════════ */
 
 .between {
 
     top: 35%;
-
     left: 20%;
 
     width: 60%;
     height: 29%;
+
 }
 
 
-/* ═══════════════════════════════════════════════
-   03
-   FICTION
-═══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   03 — FICTION
+═══════════════════════════════════════ */
 
 .fiction {
 
     top: 68%;
-
     left: 20%;
 
     width: 60%;
     height: 29%;
+
 }
 
 
-/* ═══════════════════════════════════════════════
-   03'
-   OBSESSION
-═══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   03' — OBSESSION
+═══════════════════════════════════════ */
 
 .obsession {
 
@@ -219,13 +312,13 @@ body {
 
     width: 44%;
     height: 29%;
+
 }
 
 
-/* ═══════════════════════════════════════════════
-   03'
-   CARPE NOCTEM
-═══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   03' — CARPE NOCTEM
+═══════════════════════════════════════ */
 
 .noctem {
 
@@ -234,13 +327,13 @@ body {
 
     width: 43%;
     height: 30%;
+
 }
 
 
-/* ═══════════════════════════════════════════════
-   03'
-   CONSPIRATIONS
-═══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   03' — CONSPIRATIONS
+═══════════════════════════════════════ */
 
 .conspirations {
 
@@ -249,13 +342,13 @@ body {
 
     width: 44%;
     height: 28%;
+
 }
 
 
-/* ═══════════════════════════════════════════════
-   04
-   CŒUR GAUCHE
-═══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   04 — CŒUR GAUCHE
+═══════════════════════════════════════ */
 
 .heart-left {
 
@@ -264,13 +357,13 @@ body {
 
     width: 17%;
     height: 17%;
+
 }
 
 
-/* ═══════════════════════════════════════════════
-   04
-   CŒUR DROIT
-═══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   04 — CŒUR DROIT
+═══════════════════════════════════════ */
 
 .heart-right {
 
@@ -279,31 +372,26 @@ body {
 
     width: 17%;
     height: 17%;
-}
-/* ═══════════════════════════════════════
-   🕷️ CURSEUR INVISIBLE
-═══════════════════════════════════════ */
 
-html,
-body,
-button,
-a {
-    cursor: none;
 }
+
+
 /* ╔══════════════════════════════════════╗
-   🕸️ SPIDER WEB CURSOR
+   🕷️ CURSEUR TOILE D'ARAIGNÉE
    ╚══════════════════════════════════════╝ */
 
 html,
 body,
 button,
 a {
+
     cursor: none !important;
+
 }
 
 
 /* ═══════════════════════════════════════
-   TOILE
+   🕸️ TOILE
 ═══════════════════════════════════════ */
 
 #spider-cursor {
@@ -325,10 +413,6 @@ a {
 }
 
 
-/* ═══════════════════════════════════════
-   CENTRE DE LA TOILE
-═══════════════════════════════════════ */
-
 .web {
 
     position: relative;
@@ -342,7 +426,7 @@ a {
 
 
 /* ═══════════════════════════════════════
-   FILS
+   FILS DE LA TOILE
 ═══════════════════════════════════════ */
 
 .web-line {
@@ -362,22 +446,39 @@ a {
 }
 
 
-/* quatre directions */
-
 .line-1 {
-    transform: translate(-50%, -50%) rotate(0deg);
+
+    transform:
+        translate(-50%, -50%)
+        rotate(0deg);
+
 }
+
 
 .line-2 {
-    transform: translate(-50%, -50%) rotate(45deg);
+
+    transform:
+        translate(-50%, -50%)
+        rotate(45deg);
+
 }
+
 
 .line-3 {
-    transform: translate(-50%, -50%) rotate(90deg);
+
+    transform:
+        translate(-50%, -50%)
+        rotate(90deg);
+
 }
 
+
 .line-4 {
-    transform: translate(-50%, -50%) rotate(135deg);
+
+    transform:
+        translate(-50%, -50%)
+        rotate(135deg);
+
 }
 
 
@@ -392,11 +493,14 @@ a {
     top: 50%;
     left: 50%;
 
-    border: 1px solid rgba(255, 255, 255, 0.75);
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.75);
 
     border-radius: 50%;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
 
 }
 
@@ -418,29 +522,35 @@ a {
 
 
 /* ═══════════════════════════════════════
-   PETITE ANIMATION
+   PETITE ANIMATION DE LA TOILE
 ═══════════════════════════════════════ */
 
 @keyframes webFloat {
 
     0% {
+
         transform: translateY(0);
+
     }
 
     50% {
+
         transform: translateY(-3px);
+
     }
 
     100% {
+
         transform: translateY(0);
+
     }
 
 }
 
 
-/* ═══════════════════════════════════════
-   ARAIGNÉE QUI S'ÉCHAPPE
-═══════════════════════════════════════ */
+/* ╔══════════════════════════════════════╗
+   🕷️ ARAIGNÉE QUI S'ÉCHAPPE
+   ╚══════════════════════════════════════╝ */
 
 .escaping-spider {
 
@@ -452,15 +562,20 @@ a {
 
     font-size: 24px;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
 
-    animation: spiderEscape 1.4s ease-in forwards;
+    animation:
+        spiderEscape
+        1.4s
+        ease-in
+        forwards;
 
 }
 
 
 /* ═══════════════════════════════════════
-   MOUVEMENT DE L'ARAIGNÉE
+   🕷️ MOUVEMENT DE L'ARAIGNÉE
 ═══════════════════════════════════════ */
 
 @keyframes spiderEscape {
