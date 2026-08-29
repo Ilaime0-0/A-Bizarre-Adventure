@@ -379,3 +379,40 @@ if (lifeSecret) {
     );
 
 }
+/* ╔══════════════════════════════════════╗
+   🕷️ SECRET — THE OTHER SIDE
+   ╚══════════════════════════════════════╝ */
+
+const deathSecret =
+    document.querySelector(".death-secret");
+
+
+const deathSecretMessage =
+    document.getElementById(
+        "death-secret-message"
+    );
+
+
+if (deathSecret) {
+
+    deathSecret.addEventListener(
+        "click",
+        function() {
+
+            deathSecretMessage.classList.add(
+                "visible"
+            );
+
+
+            setTimeout(function() {
+
+                deathSecretMessage.classList.remove(
+                    "visible"
+                );
+
+            }, 2200);
+
+        }
+    );
+
+}
