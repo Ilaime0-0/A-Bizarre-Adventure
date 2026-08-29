@@ -2873,3 +2873,64 @@ a {
     }
 
 }
+/* ═══════════════════════════════════════
+   LIFE / DEATH
+═══════════════════════════════════════ */
+
+.divide-label {
+
+    position: absolute;
+
+    z-index: 40;
+
+    pointer-events: none;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 18px;
+
+    letter-spacing: 6px;
+
+    color: #6f4bd8;
+
+    text-shadow:
+        0 0 8px
+        rgba(111, 75, 216, 0.25);
+
+}
+
+
+/* ═══════════════════════════════════════
+   LIFE — CASE DU HAUT
+═══════════════════════════════════════ */
+
+.divide-life-label {
+
+    top: 25%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        rotate(-2deg);
+
+}
+
+
+/* ═══════════════════════════════════════
+   DEATH — CASE DU BAS
+═══════════════════════════════════════ */
+
+.divide-death-label {
+
+    top: 70%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        rotate(2deg);
+
+}
