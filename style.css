@@ -2711,3 +2711,165 @@ a {
     visibility: visible;
 
 }
+/* ╔══════════════════════════════════════════════╗
+   🕷️ 01 — WELCOME TO A BIZARRE ADVENTURE
+   ╚══════════════════════════════════════════════╝ */
+
+
+/* ═══════════════════════════════════════
+   TITRE
+═══════════════════════════════════════ */
+
+.welcome-title {
+
+    position: absolute;
+
+    top: 6%;
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        rotate(-2deg);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 6px;
+
+    z-index: 40;
+
+    pointer-events: none;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    color: #6f4bd8;
+
+    text-align: center;
+
+}
+
+
+.welcome-number {
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    opacity: 0.65;
+
+}
+
+
+.welcome-name {
+
+    font-size: clamp(15px, 2vw, 23px);
+
+    letter-spacing: 4px;
+
+    line-height: 1.3;
+
+    text-shadow:
+        0 0 8px
+        rgba(111, 75, 216, 0.25);
+
+}
+
+
+/* ═══════════════════════════════════════
+   🕰️ WARNING
+═══════════════════════════════════════ */
+
+.time-warning {
+
+    position: absolute;
+
+    bottom: 7%;
+    right: 7%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    line-height: 1.5;
+
+    text-align: center;
+
+    color: #6f4bd8;
+
+    transform: rotate(-3deg);
+
+    pointer-events: none;
+
+    z-index: 40;
+
+}
+
+
+.warning-title {
+
+    font-size: 17px;
+
+    letter-spacing: 5px;
+
+    font-weight: bold;
+
+    color: #6f4bd8;
+
+}
+
+
+.time-warning strong {
+
+    display: inline-block;
+
+    margin-left: 5px;
+
+    font-size: 24px;
+
+    font-weight: normal;
+
+    color: #6f4bd8;
+
+    animation:
+        arrowPulse
+        1.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes arrowPulse {
+
+    0%,
+    100% {
+
+        opacity: 0.45;
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform:
+            translateX(-3px);
+
+    }
+
+}
