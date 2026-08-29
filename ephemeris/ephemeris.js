@@ -1,4 +1,3 @@
-```javascript
 /* ╔══════════════════════════════════════════════╗
    📅 EPHEMERIS — CALENDRIER SECRET
    ╚══════════════════════════════════════════════╝ */
@@ -7,17 +6,11 @@
 /* ═══════════════════════════════════════
    ÉLÉMENTS HTML
 ═══════════════════════════════════════ */
-/* ╔══════════════════════════════════════════════╗
-   🔐 EPHEMERIS — PASSWORD
-   ╚══════════════════════════════════════════════╝ */
 
 const EPHEMERIS_PASSWORD = "7023";
 
 const ephemerisPage =
     document.getElementById("page-ephemeris");
-
-const ephemerisLock =
-    document.getElementById("ephemeris-lock");
 
 const ephemerisPassword =
     document.getElementById("ephemeris-password");
@@ -28,8 +21,6 @@ const ephemerisUnlock =
 const passwordError =
     document.getElementById("password-error");
 
-
-let ephemerisUnlocked = false;
 const calendarDays =
     document.getElementById("calendar-days");
 
@@ -49,6 +40,16 @@ const entryContent =
         ? dateEntry.querySelector(".entry-content")
         : null;
 
+const ephemerisSecret =
+    document.getElementById("ephemeris-secret");
+
+
+/* ═══════════════════════════════════════
+   ÉTAT DU CALENDRIER
+═══════════════════════════════════════ */
+
+let ephemerisUnlocked = false;
+
 
 /* ═══════════════════════════════════════
    MOIS ACTUEL
@@ -56,15 +57,6 @@ const entryContent =
 
 let calendarDate =
     new Date(2026, 7, 1);
-
-
-/* ═══════════════════════════════════════
-   MOT DE PASSE
-═══════════════════════════════════════ */
-
-const EPHEMERIS_PASSWORD = "7023";
-
-let ephemerisUnlocked = false;
 
 
 /* ═══════════════════════════════════════
@@ -120,11 +112,7 @@ const monthNames = [
    FORMAT DE LA DATE
 ═══════════════════════════════════════ */
 
-function getDateKey(
-    year,
-    month,
-    day
-) {
+function getDateKey(year, month, day) {
 
     return (
         year +
@@ -153,19 +141,6 @@ function renderCalendar() {
     }
 
 
-    if (!ephemerisUnlocked) {
-
-        calendarDays.innerHTML = "";
-
-        return;
-
-    }
-
-
-    /* Vider les anciens jours */
-
-    calendarDays.innerHTML = "";
-
     /* Vider les anciens jours */
 
     calendarDays.innerHTML = "";
@@ -186,9 +161,7 @@ function renderCalendar() {
         year;
 
 
-    /* ═══════════════════════════════
-       SI LE CALENDRIER EST VERROUILLÉ
-    ═══════════════════════════════ */
+    /* Ne rien afficher si verrouillé */
 
     if (!ephemerisUnlocked) {
 
@@ -197,7 +170,9 @@ function renderCalendar() {
     }
 
 
-    /* Premier jour du mois */
+    /* ═══════════════════════════════
+       PREMIER JOUR DU MOIS
+    ═══════════════════════════════ */
 
     const firstDay =
         new Date(
@@ -242,12 +217,10 @@ function renderCalendar() {
         const emptyDay =
             document.createElement("div");
 
-
         emptyDay.classList.add(
             "calendar-day",
             "empty"
         );
-
 
         calendarDays.appendChild(
             emptyDay
@@ -283,18 +256,15 @@ function renderCalendar() {
         const number =
             document.createElement("span");
 
-
         number.classList.add(
             "day-number"
         );
-
 
         number.textContent =
             String(day).padStart(
                 2,
                 "0"
             );
-
 
         button.appendChild(
             number
@@ -503,20 +473,43 @@ if (nextMonth) {
 
 function unlockEphemeris() {
 
-    const password =
-        prompt(
-            "EPHEMERIS IS SEALED.\n\nENTER THE PASSWORD:"
-        );
+    if (!ephemerisPassword) {
+
+        return;
+
+    }
 
 
     if (
-        password === EPHEMERIS_PASSWORD
+        ephemerisPassword.value.trim() ===
+        EPHEMERIS_PASSWORD
     ) {
+
+        /* Déverrouiller */
 
         ephemerisUnlocked = true;
 
 
-        renderCalendar();
+        if (ephemerisPage) {
+
+            ephemerisPage.classList.remove(
+                "is-locked"
+            );
+
+            ephemerisPage.classList.add(
+                "is-unlocked"
+            );
+
+        }
+
+
+        if (passwordError) {
+
+            passwordError.classList.remove(
+                "visible"
+            );
+
+        }
 
 
         if (entryContent) {
@@ -526,16 +519,30 @@ function unlockEphemeris() {
 
         }
 
-        return;
 
-    }
+        renderCalendar();
 
 
-    if (password !== null) {
+        ephemerisPassword.blur();
 
-        alert(
-            "ACCESS DENIED."
-        );
+
+    } else {
+
+        /* Mauvais mot de passe */
+
+        if (passwordError) {
+
+            passwordError.classList.add(
+                "visible"
+            );
+
+        }
+
+
+        ephemerisPassword.value = "";
+
+
+        ephemerisPassword.focus();
 
     }
 
@@ -543,18 +550,12 @@ function unlockEphemeris() {
 
 
 /* ═══════════════════════════════════════
-   🔐 BOUTON DE VERROUILLAGE
+   BOUTON ENTER
 ═══════════════════════════════════════ */
 
-const ephemerisLock =
-    document.getElementById(
-        "ephemeris-lock"
-    );
+if (ephemerisUnlock) {
 
-
-if (ephemerisLock) {
-
-    ephemerisLock.addEventListener(
+    ephemerisUnlock.addEventListener(
         "click",
         unlockEphemeris
     );
@@ -563,14 +564,32 @@ if (ephemerisLock) {
 
 
 /* ═══════════════════════════════════════
-   ✦ SECRET EPHEMERIS
+   TOUCHE ENTER DU CLAVIER
 ═══════════════════════════════════════ */
 
-const ephemerisSecret =
-    document.getElementById(
-        "ephemeris-secret"
+if (ephemerisPassword) {
+
+    ephemerisPassword.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                unlockEphemeris();
+
+            }
+
+        }
     );
 
+}
+
+
+/* ═══════════════════════════════════════
+   ✦ SECRET EPHEMERIS
+═══════════════════════════════════════ */
 
 if (ephemerisSecret) {
 
@@ -598,10 +617,10 @@ if (ephemerisSecret) {
 
 }
 
-/* ╔══════════════════════════════════════════════╗
-   🔐 DÉVERROUILLAGE EPHEMERIS
-   ╚══════════════════════════════════════════════╝ */
 
+/* ═══════════════════════════════════════
+   🔐 ÉTAT INITIAL
+═══════════════════════════════════════ */
 
 if (ephemerisPage) {
 
@@ -612,107 +631,8 @@ if (ephemerisPage) {
 }
 
 
-function unlockEphemeris() {
-
-    if (!ephemerisPassword) {
-
-        return;
-
-    }
-
-
-    if (
-        ephemerisPassword.value ===
-        EPHEMERIS_PASSWORD
-    ) {
-
-        ephemerisUnlocked = true;
-
-
-        if (ephemerisPage) {
-
-            ephemerisPage.classList.remove(
-                "is-locked"
-            );
-
-            ephemerisPage.classList.add(
-                "is-unlocked"
-            );
-
-        }
-
-
-        if (passwordError) {
-
-            passwordError.classList.remove(
-                "visible"
-            );
-
-        }
-
-
-        renderCalendar();
-
-
-        ephemerisPassword.blur();
-
-
-    } else {
-
-        if (passwordError) {
-
-            passwordError.classList.add(
-                "visible"
-            );
-
-        }
-
-
-        ephemerisPassword.value = "";
-
-
-        ephemerisPassword.focus();
-
-    }
-
-}
-
-
-/* BOUTON ENTER */
-
-if (ephemerisUnlock) {
-
-    ephemerisUnlock.addEventListener(
-        "click",
-        unlockEphemeris
-    );
-
-}
-
-
-/* TOUCHE ENTER */
-
-if (ephemerisPassword) {
-
-    ephemerisPassword.addEventListener(
-        "keydown",
-        function(event) {
-
-            if (
-                event.key === "Enter"
-            ) {
-
-                unlockEphemeris();
-
-            }
-
-        }
-    );
-
-}
 /* ═══════════════════════════════════════
    PREMIER AFFICHAGE
 ═══════════════════════════════════════ */
 
 renderCalendar();
-```
