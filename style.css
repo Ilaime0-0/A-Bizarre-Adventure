@@ -1749,3 +1749,240 @@ a {
         scale(1);
 
 }
+/* ╔══════════════════════════════════════╗
+   📚 LIBRARY
+   ╚══════════════════════════════════════╝ */
+
+
+/* ═══════════════════════════════════════
+   TITRE
+═══════════════════════════════════════ */
+
+.library-title {
+
+    top: 5%;
+    right: 8%;
+
+    transform: rotate(4deg);
+
+}
+
+
+/* ═══════════════════════════════════════
+   PETITE PHRASE
+═══════════════════════════════════════ */
+
+.library-whisper {
+
+    position: absolute;
+
+    top: 16%;
+    left: 8%;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: rgba(255, 255, 255, 0.5);
+
+    transform: rotate(-3deg);
+
+    pointer-events: none;
+
+}
+
+
+/* ═══════════════════════════════════════
+   ENTRÉES
+═══════════════════════════════════════ */
+
+.library-entry {
+
+    position: absolute;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: none;
+
+    z-index: 60;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+
+    color: rgba(255, 255, 255, 0.55);
+
+    font-family: "Courier New", monospace;
+
+    transition:
+        transform 0.4s ease,
+        color 0.4s ease;
+
+}
+
+
+.library-entry:hover {
+
+    color: white;
+
+    transform:
+        scale(1.15)
+        rotate(5deg);
+
+}
+
+
+/* ═══════════════════════════════════════
+   POSITIONS
+═══════════════════════════════════════ */
+
+.library-one {
+
+    top: 31%;
+    left: 20%;
+
+}
+
+
+.library-two {
+
+    top: 51%;
+    left: 49%;
+
+}
+
+
+.library-three {
+
+    top: 70%;
+    right: 18%;
+
+}
+
+
+/* ═══════════════════════════════════════
+   NUMÉROS
+═══════════════════════════════════════ */
+
+.library-number {
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* ═══════════════════════════════════════
+   SYMBOLES
+═══════════════════════════════════════ */
+
+.library-mark {
+
+    font-size: 16px;
+
+}
+
+
+/* ═══════════════════════════════════════
+   SECRET
+═══════════════════════════════════════ */
+
+.library-secret {
+
+    position: absolute;
+
+    bottom: 7%;
+    right: 7%;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.25);
+
+    font-family: "Times New Roman", serif;
+
+    font-size: 18px;
+
+    cursor: none;
+
+    z-index: 60;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.5s ease;
+
+}
+
+
+.library-secret:hover {
+
+    opacity: 1;
+
+    transform:
+        rotate(180deg)
+        scale(1.4);
+
+}
+
+
+/* ═══════════════════════════════════════
+   MESSAGE SECRET
+═══════════════════════════════════════ */
+
+#library-secret-message {
+
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.8);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 9000;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 13px;
+
+    letter-spacing: 4px;
+
+    text-align: center;
+
+    color: white;
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+
+}
+
+
+#library-secret-message.visible {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+
+}
