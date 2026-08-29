@@ -13,12 +13,14 @@ function showPage(pageId) {
         document.getElementById(pageId);
 
     if (!nextPage || currentPage === pageId) {
+
         return;
+
     }
 
 
-    /* Garder la page actuelle dans
-       l'historique */
+    /* Garder la page actuelle
+       dans l'historique */
 
     pageHistory.push(currentPage);
 
@@ -46,8 +48,11 @@ function showPage(pageId) {
 
 
     window.scrollTo({
+
         top: 0,
+
         behavior: "instant"
+
     });
 
 }
@@ -59,21 +64,16 @@ function showPage(pageId) {
 
 function goBackInTime() {
 
-    /* S'il n'y a rien avant,
-       on ne fait rien */
-
     if (pageHistory.length === 0) {
+
         return;
+
     }
 
-
-    /* Récupérer la page précédente */
 
     const previousPage =
         pageHistory.pop();
 
-
-    /* Cacher toutes les pages */
 
     const pages =
         document.querySelectorAll(".page");
@@ -85,10 +85,9 @@ function goBackInTime() {
     });
 
 
-    /* Afficher la page précédente */
-
     const previous =
         document.getElementById(previousPage);
+
 
     if (previous) {
 
@@ -100,8 +99,11 @@ function goBackInTime() {
 
 
     window.scrollTo({
+
         top: 0,
+
         behavior: "instant"
+
     });
 
 }
@@ -132,6 +134,12 @@ const spiderCursor =
 
 document.addEventListener("mousemove", function(event) {
 
+    if (!spiderCursor) {
+
+        return;
+
+    }
+
     spiderCursor.style.left =
         event.clientX + "px";
 
@@ -150,7 +158,9 @@ document.addEventListener("click", function(event) {
     const spider =
         document.createElement("div");
 
-    spider.classList.add("escaping-spider");
+    spider.classList.add(
+        "escaping-spider"
+    );
 
     spider.textContent = "🕷️";
 
@@ -170,3 +180,84 @@ document.addEventListener("click", function(event) {
     }, 1400);
 
 });
+
+
+/* ╔══════════════════════════════════════╗
+   👁️ ÉLÉMENTS ÉTRANGES — PAGE 01
+   ╚══════════════════════════════════════╝ */
+
+
+/* ═══════════════════════════════════════
+   DON'T
+═══════════════════════════════════════ */
+
+const strangeButton =
+    document.querySelector(
+        ".strange-button-one"
+    );
+
+
+const strangeMessage =
+    document.getElementById(
+        "strange-message"
+    );
+
+
+if (strangeButton) {
+
+    strangeButton.addEventListener(
+        "click",
+        function() {
+
+            strangeMessage.classList.add(
+                "visible"
+            );
+
+
+            setTimeout(function() {
+
+                strangeMessage.classList.remove(
+                    "visible"
+                );
+
+            }, 2200);
+
+        }
+    );
+
+}
+
+
+/* ═══════════════════════════════════════
+   ✦ SYMBOLE SECRET
+═══════════════════════════════════════ */
+
+const secretSymbol =
+    document.querySelector(
+        ".secret-symbol"
+    );
+
+
+if (secretSymbol) {
+
+    secretSymbol.addEventListener(
+        "click",
+        function() {
+
+            document.body.classList.add(
+                "strange-glitch"
+            );
+
+
+            setTimeout(function() {
+
+                document.body.classList.remove(
+                    "strange-glitch"
+                );
+
+            }, 700);
+
+        }
+    );
+
+}
