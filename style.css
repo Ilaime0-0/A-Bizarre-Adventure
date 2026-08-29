@@ -1,0 +1,125 @@
+/* ╔══════════════════════════════════════╗
+   BIZARRE ADVENTURE
+   BASE
+   ╚══════════════════════════════════════╝ */
+
+
+html,
+body {
+
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    min-height: 100%;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background: #111;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: flex-start;
+
+    overflow-x: hidden;
+
+}
+
+
+/* ═══════════════════════════════════════
+   UNIVERS DU BLOG
+═══════════════════════════════════════ */
+
+.adventure {
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: flex-start;
+
+}
+
+
+/* ═══════════════════════════════════════
+   INTERFACES
+═══════════════════════════════════════ */
+
+.page {
+
+    position: relative;
+
+    width: min(1000px, 100vw);
+
+    display: none;
+
+}
+
+
+.page.active {
+
+    display: block;
+
+}
+
+
+/* ═══════════════════════════════════════
+   IMAGES
+═══════════════════════════════════════ */
+
+.interface-image {
+
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+
+}
+
+
+/* ═══════════════════════════════════════
+   ZONES INTERACTIVES
+═══════════════════════════════════════ */
+
+.hotspot {
+
+    position: absolute;
+
+    display: block;
+
+    padding: 0;
+    margin: 0;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    z-index: 20;
+
+}
+
+
+/* ═══════════════════════════════════════
+   EFFET TEMPORAIRE
+   On pourra le supprimer ensuite.
+═══════════════════════════════════════ */
+
+.hotspot:hover {
+
+    background: rgba(255, 255, 255, 0.08);
+
+}
