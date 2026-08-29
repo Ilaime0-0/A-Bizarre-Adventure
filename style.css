@@ -2570,11 +2570,13 @@ a {
 
 .lock-symbol {
 
-    font-size: 22px;
+    font-size: 24px;
 
     margin-bottom: 18px;
 
-    opacity: 0.5;
+    color: #b52a50;
+
+    opacity: 0.8;
 
     animation:
         strangePulse
