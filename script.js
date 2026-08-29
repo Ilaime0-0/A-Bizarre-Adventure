@@ -416,3 +416,40 @@ if (deathSecret) {
     );
 
 }
+/* ╔══════════════════════════════════════╗
+   🌙 SECRET — CARPE NOCTEM
+   ╚══════════════════════════════════════╝ */
+
+const noctemSecret =
+    document.querySelector(".noctem-secret");
+
+
+const noctemSecretMessage =
+    document.getElementById(
+        "noctem-secret-message"
+    );
+
+
+if (noctemSecret) {
+
+    noctemSecret.addEventListener(
+        "click",
+        function() {
+
+            noctemSecretMessage.classList.add(
+                "visible"
+            );
+
+
+            setTimeout(function() {
+
+                noctemSecretMessage.classList.remove(
+                    "visible"
+                );
+
+            }, 2200);
+
+        }
+    );
+
+}
