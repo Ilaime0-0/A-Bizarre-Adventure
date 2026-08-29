@@ -2933,3 +2933,155 @@ a {
         rotate(2deg);
 
 }
+/* ╔══════════════════════════════════════════════╗
+   ✦ TITRES — BIZARRE ADVENTURE
+   ╚══════════════════════════════════════════════╝ */
+
+
+/* ═══════════════════════════════════════
+   STYLE COMMUN
+═══════════════════════════════════════ */
+
+.section-title {
+
+    position: absolute;
+
+    z-index: 40;
+
+    pointer-events: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    color: #6f4bd8;
+
+    text-shadow:
+        0 0 7px
+        rgba(111, 75, 216, 0.22);
+
+}
+
+
+/* ═══════════════════════════════════════
+   PETITS NUMÉROS
+═══════════════════════════════════════ */
+
+.section-number {
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    opacity: 0.7;
+
+}
+
+
+/* ═══════════════════════════════════════
+   NOMS DES SECTIONS
+═══════════════════════════════════════ */
+
+.section-name {
+
+    font-size: 17px;
+
+    letter-spacing: 5px;
+
+    line-height: 1.3;
+
+}
+
+
+/* ═══════════════════════════════════════
+   02 — THE DIVIDE
+═══════════════════════════════════════ */
+
+.divide-title {
+
+    top: 3%;
+    left: 7%;
+
+    transform:
+        rotate(-4deg);
+
+}
+
+
+/* ═══════════════════════════════════════
+   03 — THE LIVING SIDE
+═══════════════════════════════════════ */
+
+.life-title {
+
+    top: 4%;
+    right: 7%;
+
+    transform:
+        rotate(4deg);
+
+}
+
+
+/* ═══════════════════════════════════════
+   03' — THE OTHER SIDE
+═══════════════════════════════════════ */
+
+.death-title {
+
+    top: 4%;
+    right: 7%;
+
+    transform:
+        rotate(-5deg);
+
+}
+
+
+/* ═══════════════════════════════════════
+   04 — CARPE NOCTEM
+═══════════════════════════════════════ */
+
+.noctem-title {
+
+    top: 4%;
+    left: 7%;
+
+    transform:
+        rotate(-3deg);
+
+}
+
+
+/* ═══════════════════════════════════════
+   📖 CHRONIQUES
+═══════════════════════════════════════ */
+
+.chronicles-title {
+
+    top: 5%;
+    left: 8%;
+
+    transform:
+        rotate(-4deg);
+
+}
+
+
+/* ═══════════════════════════════════════
+   📚 LIBRARY
+═══════════════════════════════════════ */
+
+.library-title {
+
+    top: 5%;
+    right: 8%;
+
+    transform:
+        rotate(4deg);
+
+}
