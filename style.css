@@ -2072,13 +2072,23 @@ a {
 
     margin: 8px 0;
 
-    font-family: Georgia, serif;
+    font-family:
+        "UnifrakturCook",
+        Georgia,
+        serif;
 
-    font-size: clamp(30px, 5vw, 52px);
+    font-size:
+        clamp(42px, 7vw, 72px);
 
-    font-weight: normal;
+    font-weight: 700;
 
-    letter-spacing: 8px;
+    letter-spacing: 2px;
+
+    color: #b52a50;
+
+    text-shadow:
+        0 0 12px
+        rgba(181, 42, 80, 0.4);
 
 }
 
