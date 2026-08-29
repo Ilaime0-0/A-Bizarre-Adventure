@@ -2059,11 +2059,17 @@ a {
 
     display: block;
 
-    font-size: 11px;
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 10px;
 
     letter-spacing: 4px;
 
-    opacity: 0.5;
+    color: #ffffff;
+
+    opacity: 0.65;
 
 }
 
