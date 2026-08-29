@@ -25,10 +25,9 @@ body {
     overflow-x: hidden;
 }
 
-
-/* ═══════════════════════════════════════════════
+/* ═══════════════════════════════════════
    UNIVERS
-═══════════════════════════════════════════════ */
+═══════════════════════════════════════ */
 
 .adventure {
     width: 100vw;
@@ -41,20 +40,21 @@ body {
     overflow: hidden;
 }
 
-/* ═══════════════════════════════════════════════
-   CHAQUE INTERFACE
-═══════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════
+   INTERFACE
+═══════════════════════════════════════ */
 
 .page {
     position: relative;
 
-    width: 100vw;
-    height: 100vh;
+    width: fit-content;
+    height: fit-content;
+
+    max-width: 95vw;
+    max-height: 95vh;
 
     display: none;
-
-    justify-content: center;
-    align-items: center;
 }
 
 
@@ -63,9 +63,9 @@ body {
 }
 
 
-/* ═══════════════════════════════════════════════
+/* ═══════════════════════════════════════
    IMAGE
-═══════════════════════════════════════════════ */
+═══════════════════════════════════════ */
 
 .interface-image {
     display: block;
@@ -73,16 +73,14 @@ body {
     width: auto;
     height: auto;
 
-    max-width: 100vw;
-    max-height: 100vh;
+    max-width: 95vw;
+    max-height: 95vh;
 
     object-fit: contain;
 
     user-select: none;
     -webkit-user-drag: none;
 }
-
-
 /* ═══════════════════════════════════════════════
    ZONES CLIQUABLES
 ═══════════════════════════════════════════════ */
