@@ -2217,13 +2217,13 @@ a {
 
     border-right:
         1px solid
-        rgba(255,255,255,0.12);
+        rgba(255,255,255,0.75);
 
     border-bottom:
         1px solid
-        rgba(255,255,255,0.12);
+        rgba(255,255,255,0.75);
 
-    background: transparent;
+    background: #090909;
 
     color: white;
 
@@ -2241,11 +2241,24 @@ a {
 
 }
 
+.calendar-day:nth-child(odd) {
+
+    background:
+        #090909;
+
+}
+
+.calendar-day:nth-child(even) {
+
+    background:
+        #5b1029;
+
+}
 
 .calendar-day:hover {
 
     background:
-        rgba(255,255,255,0.08);
+        #8f1d3f;
 
     transform:
         scale(1.03);
@@ -2253,7 +2266,6 @@ a {
     z-index: 2;
 
 }
-
 
 .calendar-day.empty {
 
