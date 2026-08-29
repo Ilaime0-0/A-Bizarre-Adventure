@@ -2,19 +2,48 @@
    🕸️ NAVIGATION DES PAGES
 ═══════════════════════════════════════ */
 
+let pageHistory = [];
+
+let currentPage = "page-01";
+
+
 function showPage(pageId) {
 
-    const pages = document.querySelectorAll(".page");
+    const nextPage =
+        document.getElementById(pageId);
+
+    if (!nextPage || currentPage === pageId) {
+        return;
+    }
+
+
+    /* Garder la page actuelle dans
+       l'historique */
+
+    pageHistory.push(currentPage);
+
+
+    /* Cacher toutes les pages */
+
+    const pages =
+        document.querySelectorAll(".page");
 
     pages.forEach(function(page) {
+
         page.classList.remove("active");
+
     });
 
-    const nextPage = document.getElementById(pageId);
 
-    if (nextPage) {
-        nextPage.classList.add("active");
-    }
+    /* Afficher la nouvelle page */
+
+    nextPage.classList.add("active");
+
+
+    /* Mettre à jour la page actuelle */
+
+    currentPage = pageId;
+
 
     window.scrollTo({
         top: 0,
@@ -22,6 +51,75 @@ function showPage(pageId) {
     });
 
 }
+
+
+/* ═══════════════════════════════════════
+   🕰️ REVENIR EN ARRIÈRE DANS LE TEMPS
+═══════════════════════════════════════ */
+
+function goBackInTime() {
+
+    /* S'il n'y a rien avant,
+       on ne fait rien */
+
+    if (pageHistory.length === 0) {
+        return;
+    }
+
+
+    /* Récupérer la page précédente */
+
+    const previousPage =
+        pageHistory.pop();
+
+
+    /* Cacher toutes les pages */
+
+    const pages =
+        document.querySelectorAll(".page");
+
+    pages.forEach(function(page) {
+
+        page.classList.remove("active");
+
+    });
+
+
+    /* Afficher la page précédente */
+
+    const previous =
+        document.getElementById(previousPage);
+
+    if (previous) {
+
+        previous.classList.add("active");
+
+        currentPage = previousPage;
+
+    }
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "instant"
+    });
+
+}
+
+
+/* ═══════════════════════════════════════
+   ⌨️ TOUCHE ←
+═══════════════════════════════════════ */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "ArrowLeft") {
+
+        goBackInTime();
+
+    }
+
+});
 
 
 /* ═══════════════════════════════════════
