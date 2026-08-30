@@ -476,7 +476,7 @@ textarea {
 }
 
 .divide-life-label {
-    top: 25%;
+    top: 20%;
     left: 50%;
 
     transform:
@@ -485,7 +485,7 @@ textarea {
 }
 
 .divide-death-label {
-    top: 72%;
+    top: 65%;
     left: 50%;
 
     transform:
