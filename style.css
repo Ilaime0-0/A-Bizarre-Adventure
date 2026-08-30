@@ -1,7 +1,19 @@
+/* ╔══════════════════════════════════════════════════════════════╗
+   CARPE NOCTEM — COMPLETE STYLE
+   Correspond exactement au nouveau HTML
+   ╚══════════════════════════════════════════════════════════════╝ */
+
+
+/* ═══════════════════════════════════════
+   VARIABLES
+═══════════════════════════════════════ */
+
 :root {
     --void: #0a0a0a;
+
     --wine-dark: #090909;
     --wine-soft: #5b1029;
+    --wine-mid: #741735;
 
     --bordeaux: #b52a50;
     --bordeaux-deep: #7a1834;
@@ -25,111 +37,32 @@ html,
 body {
     margin: 0;
     padding: 0;
+
     width: 100%;
     min-height: 100%;
+
+    background: var(--void);
+
+    overflow: hidden;
 }
 
 body {
     min-height: 100vh;
 
-    background: var(--void);
-
     display: flex;
     justify-content: center;
     align-items: flex-start;
 
-    overflow-x: hidden;
-    overflow-y: hidden;
+    color: var(--ink);
+}
+
+* {
+    box-sizing: border-box;
 }
 
 
 /* ═══════════════════════════════════════
-   PAGES
-═══════════════════════════════════════ */
-
-.page {
-    position: relative;
-
-    width: 100vw;
-    height: 100vh;
-
-    max-width: 100vw;
-    max-height: 100vh;
-
-    overflow: hidden;
-
-    display: none;
-
-    justify-content: center;
-    align-items: flex-start;
-
-    background: var(--void);
-
-    isolation: isolate;
-}
-
-.page.active {
-    display: flex;
-}
-
-
-/* ═══════════════════════════════════════
-   INTERFACE
-═══════════════════════════════════════ */
-
-.interface {
-    position: relative;
-
-    height: 100vh;
-    width: max-content;
-
-    flex-shrink: 0;
-
-    z-index: 1;
-}
-
-
-/* ═══════════════════════════════════════
-   INTERFACE IMAGES
-═══════════════════════════════════════ */
-
-.interface-image {
-    position: relative;
-
-    z-index: 1;
-
-    display: block;
-
-    width: auto;
-    height: 100vh;
-
-    max-width: none;
-    max-height: 100vh;
-
-    object-fit: contain;
-
-    user-select: none;
-    -webkit-user-drag: none;
-}
-
-
-/* ═══════════════════════════════════════
-   ADVENTURE
-═══════════════════════════════════════ */
-
-.adventure {
-    width: 100vw;
-    min-height: 100vh;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: flex-start;
-}
-
-
-/* ═══════════════════════════════════════
-   CURSEUR ARAIGNÉE
+   CURSOR
 ═══════════════════════════════════════ */
 
 html,
@@ -156,8 +89,6 @@ textarea {
 
     transform: translate(-50%, -50%);
 
-    display: block;
-
     opacity: 1;
 
     transition: opacity 0.15s ease;
@@ -181,9 +112,9 @@ textarea {
     width: 45px;
     height: 1px;
 
-    transform-origin: center;
-
     background: rgba(255, 255, 255, 0.9);
+
+    transform-origin: center;
 }
 
 .line-1 {
@@ -241,6 +172,86 @@ textarea {
 
 
 /* ═══════════════════════════════════════
+   MAIN ADVENTURE
+═══════════════════════════════════════ */
+
+.adventure {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+}
+
+
+/* ═══════════════════════════════════════
+   PAGES
+═══════════════════════════════════════ */
+
+.page {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: none;
+
+    justify-content: center;
+    align-items: flex-start;
+
+    overflow: hidden;
+}
+
+.page.active {
+    display: flex;
+}
+
+
+/* ═══════════════════════════════════════
+   IMAGE CONTAINER
+═══════════════════════════════════════ */
+
+.interface {
+    position: relative;
+
+    display: inline-block;
+
+    width: max-content;
+    height: 100vh;
+
+    flex-shrink: 0;
+}
+
+
+/* ═══════════════════════════════════════
+   INTERFACE IMAGE
+═══════════════════════════════════════ */
+
+.interface-image {
+    position: relative;
+
+    z-index: 1;
+
+    display: block;
+
+    width: auto;
+    height: 100vh;
+
+    max-width: none;
+    max-height: 100vh;
+
+    object-fit: contain;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+
+/* ═══════════════════════════════════════
    HOTSPOTS
 ═══════════════════════════════════════ */
 
@@ -251,6 +262,7 @@ textarea {
     margin: 0;
 
     border: none;
+
     background: transparent;
 
     cursor: none;
@@ -258,14 +270,12 @@ textarea {
     z-index: 50;
 
     transition:
-        transform 0.25s ease,
-        background 0.25s ease;
+        background 0.25s ease,
+        transform 0.25s ease;
 }
 
 .hotspot:hover {
-    background: rgba(255, 255, 255, 0.08);
-
-    transform: scale(1.02);
+    background: rgba(255, 255, 255, 0.055);
 }
 
 
@@ -279,23 +289,22 @@ textarea {
     top: 11%;
     left: 50%;
 
+    width: 500px;
+    max-width: 65%;
+
     transform:
         translateX(-50%)
         rotate(-2deg);
 
     z-index: 40;
 
-    width: 58%;
-
     pointer-events: none;
-
-    font-family: var(--font-display);
-
-    font-weight: 700;
 
     text-align: center;
 
     color: var(--bordeaux);
+
+    font-family: var(--font-display);
 
     text-shadow:
         0 0 10px var(--bordeaux-glow);
@@ -304,40 +313,39 @@ textarea {
 .welcome-name {
     display: block;
 
-    width: min(600px, 100%);
+    width: 100%;
 
-    margin: 0 auto;
+    padding: 8px 18px;
 
-    font-size: clamp(25px, 2.5vw, 34px);
+    background: rgba(10, 10, 10, 0.9);
+
+    font-size: clamp(22px, 2.1vw, 30px);
+
+    font-weight: 700;
 
     letter-spacing: 3px;
 
     line-height: 1.05;
 
-    white-space: normal;
-
     text-align: center;
-
-    padding: 8px 18px;
-
-    box-sizing: border-box;
-
-    background: rgba(10, 10, 10, 0.88);
-
-    text-shadow:
-        0 0 8px rgba(0, 0, 0, 0.95),
-        0 0 14px var(--bordeaux-glow);
 }
 
 
-/* Zone interactive abaissée
-   pour correspondre à l'encadré blanc */
-.welcome {
-    top: 14%;
-    left: 23%;
+/*
+   Zone interactive :
+   abaissée et encadrée sur la zone blanche.
+*/
 
-    width: 54%;
-    height: 18%;
+.welcome {
+    top: 30%;
+    left: 24%;
+
+    width: 52%;
+    height: 48%;
+}
+
+.welcome:hover {
+    background: rgba(255, 255, 255, 0.035);
 }
 
 
@@ -351,11 +359,9 @@ textarea {
     top: auto;
     bottom: 10%;
 
-    left: 31%;
+    left: 25%;
 
-    transform:
-        translateX(-50%)
-        rotate(-3deg);
+    transform: rotate(-3deg);
 
     z-index: 70;
 
@@ -363,13 +369,15 @@ textarea {
 
     flex-direction: column;
 
-    gap: 7px;
+    gap: 6px;
 
-    padding: 10px 16px;
+    padding: 10px 15px;
 
     border: 1px solid rgba(255, 255, 255, 0.65);
 
     background: rgba(10, 10, 10, 0.78);
+
+    color: var(--ink);
 
     font-family: var(--font-mono);
 
@@ -379,14 +387,12 @@ textarea {
 
     text-align: center;
 
-    color: var(--ink);
+    white-space: nowrap;
 
     pointer-events: none;
 
     box-shadow:
         0 0 15px rgba(255, 255, 255, 0.08);
-
-    white-space: nowrap;
 }
 
 .warning-title {
@@ -396,7 +402,7 @@ textarea {
 }
 
 .time-warning strong {
-    font-size: 17px;
+    font-size: 16px;
 
     font-weight: normal;
 
@@ -406,7 +412,7 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   STRANGE BUTTON
+   DON'T
 ═══════════════════════════════════════ */
 
 .strange-button {
@@ -414,15 +420,15 @@ textarea {
 
     border: 1px solid rgba(255, 255, 255, 0.65);
 
-    background: rgba(10, 10, 10, 0.7);
+    background: rgba(10, 10, 10, 0.78);
 
     color: var(--ink);
 
-    padding: 9px 16px;
+    padding: 8px 15px;
 
     font-family: var(--font-mono);
 
-    font-size: 15px;
+    font-size: 14px;
 
     letter-spacing: 3px;
 
@@ -431,21 +437,66 @@ textarea {
     z-index: 70;
 
     transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
+        transform 0.3s ease,
+        opacity 0.3s ease;
 }
 
 .strange-button-one {
-    top: 80%;
-    right: 13%;
+    top: 79%;
+    right: 12%;
 
     transform: rotate(-7deg);
 }
 
 .strange-button:hover {
+    opacity: 1;
+
     transform:
         rotate(-7deg)
-        scale(1.15);
+        scale(1.12);
+}
+
+
+/* ═══════════════════════════════════════
+   SECRET SYMBOL — WELCOME
+═══════════════════════════════════════ */
+
+.secret-symbol {
+    position: absolute;
+
+    top: 18%;
+    right: 8%;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--ink-dim);
+
+    font-family: var(--font-mono);
+
+    font-size: 18px;
+
+    cursor: none;
+
+    z-index: 60;
+
+    animation:
+        strangePulse 2.5s ease-in-out infinite;
+
+    transition:
+        transform 0.4s ease,
+        opacity 0.3s ease;
+}
+
+.secret-symbol:hover {
+    opacity: 1;
+
+    transform:
+        rotate(180deg)
+        scale(1.35);
 }
 
 
@@ -455,32 +506,32 @@ textarea {
 
 .life,
 .death {
-    width: 56%;
     left: 22%;
+
+    width: 56%;
+
+    height: 28%;
 }
 
 .life {
     top: 5%;
-    height: 20%;
 }
 
 .death {
     top: 60%;
-    height: 20%;
 }
 
 
-/* LIFE / DEATH
-   Plus petits + centrés dans leurs encadrés */
+/* Labels centrés dans les zones rouges */
 
 .divide-label {
     position: absolute;
 
+    left: 50%;
+
     z-index: 60;
 
-    pointer-events: none;
-
-    padding: 9px 22px;
+    padding: 8px 20px;
 
     background: rgba(250, 247, 240, 0.97);
 
@@ -490,28 +541,26 @@ textarea {
 
     font-family: var(--font-display);
 
-    font-size: clamp(27px, 4vw, 48px);
+    font-size: clamp(30px, 4vw, 48px);
 
     font-weight: 700;
 
-    letter-spacing: 4px;
+    letter-spacing: 3px;
 
     line-height: 1;
 
     text-align: center;
 
-    text-shadow:
-        0 0 8px rgba(181, 42, 80, 0.25);
+    white-space: nowrap;
 
     box-shadow:
-        5px 5px 0 rgba(181, 42, 80, 0.35);
+        4px 4px 0 rgba(181, 42, 80, 0.35);
 
-    white-space: nowrap;
+    pointer-events: none;
 }
 
 .divide-life-label {
-    top: 20%;
-    left: 50%;
+    top: 19%;
 
     transform:
         translateX(-50%)
@@ -519,13 +568,17 @@ textarea {
 }
 
 .divide-death-label {
-    top: 65%;
-    left: 50%;
+    top: 64%;
 
     transform:
         translateX(-50%)
         rotate(3deg);
 }
+
+
+/* ═══════════════════════════════════════
+   DIVIDE WHISPERS
+═══════════════════════════════════════ */
 
 .divide-whisper {
     position: absolute;
@@ -537,13 +590,13 @@ textarea {
         translate(-50%, -50%)
         rotate(2deg);
 
+    color: var(--ink-dim);
+
     font-family: var(--font-mono);
 
     font-size: 10px;
 
     letter-spacing: 4px;
-
-    color: var(--ink-dim);
 
     pointer-events: none;
 }
@@ -554,18 +607,23 @@ textarea {
     top: 7%;
     right: 8%;
 
+    color: var(--ink-dim);
+
     font-family: var(--font-mono);
 
     font-size: 10px;
 
     letter-spacing: 3px;
 
-    color: var(--ink-dim);
-
     transform: rotate(6deg);
 
     pointer-events: none;
 }
+
+
+/* ═══════════════════════════════════════
+   RESTART
+═══════════════════════════════════════ */
 
 .restart-button {
     position: absolute;
@@ -573,7 +631,7 @@ textarea {
     right: 8%;
     bottom: 14%;
 
-    padding: 9px 14px;
+    padding: 8px 13px;
 
     border: 1px solid rgba(255, 255, 255, 0.55);
 
@@ -592,6 +650,8 @@ textarea {
     z-index: 60;
 
     transform: rotate(-8deg);
+
+    transition: transform 0.3s ease;
 }
 
 .restart-button:hover {
@@ -602,55 +662,54 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   LIVING SIDE
+   THE LIVING SIDE
 ═══════════════════════════════════════ */
 
 .reality,
 .between,
 .fiction {
     left: 20%;
+
     width: 60%;
+
+    height: 27%;
 }
 
 .reality {
     top: 4%;
-    height: 29%;
 }
 
 .between {
     top: 36%;
-    height: 29%;
 }
 
 .fiction {
     top: 68%;
-    height: 29%;
 }
 
 
-/* Zones parfaitement alignées
-   sur les trois grands cadres */
+/* ═══════════════════════════════════════
+   LIVING CHOICES
+═══════════════════════════════════════ */
 
 .living-choice {
     position: absolute;
 
     left: 50%;
 
-    transform: translateX(-50%);
-
     z-index: 60;
 
-    padding: 7px 16px;
+    padding: 6px 16px;
 
-    background: rgba(10, 10, 10, 0.90);
+    background: rgba(10, 10, 10, 0.9);
 
-    border: 1px solid rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.7);
 
     color: #ffffff;
 
     font-family: var(--font-display);
 
-    font-size: clamp(23px, 3.2vw, 40px);
+    font-size: clamp(24px, 3vw, 39px);
 
     font-weight: 700;
 
@@ -663,16 +722,13 @@ textarea {
     white-space: nowrap;
 
     box-shadow:
-        5px 5px 0 rgba(181, 42, 80, 0.3);
-
-    text-shadow:
-        0 0 8px rgba(0, 0, 0, 0.95);
+        4px 4px 0 rgba(181, 42, 80, 0.28);
 
     pointer-events: none;
 }
 
 .reality-choice {
-    top: 16%;
+    top: 18%;
 
     transform:
         translateX(-50%)
@@ -680,7 +736,7 @@ textarea {
 }
 
 .between-choice {
-    top: 48%;
+    top: 50%;
 
     transform:
         translateX(-50%)
@@ -688,7 +744,7 @@ textarea {
 }
 
 .fiction-choice {
-    top: 80%;
+    top: 82%;
 
     transform:
         translateX(-50%)
@@ -696,16 +752,17 @@ textarea {
 }
 
 
-/* Message déplacé vers une zone visible,
-   style WARNING / DON'T */
+/* ═══════════════════════════════════════
+   LIFE WHISPER
+═══════════════════════════════════════ */
 
 .life-whisper {
     position: absolute;
 
     left: 7%;
-    bottom: 8%;
+    bottom: 7%;
 
-    z-index: 70;
+    z-index: 40;
 
     padding: 9px 14px;
 
@@ -713,17 +770,17 @@ textarea {
 
     border: 1px solid rgba(255, 255, 255, 0.6);
 
+    color: var(--ink-dim);
+
     font-family: var(--font-mono);
 
     font-size: 9px;
 
-    line-height: 1.6;
+    line-height: 1.7;
 
     letter-spacing: 2px;
 
-    color: var(--ink);
-
-    text-align: center;
+    text-align: left;
 
     transform: rotate(-4deg);
 
@@ -731,22 +788,107 @@ textarea {
 }
 
 
-/* + rendu visible, plus gros et plus gras */
+/* ═══════════════════════════════════════
+   LIFE SECRET "+"
+═══════════════════════════════════════ */
 
 .life-secret {
-    right: 8%;
+    position: absolute;
+
+    right: 7%;
     bottom: 8%;
 
-    font-size: 22px;
+    padding: 0;
 
-    font-weight: 700;
+    border: none;
+
+    background: transparent;
 
     color: #ffffff;
+
+    font-family: var(--font-mono);
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    line-height: 1;
+
+    cursor: none;
+
+    z-index: 70;
+
+    transition:
+        transform 0.4s ease,
+        opacity 0.3s ease;
+}
+
+.life-secret:hover {
+    opacity: 1;
+
+    transform:
+        rotate(180deg)
+        scale(1.3);
 }
 
 
 /* ═══════════════════════════════════════
-   OTHER SIDE
+   SECTION HEADINGS
+═══════════════════════════════════════ */
+
+.section-whisper {
+    position: absolute;
+
+    z-index: 55;
+
+    padding: 8px 14px;
+
+    background: rgba(10, 10, 10, 0.82);
+
+    border: 1px solid rgba(255, 255, 255, 0.6);
+
+    color: rgba(255, 255, 255, 0.9);
+
+    font-family: var(--font-mono);
+
+    font-size: 9px;
+
+    font-weight: normal;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    pointer-events: none;
+
+    text-shadow:
+        0 0 8px rgba(0, 0, 0, 0.9);
+}
+
+.divide-heading {
+    top: 4%;
+    left: 7%;
+
+    transform: rotate(-4deg);
+}
+
+.living-heading {
+    top: 4%;
+    right: 7%;
+
+    transform: rotate(4deg);
+}
+
+.other-heading {
+    top: 4%;
+    right: 7%;
+
+    transform: rotate(4deg);
+}
+
+
+/* ═══════════════════════════════════════
+   THE OTHER SIDE
 ═══════════════════════════════════════ */
 
 .obsession {
@@ -774,32 +916,26 @@ textarea {
 }
 
 
-/* Grille décalée :
-   chaque lettre reste verticale,
-   mais sa position horizontale varie */
+/* ═══════════════════════════════════════
+   VERTICAL CHOICES
+═══════════════════════════════════════ */
 
 .other-side-choice {
     position: absolute;
 
     z-index: 60;
 
-    padding: 0;
-
-    border: none;
-
-    background: transparent;
-
     color: #ffffff;
 
     font-family: var(--font-display);
 
-    font-size: clamp(15px, 1.65vw, 23px);
+    font-size: clamp(16px, 1.7vw, 23px);
 
     font-weight: 700;
 
     letter-spacing: 2px;
 
-    line-height: 0.92;
+    line-height: 0.88;
 
     text-align: center;
 
@@ -811,9 +947,6 @@ textarea {
     pointer-events: none;
 }
 
-
-/* OBSSESSION */
-
 .obsession-choice {
     top: 17%;
     left: 24%;
@@ -823,23 +956,14 @@ textarea {
         rotate(-3deg);
 }
 
-
-/* CARPE NOCTEM
-   plus petit et centré */
-
 .noctem-choice {
     top: 50%;
     left: 75%;
 
-    font-size: clamp(14px, 1.55vw, 21px);
-
     transform:
         translate(-50%, -50%)
-        rotate(2deg);
+        rotate(3deg);
 }
-
-
-/* CONSPIRATIONS */
 
 .conspirations-choice {
     top: 82%;
@@ -852,71 +976,74 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   LETTRES DÉCALÉES
+   DEATH WHISPER
 ═══════════════════════════════════════ */
 
-.obsession-choice br:nth-of-type(1),
-.noctem-choice br:nth-of-type(1),
-.conspirations-choice br:nth-of-type(1) {
-    margin-left: 0;
-}
+.death-whisper {
+    position: absolute;
 
-.obsession-choice br:nth-of-type(2) {
-    margin-left: 5px;
-}
-
-.obsession-choice br:nth-of-type(3) {
-    margin-left: -4px;
-}
-
-.obsession-choice br:nth-of-type(4) {
-    margin-left: 7px;
-}
-
-.obsession-choice br:nth-of-type(5) {
-    margin-left: -3px;
-}
-
-.conspirations-choice br:nth-of-type(2) {
-    margin-left: -5px;
-}
-
-.conspirations-choice br:nth-of-type(3) {
-    margin-left: 6px;
-}
-
-.conspirations-choice br:nth-of-type(4) {
-    margin-left: -4px;
-}
-
-.conspirations-choice br:nth-of-type(5) {
-    margin-left: 7px;
-}
-
-.conspirations-choice br:nth-of-type(6) {
-    margin-left: -5px;
-}
-
-.conspirations-choice br:nth-of-type(7) {
-    margin-left: 4px;
-}
-
-.conspirations-choice br:nth-of-type(8) {
-    margin-left: -3px;
-}
-
-
-/* ? visible */
-
-.death-secret {
-    left: 8%;
+    right: 7%;
     bottom: 7%;
 
-    font-size: 22px;
+    padding: 8px 13px;
 
-    font-weight: 700;
+    background: rgba(10, 10, 10, 0.78);
+
+    border: 1px solid rgba(255, 255, 255, 0.6);
+
+    color: var(--ink-dim);
+
+    font-family: var(--font-mono);
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    transform: rotate(4deg);
+
+    pointer-events: none;
+}
+
+
+/* ═══════════════════════════════════════
+   DEATH SECRET "?"
+═══════════════════════════════════════ */
+
+.death-secret {
+    position: absolute;
+
+    left: 7%;
+    bottom: 7%;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
 
     color: #ffffff;
+
+    font-family: var(--font-mono);
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    cursor: none;
+
+    z-index: 70;
+
+    transition:
+        transform 0.4s ease,
+        opacity 0.3s ease;
+}
+
+.death-secret:hover {
+    opacity: 1;
+
+    transform:
+        rotate(180deg)
+        scale(1.3);
 }
 
 
@@ -940,9 +1067,7 @@ textarea {
 
     font-family: var(--font-display);
 
-    /* plus petit */
-
-    font-size: clamp(23px, 3vw, 38px);
+    font-size: clamp(23px, 3vw, 36px);
 
     font-weight: 700;
 
@@ -959,7 +1084,9 @@ textarea {
 }
 
 
-/* Le titre reste centré dans son encadré */
+/* ═══════════════════════════════════════
+   NOCTEM WHISPER
+═══════════════════════════════════════ */
 
 .noctem-whisper {
     position: absolute;
@@ -969,17 +1096,17 @@ textarea {
 
     z-index: 70;
 
-    padding: 10px 16px;
+    padding: 9px 14px;
 
-    background: rgba(10, 10, 10, 0.88);
+    background: rgba(10, 10, 10, 0.86);
 
-    border: 1px solid rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.6);
 
     color: var(--ink);
 
     font-family: var(--font-mono);
 
-    font-size: 11px;
+    font-size: 10px;
 
     letter-spacing: 2px;
 
@@ -987,29 +1114,68 @@ textarea {
 
     transform: rotate(3deg);
 
-    box-shadow:
-        0 0 15px rgba(255, 255, 255, 0.08);
-
     pointer-events: none;
 }
 
 
-/* Cœurs : zones cliquables plus précises */
+/* ═══════════════════════════════════════
+   CARPE NOCTEM HEART HOTSPOTS
+═══════════════════════════════════════ */
 
 .heart-left {
-    left: 9%;
+    left: 10%;
     bottom: 3%;
 
-    width: 19%;
-    height: 19%;
+    width: 17%;
+    height: 17%;
 }
 
 .heart-right {
-    right: 3%;
+    right: 4%;
     bottom: 3%;
 
-    width: 19%;
-    height: 19%;
+    width: 17%;
+    height: 17%;
+}
+
+
+/* ═══════════════════════════════════════
+   NOCTEM SECRET
+═══════════════════════════════════════ */
+
+.noctem-secret {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--ink);
+
+    font-family: var(--font-serif);
+
+    font-size: 18px;
+
+    cursor: none;
+
+    z-index: 70;
+
+    transition:
+        transform 0.4s ease,
+        opacity 0.3s ease;
+}
+
+.noctem-secret:hover {
+    opacity: 1;
+
+    transform:
+        rotate(180deg)
+        scale(1.3);
 }
 
 
@@ -1038,44 +1204,43 @@ textarea {
         0 0 12px rgba(255, 255, 255, 0.4);
 }
 
-
-/* Plus petit + tout à droite */
-
 .chronicles-title {
-    top: 9%;
-    left: 77%;
+    top: 8%;
+    left: 64%;
 
     transform:
         translateX(-50%)
         rotate(-2deg);
 
-    font-size: clamp(28px, 4vw, 45px);
+    padding: 6px 17px;
 
-    color: #ffffff;
+    font-size: clamp(32px, 4.5vw, 50px);
+
+    letter-spacing: 4px;
 
     background: rgba(10, 10, 10, 0.88);
 
-    border: 1px solid rgba(255, 255, 255, 0.75);
-
-    padding: 6px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
 
-/* Fragment from another life : plus discret */
+/* ═══════════════════════════════════════
+   CHRONICLES INTRO
+═══════════════════════════════════════ */
 
 .chronicles-intro {
     position: absolute;
 
     top: 19%;
-    right: 5%;
+    right: 7%;
 
     z-index: 70;
 
-    padding: 7px 12px;
+    padding: 8px 13px;
 
-    background: rgba(10, 10, 10, 0.82);
+    background: rgba(10, 10, 10, 0.86);
 
-    border: 1px solid rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.6);
 
     color: #ffffff;
 
@@ -1089,18 +1254,199 @@ textarea {
 
     transform: rotate(3deg);
 
-    text-shadow:
-        0 0 8px rgba(0, 0, 0, 0.9);
-
     pointer-events: none;
 }
 
 
 /* ═══════════════════════════════════════
-   CHRONIQUES — CARTES À JOUER
+   CHRONICLE CARDS
 ═══════════════════════════════════════ */
 
-.chronicle-entry,
+.chronicle-entry {
+    position: absolute;
+
+    z-index: 60;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 3px;
+
+    width: 52px;
+    height: 68px;
+
+    padding: 5px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-family: var(--font-mono);
+
+    cursor: none;
+
+    transition:
+        transform 0.35s ease,
+        color 0.35s ease;
+}
+
+
+/*
+   On utilise le trèfle plutôt qu'un rectangle.
+*/
+
+.chronicle-entry::before {
+    content: "♣";
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: rgba(255, 255, 255, 0.15);
+
+    font-family: Georgia, serif;
+
+    font-size: 58px;
+
+    z-index: -1;
+
+    transition:
+        color 0.35s ease,
+        transform 0.35s ease;
+}
+
+.chronicle-entry:hover {
+    color: #ffffff;
+
+    transform:
+        scale(1.15)
+        rotate(-4deg);
+}
+
+.chronicle-entry:hover::before {
+    color: rgba(181, 42, 80, 0.38);
+
+    transform: scale(1.08);
+}
+
+.chronicle-entry .entry-number {
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+.chronicle-entry .entry-symbol {
+    font-size: 15px;
+
+    line-height: 1;
+}
+
+.chronicle-one {
+    top: 31%;
+    left: 19%;
+}
+
+.chronicle-two {
+    top: 47%;
+    left: 19%;
+}
+
+.chronicle-three {
+    top: 63%;
+    left: 19%;
+}
+
+
+/* ═══════════════════════════════════════
+   CHRONICLE SECRET
+═══════════════════════════════════════ */
+
+.chronicle-secret {
+    position: absolute;
+
+    bottom: 6%;
+    left: 7%;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--ink-faint);
+
+    font-family: var(--font-mono);
+
+    font-size: 14px;
+
+    cursor: none;
+
+    z-index: 60;
+
+    transition:
+        transform 0.4s ease,
+        opacity 0.3s ease;
+}
+
+.chronicle-secret:hover {
+    opacity: 1;
+
+    transform:
+        rotate(180deg)
+        scale(1.35);
+}
+
+
+/* ═══════════════════════════════════════
+   LIBRARY
+═══════════════════════════════════════ */
+
+.library-heading {
+    display: none;
+}
+
+.library-title {
+    top: 7%;
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        rotate(-2deg);
+
+    padding: 5px 16px;
+
+    font-size: clamp(32px, 4.5vw, 50px);
+
+    letter-spacing: 4px;
+
+    background: rgba(10, 10, 10, 0.88);
+
+    border: 1px solid rgba(255, 255, 255, 0.72);
+
+    box-shadow:
+        4px 4px 0 rgba(255, 255, 255, 0.1);
+}
+
+
+/* ═══════════════════════════════════════
+   LIBRARY CARDS
+═══════════════════════════════════════ */
+
 .library-entry {
     position: absolute;
 
@@ -1114,14 +1460,12 @@ textarea {
 
     justify-content: center;
 
-    gap: 2px;
+    gap: 3px;
 
-    width: 38px;
-    height: 52px;
+    width: 52px;
+    height: 68px;
 
-    padding: 4px;
-
-    box-sizing: border-box;
+    padding: 5px;
 
     border: none;
 
@@ -1129,7 +1473,7 @@ textarea {
 
     color: #ffffff;
 
-    font-family: Georgia, serif;
+    font-family: var(--font-mono);
 
     cursor: none;
 
@@ -1139,327 +1483,91 @@ textarea {
 }
 
 
-/* Pas de rectangle :
-   les chiffres flottent comme sur une carte */
+/*
+   Pique = style carte à jouer.
+*/
 
-.chronicle-entry::before,
 .library-entry::before {
+    content: "♠";
+
     position: absolute;
 
     inset: 0;
 
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    color: rgba(255, 255, 255, 0.15);
+
     font-family: Georgia, serif;
 
-    font-size: 28px;
+    font-size: 58px;
 
-    line-height: 1;
+    z-index: -1;
 
-    opacity: 0.95;
-
-    pointer-events: none;
+    transition:
+        color 0.35s ease,
+        transform 0.35s ease;
 }
 
-.chronicle-entry::before {
-    content: "♣";
-}
-
-.library-entry::before {
-    content: "♠";
-}
-
-
-.chronicle-entry .entry-number,
-.library-entry .library-number {
-    position: relative;
-
-    z-index: 2;
-
-    font-family: var(--font-mono);
-
-    font-size: 10px;
-
-    letter-spacing: 1px;
-
-    font-weight: 700;
-
+.library-entry:hover {
     color: #ffffff;
 
-    transform: translateY(-1px);
+    transform:
+        scale(1.15)
+        rotate(-4deg);
 }
 
-.chronicle-entry .entry-symbol,
-.library-entry .library-mark {
-    position: relative;
+.library-entry:hover::before {
+    color: rgba(181, 42, 80, 0.38);
 
-    z-index: 2;
+    transform: scale(1.08);
+}
 
-    font-family: Georgia, serif;
-
+.library-number {
     font-size: 11px;
 
-    color: #ffffff;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+.library-mark {
+    font-size: 14px;
+
+    line-height: 1;
 }
 
 
-/* Placement des trois éléments actuels */
-
-.chronicle-one {
-    top: 34%;
-    left: 18%;
-}
-
-.chronicle-two {
-    top: 50%;
-    left: 22%;
-}
-
-.chronicle-three {
-    top: 66%;
-    left: 18%;
-}
-
-
-/* Effet carte */
-
-.chronicle-entry:hover,
-.library-entry:hover {
-    color: var(--bordeaux);
-
-    transform:
-        scale(1.22)
-        rotate(-5deg);
-}
-
-.chronicle-entry:hover::before,
-.library-entry:hover::before {
-    opacity: 1;
-}
-
-
-/* ═══════════════════════════════════════
-   LIBRARY
-═══════════════════════════════════════ */
-
-.library-title {
-    top: 9%;
-    left: 76%;
-
-    transform:
-        translateX(-50%)
-        rotate(-2deg);
-
-    font-size: clamp(28px, 4vw, 45px);
-
-    color: #ffffff;
-
-    background: rgba(10, 10, 10, 0.88);
-
-    border: 1px solid rgba(255, 255, 255, 0.75);
-
-    padding: 6px 16px;
-
-    box-shadow:
-        4px 4px 0 rgba(255, 255, 255, 0.12);
-
-    text-shadow:
-        0 0 12px rgba(255, 255, 255, 0.4);
-}
-
-
-/* THE LIBRARY en haut à droite supprimé */
-
-.library-heading {
-    display: none;
-}
-
-.library-whisper {
-    display: none;
-}
-
-
-/* Cartes pique */
-
-.library-entry::before {
-    content: "♠";
-}
-
-
-/* Placement vertical façon carte */
+/* Carte verticale */
 
 .library-one {
-    top: 34%;
-    left: 20%;
+    top: 30%;
+    left: 19%;
 }
 
 .library-two {
-    top: 50%;
-    left: 24%;
+    top: 46%;
+    left: 19%;
 }
 
 .library-three {
-    top: 66%;
-    left: 20%;
+    top: 62%;
+    left: 19%;
 }
 
 
-/* Croix en bas à droite :
-   plus grosse + plus visible */
+/* ═══════════════════════════════════════
+   LIBRARY SECRET
+═══════════════════════════════════════ */
 
 .library-secret {
+    position: absolute;
+
     bottom: 7%;
     right: 7%;
-
-    font-size: 24px;
-
-    font-weight: 700;
-
-    color: #ffffff;
-
-    opacity: 0.8;
-}
-
-
-/* ═══════════════════════════════════════
-   SECTION WHISPERS
-═══════════════════════════════════════ */
-
-.section-whisper {
-    position: absolute;
-
-    z-index: 55;
-
-    font-family: var(--font-mono);
-
-    font-size: 10px;
-
-    letter-spacing: 5px;
-
-    color: rgba(255, 255, 255, 0.85);
-
-    text-transform: uppercase;
-
-    pointer-events: none;
-
-    text-shadow:
-        0 0 8px rgba(0, 0, 0, 0.9);
-}
-
-
-/* Même style que DON'T / WARNING */
-
-.divide-heading,
-.living-heading,
-.other-heading {
-    padding: 8px 13px;
-
-    background: rgba(10, 10, 10, 0.82);
-
-    border: 1px solid rgba(255, 255, 255, 0.6);
-}
-
-.divide-heading {
-    top: 4%;
-    left: 7%;
-
-    transform: rotate(-4deg);
-}
-
-.living-heading {
-    top: 4%;
-    right: 7%;
-
-    transform: rotate(4deg);
-}
-
-.other-heading {
-    top: 4%;
-    right: 7%;
-
-    transform: rotate(4deg);
-}
-
-.library-heading {
-    top: 4%;
-    right: 7%;
-
-    transform: rotate(3deg);
-}
-
-
-/* ═══════════════════════════════════════
-   SECRET MESSAGES
-═══════════════════════════════════════ */
-
-#strange-message,
-#restart-message,
-#life-secret-message,
-#death-secret-message,
-#noctem-secret-message,
-#chronicle-secret-message,
-#library-secret-message {
-    position: fixed;
-
-    top: 50%;
-    left: 50%;
-
-    transform:
-        translate(-50%, -50%)
-        scale(0.8);
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    z-index: 9000;
-
-    font-family: var(--font-mono);
-
-    font-size: 13px;
-
-    letter-spacing: 3px;
-
-    text-align: center;
-
-    color: var(--ink);
-
-    padding: 15px 22px;
-
-    border: 1px solid rgba(255, 255, 255, 0.6);
-
-    background: rgba(10, 10, 10, 0.94);
-
-    transition:
-        opacity 0.5s ease,
-        transform 0.5s ease;
-}
-
-#strange-message.visible,
-#restart-message.visible,
-#life-secret-message.visible,
-#death-secret-message.visible,
-#noctem-secret-message.visible,
-#chronicle-secret-message.visible,
-#library-secret-message.visible {
-    opacity: 1;
-
-    transform:
-        translate(-50%, -50%)
-        scale(1);
-}
-
-
-/* ═══════════════════════════════════════
-   SECRET BUTTONS
-═══════════════════════════════════════ */
-
-.secret-symbol,
-.divide-secret,
-.life-secret,
-.death-secret,
-.noctem-secret,
-.chronicle-secret,
-.library-secret {
-    position: absolute;
 
     padding: 0;
 
@@ -1467,66 +1575,29 @@ textarea {
 
     background: transparent;
 
-    color: var(--ink-faint);
+    color: #ffffff;
 
-    font-family: var(--font-mono);
+    font-family: var(--font-serif);
+
+    font-size: 22px;
+
+    font-weight: bold;
 
     cursor: none;
 
-    z-index: 60;
+    z-index: 70;
 
     transition:
-        opacity 0.3s ease,
-        transform 0.4s ease;
+        transform 0.4s ease,
+        opacity 0.3s ease;
 }
 
-.secret-symbol:hover,
-.divide-secret:hover,
-.life-secret:hover,
-.death-secret:hover,
-.noctem-secret:hover,
-.chronicle-secret:hover,
 .library-secret:hover {
     opacity: 1;
 
     transform:
         rotate(180deg)
-        scale(1.35);
-}
-
-.secret-symbol {
-    top: 18%;
-    right: 9%;
-
-    font-size: 18px;
-
-    color: var(--ink-dim);
-
-    animation:
-        strangePulse 2.5s ease-in-out infinite;
-}
-
-.divide-secret {
-    left: 8%;
-    bottom: 8%;
-
-    font-size: 14px;
-}
-
-.noctem-secret {
-    top: 50%;
-    left: 50%;
-
-    font-size: 18px;
-
-    font-family: var(--font-serif);
-}
-
-.chronicle-secret {
-    bottom: 6%;
-    left: 7%;
-
-    font-size: 14px;
+        scale(1.3);
 }
 
 
@@ -1538,19 +1609,10 @@ textarea {
     width: 100vw;
     height: 100vh;
 
-    max-width: 100vw;
-    max-height: none;
-
     overflow-y: auto;
     overflow-x: hidden;
 
-    background:
-        radial-gradient(
-            circle at 50% 35%,
-            rgba(91, 16, 41, 0.16),
-            transparent 55%
-        ),
-        #0a0a0a;
+    justify-content: center;
 }
 
 .ephemeris-interface {
@@ -1560,15 +1622,13 @@ textarea {
 
     min-height: 850px;
 
-    box-sizing: border-box;
-
     padding: 45px;
+
+    box-sizing: border-box;
 
     color: var(--ink);
 
     font-family: var(--font-mono);
-
-    overflow: visible;
 }
 
 .ephemeris-header {
@@ -1590,6 +1650,8 @@ textarea {
 .ephemeris-header h1 {
     margin: 10px 0 6px;
 
+    color: var(--bordeaux);
+
     font-family: var(--font-display);
 
     font-size: clamp(42px, 7vw, 72px);
@@ -1597,8 +1659,6 @@ textarea {
     font-weight: 700;
 
     letter-spacing: 2px;
-
-    color: var(--bordeaux);
 
     text-shadow:
         0 0 12px var(--bordeaux-glow);
@@ -1611,6 +1671,11 @@ textarea {
 
     opacity: 0.5;
 }
+
+
+/* ═══════════════════════════════════════
+   CALENDAR
+═══════════════════════════════════════ */
 
 .calendar {
     width: 100%;
@@ -1633,6 +1698,8 @@ textarea {
 }
 
 .calendar-month {
+    color: var(--bordeaux);
+
     font-family: var(--font-display);
 
     font-size: 26px;
@@ -1640,8 +1707,6 @@ textarea {
     font-weight: 700;
 
     letter-spacing: 2px;
-
-    color: var(--bordeaux);
 
     text-shadow:
         0 0 9px var(--bordeaux-glow);
@@ -1676,8 +1741,7 @@ textarea {
 .calendar-weekdays {
     display: grid;
 
-    grid-template-columns:
-        repeat(7, 1fr);
+    grid-template-columns: repeat(7, 1fr);
 
     border-bottom:
         1px solid rgba(255, 255, 255, 0.85);
@@ -1688,15 +1752,15 @@ textarea {
 .calendar-weekdays span {
     display: block;
 
-    text-align: center;
-
     padding: 9px 0;
+
+    color: var(--ink);
 
     font-size: 9px;
 
     letter-spacing: 2px;
 
-    color: var(--ink);
+    text-align: center;
 
     opacity: 0.85;
 }
@@ -1704,8 +1768,7 @@ textarea {
 .calendar-days {
     display: grid;
 
-    grid-template-columns:
-        repeat(7, 1fr);
+    grid-template-columns: repeat(7, 1fr);
 }
 
 .calendar-day {
@@ -1734,10 +1797,6 @@ textarea {
     transition:
         background 0.2s ease,
         transform 0.2s ease;
-}
-
-.calendar-day:nth-child(odd) {
-    background: var(--wine-dark);
 }
 
 .calendar-day:nth-child(even) {
@@ -1787,12 +1846,17 @@ textarea {
     right: 8px;
     bottom: 7px;
 
+    color: var(--bordeaux);
+
     font-size: 10px;
 
     opacity: 0.7;
-
-    color: var(--bordeaux);
 }
+
+
+/* ═══════════════════════════════════════
+   DATE ENTRY
+═══════════════════════════════════════ */
 
 .date-entry {
     margin-top: 24px;
@@ -1809,11 +1873,11 @@ textarea {
 }
 
 .entry-date {
+    margin-bottom: 10px;
+
     font-size: 10px;
 
     letter-spacing: 3px;
-
-    margin-bottom: 10px;
 
     opacity: 0.6;
 }
@@ -1827,6 +1891,11 @@ textarea {
 
     line-height: 1.6;
 }
+
+
+/* ═══════════════════════════════════════
+   EPHEMERIS FOOTER
+═══════════════════════════════════════ */
 
 .ephemeris-footer {
     display: flex;
@@ -1886,6 +1955,8 @@ textarea {
     cursor: none;
 
     opacity: 0.45;
+
+    transition: opacity 0.3s ease;
 }
 
 .ephemeris-return:hover {
@@ -1932,16 +2003,16 @@ textarea {
     top: 52%;
     left: 50%;
 
+    width: 300px;
+
     transform:
         translate(-50%, -50%);
 
-    width: 300px;
+    z-index: 200;
 
     text-align: center;
 
     font-family: var(--font-mono);
-
-    z-index: 200;
 
     transition:
         opacity 0.6s ease,
@@ -1949,11 +2020,11 @@ textarea {
 }
 
 .lock-symbol {
-    font-size: 24px;
-
     margin-bottom: 18px;
 
     color: var(--bordeaux);
+
+    font-size: 24px;
 
     opacity: 0.85;
 
@@ -1962,6 +2033,10 @@ textarea {
 }
 
 .lock-title {
+    margin-bottom: 14px;
+
+    color: var(--bordeaux);
+
     font-family: var(--font-display);
 
     font-size: 27px;
@@ -1970,15 +2045,15 @@ textarea {
 
     letter-spacing: 2px;
 
-    color: var(--bordeaux);
-
     text-shadow:
         0 0 10px var(--bordeaux-glow);
-
-    margin-bottom: 14px;
 }
 
 .lock-text {
+    margin-bottom: 25px;
+
+    color: var(--ink);
+
     font-size: 9px;
 
     letter-spacing: 2px;
@@ -1986,10 +2061,6 @@ textarea {
     line-height: 1.8;
 
     opacity: 0.55;
-
-    margin-bottom: 25px;
-
-    color: var(--ink);
 }
 
 .password-area {
@@ -2060,21 +2131,23 @@ textarea {
 .password-error {
     margin-top: 15px;
 
+    color: var(--ink);
+
     font-size: 9px;
 
     letter-spacing: 3px;
 
     opacity: 0;
 
-    color: var(--ink);
-
-    transition:
-        opacity 0.3s ease;
+    transition: opacity 0.3s ease;
 }
 
 .password-error.visible {
     opacity: 0.7;
 }
+
+
+/* LOCK STATE */
 
 #page-ephemeris.is-locked .calendar,
 #page-ephemeris.is-locked .date-entry,
@@ -2100,37 +2173,38 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   ARE YOU LOST
+   VISITOR BOOK
 ═══════════════════════════════════════ */
 
-.lost-title {
+#page-visitor-book {
     position: absolute;
 
-    top: 50%;
-    left: 50%;
+    inset: 0;
 
-    transform:
-        translate(-50%, -50%)
-        rotate(-3deg);
+    width: 100vw;
+    height: 100vh;
 
-    z-index: 60;
+    overflow-y: auto;
+    overflow-x: hidden;
 
-    color: #ffffff;
+    display: none;
 
-    font-family: var(--font-display);
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(91, 16, 41, 0.24),
+            transparent 48%
+        ),
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(181, 42, 80, 0.07),
+            transparent 30%
+        ),
+        #0a0a0a;
+}
 
-    font-size: clamp(40px, 7vw, 78px);
-
-    letter-spacing: 2px;
-
-    text-align: center;
-
-    white-space: nowrap;
-
-    text-shadow:
-        0 0 15px rgba(255, 255, 255, 0.5);
-
-    pointer-events: none;
+#page-visitor-book.active {
+    display: flex;
 }
 
 
@@ -2138,80 +2212,22 @@ textarea {
    VISITOR BOOK
 ═══════════════════════════════════════ */
 
-#page-visitor-book {
-    position: relative;
-
-    background:
-        radial-gradient(
-            circle at 50% 40%,
-            rgba(91, 16, 41, 0.22),
-            transparent 50%
-        ),
-        radial-gradient(
-            circle at 15% 80%,
-            rgba(181, 42, 80, 0.07),
-            transparent 35%
-        ),
-        #050505;
-
-    color: #ffffff;
-
-    overflow-y: auto;
-
-    isolation: isolate;
-}
-
-
-/* Ombre spooky */
-
-#page-visitor-book::before {
-    content: "✦   †   ✦   †   ✦";
-
-    position: fixed;
-
-    top: 20px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    z-index: 1;
-
-    font-family: Georgia, serif;
-
-    font-size: 13px;
-
-    letter-spacing: 18px;
-
-    color: var(--bordeaux);
-
-    opacity: 0.22;
-
-    pointer-events: none;
-}
-
-
-/* ═══════════════════════════════════════
-   THE BOOK
-═══════════════════════════════════════ */
-
 #page-visitor-book .visitor-book {
     position: relative;
-
-    top: 6vh;
-    left: auto;
-
-    transform: rotate(-0.8deg);
 
     width: min(900px, 90vw);
 
     min-height: 88vh;
 
+    margin: 6vh auto 8vh;
+
     padding: 50px 58px 75px;
 
     box-sizing: border-box;
 
-    border:
-        1px solid rgba(255, 255, 255, 0.55);
+    transform: rotate(-0.8deg);
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
 
     background:
         linear-gradient(
@@ -2221,7 +2237,7 @@ textarea {
             transparent 92%,
             rgba(255, 255, 255, 0.02)
         ),
-        rgba(5, 5, 5, 0.99);
+        rgba(10, 10, 10, 0.97);
 
     color: #ffffff;
 
@@ -2229,14 +2245,15 @@ textarea {
 
     box-shadow:
         10px 10px 0 rgba(91, 16, 41, 0.25),
-        -3px 0 0 rgba(255, 255, 255, 0.04),
-        0 0 45px rgba(91, 16, 41, 0.14);
+        -3px 0 0 rgba(255, 255, 255, 0.04);
 
     overflow: hidden;
 }
 
 
-/* Ombre intérieure pour donner un aspect vieux livre */
+/*
+   SPOOKY ATMOSPHERE
+*/
 
 #page-visitor-book .visitor-book::before {
     content: "✦";
@@ -2267,26 +2284,24 @@ textarea {
 
     font-family: Georgia, serif;
 
-    font-size: 22px;
+    font-size: 19px;
 
-    font-weight: bold;
-
-    opacity: 0.8;
+    opacity: 0.65;
 }
 
 
 /* ═══════════════════════════════════════
-   HEADER
+   VISITOR HEADER
 ═══════════════════════════════════════ */
 
 .visitor-book-header {
     position: relative;
 
-    text-align: center;
-
     margin-bottom: 38px;
 
     padding-bottom: 25px;
+
+    text-align: center;
 
     border-bottom:
         1px solid rgba(255, 255, 255, 0.28);
@@ -2300,11 +2315,9 @@ textarea {
     bottom: -9px;
     left: 50%;
 
-    transform: translateX(-50%);
-
     padding: 0 12px;
 
-    background: #050505;
+    background: #0a0a0a;
 
     color: var(--bordeaux);
 
@@ -2313,10 +2326,16 @@ textarea {
     font-size: 11px;
 
     letter-spacing: 4px;
+
+    transform: translateX(-50%);
 }
 
 .visitor-book-number {
     display: block;
+
+    margin-bottom: 12px;
+
+    color: var(--bordeaux);
 
     font-family: var(--font-mono);
 
@@ -2324,15 +2343,13 @@ textarea {
 
     letter-spacing: 5px;
 
-    color: var(--bordeaux);
-
     opacity: 0.8;
-
-    margin-bottom: 12px;
 }
 
 .visitor-book-header h1 {
     margin: 0 0 10px;
+
+    color: #ffffff;
 
     font-family: var(--font-display);
 
@@ -2342,14 +2359,14 @@ textarea {
 
     letter-spacing: 4px;
 
-    color: #ffffff;
-
     text-shadow:
         0 0 12px rgba(255, 255, 255, 0.15);
 }
 
 .visitor-book-header p {
     margin: 0;
+
+    color: rgba(255, 255, 255, 0.55);
 
     font-family: var(--font-serif);
 
@@ -2358,13 +2375,11 @@ textarea {
     font-style: italic;
 
     letter-spacing: 2px;
-
-    color: rgba(255, 255, 255, 0.55);
 }
 
 
 /* ═══════════════════════════════════════
-   CONTENT
+   VISITOR CONTENT
 ═══════════════════════════════════════ */
 
 .visitor-book-content {
@@ -2381,23 +2396,23 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   SECTION LABELS
+   LABELS
 ═══════════════════════════════════════ */
 
 .visitor-label {
     position: relative;
+
+    margin-bottom: 15px;
+
+    padding-left: 14px;
+
+    color: rgba(255, 255, 255, 0.65);
 
     font-family: var(--font-mono);
 
     font-size: 9px;
 
     letter-spacing: 4px;
-
-    color: rgba(255, 255, 255, 0.65);
-
-    margin-bottom: 15px;
-
-    padding-left: 14px;
 }
 
 .visitor-label::before {
@@ -2405,8 +2420,8 @@ textarea {
 
     position: absolute;
 
-    left: 0;
     top: 0;
+    left: 0;
 
     color: var(--bordeaux);
 
@@ -2415,7 +2430,7 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   WRITING AREA
+   WRITING SIDE
 ═══════════════════════════════════════ */
 
 .visitor-write {
@@ -2436,25 +2451,24 @@ textarea {
     display: block;
 
     width: 100%;
-
     height: 42px;
 
-    box-sizing: border-box;
+    margin-bottom: 15px;
 
     padding: 11px 13px;
 
-    margin-bottom: 15px;
+    box-sizing: border-box;
 
     border: none;
 
     border-bottom:
         1px solid rgba(255, 255, 255, 0.38);
 
+    outline: none;
+
     background: transparent;
 
     color: #ffffff;
-
-    outline: none;
 
     font-family: var(--font-mono);
 
@@ -2484,7 +2498,7 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   MESSAGE
+   MESSAGE TEXTAREA
 ═══════════════════════════════════════ */
 
 .visitor-write textarea {
@@ -2503,6 +2517,8 @@ textarea {
     border:
         1px solid rgba(255, 255, 255, 0.28);
 
+    outline: none;
+
     background:
         repeating-linear-gradient(
             to bottom,
@@ -2512,8 +2528,6 @@ textarea {
         );
 
     color: #ffffff;
-
-    outline: none;
 
     font-family: var(--font-serif);
 
@@ -2541,7 +2555,7 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   SUBMIT BUTTON
+   SUBMIT
 ═══════════════════════════════════════ */
 
 #visitor-submit {
@@ -2589,23 +2603,29 @@ textarea {
         rotate(-2deg);
 }
 
+#visitor-submit:disabled {
+    opacity: 0.4;
+
+    pointer-events: none;
+}
+
 
 /* ═══════════════════════════════════════
    STATUS
 ═══════════════════════════════════════ */
 
 .visitor-status {
+    min-height: 15px;
+
     margin-top: 13px;
 
-    min-height: 15px;
+    color: var(--bordeaux);
 
     font-family: var(--font-mono);
 
     font-size: 9px;
 
     letter-spacing: 2px;
-
-    color: var(--bordeaux);
 
     opacity: 0.8;
 }
@@ -2651,7 +2671,7 @@ textarea {
 
     padding: 55px 25px;
 
-    text-align: center;
+    color: rgba(255, 255, 255, 0.42);
 
     font-family: var(--font-serif);
 
@@ -2661,7 +2681,7 @@ textarea {
 
     line-height: 1.9;
 
-    color: rgba(255, 255, 255, 0.42);
+    text-align: center;
 }
 
 .visitor-empty::before {
@@ -2682,10 +2702,22 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   INDIVIDUAL VISITOR
+   SUPABASE — ACTUAL CLASS GENERATED
 ═══════════════════════════════════════ */
 
-.visitor-message-entry,
+/*
+   Le nouveau JS crée :
+
+   <div class="visitor-message">
+       <div class="visitor-message-name">...</div>
+       <div class="visitor-message-text">...</div>
+       <div class="visitor-message-date">...</div>
+   </div>
+
+   Donc on cible .visitor-message,
+   pas seulement .visitor-message-entry.
+*/
+
 .visitor-message {
     position: relative;
 
@@ -2709,7 +2741,6 @@ textarea {
     text-align: left;
 }
 
-.visitor-message-entry::before,
 .visitor-message::before {
     content: "✦";
 
@@ -2720,7 +2751,7 @@ textarea {
 
     padding: 0 2px;
 
-    background: #050505;
+    background: #0a0a0a;
 
     color: var(--bordeaux);
 
@@ -2730,31 +2761,35 @@ textarea {
 .visitor-message-name {
     margin-bottom: 8px;
 
+    color: var(--bordeaux);
+
     font-family: var(--font-mono);
 
     font-size: 9px;
 
-    letter-spacing: 3px;
+    font-weight: bold;
 
-    color: var(--bordeaux);
+    letter-spacing: 3px;
 
     text-transform: uppercase;
 }
 
 .visitor-message-text {
+    color: rgba(255, 255, 255, 0.85);
+
     font-family: var(--font-serif);
 
     font-size: 14px;
 
     line-height: 1.7;
 
-    color: rgba(255, 255, 255, 0.85);
-
     white-space: pre-wrap;
 }
 
 .visitor-message-date {
-    margin-top: 8px;
+    margin-top: 9px;
+
+    color: rgba(255, 255, 255, 0.28);
 
     font-family: var(--font-mono);
 
@@ -2762,12 +2797,12 @@ textarea {
 
     letter-spacing: 2px;
 
-    color: rgba(255, 255, 255, 0.35);
+    text-align: right;
 }
 
 
 /* ═══════════════════════════════════════
-   RETURN
+   CLOSE BOOK
 ═══════════════════════════════════════ */
 
 .visitor-book-return {
@@ -2801,16 +2836,13 @@ textarea {
     transform: translateX(-4px);
 }
 
-
-/* ═══════════════════════════════════════
-   WHISPER
-═══════════════════════════════════════ */
-
 .visitor-book-whisper {
     position: absolute;
 
     right: 58px;
     bottom: 25px;
+
+    color: rgba(255, 255, 255, 0.3);
 
     font-family: var(--font-serif);
 
@@ -2819,13 +2851,11 @@ textarea {
     font-style: italic;
 
     letter-spacing: 1px;
-
-    color: rgba(255, 255, 255, 0.3);
 }
 
 
 /* ═══════════════════════════════════════
-   MYSTERY BOX
+   MYSTERY BOX OVERLAY
 ═══════════════════════════════════════ */
 
 .mystery-box-overlay {
@@ -2843,8 +2873,8 @@ textarea {
     background:
         radial-gradient(
             circle at center,
-            rgba(91, 16, 41, 0.28),
-            rgba(5, 5, 5, 0.99) 68%
+            rgba(91, 16, 41, 0.22),
+            rgba(10, 10, 10, 0.985) 65%
         );
 
     opacity: 0;
@@ -2870,7 +2900,6 @@ textarea {
     position: relative;
 
     width: min(600px, 90vw);
-
     height: min(650px, 85vh);
 
     display: flex;
@@ -2878,7 +2907,6 @@ textarea {
     flex-direction: column;
 
     justify-content: center;
-
     align-items: center;
 }
 
@@ -2892,13 +2920,13 @@ textarea {
 
     top: 12%;
 
+    color: var(--ink-dim);
+
     font-family: var(--font-mono);
 
     font-size: 10px;
 
     letter-spacing: 4px;
-
-    color: var(--ink-dim);
 
     text-transform: lowercase;
 
@@ -2942,6 +2970,9 @@ textarea {
         scale(1.07);
 }
 
+
+/* BODY */
+
 .box-body {
     position: absolute;
 
@@ -2980,6 +3011,9 @@ textarea {
         transform 0.7s ease;
 }
 
+
+/* LID */
+
 .box-lid {
     position: absolute;
 
@@ -3010,13 +3044,14 @@ textarea {
         transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+
+/* LOCK */
+
 .box-lock {
     position: absolute;
 
     left: 50%;
     top: 66px;
-
-    transform: translateX(-50%);
 
     width: 20px;
     height: 24px;
@@ -3025,6 +3060,8 @@ textarea {
 
     justify-content: center;
     align-items: center;
+
+    transform: translateX(-50%);
 
     border:
         1px solid rgba(255, 255, 255, 0.75);
@@ -3039,6 +3076,9 @@ textarea {
 
     z-index: 5;
 }
+
+
+/* OPEN */
 
 .mystery-box.opened {
     transform:
@@ -3060,18 +3100,14 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   PASSWORD BOX
+   BOX MESSAGE
 ═══════════════════════════════════════ */
 
 .box-message {
     position: absolute;
 
     top: 58%;
-
     left: 50%;
-
-    transform:
-        translate(-50%, 20px);
 
     display: flex;
 
@@ -3080,6 +3116,9 @@ textarea {
     align-items: center;
 
     gap: 12px;
+
+    transform:
+        translate(-50%, 20px);
 
     opacity: 0;
 
@@ -3100,23 +3139,23 @@ textarea {
 }
 
 .box-message-small {
+    color: var(--ink-dim);
+
     font-family: var(--font-mono);
 
     font-size: 9px;
 
     letter-spacing: 4px;
-
-    color: var(--ink-dim);
 }
 
 .box-password {
+    color: var(--bordeaux);
+
     font-family: var(--font-display);
 
     font-size: clamp(45px, 7vw, 70px);
 
     letter-spacing: 12px;
-
-    color: var(--bordeaux);
 
     text-shadow:
         0 0 12px var(--bordeaux-glow),
@@ -3124,6 +3163,8 @@ textarea {
 }
 
 .box-message-hint {
+    color: var(--ink-dim);
+
     font-family: var(--font-serif);
 
     font-size: 11px;
@@ -3131,8 +3172,6 @@ textarea {
     font-style: italic;
 
     letter-spacing: 2px;
-
-    color: var(--ink-dim);
 }
 
 #enter-ephemeris {
@@ -3164,8 +3203,7 @@ textarea {
 #enter-ephemeris:hover {
     opacity: 1;
 
-    transform:
-        translateX(4px);
+    transform: translateX(4px);
 }
 
 
@@ -3194,12 +3232,121 @@ textarea {
 
     opacity: 0.4;
 
-    transition:
-        opacity 0.3s ease;
+    transition: opacity 0.3s ease;
 }
 
 .box-return:hover {
     opacity: 1;
+}
+
+
+/* ═══════════════════════════════════════
+   SECRET MESSAGES
+═══════════════════════════════════════ */
+
+#strange-message,
+#restart-message,
+#life-secret-message,
+#death-secret-message,
+#noctem-secret-message,
+#chronicle-secret-message,
+#library-secret-message {
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    z-index: 9000;
+
+    max-width: 80vw;
+
+    padding: 15px 22px;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.8);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.6);
+
+    background:
+        rgba(10, 10, 10, 0.93);
+
+    color: var(--ink);
+
+    font-family: var(--font-mono);
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    text-align: center;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+}
+
+#strange-message.visible,
+#restart-message.visible,
+#life-secret-message.visible,
+#death-secret-message.visible,
+#noctem-secret-message.visible,
+#chronicle-secret-message.visible,
+#library-secret-message.visible {
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+}
+
+
+/* ═══════════════════════════════════════
+   LOST PAGE
+═══════════════════════════════════════ */
+
+.lost-title {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-3deg);
+
+    z-index: 60;
+
+    color: #ffffff;
+
+    font-family: var(--font-display);
+
+    font-size: clamp(40px, 7vw, 78px);
+
+    letter-spacing: 2px;
+
+    text-align: center;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 0 15px rgba(255, 255, 255, 0.5);
+
+    pointer-events: none;
+}
+
+
+/* ═══════════════════════════════════════
+   GLITCH
+═══════════════════════════════════════ */
+
+.strange-glitch {
+    animation: strangeGlitch 0.7s steps(2, end);
 }
 
 
@@ -3214,29 +3361,7 @@ textarea {
     }
 
     50% {
-        transform: translateY(-3px);
-    }
-}
-
-@keyframes arrowPulse {
-    0%,
-    100% {
-        opacity: 0.55;
-    }
-
-    50% {
-        opacity: 1;
-    }
-}
-
-@keyframes strangePulse {
-    0%,
-    100% {
-        opacity: 0.45;
-    }
-
-    50% {
-        opacity: 1;
+        transform: translateY(-4px);
     }
 }
 
@@ -3246,8 +3371,7 @@ textarea {
 
         transform:
             translate(-50%, -50%)
-            scale(1)
-            rotate(0deg);
+            scale(1);
     }
 
     100% {
@@ -3255,75 +3379,159 @@ textarea {
 
         transform:
             translate(
-                calc(-50% + 120px),
-                calc(-50% - 90px)
+                calc(-50% + 35px),
+                calc(-50% - 45px)
             )
-            scale(0.45)
-            rotate(360deg);
+            rotate(25deg)
+            scale(0.4);
+    }
+}
+
+@keyframes arrowPulse {
+    0%,
+    100% {
+        opacity: 0.45;
+
+        transform: translateX(0);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform: translateX(5px);
+    }
+}
+
+@keyframes strangePulse {
+    0%,
+    100% {
+        opacity: 0.55;
+
+        filter: brightness(0.8);
+    }
+
+    50% {
+        opacity: 1;
+
+        filter: brightness(1.35);
+    }
+}
+
+@keyframes strangeGlitch {
+    0% {
+        transform: translate(0);
+        filter: none;
+    }
+
+    20% {
+        transform: translate(-3px, 2px);
+
+        filter:
+            contrast(1.4)
+            brightness(1.3);
+    }
+
+    40% {
+        transform: translate(3px, -2px);
+
+        filter:
+            contrast(0.7);
+    }
+
+    60% {
+        transform: translate(-2px, -1px);
+
+        filter:
+            brightness(1.5);
+    }
+
+    80% {
+        transform: translate(2px, 2px);
+
+        filter: none;
+    }
+
+    100% {
+        transform: translate(0);
+
+        filter: none;
     }
 }
 
 
 /* ═══════════════════════════════════════
-   RESPONSIVE
+   MOBILE
 ═══════════════════════════════════════ */
 
 @media (max-width: 700px) {
 
     .welcome-title {
-        width: 70%;
+        width: 75%;
+
+        top: 10%;
     }
 
     .welcome-name {
-        font-size: 23px;
+        font-size: 20px;
+
+        padding: 7px 12px;
     }
 
     .time-warning {
-        left: 27%;
+        left: 16%;
+
         bottom: 9%;
 
         font-size: 8px;
     }
 
-    .divide-label {
-        font-size: 28px;
+    .strange-button-one {
+        right: 8%;
 
-        padding: 7px 15px;
+        font-size: 12px;
+    }
+
+    .divide-label {
+        font-size: 27px;
+
+        padding: 7px 14px;
+    }
+
+    .living-choice {
+        font-size: 23px;
+    }
+
+    .section-whisper {
+        font-size: 7px;
+
+        letter-spacing: 3px;
     }
 
     .other-side-choice {
         font-size: 14px;
     }
 
+    .noctem-main-title {
+        font-size: 23px;
+    }
+
     .chronicles-title,
     .library-title {
-        left: 72%;
-
-        font-size: 30px;
+        font-size: 32px;
     }
 
-    .chronicle-entry,
-    .library-entry {
-        transform: scale(0.85);
-    }
+    .visitor-book-content {
+        grid-template-columns: 1fr;
 
-    .chronicle-entry:hover,
-    .library-entry:hover {
-        transform:
-            scale(1)
-            rotate(-5deg);
-    }
-
-    #page-visitor-book {
-        overflow-y: auto;
+        gap: 35px;
     }
 
     #page-visitor-book .visitor-book {
-        top: 3vh;
-
         width: 94vw;
 
         min-height: 94vh;
+
+        margin: 3vh auto 6vh;
 
         padding:
             35px
@@ -3331,20 +3539,6 @@ textarea {
             70px;
 
         transform: rotate(0deg);
-
-        box-shadow:
-            6px 6px 0 rgba(91, 16, 41, 0.25),
-            0 0 35px rgba(91, 16, 41, 0.15);
-    }
-
-    .visitor-book-header h1 {
-        font-size: 40px;
-    }
-
-    .visitor-book-content {
-        grid-template-columns: 1fr;
-
-        gap: 35px;
     }
 
     .visitor-write {
@@ -3362,8 +3556,13 @@ textarea {
         max-height: 320px;
     }
 
+    .visitor-book-header h1 {
+        font-size: 40px;
+    }
+
     .visitor-book-return {
         left: 25px;
+
         bottom: 22px;
     }
 
@@ -3403,5 +3602,23 @@ textarea {
 
     .box-return {
         bottom: 5%;
+    }
+
+    #page-ephemeris .ephemeris-interface {
+        width: 94vw;
+
+        padding: 30px 20px;
+    }
+
+    .calendar-day {
+        min-height: 50px;
+
+        font-size: 9px;
+    }
+
+    .ephemeris-footer {
+        flex-direction: column;
+
+        gap: 8px;
     }
 }
