@@ -72,7 +72,13 @@ body {
    INTERFACE IMAGES
 ═══════════════════════════════════════ */
 
-.page > .interface-image {
+.interface-image {
+    .interface {
+    position: relative;
+    height: 100vh;
+    width: max-content;
+    flex-shrink: 0;
+}
     position: relative;
 
     z-index: 1;
