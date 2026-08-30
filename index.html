@@ -932,7 +932,7 @@
 
 
                 <!-- ═════════════════════
-                     VISITOR BOOK
+                     VISITOR BOOK — II
                 ═════════════════════ -->
 
                 <button
@@ -1109,15 +1109,16 @@
 
 
                 <!-- ═════════════════════
-                     RETURN
+                     CLOSE THE BOOK
                 ═════════════════════ -->
 
                 <button
                     class="visitor-book-return"
-                    onclick="showPage('page-library')"
-                    aria-label="Return to Library"
+                    id="visitor-book-close"
+                    type="button"
+                    aria-label="Close the Visitor Book"
                 >
-                    ← RETURN TO LIBRARY
+                    CLOSE THE BOOK ✦
                 </button>
 
 
@@ -1128,6 +1129,88 @@
             </div>
 
         </section>
+
+
+
+        <!-- ═════════════════════════════════════
+             MYSTERY BOX
+        ═════════════════════════════════════ -->
+
+        <div
+            id="mystery-box-overlay"
+            class="mystery-box-overlay"
+        >
+
+            <div class="mystery-box-scene">
+
+
+                <div class="mystery-box-whisper">
+                    you left something behind.
+                </div>
+
+
+                <button
+                    id="mystery-box"
+                    class="mystery-box"
+                    type="button"
+                    aria-label="Open the mysterious box"
+                >
+
+                    <span class="box-lid"></span>
+
+                    <span class="box-body">
+                        ✦
+                    </span>
+
+                    <span class="box-lock">
+                        ?
+                    </span>
+
+                </button>
+
+
+                <div
+                    id="box-message"
+                    class="box-message"
+                >
+
+                    <span class="box-message-small">
+                        YOU FOUND IT.
+                    </span>
+
+
+                    <span class="box-password">
+                        7023
+                    </span>
+
+
+                    <span class="box-message-hint">
+                        remember this.
+                    </span>
+
+
+                    <button
+                        id="enter-ephemeris"
+                        type="button"
+                    >
+                        ENTER THE EPHEMERIS →
+                    </button>
+
+                </div>
+
+
+                <button
+                    id="box-return"
+                    class="box-return"
+                    type="button"
+                >
+                    ← RETURN TO LIBRARY
+                </button>
+
+
+            </div>
+
+        </div>
 
 
 
@@ -1178,7 +1261,7 @@
 
 
     <!-- ═════════════════════════════════════
-         EPHEMERIS SCRIPTS
+         EPHEMERIS
     ═════════════════════════════════════ -->
 
     <script src="ephemeris/events.js"></script>
