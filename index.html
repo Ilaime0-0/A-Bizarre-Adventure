@@ -12,18 +12,28 @@
 
     <title>Welcome to a Bizarre Adventure</title>
 
+    <!-- ═════════════════════════════════════
+         FONT
+    ═════════════════════════════════════ -->
+
     <link
         href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap"
         rel="stylesheet"
     >
 
-    <link rel="stylesheet" href="style.css">
+    <!-- ═════════════════════════════════════
+         CSS
+    ═════════════════════════════════════ -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 </head>
 
 
 <body>
-
 
     <!-- ═════════════════════════════════════
          SPIDER CURSOR
@@ -46,51 +56,44 @@
     </div>
 
 
+    <!-- ═════════════════════════════════════
+         MAIN ADVENTURE
+    ═════════════════════════════════════ -->
 
     <main class="adventure">
 
 
-        <!-- ═════════════════════════════════════
+        <!-- ╔════════════════════════════════════╗
              01 — WELCOME
-        ═════════════════════════════════════ -->
+             ╚════════════════════════════════════╝ -->
 
         <section
             class="page active"
             id="page-01"
         >
 
-            <div
-                class="interface"
-                style="
-                    position: relative;
-                    display: inline-block;
-                    height: 100vh;
-                    width: max-content;
-                "
-            >
+            <div class="interface">
 
                 <img
                     src="images/welcome.png"
                     alt="Welcome to a bizarre adventure"
                     class="interface-image"
-                    style="
-                        display: block;
-                        width: auto;
-                        height: 100vh;
-                        max-width: none;
-                        max-height: 100vh;
-                    "
                 >
 
+
+                <!-- WELCOME TITLE -->
 
                 <div class="welcome-title">
 
                     <span class="welcome-name">
-                        WELCOME TO A BIZARRE ADVENTURE
+                        WELCOME TO A<br>
+                        BIZARRE ADVENTURE
                     </span>
 
                 </div>
 
+
+                <!-- WARNING -->
 
                 <div class="time-warning">
 
@@ -106,6 +109,8 @@
                 </div>
 
 
+                <!-- ENTER ZONE -->
+
                 <button
                     class="hotspot welcome"
                     onclick="showPage('page-02')"
@@ -113,21 +118,26 @@
                 ></button>
 
 
+                <!-- DON'T -->
+
                 <button
                     class="strange-button strange-button-one"
+                    type="button"
                     aria-label="Don't"
                 >
                     DON'T
                 </button>
 
 
+                <!-- SECRET -->
+
                 <button
                     class="secret-symbol"
+                    type="button"
                     aria-label="Something strange"
                 >
                     ✦
                 </button>
-
 
                 <div id="strange-message">
                     you weren't supposed to find this.
@@ -139,43 +149,44 @@
 
 
 
-        <!-- ═════════════════════════════════════
-             THE DIVIDE
-        ═════════════════════════════════════ -->
+        <!-- ╔════════════════════════════════════╗
+             02 — THE DIVIDE
+             ╚════════════════════════════════════╝ -->
 
         <section
             class="page"
             id="page-02"
         >
 
-            <div
-                class="interface"
-                style="
-                    position: relative;
-                    display: inline-block;
-                    height: 100vh;
-                    width: max-content;
-                "
-            >
+            <div class="interface">
 
                 <img
                     src="images/life_death.png"
                     alt="Life or Death"
                     class="interface-image"
-                    style="
-                        display: block;
-                        width: auto;
-                        height: 100vh;
-                        max-width: none;
-                        max-height: 100vh;
-                    "
                 >
 
 
-                <div class="section-whisper divide-heading">
-                    THE DIVIDE
+                <!-- THE DIVIDE
+                     Grille décalée -->
+
+                <div class="section-whisper divide-heading shifted-heading">
+
+                    <span>T</span>
+                    <span>H</span>
+                    <span>E</span>
+
+                    <span>D</span>
+                    <span>I</span>
+                    <span>V</span>
+                    <span>I</span>
+                    <span>D</span>
+                    <span>E</span>
+
                 </div>
 
+
+                <!-- LIFE -->
 
                 <button
                     class="hotspot life"
@@ -183,11 +194,12 @@
                     aria-label="Life"
                 ></button>
 
-
                 <div class="divide-label divide-life-label">
                     LIFE
                 </div>
 
+
+                <!-- DEATH -->
 
                 <button
                     class="hotspot death"
@@ -195,37 +207,45 @@
                     aria-label="Death"
                 ></button>
 
-
                 <div class="divide-label divide-death-label">
                     DEATH
                 </div>
 
+
+                <!-- CENTER WHISPER -->
 
                 <div class="divide-whisper">
                     choose carefully
                 </div>
 
 
+                <!-- STRANGE CLOCK -->
+
                 <div class="strange-clock">
                     01:??:??
                 </div>
 
 
+                <!-- RESTART -->
+
                 <button
                     class="restart-button"
+                    type="button"
                     aria-label="Restart"
                 >
                     RESTART
                 </button>
 
 
+                <!-- SECRET -->
+
                 <button
                     class="divide-secret"
+                    type="button"
                     aria-label="Secret"
                 >
                     ✦
                 </button>
-
 
                 <div id="restart-message">
                     you never left.
@@ -237,64 +257,78 @@
 
 
 
-        <!-- ═════════════════════════════════════
-             THE LIVING SIDE
-        ═════════════════════════════════════ -->
+        <!-- ╔════════════════════════════════════╗
+             03 — THE LIVING SIDE
+             ╚════════════════════════════════════╝ -->
 
         <section
             class="page"
             id="page-03"
         >
 
-            <div
-                class="interface"
-                style="
-                    position: relative;
-                    display: inline-block;
-                    height: 100vh;
-                    width: max-content;
-                "
-            >
+            <div class="interface">
 
                 <img
                     src="images/reality_inbetween_ficition.png"
                     alt="Reality, In Between and Fiction"
                     class="interface-image"
-                    style="
-                        display: block;
-                        width: auto;
-                        height: 100vh;
-                        max-width: none;
-                        max-height: 100vh;
-                    "
                 >
 
 
-                <div class="section-whisper living-heading">
-                    THE LIVING SIDE
+                <!-- THE LIVING SIDE
+                     Grille décalée -->
+
+                <div class="section-whisper living-heading shifted-heading">
+
+                    <span>T</span>
+                    <span>H</span>
+                    <span>E</span>
+
+                    <span>L</span>
+                    <span>I</span>
+                    <span>V</span>
+                    <span>I</span>
+                    <span>N</span>
+                    <span>G</span>
+
+                    <span>S</span>
+                    <span>I</span>
+                    <span>D</span>
+                    <span>E</span>
+
                 </div>
 
+
+                <!-- REALITY -->
 
                 <div class="living-choice reality-choice">
                     REALITY
                 </div>
 
 
+                <!-- IN BETWEEN -->
+
                 <div class="living-choice between-choice">
                     IN BETWEEN
                 </div>
 
+
+                <!-- FICTION -->
 
                 <div class="living-choice fiction-choice">
                     FICTION
                 </div>
 
 
+                <!-- WHISPER -->
+
                 <div class="life-whisper">
                     everything is real<br>
                     until it isn't
                 </div>
 
+
+                <!-- INTERACTIVE ZONES -->
 
                 <button
                     class="hotspot reality"
@@ -305,23 +339,27 @@
 
                 <button
                     class="hotspot between"
+                    type="button"
                     aria-label="In Between"
                 ></button>
 
 
                 <button
                     class="hotspot fiction"
+                    type="button"
                     aria-label="Fiction"
                 ></button>
 
 
+                <!-- SECRET + -->
+
                 <button
-                    class="life-secret"
+                    class="life-secret visible-secret"
+                    type="button"
                     aria-label="Something hidden"
                 >
                     +
                 </button>
-
 
                 <div id="life-secret-message">
                     you're somewhere between.
@@ -333,9 +371,9 @@
 
 
 
-        <!-- ═════════════════════════════════════
+        <!-- ╔════════════════════════════════════╗
              EPHEMERIS
-        ═════════════════════════════════════ -->
+             ╚════════════════════════════════════╝ -->
 
         <section
             class="page"
@@ -345,17 +383,17 @@
             <div class="ephemeris-interface">
 
 
+                <!-- HEADER -->
+
                 <div class="ephemeris-header">
 
                     <span class="ephemeris-number">
                         REALITY
                     </span>
 
-
                     <h1>
                         EPHEMERIS
                     </h1>
-
 
                     <span class="ephemeris-subtitle">
                         a record of things that happened
@@ -364,10 +402,9 @@
                 </div>
 
 
-
-                <!-- ═════════════════════
+                <!-- ═════════════════════════════
                      LOCK
-                ═════════════════════ -->
+                ═════════════════════════════ -->
 
                 <div
                     id="ephemeris-lock"
@@ -378,16 +415,13 @@
                         ✦
                     </div>
 
-
                     <div class="lock-title">
                         ACCESS RESTRICTED
                     </div>
 
-
                     <div class="lock-text">
                         this record is not meant for everyone.
                     </div>
-
 
                     <div class="password-area">
 
@@ -399,7 +433,6 @@
                             autocomplete="off"
                         >
 
-
                         <button
                             id="ephemeris-unlock"
                             type="button"
@@ -408,7 +441,6 @@
                         </button>
 
                     </div>
-
 
                     <div
                         id="password-error"
@@ -420,10 +452,9 @@
                 </div>
 
 
-
-                <!-- ═════════════════════
+                <!-- ═════════════════════════════
                      CALENDAR
-                ═════════════════════ -->
+                ═════════════════════════════ -->
 
                 <div class="calendar">
 
@@ -432,11 +463,11 @@
                         <button
                             class="calendar-arrow"
                             id="previous-month"
+                            type="button"
                             aria-label="Previous month"
                         >
                             ‹
                         </button>
-
 
                         <div
                             id="calendar-month"
@@ -445,10 +476,10 @@
                             AUGUST 2026
                         </div>
 
-
                         <button
                             class="calendar-arrow"
                             id="next-month"
+                            type="button"
                             aria-label="Next month"
                         >
                             ›
@@ -478,10 +509,9 @@
                 </div>
 
 
-
-                <!-- ═════════════════════
+                <!-- ═════════════════════════════
                      DATE ENTRY
-                ═════════════════════ -->
+                ═════════════════════════════ -->
 
                 <div
                     id="date-entry"
@@ -492,7 +522,6 @@
                         SELECT A DATE
                     </div>
 
-
                     <div class="entry-content">
                         nothing has been recorded.
                     </div>
@@ -500,10 +529,9 @@
                 </div>
 
 
-
-                <!-- ═════════════════════
+                <!-- ═════════════════════════════
                      FOOTER
-                ═════════════════════ -->
+                ═════════════════════════════ -->
 
                 <div class="ephemeris-footer">
 
@@ -513,7 +541,6 @@
                             29 / 08 / 2026
                         </span>
                     </div>
-
 
                     <div>
                         NEXT EVENT:
@@ -532,16 +559,18 @@
 
                 <button
                     class="ephemeris-return"
+                    type="button"
                     onclick="showLostPage()"
                     aria-label="Return"
                 >
-                    ← RETURN
+                    RETURN ←
                 </button>
 
 
                 <button
                     id="ephemeris-secret"
                     class="ephemeris-secret"
+                    type="button"
                     aria-label="Something strange"
                 >
                     ✦
@@ -553,103 +582,126 @@
 
 
 
-        <!-- ═════════════════════════════════════
+        <!-- ╔════════════════════════════════════╗
              THE OTHER SIDE
-        ═════════════════════════════════════ -->
+             ╚════════════════════════════════════╝ -->
 
         <section
             class="page"
             id="page-03-death"
         >
 
-            <div
-                class="interface"
-                style="
-                    position: relative;
-                    display: inline-block;
-                    height: 100vh;
-                    width: max-content;
-                "
-            >
+            <div class="interface">
 
                 <img
                     src="images/obss_ca_cons.png"
                     alt="Obsession, Carpe Noctem and Conspirations"
                     class="interface-image"
-                    style="
-                        display: block;
-                        width: auto;
-                        height: 100vh;
-                        max-width: none;
-                        max-height: 100vh;
-                    "
                 >
 
 
-                <div class="section-whisper other-heading">
-                    THE OTHER SIDE
+                <!-- THE OTHER SIDE
+                     Grille décalée -->
+
+                <div class="section-whisper other-heading shifted-heading">
+
+                    <span>T</span>
+                    <span>H</span>
+                    <span>E</span>
+
+                    <span>O</span>
+                    <span>T</span>
+                    <span>H</span>
+                    <span>E</span>
+                    <span>R</span>
+
+                    <span>S</span>
+                    <span>I</span>
+                    <span>D</span>
+                    <span>E</span>
+
                 </div>
 
+
+                <!-- OBSESSION -->
 
                 <div class="other-side-choice obsession-choice">
-                    O<br>
-                    B<br>
-                    S<br>
-                    E<br>
-                    S<br>
-                    S<br>
-                    I<br>
-                    O<br>
-                    N
+
+                    <span>O</span>
+                    <span>B</span>
+                    <span>S</span>
+                    <span>E</span>
+                    <span>S</span>
+                    <span>S</span>
+                    <span>I</span>
+                    <span>O</span>
+                    <span>N</span>
+
                 </div>
 
+
+                <!-- CARPE NOCTEM -->
 
                 <div class="other-side-choice noctem-choice">
-                    C<br>
-                    A<br>
-                    R<br>
-                    P<br>
-                    E<br>
-                    <br>
-                    N<br>
-                    O<br>
-                    C<br>
-                    T<br>
-                    E<br>
-                    M
+
+                    <span>C</span>
+                    <span>A</span>
+                    <span>R</span>
+                    <span>P</span>
+                    <span>E</span>
+
+                    <span class="letter-space"></span>
+
+                    <span>N</span>
+                    <span>O</span>
+                    <span>C</span>
+                    <span>T</span>
+                    <span>E</span>
+                    <span>M</span>
+
                 </div>
 
+
+                <!-- CONSPIRATIONS -->
 
                 <div class="other-side-choice conspirations-choice">
-                    C<br>
-                    O<br>
-                    N<br>
-                    S<br>
-                    P<br>
-                    I<br>
-                    R<br>
-                    A<br>
-                    T<br>
-                    I<br>
-                    O<br>
-                    N<br>
-                    S
+
+                    <span>C</span>
+                    <span>O</span>
+                    <span>N</span>
+                    <span>S</span>
+                    <span>P</span>
+                    <span>I</span>
+                    <span>R</span>
+                    <span>A</span>
+                    <span>T</span>
+                    <span>I</span>
+                    <span>O</span>
+                    <span>N</span>
+                    <span>S</span>
+
                 </div>
 
+
+                <!-- WHISPER -->
 
                 <div class="death-whisper">
                     don't look too long.
                 </div>
 
 
+                <!-- INTERACTIVE ZONES -->
+
                 <button
                     class="hotspot obsession"
+                    type="button"
                     aria-label="Obsession"
                 ></button>
 
 
                 <button
                     class="hotspot noctem"
+                    type="button"
                     onclick="showPage('page-04')"
                     aria-label="Carpe Noctem"
                 ></button>
@@ -657,17 +709,20 @@
 
                 <button
                     class="hotspot conspirations"
+                    type="button"
                     aria-label="Conspirations"
                 ></button>
 
 
+                <!-- SECRET ? -->
+
                 <button
-                    class="death-secret"
+                    class="death-secret visible-secret"
+                    type="button"
                     aria-label="Do not click"
                 >
                     ?
                 </button>
-
 
                 <div id="death-secret-message">
                     it knows you're here.
@@ -679,38 +734,25 @@
 
 
 
-        <!-- ═════════════════════════════════════
-             CARPE NOCTEM
-        ═════════════════════════════════════ -->
+        <!-- ╔════════════════════════════════════╗
+             04 — CARPE NOCTEM
+             ╚════════════════════════════════════╝ -->
 
         <section
             class="page"
             id="page-04"
         >
 
-            <div
-                class="interface"
-                style="
-                    position: relative;
-                    display: inline-block;
-                    height: 100vh;
-                    width: max-content;
-                "
-            >
+            <div class="interface">
 
                 <img
                     src="images/chronique_library.png"
                     alt="Carpe Noctem — Chroniques and Library"
                     class="interface-image"
-                    style="
-                        display: block;
-                        width: auto;
-                        height: 100vh;
-                        max-width: none;
-                        max-height: 100vh;
-                    "
                 >
 
+
+                <!-- TITLE -->
 
                 <div class="noctem-main-title">
                     CARPE NOCTEM
@@ -722,12 +764,16 @@
                 </div>
 
 
+                <!-- HEART — CHRONIQUES -->
+
                 <button
                     class="hotspot heart-left"
                     onclick="showPage('page-chroniques')"
                     aria-label="Chroniques"
                 ></button>
 
+
+                <!-- HEART — LIBRARY -->
 
                 <button
                     class="hotspot heart-right"
@@ -736,13 +782,15 @@
                 ></button>
 
 
+                <!-- SECRET -->
+
                 <button
                     class="noctem-secret"
+                    type="button"
                     aria-label="Something hidden"
                 >
                     †
                 </button>
-
 
                 <div id="noctem-secret-message">
                     stay until the lights go out.
@@ -754,38 +802,25 @@
 
 
 
-        <!-- ═════════════════════════════════════
+        <!-- ╔════════════════════════════════════╗
              CHRONIQUES
-        ═════════════════════════════════════ -->
+             ╚════════════════════════════════════╝ -->
 
         <section
             class="page"
             id="page-chroniques"
         >
 
-            <div
-                class="interface"
-                style="
-                    position: relative;
-                    display: inline-block;
-                    height: 100vh;
-                    width: max-content;
-                "
-            >
+            <div class="interface">
 
                 <img
                     src="images/chroniques.png"
                     alt="Chroniques"
                     class="interface-image"
-                    style="
-                        display: block;
-                        width: auto;
-                        height: 100vh;
-                        max-width: none;
-                        max-height: 100vh;
-                    "
                 >
 
+
+                <!-- TITLE -->
 
                 <div class="page-main-title chronicles-title">
                     CHRONIQUES
@@ -797,61 +832,114 @@
                 </div>
 
 
-                <button
-                    class="chronicle-entry chronicle-one"
-                    aria-label="Chronique 01"
-                >
+                <!-- ═════════════════════════════
+                     CARD OF 10 — CLUBS
+                ═════════════════════════════ -->
 
-                    <span class="entry-number">
-                        01
-                    </span>
+                <div class="chronicle-card-layout">
 
-                    <span class="entry-symbol">
-                        ✦
-                    </span>
+                    <button
+                        class="chronicle-card card-club-1"
+                        type="button"
+                        aria-label="Chronique 1"
+                    >
+                        <span>♣</span>
+                        <span>1</span>
+                    </button>
 
-                </button>
+                    <button
+                        class="chronicle-card card-club-2"
+                        type="button"
+                        aria-label="Chronique 2"
+                    >
+                        <span>♣</span>
+                        <span>2</span>
+                    </button>
+
+                    <button
+                        class="chronicle-card card-club-3"
+                        type="button"
+                        aria-label="Chronique 3"
+                    >
+                        <span>♣</span>
+                        <span>3</span>
+                    </button>
+
+                    <button
+                        class="chronicle-card card-club-4"
+                        type="button"
+                        aria-label="Chronique 4"
+                    >
+                        <span>♣</span>
+                        <span>4</span>
+                    </button>
+
+                    <button
+                        class="chronicle-card card-club-5"
+                        type="button"
+                        aria-label="Chronique 5"
+                    >
+                        <span>♣</span>
+                        <span>5</span>
+                    </button>
+
+                    <button
+                        class="chronicle-card card-club-6"
+                        type="button"
+                        aria-label="Chronique 6"
+                    >
+                        <span>♣</span>
+                        <span>6</span>
+                    </button>
+
+                    <button
+                        class="chronicle-card card-club-7"
+                        type="button"
+                        aria-label="Chronique 7"
+                    >
+                        <span>♣</span>
+                        <span>7</span>
+                    </button>
+
+                    <button
+                        class="chronicle-card card-club-8"
+                        type="button"
+                        aria-label="Chronique 8"
+                    >
+                        <span>♣</span>
+                        <span>8</span>
+                    </button>
+
+                    <button
+                        class="chronicle-card card-club-9"
+                        type="button"
+                        aria-label="Chronique 9"
+                    >
+                        <span>♣</span>
+                        <span>9</span>
+                    </button>
+
+                    <button
+                        class="chronicle-card card-club-10"
+                        type="button"
+                        aria-label="Chronique 10"
+                    >
+                        <span>♣</span>
+                        <span>10</span>
+                    </button>
+
+                </div>
 
 
-                <button
-                    class="chronicle-entry chronicle-two"
-                    aria-label="Chronique 02"
-                >
-
-                    <span class="entry-number">
-                        02
-                    </span>
-
-                    <span class="entry-symbol">
-                        ✦
-                    </span>
-
-                </button>
-
-
-                <button
-                    class="chronicle-entry chronicle-three"
-                    aria-label="Chronique 03"
-                >
-
-                    <span class="entry-number">
-                        03
-                    </span>
-
-                    <span class="entry-symbol">
-                        ✦
-                    </span>
-
-                </button>
-
+                <!-- SECRET -->
 
                 <button
                     class="chronicle-secret"
+                    type="button"
                     aria-label="Something hidden"
                 >
                     ?
                 </button>
-
 
                 <div id="chronicle-secret-message">
                     some stories should remain unfinished.
@@ -863,122 +951,142 @@
 
 
 
-        <!-- ═════════════════════════════════════
+        <!-- ╔════════════════════════════════════╗
              LIBRARY
-        ═════════════════════════════════════ -->
+             ╚════════════════════════════════════╝ -->
 
         <section
             class="page"
             id="page-library"
         >
 
-            <div
-                class="interface"
-                style="
-                    position: relative;
-                    display: inline-block;
-                    height: 100vh;
-                    width: max-content;
-                "
-            >
+            <div class="interface">
 
                 <img
                     src="images/library.png"
                     alt="Library"
                     class="interface-image"
-                    style="
-                        display: block;
-                        width: auto;
-                        height: 100vh;
-                        max-width: none;
-                        max-height: 100vh;
-                    "
                 >
 
 
-                <div class="section-whisper library-heading">
-                    THE LIBRARY
-                </div>
-
+                <!-- TITLE -->
 
                 <div class="page-main-title library-title">
                     LIBRARY
                 </div>
 
 
-                <div class="library-whisper">
-                    books remember what people forget.
+                <!-- ═════════════════════════════
+                     CARD OF 10 — SPADES
+                ═════════════════════════════ -->
+
+                <div class="library-card-layout">
+
+                    <button
+                        class="library-card card-spade-1"
+                        type="button"
+                        aria-label="Library entry 1"
+                    >
+                        <span>♠</span>
+                        <span>1</span>
+                    </button>
+
+                    <button
+                        class="library-card card-spade-2"
+                        type="button"
+                        aria-label="Library entry 2"
+                    >
+                        <span>♠</span>
+                        <span>2</span>
+                    </button>
+
+                    <button
+                        class="library-card card-spade-3"
+                        type="button"
+                        aria-label="Library entry 3"
+                    >
+                        <span>♠</span>
+                        <span>3</span>
+                    </button>
+
+                    <button
+                        class="library-card card-spade-4"
+                        type="button"
+                        aria-label="Library entry 4"
+                    >
+                        <span>♠</span>
+                        <span>4</span>
+                    </button>
+
+                    <button
+                        class="library-card card-spade-5"
+                        type="button"
+                        aria-label="Library entry 5"
+                    >
+                        <span>♠</span>
+                        <span>5</span>
+                    </button>
+
+                    <button
+                        class="library-card card-spade-6"
+                        type="button"
+                        aria-label="Library entry 6"
+                    >
+                        <span>♠</span>
+                        <span>6</span>
+                    </button>
+
+                    <button
+                        class="library-card card-spade-7"
+                        type="button"
+                        aria-label="Library entry 7"
+                    >
+                        <span>♠</span>
+                        <span>7</span>
+                    </button>
+
+                    <button
+                        class="library-card card-spade-8"
+                        type="button"
+                        aria-label="Library entry 8"
+                    >
+                        <span>♠</span>
+                        <span>8</span>
+                    </button>
+
+                    <button
+                        class="library-card card-spade-9"
+                        type="button"
+                        aria-label="Library entry 9"
+                    >
+                        <span>♠</span>
+                        <span>9</span>
+                    </button>
+
+                    <!-- 10 = VISITOR BOOK -->
+
+                    <button
+                        class="library-card card-spade-10"
+                        type="button"
+                        onclick="showPage('page-visitor-book')"
+                        aria-label="The Visitor Book"
+                    >
+                        <span>♠</span>
+                        <span>10</span>
+                    </button>
+
                 </div>
 
 
-                <!-- ═════════════════════
-                     LIBRARY ENTRY I
-                ═════════════════════ -->
+                <!-- SECRET CROSS -->
 
                 <button
-                    class="library-entry library-one"
-                    aria-label="Library entry one"
-                >
-
-                    <span class="library-number">
-                        I
-                    </span>
-
-                    <span class="library-mark">
-                        ✦
-                    </span>
-
-                </button>
-
-
-                <!-- ═════════════════════
-                     VISITOR BOOK — II
-                ═════════════════════ -->
-
-                <button
-                    class="library-entry library-two"
-                    onclick="showPage('page-visitor-book')"
-                    aria-label="The Visitor Book"
-                >
-
-                    <span class="library-number">
-                        II
-                    </span>
-
-                    <span class="library-mark">
-                        ✦
-                    </span>
-
-                </button>
-
-
-                <!-- ═════════════════════
-                     LIBRARY ENTRY III
-                ═════════════════════ -->
-
-                <button
-                    class="library-entry library-three"
-                    aria-label="Library entry three"
-                >
-
-                    <span class="library-number">
-                        III
-                    </span>
-
-                    <span class="library-mark">
-                        ✦
-                    </span>
-
-                </button>
-
-
-                <button
-                    class="library-secret"
+                    class="library-secret visible-secret"
+                    type="button"
                     aria-label="Something hidden"
                 >
                     †
                 </button>
-
 
                 <div id="library-secret-message">
                     this book was never written.
@@ -990,9 +1098,9 @@
 
 
 
-        <!-- ═════════════════════════════════════
+        <!-- ╔════════════════════════════════════╗
              VISITOR BOOK
-        ═════════════════════════════════════ -->
+             ╚════════════════════════════════════╝ -->
 
         <section
             class="page"
@@ -1002,9 +1110,7 @@
             <div class="visitor-book">
 
 
-                <!-- ═════════════════════
-                     HEADER
-                ═════════════════════ -->
+                <!-- HEADER -->
 
                 <div class="visitor-book-header">
 
@@ -1012,11 +1118,9 @@
                         II — THE VISITOR BOOK
                     </span>
 
-
                     <h1>
                         VISITOR BOOK
                     </h1>
-
 
                     <p>
                         leave something behind.
@@ -1025,24 +1129,18 @@
                 </div>
 
 
-
-                <!-- ═════════════════════
-                     CONTENT
-                ═════════════════════ -->
+                <!-- CONTENT -->
 
                 <div class="visitor-book-content">
 
 
-                    <!-- ═════════════════════
-                         MESSAGE FORM
-                    ═════════════════════ -->
+                    <!-- MESSAGE FORM -->
 
                     <div class="visitor-write">
 
                         <div class="visitor-label">
                             WRITE SOMETHING
                         </div>
-
 
                         <input
                             type="text"
@@ -1052,13 +1150,11 @@
                             autocomplete="off"
                         >
 
-
                         <textarea
                             id="visitor-message"
                             maxlength="500"
                             placeholder="leave your message here..."
                         ></textarea>
-
 
                         <button
                             id="visitor-submit"
@@ -1066,7 +1162,6 @@
                         >
                             LEAVE IT ✦
                         </button>
-
 
                         <div
                             id="visitor-status"
@@ -1076,10 +1171,7 @@
                     </div>
 
 
-
-                    <!-- ═════════════════════
-                         MESSAGES
-                    ═════════════════════ -->
+                    <!-- MESSAGES -->
 
                     <div class="visitor-messages">
 
@@ -1087,17 +1179,12 @@
                             THOSE WHO CAME BEFORE
                         </div>
 
-
                         <div id="visitor-message-list">
 
                             <div class="visitor-empty">
-
                                 no messages have been left yet.
-
                                 <br>
-
                                 perhaps you could be the first.
-
                             </div>
 
                         </div>
@@ -1107,10 +1194,7 @@
                 </div>
 
 
-
-                <!-- ═════════════════════
-                     CLOSE THE BOOK
-                ═════════════════════ -->
+                <!-- CLOSE -->
 
                 <button
                     class="visitor-book-return"
@@ -1132,9 +1216,9 @@
 
 
 
-        <!-- ═════════════════════════════════════
+        <!-- ╔════════════════════════════════════╗
              MYSTERY BOX
-        ═════════════════════════════════════ -->
+             ╚════════════════════════════════════╝ -->
 
         <div
             id="mystery-box-overlay"
@@ -1178,16 +1262,13 @@
                         YOU FOUND IT.
                     </span>
 
-
                     <span class="box-password">
                         7023
                     </span>
 
-
                     <span class="box-message-hint">
                         remember this.
                     </span>
-
 
                     <button
                         id="enter-ephemeris"
@@ -1204,9 +1285,8 @@
                     class="box-return"
                     type="button"
                 >
-                    ← RETURN TO LIBRARY
+                    RETURN TO LIBRARY ←
                 </button>
-
 
             </div>
 
@@ -1214,38 +1294,22 @@
 
 
 
-        <!-- ═════════════════════════════════════
+        <!-- ╔════════════════════════════════════╗
              ARE YOU LOST
-        ═════════════════════════════════════ -->
+             ╚════════════════════════════════════╝ -->
 
         <section
             class="page"
             id="page-lost"
         >
 
-            <div
-                class="interface"
-                style="
-                    position: relative;
-                    display: inline-block;
-                    height: 100vh;
-                    width: max-content;
-                "
-            >
+            <div class="interface">
 
                 <img
                     src="images/areyoulost.png"
                     alt="Are you lost?"
                     class="interface-image"
-                    style="
-                        display: block;
-                        width: auto;
-                        height: 100vh;
-                        max-width: none;
-                        max-height: 100vh;
-                    "
                 >
-
 
                 <div class="lost-title">
                     ARE YOU LOST?
@@ -1261,7 +1325,7 @@
 
 
     <!-- ═════════════════════════════════════
-         EPHEMERIS
+         EPHEMERIS EVENTS
     ═════════════════════════════════════ -->
 
     <script src="ephemeris/events.js"></script>
@@ -1269,13 +1333,11 @@
     <script src="ephemeris/ephemeris.js"></script>
 
 
-
     <!-- ═════════════════════════════════════
          SUPABASE
     ═════════════════════════════════════ -->
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 
 
     <!-- ═════════════════════════════════════
