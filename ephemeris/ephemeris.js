@@ -24,26 +24,21 @@
     const dateEntry =
         document.getElementById("date-entry");
 
-
     const entryDate =
         dateEntry
             ? dateEntry.querySelector(".entry-date")
             : null;
-
 
     const entryContent =
         dateEntry
             ? dateEntry.querySelector(".entry-content")
             : null;
 
-
     const ephemerisSecret =
         document.getElementById("ephemeris-secret");
 
-
     const previousMonth =
         document.getElementById("previous-month");
-
 
     const nextMonth =
         document.getElementById("next-month");
@@ -126,6 +121,11 @@
             `${monthNames[month]} ${year}`;
 
 
+        /*
+            The calendar itself only appears
+            after entering the password.
+        */
+
         if (!ephemerisUnlocked) {
             return;
         }
@@ -138,6 +138,17 @@
         let startingDay =
             firstDay.getDay();
 
+
+        /*
+            JavaScript:
+            Sunday = 0
+            Monday = 1
+            ...
+
+            We want:
+            Monday = first column
+            Sunday = last column
+        */
 
         startingDay =
             startingDay === 0
@@ -152,6 +163,8 @@
                 0
             ).getDate();
 
+
+        /* EMPTY CELLS BEFORE DAY 1 */
 
         for (
             let i = 0;
@@ -173,6 +186,8 @@
 
         }
 
+
+        /* DAYS */
 
         for (
             let day = 1;
@@ -216,6 +231,8 @@
                 );
 
 
+            /* STRANGE EVENT */
+
             if (strangeEvents[key]) {
 
                 button.classList.add(
@@ -232,13 +249,16 @@
                 );
 
 
-                symbol.textContent = "✦";
+                symbol.textContent =
+                    "✦";
 
 
                 button.appendChild(symbol);
 
             }
 
+
+            /* TODAY */
 
             if (
                 isToday(
@@ -255,15 +275,19 @@
             }
 
 
+            /* CLICK */
+
             button.addEventListener(
                 "click",
                 () => {
+
                     selectDate(
                         year,
                         month,
                         day,
                         key
                     );
+
                 }
             );
 
@@ -300,9 +324,32 @@
             `${String(day).padStart(2, "0")} / ${String(month + 1).padStart(2, "0")} / ${year}`;
 
 
-        entryContent.textContent =
-            strangeEvents[key] ||
-            "nothing has been recorded.";
+        const event =
+            strangeEvents[key];
+
+
+        /*
+            If there are several events on
+            the same date, display them separately.
+        */
+
+        if (Array.isArray(event)) {
+
+            entryContent.innerHTML =
+                event
+                    .map(
+                        text =>
+                            `<div>${text}</div>`
+                    )
+                    .join("");
+
+        } else {
+
+            entryContent.textContent =
+                event ||
+                "nothing has been recorded.";
+
+        }
 
     }
 
@@ -448,7 +495,9 @@
             event => {
 
                 if (event.key === "Enter") {
+
                     unlockEphemeris();
+
                 }
 
             }
