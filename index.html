@@ -1,758 +1,628 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>Welcome to a Bizarre Adventure</title>
+    <title>Welcome to a Bizarre Adventure</title>
 
-<link
-    href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap"
-    rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap"
+        rel="stylesheet"
+    >
 
-<link rel="stylesheet" href="style.css">
-```
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-```
-<!-- 🕷️ SPIDER CURSOR -->
+    <div id="spider-cursor">
+        <div class="web">
+            <span class="web-line line-1"></span>
+            <span class="web-line line-2"></span>
+            <span class="web-line line-3"></span>
+            <span class="web-line line-4"></span>
 
-<div id="spider-cursor">
-    <div class="web">
-        <span class="web-line line-1"></span>
-        <span class="web-line line-2"></span>
-        <span class="web-line line-3"></span>
-        <span class="web-line line-4"></span>
-
-        <span class="web-ring ring-1"></span>
-        <span class="web-ring ring-2"></span>
+            <span class="web-ring ring-1"></span>
+            <span class="web-ring ring-2"></span>
+        </div>
     </div>
-</div>
 
 
-<main class="adventure">
+    <main class="adventure">
 
 
-    <!-- ═══════════════════════════════════
-         01 — WELCOME
-    ═══════════════════════════════════ -->
+        <!-- ═════════════════════════════
+             01 — WELCOME
+        ═════════════════════════════ -->
 
-    <section class="page active" id="page-01">
+        <section class="page active" id="page-01">
 
-        <img
-            src="images/welcome.png"
-            alt="Welcome to a bizarre adventure"
-            class="interface-image">
+            <img
+                src="images/welcome.png"
+                alt="Welcome to a bizarre adventure"
+                class="interface-image"
+            >
 
-        <div class="welcome-title">
-            <span class="welcome-name">
-                WELCOME TO A BIZARRE ADVENTURE
-            </span>
-        </div>
+            <div class="welcome-title">
+                <span class="welcome-name">
+                    WELCOME TO A BIZARRE ADVENTURE
+                </span>
+            </div>
 
-        <div class="time-warning">
+            <div class="time-warning">
+                <span class="warning-title">WARNING</span>
 
-            <span class="warning-title">
-                WARNING
-            </span>
+                <span>
+                    to go back in time, press
+                    <strong>←</strong>
+                </span>
+            </div>
 
-            <span>
-                to go back in time, press
-                <strong>←</strong>
-            </span>
+            <button
+                class="hotspot welcome"
+                onclick="showPage('page-02')"
+                aria-label="Enter the bizarre adventure"
+            ></button>
 
-        </div>
+            <button
+                class="strange-button strange-button-one"
+                aria-label="Don't"
+            >
+                DON'T
+            </button>
 
-        <button
-            class="hotspot welcome"
-            onclick="showPage('page-02')"
-            aria-label="Enter the bizarre adventure">
-        </button>
+            <button
+                class="secret-symbol"
+                aria-label="Something strange"
+            >
+                ✦
+            </button>
 
-
-        <button
-            class="strange-button strange-button-one"
-            aria-label="Don't">
-            DON'T
-        </button>
-
-
-        <button
-            class="secret-symbol"
-            aria-label="Something strange">
-            ✦
-        </button>
-
-
-        <div id="strange-message">
-            <span>
+            <div id="strange-message">
                 you weren't supposed to find this.
-            </span>
-        </div>
-
-    </section>
-
-
-
-    <!-- ═══════════════════════════════════
-         02 — THE DIVIDE
-    ═══════════════════════════════════ -->
-
-    <section class="page" id="page-02">
-
-        <img
-            src="images/life_death.png"
-            alt="Life or Death"
-            class="interface-image">
-
-
-        <button
-            class="hotspot life"
-            onclick="showPage('page-03')"
-            aria-label="Life">
-        </button>
-
-        <div class="divide-label divide-life-label">
-            LIFE
-        </div>
-
-
-        <button
-            class="hotspot death"
-            onclick="showPage('page-03-death')"
-            aria-label="Death">
-        </button>
-
-        <div class="divide-label divide-death-label">
-            DEATH
-        </div>
-
-
-        <div class="section-title divide-title">
-            THE DIVIDE
-        </div>
-
-
-        <div class="divide-whisper">
-            choose carefully
-        </div>
-
-
-        <div class="strange-clock">
-            01:??:??
-        </div>
-
-
-        <button
-            class="restart-button"
-            aria-label="Restart">
-            RESTART
-        </button>
-
-
-        <button
-            class="divide-secret"
-            aria-label="Secret">
-            ✦
-        </button>
-
-
-        <div id="restart-message">
-            you never left.
-        </div>
-
-    </section>
-
-
-
-    <!-- ═══════════════════════════════════
-         03 — THE LIVING SIDE
-    ═══════════════════════════════════ -->
-
-    <section class="page" id="page-03">
-
-        <img
-            src="images/reality_inbetween_ficition.png"
-            alt="Reality, In Between and Fiction"
-            class="interface-image">
-
-
-        <div class="section-title life-title">
-            THE LIVING SIDE
-        </div>
-
-
-        <div class="life-whisper">
-            everything is real
-            <br>
-            until it isn't
-        </div>
-
-
-        <button
-            class="hotspot reality"
-            onclick="showPage('page-ephemeris')"
-            aria-label="Reality — Ephemeris">
-        </button>
-
-        <div class="life-label reality-label">
-            REALITY
-        </div>
-
-
-        <button
-            class="hotspot between"
-            aria-label="In Between">
-        </button>
-
-        <div class="life-label between-label">
-            IN BETWEEN
-        </div>
-
-
-        <button
-            class="hotspot fiction"
-            aria-label="Fiction">
-        </button>
-
-        <div class="life-label fiction-label">
-            FICTION
-        </div>
-
-
-        <button
-            class="life-secret"
-            aria-label="Something hidden">
-            +
-        </button>
-
-
-        <div id="life-secret-message">
-            you're somewhere between.
-        </div>
-
-    </section>
-
-
-
-    <!-- ═══════════════════════════════════
-         EPHEMERIS — REALITY
-    ═══════════════════════════════════ -->
-
-    <section class="page" id="page-ephemeris">
-
-        <div class="ephemeris-interface">
-
-            <div class="ephemeris-header">
-
-                <span class="ephemeris-number">
-                    REALITY
-                </span>
-
-                <h1>
-                    EPHEMERIS
-                </h1>
-
-                <span class="ephemeris-subtitle">
-                    a record of things that happened
-                </span>
-
             </div>
 
-
-            <!-- 🔐 ACCESS LOCK -->
-
-            <div
-                id="ephemeris-lock"
-                class="ephemeris-lock">
-
-                <div class="lock-symbol">
-                    ✦
-                </div>
-
-                <div class="lock-title">
-                    ACCESS RESTRICTED
-                </div>
-
-                <div class="lock-text">
-                    this record is not meant for everyone.
-                </div>
+        </section>
 
 
-                <div class="password-area">
+        <!-- ═════════════════════════════
+             THE DIVIDE
+        ═════════════════════════════ -->
 
-                    <input
-                        type="password"
-                        id="ephemeris-password"
-                        maxlength="4"
-                        placeholder="••••"
-                        autocomplete="off">
+        <section class="page" id="page-02">
 
-                    <button
-                        id="ephemeris-unlock"
-                        type="button">
-                        ENTER
-                    </button>
+            <img
+                src="images/life_death.png"
+                alt="Life or Death"
+                class="interface-image"
+            >
 
-                </div>
+            <button
+                class="hotspot life"
+                onclick="showPage('page-03')"
+                aria-label="Life"
+            ></button>
 
-
-                <div
-                    id="password-error"
-                    class="password-error">
-                    incorrect.
-                </div>
-
+            <div class="divide-label divide-life-label">
+                LIFE
             </div>
 
+            <button
+                class="hotspot death"
+                onclick="showPage('page-03-death')"
+                aria-label="Death"
+            ></button>
+
+            <div class="divide-label divide-death-label">
+                DEATH
+            </div>
+
+            <div class="divide-whisper">
+                choose carefully
+            </div>
+
+            <div class="strange-clock">
+                01:??:??
+            </div>
+
+            <button
+                class="restart-button"
+                aria-label="Restart"
+            >
+                RESTART
+            </button>
+
+            <button
+                class="divide-secret"
+                aria-label="Secret"
+            >
+                ✦
+            </button>
+
+            <div id="restart-message">
+                you never left.
+            </div>
+
+        </section>
 
 
-            <!-- CALENDAR -->
+        <!-- ═════════════════════════════
+             THE LIVING SIDE
+        ═════════════════════════════ -->
 
-            <div class="calendar">
+        <section class="page" id="page-03">
 
-                <div class="calendar-top">
+            <img
+                src="images/reality_inbetween_ficition.png"
+                alt="Reality, In Between and Fiction"
+                class="interface-image"
+            >
 
-                    <button
-                        class="calendar-arrow"
-                        id="previous-month"
-                        aria-label="Previous month">
-                        ‹
-                    </button>
+            <div class="living-choice reality-choice">
+                REALITY
+            </div>
+
+            <div class="living-choice between-choice">
+                IN BETWEEN
+            </div>
+
+            <div class="living-choice fiction-choice">
+                FICTION
+            </div>
+
+            <div class="life-whisper">
+                everything is real<br>
+                until it isn't
+            </div>
+
+            <button
+                class="hotspot reality"
+                onclick="showPage('page-ephemeris')"
+                aria-label="Reality — Ephemeris"
+            ></button>
+
+            <button
+                class="hotspot between"
+                aria-label="In Between"
+            ></button>
+
+            <button
+                class="hotspot fiction"
+                aria-label="Fiction"
+            ></button>
+
+            <button
+                class="life-secret"
+                aria-label="Something hidden"
+            >
+                +
+            </button>
+
+            <div id="life-secret-message">
+                you're somewhere between.
+            </div>
+
+        </section>
 
 
-                    <div
-                        id="calendar-month"
-                        class="calendar-month">
-                        AUGUST 2026
+        <!-- ═════════════════════════════
+             EPHEMERIS
+        ═════════════════════════════ -->
+
+        <section class="page" id="page-ephemeris">
+
+            <div class="ephemeris-interface">
+
+                <div class="ephemeris-header">
+
+                    <span class="ephemeris-number">
+                        REALITY
+                    </span>
+
+                    <h1>EPHEMERIS</h1>
+
+                    <span class="ephemeris-subtitle">
+                        a record of things that happened
+                    </span>
+
+                </div>
+
+
+                <div id="ephemeris-lock" class="ephemeris-lock">
+
+                    <div class="lock-symbol">
+                        ✦
+                    </div>
+
+                    <div class="lock-title">
+                        ACCESS RESTRICTED
+                    </div>
+
+                    <div class="lock-text">
+                        this record is not meant for everyone.
+                    </div>
+
+                    <div class="password-area">
+
+                        <input
+                            type="password"
+                            id="ephemeris-password"
+                            maxlength="4"
+                            placeholder="••••"
+                            autocomplete="off"
+                        >
+
+                        <button
+                            id="ephemeris-unlock"
+                            type="button"
+                        >
+                            ENTER
+                        </button>
+
+                    </div>
+
+                    <div id="password-error" class="password-error">
+                        incorrect.
+                    </div>
+
+                </div>
+
+
+                <div class="calendar">
+
+                    <div class="calendar-top">
+
+                        <button
+                            class="calendar-arrow"
+                            id="previous-month"
+                            aria-label="Previous month"
+                        >
+                            ‹
+                        </button>
+
+                        <div
+                            id="calendar-month"
+                            class="calendar-month"
+                        >
+                            AUGUST 2026
+                        </div>
+
+                        <button
+                            class="calendar-arrow"
+                            id="next-month"
+                            aria-label="Next month"
+                        >
+                            ›
+                        </button>
+
                     </div>
 
 
-                    <button
-                        class="calendar-arrow"
-                        id="next-month"
-                        aria-label="Next month">
-                        ›
-                    </button>
+                    <div class="calendar-weekdays">
+                        <span>MON</span>
+                        <span>TUE</span>
+                        <span>WED</span>
+                        <span>THU</span>
+                        <span>FRI</span>
+                        <span>SAT</span>
+                        <span>SUN</span>
+                    </div>
+
+                    <div
+                        id="calendar-days"
+                        class="calendar-days"
+                    ></div>
 
                 </div>
 
 
-                <div class="calendar-weekdays">
+                <div id="date-entry" class="date-entry">
 
-                    <span>MON</span>
-                    <span>TUE</span>
-                    <span>WED</span>
-                    <span>THU</span>
-                    <span>FRI</span>
-                    <span>SAT</span>
-                    <span>SUN</span>
+                    <div class="entry-date">
+                        SELECT A DATE
+                    </div>
+
+                    <div class="entry-content">
+                        nothing has been recorded.
+                    </div>
 
                 </div>
 
 
-                <div
-                    id="calendar-days"
-                    class="calendar-days">
+                <div class="ephemeris-footer">
+
+                    <div>
+                        LAST RECORDED:
+                        <span id="last-recorded">
+                            29 / 08 / 2026
+                        </span>
+                    </div>
+
+                    <div>
+                        NEXT EVENT:
+                        <span class="unknown">
+                            ██████████
+                        </span>
+                    </div>
+
                 </div>
+
+
+                <div class="ephemeris-whisper">
+                    time moves whether you do.
+                </div>
+
+
+                <button
+                    class="ephemeris-return"
+                    onclick="showLostPage()"
+                    aria-label="Return"
+                >
+                    ← RETURN
+                </button>
+
+
+                <button
+                    id="ephemeris-secret"
+                    class="ephemeris-secret"
+                    aria-label="Something strange"
+                >
+                    ✦
+                </button>
 
             </div>
 
+        </section>
 
 
-            <!-- DATE ENTRY -->
+        <!-- ═════════════════════════════
+             THE OTHER SIDE
+        ═════════════════════════════ -->
 
-            <div
-                id="date-entry"
-                class="date-entry">
+        <section class="page" id="page-03-death">
 
-                <div class="entry-date">
-                    SELECT A DATE
-                </div>
+            <img
+                src="images/obss_ca_cons.png"
+                alt="Obsession, Carpe Noctem and Conspirations"
+                class="interface-image"
+            >
 
-                <div class="entry-content">
-                    nothing has been recorded.
-                </div>
-
+            <div class="other-side-choice obsession-choice">
+                OBSESSION
             </div>
 
-
-
-            <!-- FOOTER -->
-
-            <div class="ephemeris-footer">
-
-                <div>
-                    LAST RECORDED:
-                    <span id="last-recorded">
-                        29 / 08 / 2026
-                    </span>
-                </div>
-
-                <div>
-                    NEXT EVENT:
-                    <span class="unknown">
-                        ██████████
-                    </span>
-                </div>
-
+            <div class="other-side-choice noctem-choice">
+                CARPE NOCTEM
             </div>
 
-
-            <div class="ephemeris-whisper">
-                time moves whether you do.
+            <div class="other-side-choice conspirations-choice">
+                CONSPIRATIONS
             </div>
 
-
-            <!-- IMPORTANT:
-                 This no longer goes back.
-                 It opens ARE YOU LOST? -->
+            <div class="death-whisper">
+                don't look too long.
+            </div>
 
             <button
-                class="ephemeris-return"
-                onclick="showPage('page-lost')"
-                aria-label="Are you lost?">
-                ← RETURN
-            </button>
-
+                class="hotspot obsession"
+                aria-label="Obsession"
+            ></button>
 
             <button
-                id="ephemeris-secret"
-                class="ephemeris-secret"
-                aria-label="Something strange">
-                ✦
+                class="hotspot noctem"
+                onclick="showPage('page-04')"
+                aria-label="Carpe Noctem"
+            ></button>
+
+            <button
+                class="hotspot conspirations"
+                aria-label="Conspirations"
+            ></button>
+
+            <button
+                class="death-secret"
+                aria-label="Do not click"
+            >
+                ?
             </button>
 
-        </div>
+            <div id="death-secret-message">
+                it knows you're here.
+            </div>
+
+        </section>
+
+
+        <!-- ═════════════════════════════
+             CARPE NOCTEM
+        ═════════════════════════════ -->
+
+        <section class="page" id="page-04">
+
+            <img
+                src="images/chronique_library.png"
+                alt="Carpe Noctem — Chroniques and Library"
+                class="interface-image"
+            >
+
+            <div class="noctem-main-title">
+                CARPE NOCTEM
+            </div>
+
+            <div class="noctem-whisper">
+                the night remembers.
+            </div>
+
+            <button
+                class="hotspot heart-left"
+                onclick="showPage('page-chroniques')"
+                aria-label="Chroniques"
+            ></button>
+
+            <button
+                class="hotspot heart-right"
+                onclick="showPage('page-library')"
+                aria-label="Library"
+            ></button>
+
+            <button
+                class="noctem-secret"
+                aria-label="Something hidden"
+            >
+                †
+            </button>
+
+            <div id="noctem-secret-message">
+                stay until the lights go out.
+            </div>
+
+        </section>
+
+
+        <!-- ═════════════════════════════
+             CHRONIQUES
+        ═════════════════════════════ -->
+
+        <section class="page" id="page-chroniques">
+
+            <img
+                src="images/chroniques.png"
+                alt="Chroniques"
+                class="interface-image"
+            >
+
+            <div class="page-main-title chronicles-title">
+                CHRONIQUES
+            </div>
+
+            <div class="chronicles-intro">
+                fragments from another life.
+            </div>
+
+            <button
+                class="chronicle-entry chronicle-one"
+                aria-label="Chronique 01"
+            >
+                <span class="entry-number">01</span>
+                <span class="entry-symbol">✦</span>
+            </button>
+
+            <button
+                class="chronicle-entry chronicle-two"
+                aria-label="Chronique 02"
+            >
+                <span class="entry-number">02</span>
+                <span class="entry-symbol">✦</span>
+            </button>
+
+            <button
+                class="chronicle-entry chronicle-three"
+                aria-label="Chronique 03"
+            >
+                <span class="entry-number">03</span>
+                <span class="entry-symbol">✦</span>
+            </button>
+
+            <button
+                class="chronicle-secret"
+                aria-label="Something hidden"
+            >
+                ?
+            </button>
 
-    </section>
+            <div id="chronicle-secret-message">
+                some stories should remain unfinished.
+            </div>
 
+        </section>
 
 
-    <!-- ═══════════════════════════════════
-         03' — THE OTHER SIDE
-    ═══════════════════════════════════ -->
+        <!-- ═════════════════════════════
+             LIBRARY
+        ═════════════════════════════ -->
 
-    <section class="page" id="page-03-death">
+        <section class="page" id="page-library">
 
-        <img
-            src="images/obss_ca_cons.png"
-            alt="Obsession, Carpe Noctem and Conspirations"
-            class="interface-image">
+            <img
+                src="images/library.png"
+                alt="Library"
+                class="interface-image"
+            >
 
+            <div class="page-main-title library-title">
+                LIBRARY
+            </div>
 
-        <div class="section-title death-title">
-            THE OTHER SIDE
-        </div>
+            <div class="library-whisper">
+                books remember what people forget.
+            </div>
 
+            <button
+                class="library-entry library-one"
+                aria-label="Library entry one"
+            >
+                <span class="library-number">I</span>
+                <span class="library-mark">✦</span>
+            </button>
 
-        <div class="death-whisper">
-            don't look too long.
-        </div>
+            <button
+                class="library-entry library-two"
+                aria-label="Library entry two"
+            >
+                <span class="library-number">II</span>
+                <span class="library-mark">✦</span>
+            </button>
 
+            <button
+                class="library-entry library-three"
+                aria-label="Library entry three"
+            >
+                <span class="library-number">III</span>
+                <span class="library-mark">✦</span>
+            </button>
 
-        <button
-            class="hotspot obsession"
-            aria-label="Obsession">
-        </button>
+            <button
+                class="library-secret"
+                aria-label="Something hidden"
+            >
+                †
+            </button>
 
-        <div class="death-label obsession-label">
-            OBSESSION
-        </div>
+            <div id="library-secret-message">
+                this book was never written.
+            </div>
 
+        </section>
 
-        <button
-            class="hotspot noctem"
-            onclick="showPage('page-04')"
-            aria-label="Carpe Noctem">
-        </button>
 
-        <div class="death-label noctem-label">
-            CARPE NOCTEM
-        </div>
+        <!-- ═════════════════════════════
+             ARE YOU LOST
+        ═════════════════════════════ -->
 
+        <section class="page" id="page-lost">
 
-        <button
-            class="hotspot conspirations"
-            aria-label="Conspirations">
-        </button>
+            <img
+                src="images/areyoulost.png"
+                alt="Are you lost?"
+                class="interface-image"
+            >
 
-        <div class="death-label conspirations-label">
-            CONSPIRATIONS
-        </div>
+            <div class="lost-title">
+                ARE YOU LOST?
+            </div>
 
+        </section>
 
-        <button
-            class="death-secret"
-            aria-label="Do not click">
-            ?
-        </button>
 
+    </main>
 
-        <div id="death-secret-message">
-            it knows you're here.
-        </div>
 
-    </section>
-
-
-
-    <!-- ═══════════════════════════════════
-         04 — CARPE NOCTEM
-    ═══════════════════════════════════ -->
-
-    <section class="page" id="page-04">
-
-        <img
-            src="images/chronique_library.png"
-            alt="Carpe Noctem — Chroniques and Library"
-            class="interface-image">
-
-
-        <div class="section-title noctem-title">
-            CARPE NOCTEM
-        </div>
-
-
-        <div class="noctem-whisper">
-            the night remembers.
-        </div>
-
-
-        <button
-            class="hotspot heart-left"
-            onclick="showPage('page-chroniques')"
-            aria-label="Chroniques">
-        </button>
-
-
-        <button
-            class="hotspot heart-right"
-            onclick="showPage('page-library')"
-            aria-label="Library">
-        </button>
-
-
-        <button
-            class="noctem-secret"
-            aria-label="Something hidden">
-            †
-        </button>
-
-
-        <div id="noctem-secret-message">
-            stay until the lights go out.
-        </div>
-
-    </section>
-
-
-
-    <!-- ═══════════════════════════════════
-         05 — CHRONIQUES
-    ═══════════════════════════════════ -->
-
-    <section class="page" id="page-chroniques">
-
-        <img
-            src="images/chroniques.png"
-            alt="Chroniques"
-            class="interface-image">
-
-
-        <div class="section-title chronicles-title">
-            CHRONIQUES
-        </div>
-
-
-        <div class="chronicles-intro">
-            fragments from another life.
-        </div>
-
-
-        <button
-            class="chronicle-entry chronicle-one"
-            aria-label="Chronique 01">
-
-            <span class="entry-number">
-                01
-            </span>
-
-            <span class="entry-symbol">
-                ✦
-            </span>
-
-        </button>
-
-
-        <button
-            class="chronicle-entry chronicle-two"
-            aria-label="Chronique 02">
-
-            <span class="entry-number">
-                02
-            </span>
-
-            <span class="entry-symbol">
-                ✦
-            </span>
-
-        </button>
-
-
-        <button
-            class="chronicle-entry chronicle-three"
-            aria-label="Chronique 03">
-
-            <span class="entry-number">
-                03
-            </span>
-
-            <span class="entry-symbol">
-                ✦
-            </span>
-
-        </button>
-
-
-        <button
-            class="chronicle-secret"
-            aria-label="Something hidden">
-            ?
-        </button>
-
-
-        <div id="chronicle-secret-message">
-            some stories should remain unfinished.
-        </div>
-
-    </section>
-
-
-
-    <!-- ═══════════════════════════════════
-         06 — LIBRARY
-    ═══════════════════════════════════ -->
-
-    <section class="page" id="page-library">
-
-        <img
-            src="images/library.png"
-            alt="Library"
-            class="interface-image">
-
-
-        <div class="section-title library-title">
-            LIBRARY
-        </div>
-
-
-        <div class="library-whisper">
-            books remember what people forget.
-        </div>
-
-
-        <button
-            class="library-entry library-one"
-            aria-label="Library entry one">
-
-            <span class="library-number">
-                I
-            </span>
-
-            <span class="library-mark">
-                ✦
-            </span>
-
-        </button>
-
-
-        <button
-            class="library-entry library-two"
-            aria-label="Library entry two">
-
-            <span class="library-number">
-                II
-            </span>
-
-            <span class="library-mark">
-                ✦
-            </span>
-
-        </button>
-
-
-        <button
-            class="library-entry library-three"
-            aria-label="Library entry three">
-
-            <span class="library-number">
-                III
-            </span>
-
-            <span class="library-mark">
-                ✦
-            </span>
-
-        </button>
-
-
-        <button
-            class="library-secret"
-            aria-label="Something hidden">
-            †
-        </button>
-
-
-        <div id="library-secret-message">
-            this book was never written.
-        </div>
-
-    </section>
-
-
-
-    <!-- ═══════════════════════════════════
-         ARE YOU LOST?
-    ═══════════════════════════════════ -->
-
-    <section class="page lost-page" id="page-lost">
-
-        <img
-            src="images/areyoulost.png"
-            alt="Are you lost?"
-            class="interface-image lost-image">
-
-
-        <div class="lost-title">
-            ARE YOU LOST?
-        </div>
-
-
-        <button
-            class="lost-return"
-            onclick="showPage('page-01')"
-            aria-label="Return to the beginning">
-            BEGIN AGAIN
-        </button>
-
-    </section>
-
-
-</main>
-
-
-
-<script src="ephemeris/events.js"></script>
-<script src="ephemeris/ephemeris.js"></script>
-<script src="script.js"></script>
-```
+    <script src="ephemeris/events.js"></script>
+    <script src="ephemeris/ephemeris.js"></script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>
