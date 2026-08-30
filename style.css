@@ -1,5 +1,4 @@
 :root {
-
     --void: #0a0a0a;
     --wine-dark: #090909;
     --wine-soft: #5b1029;
@@ -24,42 +23,24 @@
 
 html,
 body {
-
     margin: 0;
     padding: 0;
 
     width: 100%;
     min-height: 100%;
-
-    background: var(--void);
 }
 
 body {
-
     min-height: 100vh;
 
-    display: flex;
+    background: var(--void);
 
+    display: flex;
     justify-content: center;
     align-items: flex-start;
 
-    overflow: hidden;
-}
-
-
-/* ═══════════════════════════════════════
-   ADVENTURE
-═══════════════════════════════════════ */
-
-.adventure {
-
-    width: 100vw;
-    min-height: 100vh;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: flex-start;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 
@@ -68,7 +49,6 @@ body {
 ═══════════════════════════════════════ */
 
 .page {
-
     position: relative;
 
     width: 100vw;
@@ -92,10 +72,10 @@ body {
 
 /* ═══════════════════════════════════════
    INTERFACE
+   CORRECTION STRUCTURELLE
 ═══════════════════════════════════════ */
 
 .interface {
-
     position: relative;
 
     height: 100vh;
@@ -110,7 +90,6 @@ body {
 ═══════════════════════════════════════ */
 
 .interface-image {
-
     position: relative;
 
     z-index: 1;
@@ -126,8 +105,22 @@ body {
     object-fit: contain;
 
     user-select: none;
-
     -webkit-user-drag: none;
+}
+
+
+/* ═══════════════════════════════════════
+   ADVENTURE
+═══════════════════════════════════════ */
+
+.adventure {
+    width: 100vw;
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: flex-start;
 }
 
 
@@ -141,12 +134,10 @@ button,
 a,
 input,
 textarea {
-
     cursor: none !important;
 }
 
 #spider-cursor {
-
     position: fixed;
 
     top: 0;
@@ -161,13 +152,14 @@ textarea {
 
     transform: translate(-50%, -50%);
 
+    display: block;
+
     opacity: 1;
 
     transition: opacity 0.15s ease;
 }
 
 .web {
-
     position: relative;
 
     width: 45px;
@@ -177,7 +169,6 @@ textarea {
 }
 
 .web-line {
-
     position: absolute;
 
     top: 50%;
@@ -208,13 +199,13 @@ textarea {
 }
 
 .web-ring {
-
     position: absolute;
 
     top: 50%;
     left: 50%;
 
-    border: 1px solid rgba(255, 255, 255, 0.85);
+    border:
+        1px solid rgba(255, 255, 255, 0.85);
 
     border-radius: 50%;
 
@@ -222,19 +213,16 @@ textarea {
 }
 
 .ring-1 {
-
     width: 18px;
     height: 18px;
 }
 
 .ring-2 {
-
     width: 34px;
     height: 34px;
 }
 
 .escaping-spider {
-
     position: fixed;
 
     pointer-events: none;
@@ -245,7 +233,8 @@ textarea {
 
     transform: translate(-50%, -50%);
 
-    animation: spiderEscape 1.4s ease-in forwards;
+    animation:
+        spiderEscape 1.4s ease-in forwards;
 }
 
 
@@ -254,18 +243,18 @@ textarea {
 ═══════════════════════════════════════ */
 
 .hotspot {
-
     position: absolute;
 
     padding: 0;
     margin: 0;
 
     border: none;
+
     background: transparent;
 
     cursor: none;
 
-    z-index: 100;
+    z-index: 50;
 
     transition:
         transform 0.25s ease,
@@ -273,10 +262,9 @@ textarea {
 }
 
 .hotspot:hover {
+    background: rgba(255, 255, 255, 0.08);
 
-    background: rgba(255, 255, 255, 0.07);
-
-    transform: scale(1.025);
+    transform: scale(1.03);
 }
 
 
@@ -285,12 +273,13 @@ textarea {
 ═══════════════════════════════════════ */
 
 .welcome-title {
-
     position: absolute;
 
-    top: 12%;
+    top: 13%;
 
     left: 50%;
+
+    width: min(430px, 38%);
 
     transform:
         translateX(-50%)
@@ -298,34 +287,46 @@ textarea {
 
     z-index: 40;
 
-    width: 520px;
-    max-width: 65vw;
-
     pointer-events: none;
+
+    font-family: var(--font-display);
+
+    font-weight: 700;
 
     text-align: center;
 
     color: var(--bordeaux);
-
-    font-family: var(--font-display);
 
     text-shadow:
         0 0 10px var(--bordeaux-glow);
 }
 
 .welcome-name {
-
     display: block;
 
-    font-size: clamp(25px, 2.2vw, 34px);
+    width: 100%;
+
+    box-sizing: border-box;
+
+    font-size: clamp(20px, 2vw, 25px);
 
     letter-spacing: 3px;
 
-    line-height: 1.05;
+    line-height: 1.02;
 
-    padding: 10px 22px;
+    white-space: normal;
 
-    background: rgba(10, 10, 10, 0.86);
+    text-align: center;
+
+    padding: 8px 15px;
+
+    /*
+       Le fond reste volontairement
+       à l'intérieur de la zone du texte.
+    */
+
+    background:
+        rgba(10, 10, 10, 0.86);
 
     text-shadow:
         0 0 8px rgba(0, 0, 0, 0.95),
@@ -334,48 +335,49 @@ textarea {
 
 
 /*
-   ZONE CLIQUABLE
-   placée sur la zone blanche contenant WELCOME
+   ZONE CLIQUABLE :
+   exactement autour du Welcome,
+   pas au milieu de toute l'image.
 */
 
 .welcome {
+    top: 11%;
+    left: 32%;
 
-    top: 7%;
-    left: 22%;
-
-    width: 56%;
-    height: 22%;
+    width: 36%;
+    height: 21%;
 }
 
 
 /* ═══════════════════════════════════════
-   WARNING
+   WARNING — BAS DROITE
 ═══════════════════════════════════════ */
 
 .time-warning {
-
     position: absolute;
 
-    bottom: 9%;
-    left: 31%;
+    top: auto;
+    bottom: 6%;
 
-    transform:
-        translateX(-50%)
-        rotate(-3deg);
+    left: auto;
+    right: 7%;
+
+    transform: rotate(-3deg);
 
     z-index: 70;
 
     display: flex;
-
     flex-direction: column;
 
     gap: 7px;
 
     padding: 12px 18px;
 
-    border: 1px solid rgba(255, 255, 255, 0.65);
+    border:
+        1px solid rgba(255, 255, 255, 0.65);
 
-    background: rgba(10, 10, 10, 0.76);
+    background:
+        rgba(10, 10, 10, 0.7);
 
     font-family: var(--font-mono);
 
@@ -396,14 +398,12 @@ textarea {
 }
 
 .warning-title {
-
     font-size: 14px;
 
     letter-spacing: 4px;
 }
 
 .time-warning strong {
-
     font-size: 17px;
 
     font-weight: normal;
@@ -418,12 +418,13 @@ textarea {
 ═══════════════════════════════════════ */
 
 .strange-button {
-
     position: absolute;
 
-    border: 1px solid rgba(255, 255, 255, 0.65);
+    border:
+        1px solid rgba(255, 255, 255, 0.65);
 
-    background: rgba(10, 10, 10, 0.7);
+    background:
+        rgba(10, 10, 10, 0.7);
 
     color: var(--ink);
 
@@ -445,7 +446,6 @@ textarea {
 }
 
 .strange-button-one {
-
     top: 80%;
     right: 13%;
 
@@ -453,7 +453,6 @@ textarea {
 }
 
 .strange-button:hover {
-
     transform:
         rotate(-7deg)
         scale(1.15);
@@ -466,52 +465,45 @@ textarea {
 
 .life,
 .death {
-
-    z-index: 100;
+    width: 56%;
+    left: 22%;
 }
 
 .life {
-
     top: 5%;
-    left: 22%;
-
-    width: 56%;
     height: 20%;
 }
 
 .death {
-
     top: 60%;
-    left: 22%;
-
-    width: 56%;
     height: 20%;
 }
 
 
 .divide-label {
-
     position: absolute;
 
     z-index: 60;
 
     pointer-events: none;
 
-    padding: 10px 25px;
+    padding: 11px 25px;
 
-    background: rgba(250, 247, 240, 0.97);
+    background:
+        rgba(250, 247, 240, 0.97);
 
-    border: 2px solid var(--bordeaux);
+    border:
+        2px solid var(--bordeaux);
 
     color: var(--bordeaux);
 
     font-family: var(--font-display);
 
-    font-size: clamp(29px, 4.3vw, 52px);
+    font-size: clamp(31px, 4.5vw, 56px);
 
     font-weight: 700;
 
-    letter-spacing: 3px;
+    letter-spacing: 4px;
 
     line-height: 1;
 
@@ -527,8 +519,7 @@ textarea {
 }
 
 .divide-life-label {
-
-    top: 18%;
+    top: 20%;
     left: 50%;
 
     transform:
@@ -537,8 +528,7 @@ textarea {
 }
 
 .divide-death-label {
-
-    top: 63%;
+    top: 65%;
     left: 50%;
 
     transform:
@@ -547,7 +537,6 @@ textarea {
 }
 
 .divide-whisper {
-
     position: absolute;
 
     top: 48%;
@@ -569,7 +558,6 @@ textarea {
 }
 
 .strange-clock {
-
     position: absolute;
 
     top: 7%;
@@ -589,7 +577,6 @@ textarea {
 }
 
 .restart-button {
-
     position: absolute;
 
     right: 8%;
@@ -597,9 +584,11 @@ textarea {
 
     padding: 9px 14px;
 
-    border: 1px solid rgba(255, 255, 255, 0.55);
+    border:
+        1px solid rgba(255, 255, 255, 0.55);
 
-    background: rgba(10, 10, 10, 0.65);
+    background:
+        rgba(10, 10, 10, 0.65);
 
     color: var(--ink);
 
@@ -617,7 +606,6 @@ textarea {
 }
 
 .restart-button:hover {
-
     transform:
         rotate(-8deg)
         scale(1.2);
@@ -625,121 +613,82 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   THE LIVING SIDE
+   LIVING SIDE
 ═══════════════════════════════════════ */
 
-.reality {
-
-    top: 4%;
+.reality,
+.between,
+.fiction {
     left: 20%;
-
     width: 60%;
+}
+
+.reality {
+    top: 4%;
     height: 29%;
 }
 
+
+/*
+   IN BETWEEN REMIS EXACTEMENT
+   À SA POSITION PRÉCÉDENTE.
+*/
+
 .between {
-
     top: 36%;
-    left: 20%;
-
-    width: 60%;
     height: 29%;
 }
 
 .fiction {
-
     top: 68%;
-    left: 20%;
-
-    width: 60%;
     height: 29%;
 }
 
 
-/* ═══════════════════════════════════════
-   GRILLE DÉCALÉE
-═══════════════════════════════════════ */
-
 .living-choice {
-
     position: absolute;
 
     left: 50%;
 
+    transform: translateX(-50%);
+
     z-index: 60;
 
-    display: flex;
+    padding: 8px 20px;
 
-    flex-direction: column;
+    background:
+        rgba(10, 10, 10, 0.90);
 
-    align-items: center;
-
-    width: 170px;
+    border:
+        1px solid rgba(255, 255, 255, 0.75);
 
     color: #ffffff;
 
     font-family: var(--font-display);
 
-    font-size: clamp(25px, 3.4vw, 43px);
+    font-size: clamp(27px, 3.8vw, 48px);
 
     font-weight: 700;
 
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 
-    line-height: 0.88;
+    line-height: 1;
 
     text-align: center;
 
-    pointer-events: none;
+    white-space: nowrap;
+
+    box-shadow:
+        5px 5px 0 rgba(181, 42, 80, 0.3);
 
     text-shadow:
         0 0 8px rgba(0, 0, 0, 0.95);
 
-    filter:
-        drop-shadow(0 0 5px rgba(255, 255, 255, 0.15));
+    pointer-events: none;
 }
-
-.living-choice span {
-
-    display: block;
-
-    height: 0.9em;
-
-    transition:
-        transform 0.3s ease;
-}
-
-
-/* décalages gauche / droite */
-
-.reality-choice span:nth-child(odd) {
-    transform: translateX(-12px);
-}
-
-.reality-choice span:nth-child(even) {
-    transform: translateX(10px);
-}
-
-.between-choice span:nth-child(odd) {
-    transform: translateX(11px);
-}
-
-.between-choice span:nth-child(even) {
-    transform: translateX(-10px);
-}
-
-.fiction-choice span:nth-child(odd) {
-    transform: translateX(-10px);
-}
-
-.fiction-choice span:nth-child(even) {
-    transform: translateX(12px);
-}
-
 
 .reality-choice {
-
-    top: 11%;
+    top: 16%;
 
     transform:
         translateX(-50%)
@@ -747,8 +696,7 @@ textarea {
 }
 
 .between-choice {
-
-    top: 43%;
+    top: 48%;
 
     transform:
         translateX(-50%)
@@ -756,8 +704,7 @@ textarea {
 }
 
 .fiction-choice {
-
-    top: 75%;
+    top: 80%;
 
     transform:
         translateX(-50%)
@@ -765,24 +712,19 @@ textarea {
 }
 
 
-/* EVERYTHING IS REAL
-   déplacé vers le haut
+/*
+   EVERYTHING IS REAL
+   remonté d'environ 1 cm.
 */
 
 .life-whisper {
-
     position: absolute;
 
-    left: 7%;
-    bottom: 13%;
+    left: 6%;
 
-    z-index: 70;
+    bottom: 12%;
 
-    padding: 10px 15px;
-
-    background: rgba(10, 10, 10, 0.78);
-
-    border: 1px solid rgba(255, 255, 255, 0.65);
+    z-index: 40;
 
     font-family: var(--font-mono);
 
@@ -802,84 +744,24 @@ textarea {
 }
 
 
-/* PLUS */
+/* + */
 
 .life-secret {
-
     right: 7%;
     bottom: 7%;
 
-    font-size: 22px;
+    font-size: 20px !important;
 
-    font-weight: 900;
-
-    color: #ffffff;
-}
-
-
-/* ═══════════════════════════════════════
-   SECTION HEADINGS
-═══════════════════════════════════════ */
-
-.section-whisper {
-
-    position: absolute;
-
-    z-index: 75;
-
-    padding: 9px 15px;
-
-    background: rgba(10, 10, 10, 0.78);
-
-    border: 1px solid rgba(255, 255, 255, 0.65);
-
-    font-family: var(--font-mono);
-
-    font-size: 10px;
-
-    letter-spacing: 4px;
-
-    color: rgba(255, 255, 255, 0.9);
-
-    text-transform: uppercase;
-
-    pointer-events: none;
-
-    box-shadow:
-        0 0 12px rgba(0, 0, 0, 0.4);
-}
-
-.divide-heading {
-
-    top: 4%;
-    left: 7%;
-
-    transform: rotate(-4deg);
-}
-
-.living-heading {
-
-    top: 4%;
-    right: 7%;
-
-    transform: rotate(4deg);
-}
-
-.other-heading {
-
-    top: 4%;
-    right: 7%;
-
-    transform: rotate(4deg);
+    font-weight: 700;
 }
 
 
 /* ═══════════════════════════════════════
    OTHER SIDE
+   GRILLE DÉCALÉE
 ═══════════════════════════════════════ */
 
 .obsession {
-
     top: 4%;
     left: 4%;
 
@@ -888,7 +770,6 @@ textarea {
 }
 
 .noctem {
-
     top: 36%;
     left: 54%;
 
@@ -897,7 +778,6 @@ textarea {
 }
 
 .conspirations {
-
     top: 68%;
     left: 4%;
 
@@ -906,12 +786,12 @@ textarea {
 }
 
 
-/* ═══════════════════════════════════════
-   OTHER SIDE — GRILLE DÉCALÉE
-═══════════════════════════════════════ */
+/*
+   Chaque lettre reste sur sa ligne verticale,
+   mais son X varie.
+*/
 
 .other-side-choice {
-
     position: absolute;
 
     z-index: 60;
@@ -922,46 +802,49 @@ textarea {
 
     align-items: center;
 
-    width: 105px;
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
 
     color: #ffffff;
 
     font-family: var(--font-display);
 
-    font-size: clamp(16px, 1.8vw, 25px);
+    /*
+       Réduit de 3-4 px.
+    */
+
+    font-size: clamp(14px, 1.65vw, 23px);
 
     font-weight: 700;
 
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 
-    line-height: 0.86;
+    line-height: 0.9;
 
     text-align: center;
 
     white-space: nowrap;
 
-    pointer-events: none;
-
     text-shadow:
         0 0 8px rgba(255, 255, 255, 0.35);
+
+    pointer-events: none;
 }
 
 .other-side-choice span {
-
     display: block;
 
-    height: 0.88em;
-
-    transition:
-        transform 0.3s ease;
+    position: relative;
 }
 
 
 /* OBSESSION */
 
 .obsession-choice {
-
-    top: 8%;
+    top: 16%;
     left: 24%;
 
     transform:
@@ -970,19 +853,18 @@ textarea {
 }
 
 .obsession-choice span:nth-child(odd) {
-    transform: translateX(-8px);
+    transform: translateX(-5px);
 }
 
 .obsession-choice span:nth-child(even) {
-    transform: translateX(8px);
+    transform: translateX(4px);
 }
 
 
 /* CARPE NOCTEM */
 
 .noctem-choice {
-
-    top: 49%;
+    top: 50%;
     left: 75%;
 
     transform:
@@ -991,24 +873,22 @@ textarea {
 }
 
 .noctem-choice span:nth-child(odd) {
-    transform: translateX(8px);
+    transform: translateX(4px);
 }
 
 .noctem-choice span:nth-child(even) {
-    transform: translateX(-8px);
+    transform: translateX(-5px);
 }
 
 .noctem-choice .word-gap {
-
-    height: 0.45em;
+    height: 5px;
 }
 
 
 /* CONSPIRATIONS */
 
 .conspirations-choice {
-
-    top: 80%;
+    top: 82%;
     left: 24%;
 
     transform:
@@ -1017,16 +897,15 @@ textarea {
 }
 
 .conspirations-choice span:nth-child(odd) {
-    transform: translateX(-8px);
+    transform: translateX(-5px);
 }
 
 .conspirations-choice span:nth-child(even) {
-    transform: translateX(8px);
+    transform: translateX(5px);
 }
 
 
 .death-whisper {
-
     position: absolute;
 
     right: 7%;
@@ -1046,18 +925,22 @@ textarea {
 }
 
 
-/* ? plus gros et gras */
+/* ═══════════════════════════════════════
+   ?
+   CONSPIRATIONS — PLUS GROS + GRAS
+═══════════════════════════════════════ */
 
 .death-secret {
-
     left: 7%;
     bottom: 7%;
 
-    font-size: 21px;
+    font-size: 22px !important;
 
-    font-weight: 900;
+    font-weight: 700 !important;
 
     color: #ffffff;
+
+    z-index: 100;
 }
 
 
@@ -1066,8 +949,11 @@ textarea {
 ═══════════════════════════════════════ */
 
 .noctem-main-title {
-
     position: absolute;
+
+    /*
+       Descendu d'environ 1,5 cm.
+    */
 
     top: 17%;
 
@@ -1084,10 +970,10 @@ textarea {
     font-family: var(--font-display);
 
     /*
-       plus petit comme demandé
+       2 points environ plus petit.
     */
 
-    font-size: clamp(23px, 3.2vw, 39px);
+    font-size: clamp(25px, 3.5vw, 42px);
 
     font-weight: 700;
 
@@ -1104,7 +990,6 @@ textarea {
 }
 
 .noctem-whisper {
-
     position: absolute;
 
     top: 23%;
@@ -1114,9 +999,11 @@ textarea {
 
     padding: 10px 16px;
 
-    background: rgba(10, 10, 10, 0.88);
+    background:
+        rgba(10, 10, 10, 0.88);
 
-    border: 1px solid rgba(255, 255, 255, 0.65);
+    border:
+        1px solid rgba(255, 255, 255, 0.65);
 
     color: var(--ink);
 
@@ -1130,57 +1017,59 @@ textarea {
 
     transform: rotate(3deg);
 
+    box-shadow:
+        0 0 15px rgba(255, 255, 255, 0.08);
+
     pointer-events: none;
 }
 
 
-/* CŒURS
-   zones cliquables exactement centrées
-   sur les deux cœurs
+/*
+   Zones des deux cœurs.
 */
 
 .heart-left {
+    left: 10%;
+    bottom: 3%;
 
-    left: 7%;
-    bottom: 1%;
-
-    width: 23%;
-    height: 23%;
+    width: 17%;
+    height: 17%;
 }
 
 .heart-right {
+    right: 4%;
+    bottom: 3%;
 
-    right: 1%;
-    bottom: 1%;
-
-    width: 23%;
-    height: 23%;
+    width: 17%;
+    height: 17%;
 }
 
 
-/* croix centrale */
+/*
+   CROIX — PLUS GRANDE ET GRASSE
+*/
 
 .noctem-secret {
-
     top: 50%;
     left: 50%;
 
-    font-size: 23px;
+    font-size: 24px !important;
 
-    font-weight: 900;
+    font-weight: 900 !important;
 
     font-family: var(--font-serif);
 
     color: #ffffff;
+
+    z-index: 100;
 }
 
 
 /* ═══════════════════════════════════════
-   TITRES CHRONIQUES / LIBRARY
+   TITRES GÉNÉRAUX
 ═══════════════════════════════════════ */
 
 .page-main-title {
-
     position: absolute;
 
     z-index: 60;
@@ -1189,11 +1078,18 @@ textarea {
 
     font-family: var(--font-display);
 
+    font-size: clamp(30px, 5vw, 50px);
+
     font-weight: 700;
+
+    letter-spacing: 4px;
 
     text-align: center;
 
     white-space: nowrap;
+
+    text-shadow:
+        0 0 12px rgba(255, 255, 255, 0.4);
 
     pointer-events: none;
 }
@@ -1204,61 +1100,52 @@ textarea {
 ═══════════════════════════════════════ */
 
 .chronicles-title {
-
     /*
-       plus petit
-       vers la droite
-       collé à l'image
+       Centré dans la zone supérieure.
+       Plus petit de 5 px.
     */
 
     top: 8%;
-
-    left: 72%;
+    left: 64%;
 
     transform:
         translateX(-50%)
         rotate(-2deg);
 
-    font-size: clamp(30px, 4.5vw, 48px);
-
-    letter-spacing: 3px;
+    font-size: clamp(33px, 5vw, 55px);
 
     color: #ffffff;
 
-    background: rgba(10, 10, 10, 0.88);
+    background:
+        rgba(10, 10, 10, 0.88);
 
-    border: 1px solid rgba(181, 42, 80, 0.55);
+    border:
+        1px solid rgba(255, 255, 255, 0.75);
 
-    padding: 7px 17px;
-
-    text-shadow:
-        0 0 12px rgba(255, 255, 255, 0.4);
-
-    box-shadow:
-        4px 4px 0 rgba(181, 42, 80, 0.2);
+    padding: 6px 16px;
 }
 
-
 .chronicles-intro {
-
     position: absolute;
 
     top: 19%;
-    right: 5%;
+    right: 7%;
 
     z-index: 70;
 
-    padding: 8px 13px;
+    padding: 10px 16px;
 
-    background: rgba(10, 10, 10, 0.82);
+    background:
+        rgba(10, 10, 10, 0.88);
 
-    border: 1px solid rgba(181, 42, 80, 0.5);
+    border:
+        1px solid rgba(255, 255, 255, 0.65);
 
     color: #ffffff;
 
     font-family: var(--font-mono);
 
-    font-size: 8px;
+    font-size: 9px;
 
     letter-spacing: 2px;
 
@@ -1266,32 +1153,25 @@ textarea {
 
     transform: rotate(3deg);
 
+    text-shadow:
+        0 0 8px rgba(0, 0, 0, 0.9);
+
     pointer-events: none;
 }
 
 
 /* ═══════════════════════════════════════
-   CHRONIQUES — 10 CARTES TRÈFLE
+   CARTES CHRONIQUES
+   10 POSITIONS
+   2/3 DROITE
+   SANS RECTANGLES
 ═══════════════════════════════════════ */
 
 .chronicle-entry {
-
     position: absolute;
 
-    z-index: 60;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 2px;
-
-    width: 42px;
-    height: 52px;
+    width: 50px;
+    height: 58px;
 
     padding: 0;
 
@@ -1301,106 +1181,171 @@ textarea {
 
     color: #ffffff;
 
-    font-family: var(--font-serif);
-
     cursor: none;
 
+    z-index: 80;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 0;
+
+    font-family: var(--font-mono);
+
     transition:
-        transform 0.3s ease,
-        color 0.3s ease;
-}
+        transform 0.35s ease,
+        color 0.35s ease;
 
-.chronicle-entry:hover {
-
-    color: var(--bordeaux);
-
-    transform:
-        scale(1.18)
-        rotate(-5deg);
-}
-
-.entry-number {
-
-    font-size: 13px;
-
-    line-height: 1;
-
-    font-weight: bold;
-}
-
-.entry-symbol {
-
-    font-size: 18px;
-
-    line-height: 1;
-
-    color: var(--bordeaux);
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.35);
 }
 
 
 /*
-   Répartition comme une carte de jeu de 10
-   dans la zone sombre pointillée
+   Le trèfle sert de forme visuelle.
+   Aucun rectangle.
 */
 
-.chronicle-one {
+.chronicle-entry .card-suit {
+    display: block;
 
-    top: 30%;
-    left: 29%;
+    font-family: Georgia, serif;
+
+    font-size: 38px;
+
+    line-height: 0.8;
+
+    opacity: 0.9;
 }
 
-.chronicle-two {
+.chronicle-entry .card-number {
+    position: absolute;
 
-    top: 38%;
-    left: 29%;
+    top: 8px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 2;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 0;
 }
 
-.chronicle-three {
 
-    top: 46%;
-    left: 29%;
+/*
+   Disposition type carte à jouer de 10.
+   Les 10 entrées occupent la zone droite.
+*/
+
+.chronicle-01 {
+    top: 28%;
+    left: 62%;
 }
 
-.chronicle-four {
-
-    top: 54%;
-    left: 29%;
+.chronicle-02 {
+    top: 36%;
+    left: 72%;
 }
 
-.chronicle-five {
-
-    top: 62%;
-    left: 29%;
+.chronicle-03 {
+    top: 44%;
+    left: 62%;
 }
 
-.chronicle-six {
-
-    top: 30%;
-    left: 36%;
+.chronicle-04 {
+    top: 52%;
+    left: 72%;
 }
 
-.chronicle-seven {
-
-    top: 38%;
-    left: 36%;
+.chronicle-05 {
+    top: 60%;
+    left: 62%;
 }
 
-.chronicle-eight {
-
-    top: 46%;
-    left: 36%;
+.chronicle-06 {
+    top: 68%;
+    left: 72%;
 }
 
-.chronicle-nine {
-
-    top: 54%;
-    left: 36%;
+.chronicle-07 {
+    top: 76%;
+    left: 62%;
 }
 
-.chronicle-ten {
+.chronicle-08 {
+    top: 32%;
+    left: 82%;
+}
 
-    top: 62%;
-    left: 36%;
+.chronicle-09 {
+    top: 48%;
+    left: 82%;
+}
+
+.chronicle-10 {
+    top: 64%;
+    left: 82%;
+}
+
+
+.chronicle-entry:hover {
+    color: var(--bordeaux);
+
+    transform:
+        scale(1.2)
+        rotate(-5deg);
+}
+
+
+/* ═══════════════════════════════════════
+   SECRET CHRONIQUES
+═══════════════════════════════════════ */
+
+.chronicle-secret {
+    position: absolute;
+
+    bottom: 6%;
+    left: 7%;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--ink-faint);
+
+    font-family: var(--font-mono);
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    cursor: none;
+
+    z-index: 100;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.4s ease;
+}
+
+.chronicle-secret:hover {
+    opacity: 1;
+
+    transform:
+        rotate(180deg)
+        scale(1.35);
 }
 
 
@@ -1409,197 +1354,196 @@ textarea {
 ═══════════════════════════════════════ */
 
 .library-title {
-
     /*
-       centré en haut
-       et plus petit
+       Centré en haut et plus petit.
     */
 
-    top: 7%;
-
-    left: 50%;
+    top: 8%;
+    left: 64%;
 
     transform:
         translateX(-50%)
         rotate(-2deg);
 
-    font-size: clamp(32px, 4.5vw, 48px);
-
-    letter-spacing: 3px;
+    font-size: clamp(33px, 5vw, 55px);
 
     color: #ffffff;
 
-    background: rgba(10, 10, 10, 0.88);
+    background:
+        rgba(10, 10, 10, 0.88);
 
-    border: 1px solid rgba(181, 42, 80, 0.55);
+    border:
+        1px solid rgba(255, 255, 255, 0.75);
 
-    padding: 7px 18px;
+    padding: 6px 16px;
 
     box-shadow:
-        4px 4px 0 rgba(181, 42, 80, 0.18);
+        4px 4px 0 rgba(255, 255, 255, 0.12);
 
     text-shadow:
         0 0 12px rgba(255, 255, 255, 0.4);
 }
 
 
-/* supprimé :
-   THE LIBRARY en haut à droite
+/*
+   THE LIBRARY supprimé.
 */
 
-
-.library-heading,
 .library-whisper {
-
     display: none;
 }
 
 
 /* ═══════════════════════════════════════
-   LIBRARY — 10 PIQUES
+   CARTES LIBRARY
+   10 POSITIONS
+   PIQUES
+   SANS RECTANGLES
 ═══════════════════════════════════════ */
 
 .library-entry {
-
     position: absolute;
 
-    z-index: 60;
+    width: 50px;
+    height: 58px;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-family: var(--font-mono);
+
+    cursor: none;
+
+    z-index: 80;
 
     display: flex;
 
     flex-direction: column;
 
-    align-items: center;
-
     justify-content: center;
 
-    gap: 2px;
+    align-items: center;
 
-    width: 42px;
-    height: 52px;
-
-    padding: 0;
-
-    border: none;
-
-    background: transparent;
-
-    color: #ffffff;
-
-    font-family: var(--font-serif);
-
-    cursor: none;
+    gap: 0;
 
     transition:
-        transform 0.3s ease,
-        color 0.3s ease;
+        transform 0.35s ease,
+        color 0.35s ease;
+
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.35);
 }
 
-.library-entry:hover {
 
-    color: var(--bordeaux);
+.library-entry .card-suit {
+    display: block;
+
+    font-family: Georgia, serif;
+
+    font-size: 38px;
+
+    line-height: 0.8;
+
+    opacity: 0.9;
+}
+
+.library-entry .card-number {
+    position: absolute;
+
+    top: 8px;
+    left: 50%;
 
     transform:
-        scale(1.18)
-        rotate(5deg);
-}
+        translateX(-50%);
 
-.library-number {
+    z-index: 2;
 
     font-size: 13px;
 
-    line-height: 1;
+    font-weight: 700;
 
-    font-weight: bold;
-}
-
-.library-mark {
-
-    font-size: 18px;
-
-    line-height: 1;
-
-    color: var(--bordeaux);
+    letter-spacing: 0;
 }
 
 
 /*
-   Même logique de carte de 10
+   Même logique de carte à jouer de 10.
 */
 
-.library-one {
-
-    top: 30%;
-    left: 29%;
+.library-01 {
+    top: 28%;
+    left: 62%;
 }
 
-.library-two {
-
-    top: 38%;
-    left: 29%;
+.library-02 {
+    top: 36%;
+    left: 72%;
 }
 
-.library-three {
-
-    top: 46%;
-    left: 29%;
+.library-03 {
+    top: 44%;
+    left: 62%;
 }
 
-.library-four {
-
-    top: 54%;
-    left: 29%;
+.library-04 {
+    top: 52%;
+    left: 72%;
 }
 
-.library-five {
-
-    top: 62%;
-    left: 29%;
+.library-05 {
+    top: 60%;
+    left: 62%;
 }
 
-.library-six {
-
-    top: 30%;
-    left: 36%;
+.library-06 {
+    top: 68%;
+    left: 72%;
 }
 
-.library-seven {
-
-    top: 38%;
-    left: 36%;
+.library-07 {
+    top: 76%;
+    left: 62%;
 }
 
-.library-eight {
-
-    top: 46%;
-    left: 36%;
+.library-08 {
+    top: 32%;
+    left: 82%;
 }
 
-.library-nine {
-
-    top: 54%;
-    left: 36%;
+.library-09 {
+    top: 48%;
+    left: 82%;
 }
 
-.library-ten {
+.library-10 {
+    top: 64%;
+    left: 82%;
+}
 
-    top: 62%;
-    left: 36%;
+
+.library-entry:hover {
+    color: var(--bordeaux);
+
+    transform:
+        scale(1.2)
+        rotate(5deg);
 }
 
 
 /* ═══════════════════════════════════════
-   CROIX LIBRARY
+   LIBRARY SECRET
 ═══════════════════════════════════════ */
 
 .library-secret {
-
     position: absolute;
 
-    right: 6%;
-    bottom: 5%;
-
-    z-index: 80;
+    bottom: 7%;
+    right: 7%;
 
     padding: 0;
 
@@ -1607,28 +1551,29 @@ textarea {
 
     background: transparent;
 
-    color: #ffffff;
+    color: var(--ink-faint);
 
     font-family: var(--font-serif);
 
-    font-size: 23px;
+    font-size: 22px;
 
-    font-weight: 900;
+    font-weight: 700;
 
     cursor: none;
 
+    z-index: 100;
+
     transition:
-        transform 0.3s ease,
-        opacity 0.3s ease;
+        opacity 0.3s ease,
+        transform 0.4s ease;
 }
 
 .library-secret:hover {
-
     opacity: 1;
 
     transform:
         rotate(180deg)
-        scale(1.25);
+        scale(1.35);
 }
 
 
@@ -1637,7 +1582,6 @@ textarea {
 ═══════════════════════════════════════ */
 
 #page-ephemeris {
-
     width: 100vw;
     height: 100vh;
 
@@ -1649,7 +1593,6 @@ textarea {
 }
 
 .ephemeris-interface {
-
     position: relative;
 
     width: min(900px, 88vw);
@@ -1668,14 +1611,12 @@ textarea {
 }
 
 .ephemeris-header {
-
     text-align: center;
 
     margin-bottom: 30px;
 }
 
 .ephemeris-number {
-
     display: block;
 
     font-size: 10px;
@@ -1686,7 +1627,6 @@ textarea {
 }
 
 .ephemeris-header h1 {
-
     margin: 10px 0 6px;
 
     font-family: var(--font-display);
@@ -1704,7 +1644,6 @@ textarea {
 }
 
 .ephemeris-subtitle {
-
     font-size: 10px;
 
     letter-spacing: 2px;
@@ -1713,7 +1652,6 @@ textarea {
 }
 
 .calendar {
-
     width: 100%;
 
     border-top:
@@ -1724,7 +1662,6 @@ textarea {
 }
 
 .calendar-top {
-
     display: flex;
 
     align-items: center;
@@ -1735,7 +1672,6 @@ textarea {
 }
 
 .calendar-month {
-
     font-family: var(--font-display);
 
     font-size: 26px;
@@ -1751,7 +1687,6 @@ textarea {
 }
 
 .calendar-arrow {
-
     border: none;
 
     background: transparent;
@@ -1765,17 +1700,19 @@ textarea {
     cursor: none;
 
     opacity: 0.75;
+
+    transition:
+        opacity 0.2s ease,
+        color 0.2s ease;
 }
 
 .calendar-arrow:hover {
-
     opacity: 1;
 
     color: var(--bordeaux);
 }
 
 .calendar-weekdays {
-
     display: grid;
 
     grid-template-columns:
@@ -1788,7 +1725,6 @@ textarea {
 }
 
 .calendar-weekdays span {
-
     display: block;
 
     text-align: center;
@@ -1805,7 +1741,6 @@ textarea {
 }
 
 .calendar-days {
-
     display: grid;
 
     grid-template-columns:
@@ -1813,7 +1748,6 @@ textarea {
 }
 
 .calendar-day {
-
     position: relative;
 
     min-height: 62px;
@@ -1835,20 +1769,21 @@ textarea {
     font-size: 11px;
 
     cursor: none;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
 }
 
 .calendar-day:nth-child(odd) {
-
     background: var(--wine-dark);
 }
 
 .calendar-day:nth-child(even) {
-
     background: var(--wine-soft);
 }
 
 .calendar-day:hover {
-
     background: var(--bordeaux-deep);
 
     transform: scale(1.04);
@@ -1857,33 +1792,28 @@ textarea {
 }
 
 .calendar-day.empty {
-
     pointer-events: none;
 
     opacity: 0.12;
 }
 
 .calendar-day.today {
-
     box-shadow:
         inset 0 0 0 1px var(--bordeaux);
 }
 
 .calendar-day.today .day-number {
-
     color: var(--bordeaux);
 
     font-weight: bold;
 }
 
 .calendar-day.strange {
-
     animation:
         strangePulse 2s ease-in-out infinite;
 }
 
 .day-number {
-
     position: absolute;
 
     top: 8px;
@@ -1891,7 +1821,6 @@ textarea {
 }
 
 .day-symbol {
-
     position: absolute;
 
     right: 8px;
@@ -1905,7 +1834,6 @@ textarea {
 }
 
 .date-entry {
-
     margin-top: 24px;
 
     min-height: 80px;
@@ -1920,7 +1848,6 @@ textarea {
 }
 
 .entry-date {
-
     font-size: 10px;
 
     letter-spacing: 3px;
@@ -1931,7 +1858,6 @@ textarea {
 }
 
 .entry-content {
-
     font-family: var(--font-serif);
 
     font-size: 15px;
@@ -1942,7 +1868,6 @@ textarea {
 }
 
 .ephemeris-footer {
-
     display: flex;
 
     justify-content: space-between;
@@ -1959,12 +1884,10 @@ textarea {
 }
 
 .unknown {
-
     letter-spacing: 3px;
 }
 
 .ephemeris-whisper {
-
     position: absolute;
 
     bottom: 55px;
@@ -1982,7 +1905,6 @@ textarea {
 }
 
 .ephemeris-return {
-
     position: absolute;
 
     bottom: 20px;
@@ -2006,12 +1928,10 @@ textarea {
 }
 
 .ephemeris-return:hover {
-
     opacity: 1;
 }
 
 .ephemeris-secret {
-
     position: absolute;
 
     top: 25px;
@@ -2028,10 +1948,13 @@ textarea {
     cursor: none;
 
     opacity: 0.4;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
 }
 
 .ephemeris-secret:hover {
-
     opacity: 1;
 
     transform: rotate(90deg);
@@ -2043,7 +1966,6 @@ textarea {
 ═══════════════════════════════════════ */
 
 .ephemeris-lock {
-
     position: absolute;
 
     top: 52%;
@@ -2059,10 +1981,13 @@ textarea {
     font-family: var(--font-mono);
 
     z-index: 200;
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
 }
 
 .lock-symbol {
-
     font-size: 24px;
 
     margin-bottom: 18px;
@@ -2076,7 +2001,6 @@ textarea {
 }
 
 .lock-title {
-
     font-family: var(--font-display);
 
     font-size: 27px;
@@ -2094,7 +2018,6 @@ textarea {
 }
 
 .lock-text {
-
     font-size: 9px;
 
     letter-spacing: 2px;
@@ -2109,18 +2032,15 @@ textarea {
 }
 
 .password-area {
-
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 
     gap: 10px;
 }
 
 #ephemeris-password {
-
     width: 85px;
 
     padding: 8px 5px;
@@ -2146,12 +2066,10 @@ textarea {
 }
 
 #ephemeris-password::placeholder {
-
     color: rgba(255, 255, 255, 0.2);
 }
 
 #ephemeris-unlock {
-
     border: none;
 
     background: transparent;
@@ -2165,17 +2083,19 @@ textarea {
     letter-spacing: 2px;
 
     cursor: none;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
 }
 
 #ephemeris-unlock:hover {
-
     opacity: 1;
 
     transform: scale(1.15);
 }
 
 .password-error {
-
     margin-top: 15px;
 
     font-size: 9px;
@@ -2185,22 +2105,22 @@ textarea {
     opacity: 0;
 
     color: var(--ink);
+
+    transition:
+        opacity 0.3s ease;
 }
 
 .password-error.visible {
-
     opacity: 0.7;
 }
 
 #page-ephemeris.is-locked .calendar,
 #page-ephemeris.is-locked .date-entry,
 #page-ephemeris.is-locked .ephemeris-footer {
-
     visibility: hidden;
 }
 
 #page-ephemeris.is-unlocked .ephemeris-lock {
-
     opacity: 0;
 
     pointer-events: none;
@@ -2213,8 +2133,96 @@ textarea {
 #page-ephemeris.is-unlocked .calendar,
 #page-ephemeris.is-unlocked .date-entry,
 #page-ephemeris.is-unlocked .ephemeris-footer {
-
     visibility: visible;
+}
+
+
+/* ═══════════════════════════════════════
+   ARE YOU LOST
+═══════════════════════════════════════ */
+
+.lost-title {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-3deg);
+
+    z-index: 60;
+
+    color: #ffffff;
+
+    font-family: var(--font-display);
+
+    font-size: clamp(40px, 7vw, 78px);
+
+    letter-spacing: 2px;
+
+    text-align: center;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 0 15px rgba(255, 255, 255, 0.5);
+
+    pointer-events: none;
+}
+
+
+/* ═══════════════════════════════════════
+   SECTION WHISPERS
+═══════════════════════════════════════ */
+
+.section-whisper {
+    position: absolute;
+
+    z-index: 55;
+
+    font-family: var(--font-mono);
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    text-transform: uppercase;
+
+    pointer-events: none;
+
+    text-shadow:
+        0 0 8px rgba(0, 0, 0, 0.9);
+}
+
+.divide-heading {
+    top: 4%;
+    left: 7%;
+
+    transform: rotate(-4deg);
+}
+
+.living-heading {
+    top: 4%;
+    right: 7%;
+
+    transform: rotate(4deg);
+}
+
+.other-heading {
+    top: 4%;
+    right: 7%;
+
+    transform: rotate(4deg);
+}
+
+.library-heading {
+    top: 4%;
+    right: 7%;
+
+    transform: rotate(3deg);
 }
 
 
@@ -2229,7 +2237,6 @@ textarea {
 #noctem-secret-message,
 #chronicle-secret-message,
 #library-secret-message {
-
     position: fixed;
 
     top: 50%;
@@ -2257,9 +2264,15 @@ textarea {
 
     padding: 15px 22px;
 
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    border:
+        1px solid rgba(255, 255, 255, 0.6);
 
-    background: rgba(10, 10, 10, 0.94);
+    background:
+        rgba(10, 10, 10, 0.9);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
 }
 
 #strange-message.visible,
@@ -2269,7 +2282,6 @@ textarea {
 #noctem-secret-message.visible,
 #chronicle-secret-message.visible,
 #library-secret-message.visible {
-
     opacity: 1;
 
     transform:
@@ -2289,7 +2301,6 @@ textarea {
 .noctem-secret,
 .chronicle-secret,
 .library-secret {
-
     position: absolute;
 
     padding: 0;
@@ -2300,9 +2311,11 @@ textarea {
 
     color: var(--ink-faint);
 
+    font-family: var(--font-mono);
+
     cursor: none;
 
-    z-index: 80;
+    z-index: 60;
 
     transition:
         opacity 0.3s ease,
@@ -2316,7 +2329,6 @@ textarea {
 .noctem-secret:hover,
 .chronicle-secret:hover,
 .library-secret:hover {
-
     opacity: 1;
 
     transform:
@@ -2325,7 +2337,6 @@ textarea {
 }
 
 .secret-symbol {
-
     top: 18%;
     right: 9%;
 
@@ -2338,70 +2349,78 @@ textarea {
 }
 
 .divide-secret {
-
     left: 8%;
     bottom: 8%;
 
     font-size: 14px;
 }
 
-.chronicle-secret {
+.life-secret {
+    right: 7%;
+    bottom: 7%;
 
+    font-size: 20px;
+
+    font-weight: 700;
+}
+
+.death-secret {
+    left: 7%;
+    bottom: 7%;
+
+    font-size: 22px;
+
+    font-weight: 700;
+}
+
+.noctem-secret {
+    top: 50%;
+    left: 50%;
+
+    font-size: 24px;
+
+    font-weight: 900;
+
+    font-family: var(--font-serif);
+}
+
+.chronicle-secret {
     bottom: 6%;
     left: 7%;
 
-    font-size: 17px;
+    font-size: 18px;
 
-    font-weight: 900;
+    font-weight: 700;
+}
+
+.library-secret {
+    bottom: 7%;
+    right: 7%;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    font-family: var(--font-serif);
 }
 
 
 /* ═══════════════════════════════════════
    VISITOR BOOK
-   OPAQUE + SPOOKY
 ═══════════════════════════════════════ */
 
 #page-visitor-book {
-
-    position: fixed;
-
-    inset: 0;
-
-    width: 100vw;
-    height: 100vh;
-
-    z-index: 1000;
-
-    overflow-y: auto;
-    overflow-x: hidden;
-
     background:
         radial-gradient(
             circle at 50% 40%,
-            rgba(91, 16, 41, 0.25),
-            transparent 45%
+            rgba(91, 16, 41, 0.16),
+            transparent 55%
         ),
-        radial-gradient(
-            circle at 15% 80%,
-            rgba(181, 42, 80, 0.07),
-            transparent 30%
-        ),
-        #080808;
-}
+        #0a0a0a;
 
+    color: #ffffff;
 
-/*
-   Important :
-   le Visitor Book est maintenant totalement opaque,
-   donc les images des pages précédentes ne peuvent
-   plus apparaître dessous.
-*/
-
-#page-visitor-book.active {
-
-    display: flex;
-
-    z-index: 1000;
+    overflow-y: auto;
 }
 
 
@@ -2410,20 +2429,28 @@ textarea {
 ═══════════════════════════════════════ */
 
 #page-visitor-book .visitor-book {
-
     position: relative;
 
-    top: 5vh;
+    top: 6vh;
+
+    left: auto;
+
+    transform:
+        rotate(-0.8deg);
 
     width: min(900px, 90vw);
 
     min-height: 88vh;
 
-    padding: 50px 58px 75px;
+    padding:
+        50px
+        58px
+        75px;
 
     box-sizing: border-box;
 
-    border: 1px solid rgba(255, 255, 255, 0.55);
+    border:
+        1px solid rgba(255, 255, 255, 0.55);
 
     background:
         linear-gradient(
@@ -2433,28 +2460,25 @@ textarea {
             transparent 92%,
             rgba(255, 255, 255, 0.02)
         ),
-        #0b0b0b;
+        rgba(10, 10, 10, 0.96);
 
     color: #ffffff;
 
-    z-index: 1100;
+    z-index: 70;
 
     box-shadow:
-        10px 10px 0 rgba(91, 16, 41, 0.28),
-        0 0 45px rgba(0, 0, 0, 0.8);
+        10px 10px 0 rgba(91, 16, 41, 0.25),
+        -3px 0 0 rgba(255, 255, 255, 0.04);
 
     overflow: hidden;
-
-    transform: rotate(-0.8deg);
 }
 
 
 /* ═══════════════════════════════════════
-   DECORATIONS
+   SPOOKY BOOK DECOR
 ═══════════════════════════════════════ */
 
 #page-visitor-book .visitor-book::before {
-
     content: "✦";
 
     position: absolute;
@@ -2472,7 +2496,6 @@ textarea {
 }
 
 #page-visitor-book .visitor-book::after {
-
     content: "†";
 
     position: absolute;
@@ -2484,7 +2507,9 @@ textarea {
 
     font-family: Georgia, serif;
 
-    font-size: 19px;
+    font-size: 22px;
+
+    font-weight: 700;
 
     opacity: 0.65;
 }
@@ -2495,7 +2520,6 @@ textarea {
 ═══════════════════════════════════════ */
 
 .visitor-book-header {
-
     position: relative;
 
     text-align: center;
@@ -2509,7 +2533,6 @@ textarea {
 }
 
 .visitor-book-header::after {
-
     content: "✦ ─────── ✦";
 
     position: absolute;
@@ -2517,11 +2540,12 @@ textarea {
     bottom: -9px;
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     padding: 0 12px;
 
-    background: #0b0b0b;
+    background: #0a0a0a;
 
     color: var(--bordeaux);
 
@@ -2533,7 +2557,6 @@ textarea {
 }
 
 .visitor-book-number {
-
     display: block;
 
     font-family: var(--font-mono);
@@ -2550,7 +2573,6 @@ textarea {
 }
 
 .visitor-book-header h1 {
-
     margin: 0 0 10px;
 
     font-family: var(--font-display);
@@ -2562,10 +2584,12 @@ textarea {
     letter-spacing: 4px;
 
     color: #ffffff;
+
+    text-shadow:
+        0 0 12px rgba(255, 255, 255, 0.15);
 }
 
 .visitor-book-header p {
-
     margin: 0;
 
     font-family: var(--font-serif);
@@ -2585,7 +2609,6 @@ textarea {
 ═══════════════════════════════════════ */
 
 .visitor-book-content {
-
     display: grid;
 
     grid-template-columns:
@@ -2603,7 +2626,6 @@ textarea {
 ═══════════════════════════════════════ */
 
 .visitor-label {
-
     position: relative;
 
     font-family: var(--font-mono);
@@ -2620,7 +2642,6 @@ textarea {
 }
 
 .visitor-label::before {
-
     content: "✦";
 
     position: absolute;
@@ -2635,11 +2656,10 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   WRITING AREA
+   WRITING
 ═══════════════════════════════════════ */
 
 .visitor-write {
-
     position: relative;
 
     padding-right: 25px;
@@ -2648,13 +2668,7 @@ textarea {
         1px solid rgba(255, 255, 255, 0.16);
 }
 
-
-/* ═══════════════════════════════════════
-   NAME
-═══════════════════════════════════════ */
-
 .visitor-write input {
-
     display: block;
 
     width: 100%;
@@ -2683,15 +2697,17 @@ textarea {
     font-size: 11px;
 
     letter-spacing: 1px;
+
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease;
 }
 
 .visitor-write input::placeholder {
-
     color: rgba(255, 255, 255, 0.3);
 }
 
 .visitor-write input:focus {
-
     border-bottom-color: var(--bordeaux);
 
     background:
@@ -2702,13 +2718,7 @@ textarea {
         );
 }
 
-
-/* ═══════════════════════════════════════
-   MESSAGE
-═══════════════════════════════════════ */
-
 .visitor-write textarea {
-
     display: block;
 
     width: 100%;
@@ -2741,17 +2751,19 @@ textarea {
     font-size: 14px;
 
     line-height: 29px;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .visitor-write textarea::placeholder {
-
     color: rgba(255, 255, 255, 0.28);
 
     font-style: italic;
 }
 
 .visitor-write textarea:focus {
-
     border-color:
         rgba(181, 42, 80, 0.75);
 
@@ -2765,7 +2777,6 @@ textarea {
 ═══════════════════════════════════════ */
 
 #visitor-submit {
-
     position: relative;
 
     margin-top: 18px;
@@ -2788,10 +2799,13 @@ textarea {
     letter-spacing: 3px;
 
     cursor: none;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
 #visitor-submit::before {
-
     content: "✦";
 
     margin-right: 8px;
@@ -2800,7 +2814,6 @@ textarea {
 }
 
 #visitor-submit:hover {
-
     color: var(--bordeaux);
 
     transform:
@@ -2814,7 +2827,6 @@ textarea {
 ═══════════════════════════════════════ */
 
 .visitor-status {
-
     margin-top: 13px;
 
     min-height: 15px;
@@ -2832,11 +2844,10 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   MESSAGES
+   MESSAGE ARCHIVE
 ═══════════════════════════════════════ */
 
 .visitor-messages {
-
     max-height: 430px;
 
     overflow-y: auto;
@@ -2851,27 +2862,23 @@ textarea {
 }
 
 .visitor-messages::-webkit-scrollbar {
-
     width: 3px;
 }
 
 .visitor-messages::-webkit-scrollbar-track {
-
     background: transparent;
 }
 
 .visitor-messages::-webkit-scrollbar-thumb {
-
     background: var(--bordeaux);
 }
 
 
 /* ═══════════════════════════════════════
-   EMPTY
+   EMPTY BOOK
 ═══════════════════════════════════════ */
 
 .visitor-empty {
-
     position: relative;
 
     padding: 55px 25px;
@@ -2890,7 +2897,6 @@ textarea {
 }
 
 .visitor-empty::before {
-
     content: "†";
 
     display: block;
@@ -2908,14 +2914,17 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   VISITOR MESSAGE
+   INDIVIDUAL VISITOR
 ═══════════════════════════════════════ */
 
-.visitor-message {
-
+.visitor-message-entry {
     position: relative;
 
-    padding: 18px 12px 20px 18px;
+    padding:
+        18px
+        12px
+        20px
+        18px;
 
     margin-bottom: 10px;
 
@@ -2935,8 +2944,24 @@ textarea {
     text-align: left;
 }
 
-.visitor-message-name {
+.visitor-message-entry::before {
+    content: "✦";
 
+    position: absolute;
+
+    left: -5px;
+    top: 17px;
+
+    padding: 0 2px;
+
+    background: #0a0a0a;
+
+    color: var(--bordeaux);
+
+    font-size: 8px;
+}
+
+.visitor-message-name {
     margin-bottom: 8px;
 
     font-family: var(--font-mono);
@@ -2951,7 +2976,6 @@ textarea {
 }
 
 .visitor-message-text {
-
     font-family: var(--font-serif);
 
     font-size: 14px;
@@ -2963,26 +2987,12 @@ textarea {
     white-space: pre-wrap;
 }
 
-.visitor-message-date {
-
-    margin-top: 9px;
-
-    font-family: var(--font-mono);
-
-    font-size: 8px;
-
-    letter-spacing: 2px;
-
-    color: rgba(255, 255, 255, 0.3);
-}
-
 
 /* ═══════════════════════════════════════
    RETURN
 ═══════════════════════════════════════ */
 
 .visitor-book-return {
-
     position: absolute;
 
     bottom: 25px;
@@ -3001,10 +3011,13 @@ textarea {
     letter-spacing: 3px;
 
     cursor: none;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
 .visitor-book-return:hover {
-
     color: var(--bordeaux);
 
     transform:
@@ -3012,7 +3025,6 @@ textarea {
 }
 
 .visitor-book-whisper {
-
     position: absolute;
 
     right: 58px;
@@ -3035,7 +3047,6 @@ textarea {
 ═══════════════════════════════════════ */
 
 .mystery-box-overlay {
-
     position: fixed;
 
     inset: 0;
@@ -3066,7 +3077,6 @@ textarea {
 }
 
 .mystery-box-overlay.visible {
-
     opacity: 1;
 
     visibility: visible;
@@ -3075,7 +3085,6 @@ textarea {
 }
 
 .mystery-box-scene {
-
     position: relative;
 
     width: min(600px, 90vw);
@@ -3091,7 +3100,6 @@ textarea {
 }
 
 .mystery-box-whisper {
-
     position: absolute;
 
     top: 12%;
@@ -3104,13 +3112,14 @@ textarea {
 
     color: var(--ink-dim);
 
+    text-transform: lowercase;
+
     transform: rotate(-3deg);
 
     opacity: 0.75;
 }
 
 .mystery-box {
-
     position: relative;
 
     width: 190px;
@@ -3129,11 +3138,11 @@ textarea {
         translateY(15px);
 
     transition:
-        transform 0.5s ease;
+        transform 0.5s ease,
+        filter 0.5s ease;
 }
 
 .mystery-box:hover {
-
     transform:
         rotate(-3deg)
         translateY(5px)
@@ -3141,7 +3150,6 @@ textarea {
 }
 
 .box-body {
-
     position: absolute;
 
     left: 15px;
@@ -3174,10 +3182,12 @@ textarea {
     box-shadow:
         8px 8px 0 rgba(181, 42, 80, 0.25),
         inset 0 0 25px rgba(0, 0, 0, 0.5);
+
+    transition:
+        transform 0.7s ease;
 }
 
 .box-lid {
-
     position: absolute;
 
     left: 5px;
@@ -3198,6 +3208,9 @@ textarea {
             rgba(35, 8, 17, 0.98)
         );
 
+    box-shadow:
+        5px 5px 0 rgba(181, 42, 80, 0.22);
+
     transform-origin: left bottom;
 
     transition:
@@ -3205,13 +3218,13 @@ textarea {
 }
 
 .box-lock {
-
     position: absolute;
 
     left: 50%;
     top: 66px;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     width: 20px;
     height: 24px;
@@ -3236,30 +3249,28 @@ textarea {
 }
 
 .mystery-box.opened {
-
     transform:
         rotate(-1deg)
         translateY(15px);
 }
 
 .mystery-box.opened .box-lid {
-
     transform:
         rotate(-55deg)
         translate(-5px, -12px);
 }
 
 .mystery-box.opened .box-lock {
-
     opacity: 0;
+
+    transition:
+        opacity 0.2s ease;
 }
 
 .box-message {
-
     position: absolute;
 
     top: 58%;
-
     left: 50%;
 
     transform:
@@ -3283,7 +3294,6 @@ textarea {
 }
 
 .box-message.visible {
-
     opacity: 1;
 
     transform:
@@ -3293,7 +3303,6 @@ textarea {
 }
 
 .box-message-small {
-
     font-family: var(--font-mono);
 
     font-size: 9px;
@@ -3304,7 +3313,6 @@ textarea {
 }
 
 .box-password {
-
     font-family: var(--font-display);
 
     font-size: clamp(45px, 7vw, 70px);
@@ -3314,11 +3322,11 @@ textarea {
     color: var(--bordeaux);
 
     text-shadow:
-        0 0 12px var(--bordeaux-glow);
+        0 0 12px var(--bordeaux-glow),
+        0 0 30px rgba(181, 42, 80, 0.2);
 }
 
 .box-message-hint {
-
     font-family: var(--font-serif);
 
     font-size: 11px;
@@ -3331,7 +3339,6 @@ textarea {
 }
 
 #enter-ephemeris {
-
     margin-top: 10px;
 
     padding: 9px 15px;
@@ -3349,10 +3356,15 @@ textarea {
     letter-spacing: 2px;
 
     cursor: none;
+
+    opacity: 0.65;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
 }
 
 #enter-ephemeris:hover {
-
     opacity: 1;
 
     transform:
@@ -3360,7 +3372,6 @@ textarea {
 }
 
 .box-return {
-
     position: absolute;
 
     bottom: 8%;
@@ -3380,112 +3391,13 @@ textarea {
     cursor: none;
 
     opacity: 0.4;
+
+    transition:
+        opacity 0.3s ease;
 }
 
 .box-return:hover {
-
     opacity: 1;
-}
-
-
-/* ═══════════════════════════════════════
-   LOST
-═══════════════════════════════════════ */
-
-.lost-title {
-
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    transform:
-        translate(-50%, -50%)
-        rotate(-3deg);
-
-    z-index: 60;
-
-    color: #ffffff;
-
-    font-family: var(--font-display);
-
-    font-size: clamp(40px, 7vw, 78px);
-
-    letter-spacing: 2px;
-
-    text-align: center;
-
-    white-space: nowrap;
-
-    text-shadow:
-        0 0 15px rgba(255, 255, 255, 0.5);
-
-    pointer-events: none;
-}
-
-
-/* ═══════════════════════════════════════
-   ANIMATIONS
-═══════════════════════════════════════ */
-
-@keyframes webFloat {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-4px);
-    }
-}
-
-@keyframes spiderEscape {
-
-    0% {
-        opacity: 1;
-
-        transform:
-            translate(-50%, -50%)
-            scale(1)
-            rotate(0deg);
-    }
-
-    100% {
-        opacity: 0;
-
-        transform:
-            translate(
-                calc(-50% + 80px),
-                calc(-50% - 80px)
-            )
-            scale(0.2)
-            rotate(360deg);
-    }
-}
-
-@keyframes arrowPulse {
-
-    0%,
-    100% {
-        opacity: 0.5;
-    }
-
-    50% {
-        opacity: 1;
-    }
-}
-
-@keyframes strangePulse {
-
-    0%,
-    100% {
-        opacity: 0.45;
-    }
-
-    50% {
-        opacity: 1;
-    }
 }
 
 
@@ -3495,62 +3407,11 @@ textarea {
 
 @media (max-width: 700px) {
 
-    .welcome-title {
-
-        width: 330px;
-        max-width: 65vw;
-
-        top: 13%;
-    }
-
-    .welcome-name {
-
-        font-size: 21px;
-
-        letter-spacing: 2px;
-    }
-
-    .time-warning {
-
-        left: 29%;
-
-        bottom: 8%;
-
-        font-size: 9px;
-    }
-
-    .divide-label {
-
-        font-size: 28px;
-    }
-
-    .living-choice {
-
-        font-size: 25px;
-
-        width: 120px;
-    }
-
-    .other-side-choice {
-
-        font-size: 16px;
-
-        width: 75px;
-    }
-
-    .noctem-main-title {
-
-        font-size: 25px;
-    }
-
-    .chronicles-title,
-    .library-title {
-
-        font-size: 31px;
+    #page-visitor-book {
+        overflow-y: auto;
     }
 
     #page-visitor-book .visitor-book {
-
         top: 3vh;
 
         width: 94vw;
@@ -3563,22 +3424,22 @@ textarea {
             70px;
 
         transform: rotate(0deg);
+
+        box-shadow:
+            6px 6px 0 rgba(91, 16, 41, 0.25);
     }
 
     .visitor-book-header h1 {
-
         font-size: 40px;
     }
 
     .visitor-book-content {
-
         grid-template-columns: 1fr;
 
         gap: 35px;
     }
 
     .visitor-write {
-
         padding-right: 0;
 
         padding-bottom: 30px;
@@ -3590,39 +3451,121 @@ textarea {
     }
 
     .visitor-messages {
-
         max-height: 320px;
     }
 
     .visitor-book-return {
-
         left: 25px;
         bottom: 22px;
     }
 
     .visitor-book-whisper {
-
         display: none;
     }
 
-    .mystery-box {
 
+    /* WELCOME */
+
+    .welcome-title {
+        width: 48%;
+    }
+
+    .welcome-name {
+        font-size: 18px;
+
+        padding:
+            7px
+            10px;
+    }
+
+    .welcome {
+        left: 27%;
+        width: 46%;
+    }
+
+
+    /* WARNING */
+
+    .time-warning {
+        right: 5%;
+        bottom: 5%;
+
+        font-size: 9px;
+
+        padding:
+            9px
+            12px;
+    }
+
+
+    /* OTHER SIDE */
+
+    .other-side-choice {
+        font-size: 16px;
+    }
+
+
+    /* CARPE NOCTEM */
+
+    .noctem-main-title {
+        top: 17%;
+
+        font-size: 24px;
+    }
+
+
+    /* CARDS */
+
+    .chronicle-entry,
+    .library-entry {
+        width: 40px;
+        height: 48px;
+    }
+
+    .chronicle-entry .card-suit,
+    .library-entry .card-suit {
+        font-size: 30px;
+    }
+
+    .chronicle-entry .card-number,
+    .library-entry .card-number {
+        font-size: 11px;
+    }
+
+
+    /* MYSTERY BOX */
+
+    .mystery-box-whisper {
+        top: 8%;
+
+        font-size: 8px;
+
+        letter-spacing: 3px;
+    }
+
+    .mystery-box {
         transform:
             scale(0.85)
             rotate(-3deg);
     }
 
     .mystery-box:hover {
-
         transform:
             scale(0.9)
             rotate(-3deg);
     }
 
     .mystery-box.opened {
-
         transform:
             scale(0.85)
             rotate(-1deg);
+    }
+
+    .box-message {
+        top: 60%;
+    }
+
+    .box-return {
+        bottom: 5%;
     }
 }
