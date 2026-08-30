@@ -446,3 +446,4 @@ visitorSubmit.addEventListener(
 
 
 loadVisitorMessages();
+console.log("Supabase connecté :", supabaseClient);
