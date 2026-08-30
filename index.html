@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -94,9 +95,9 @@
         <section class="page" id="page-02">
 
             <div class="section-whisper divide-heading">
-    THE DIVIDE
-</div>
-            
+                THE DIVIDE
+            </div>
+
             <img
                 src="images/life_death.png"
                 alt="Life or Death"
@@ -159,9 +160,9 @@
         <section class="page" id="page-03">
 
             <div class="section-whisper living-heading">
-    THE LIVING SIDE
-</div>
-            
+                THE LIVING SIDE
+            </div>
+
             <img
                 src="images/reality_inbetween_ficition.png"
                 alt="Reality, In Between and Fiction"
@@ -392,9 +393,9 @@
         <section class="page" id="page-03-death">
 
             <div class="section-whisper other-heading">
-    THE OTHER SIDE
-</div>
-            
+                THE OTHER SIDE
+            </div>
+
             <img
                 src="images/obss_ca_cons.png"
                 alt="Obsession, Carpe Noctem and Conspirations"
@@ -558,9 +559,9 @@
         <section class="page" id="page-library">
 
             <div class="section-whisper library-heading">
-    THE LIBRARY
-</div>
-            
+                THE LIBRARY
+            </div>
+
             <img
                 src="images/library.png"
                 alt="Library"
@@ -575,33 +576,13 @@
                 books remember what people forget.
             </div>
 
-            <div class="visitor-book" id="visitor-book">
 
-    <div class="visitor-book-title">
-        THE VISITOR'S BOOK
-    </div>
+            <!--
+                THE VISITOR BOOK IS NO LONGER HERE.
+                The actual Visitor Book has its own page below.
+            -->
 
-    <div class="visitor-book-subtitle">
-        leave something behind.
-    </div>
 
-    <textarea
-        id="visitor-message"
-        placeholder="write something..."
-        maxlength="500"
-    ></textarea>
-
-    <button
-        id="visitor-submit"
-        type="button"
-    >
-        LEAVE YOUR MARK
-    </button>
-
-    <div id="visitor-status"></div>
-
-</div>
-            
             <button
                 class="library-entry library-one"
                 aria-label="Library entry one"
@@ -612,7 +593,8 @@
 
             <button
                 class="library-entry library-two"
-                aria-label="Library entry two"
+                onclick="showPage('page-visitor-book')"
+                aria-label="The Visitor Book"
             >
                 <span class="library-number">II</span>
                 <span class="library-mark">✦</span>
@@ -639,108 +621,117 @@
 
         </section>
 
-<!-- ═════════════════════════════
-     VISITOR BOOK
-═══════════════════════════════ -->
 
-<section class="page" id="page-visitor-book">
+        <!-- ═════════════════════════════
+             VISITOR BOOK
+        ═════════════════════════════ -->
 
-    <div class="visitor-book">
+        <section class="page" id="page-visitor-book">
 
-        <div class="visitor-book-header">
+            <div class="visitor-book">
 
-            <span class="visitor-book-number">
-                II — THE VISITOR BOOK
-            </span>
+                <div class="visitor-book-header">
 
-            <h1>VISITOR BOOK</h1>
+                    <span class="visitor-book-number">
+                        II — THE VISITOR BOOK
+                    </span>
 
-            <p>
-                leave something behind.
-            </p>
+                    <h1>
+                        VISITOR BOOK
+                    </h1>
 
-        </div>
+                    <p>
+                        leave something behind.
+                    </p>
 
-
-        <div class="visitor-book-content">
-
-            <!-- MESSAGE FORM -->
-
-            <div class="visitor-write">
-
-                <div class="visitor-label">
-                    WRITE SOMETHING
                 </div>
 
-                <input
-                    type="text"
-                    id="visitor-name"
-                    maxlength="30"
-                    placeholder="your name / anonymous"
-                    autocomplete="off"
-                >
 
-                <textarea
-                    id="visitor-message"
-                    maxlength="500"
-                    placeholder="leave your message here..."
-                ></textarea>
-
-                <button
-                    id="visitor-submit"
-                    type="button"
-                >
-                    LEAVE IT ✦
-                </button>
-
-                <div
-                    id="visitor-status"
-                    class="visitor-status"
-                ></div>
-
-            </div>
+                <div class="visitor-book-content">
 
 
-            <!-- MESSAGES -->
+                    <!-- ═════════════════════
+                         MESSAGE FORM
+                    ═════════════════════ -->
 
-            <div class="visitor-messages">
+                    <div class="visitor-write">
 
-                <div class="visitor-label">
-                    THOSE WHO CAME BEFORE
-                </div>
+                        <div class="visitor-label">
+                            WRITE SOMETHING
+                        </div>
 
-                <div id="visitor-message-list">
+                        <input
+                            type="text"
+                            id="visitor-name"
+                            maxlength="30"
+                            placeholder="your name / anonymous"
+                            autocomplete="off"
+                        >
 
-                    <div class="visitor-empty">
-                        no messages have been left yet.
-                        <br>
-                        perhaps you could be the first.
+                        <textarea
+                            id="visitor-message"
+                            maxlength="500"
+                            placeholder="leave your message here..."
+                        ></textarea>
+
+                        <button
+                            id="visitor-submit"
+                            type="button"
+                        >
+                            LEAVE IT ✦
+                        </button>
+
+                        <div
+                            id="visitor-status"
+                            class="visitor-status"
+                        ></div>
+
+                    </div>
+
+
+                    <!-- ═════════════════════
+                         MESSAGES
+                    ═════════════════════ -->
+
+                    <div class="visitor-messages">
+
+                        <div class="visitor-label">
+                            THOSE WHO CAME BEFORE
+                        </div>
+
+                        <div id="visitor-message-list">
+
+                            <div class="visitor-empty">
+                                no messages have been left yet.
+                                <br>
+                                perhaps you could be the first.
+                            </div>
+
+                        </div>
+
                     </div>
 
                 </div>
 
+
+                <button
+                    class="visitor-book-return"
+                    onclick="showPage('page-library')"
+                    aria-label="Return to Library"
+                >
+                    ← RETURN TO LIBRARY
+                </button>
+
+
+                <div class="visitor-book-whisper">
+                    words remain, even when their writers disappear.
+                </div>
+
             </div>
 
-        </div>
+        </section>
 
 
-        <button
-            class="visitor-book-return"
-            onclick="showPage('page-library')"
-            aria-label="Return to Library"
-        >
-            ← RETURN TO LIBRARY
-        </button>
-
-
-        <div class="visitor-book-whisper">
-            words remain, even when their writers disappear.
-        </div>
-
-    </div>
-
-</section>
-        
         <!-- ═════════════════════════════
              ARE YOU LOST
         ═════════════════════════════ -->
@@ -765,9 +756,12 @@
 
     <script src="ephemeris/events.js"></script>
     <script src="ephemeris/ephemeris.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <script src="script.js"></script>
 
 </body>
 
 </html>
+```
