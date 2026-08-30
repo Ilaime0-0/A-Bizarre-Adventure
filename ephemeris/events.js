@@ -29,6 +29,9 @@ const strangeEvents = {
         "LAST RECORDED DATE.", 
  
    "2026-09-17":
-        "In between."
+        "In between.", 
+   
+    "2026-08-29":
+        "First day of this year. Happy New Year!"
 
 };
