@@ -327,7 +327,7 @@ textarea {
     left: 50%;
 
     transform:
-        translateX(clamp(180px, 32vh, 330px))
+        translateX(100px)
         rotate(-3deg);
 
     z-index: 70;
