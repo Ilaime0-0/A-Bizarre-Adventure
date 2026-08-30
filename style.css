@@ -2062,3 +2062,9 @@ a {
 
     transform: rotate(4deg);
 }
+.other-heading {
+    top: 4%;
+    right: 7%;
+
+    transform: rotate(4deg);
+}
