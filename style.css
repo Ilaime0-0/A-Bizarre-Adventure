@@ -430,13 +430,13 @@ textarea {
 }
 
 .life {
-    top: 10%;
-    height: 27%;
+    top: 5%;
+    height: 20%;
 }
 
 .death {
-    top: 63%;
-    height: 27%;
+    top: 60%;
+    height: 20%;
 }
 
 .divide-label {
