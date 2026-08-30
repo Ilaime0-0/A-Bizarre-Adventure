@@ -2,7 +2,6 @@
 <html lang="fr">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -12,26 +11,13 @@
 
     <title>Welcome to a Bizarre Adventure</title>
 
-    <!-- ═════════════════════════════════════
-         FONT
-    ═════════════════════════════════════ -->
-
     <link
         href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap"
         rel="stylesheet"
     >
 
-    <!-- ═════════════════════════════════════
-         CSS
-    ═════════════════════════════════════ -->
-
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
@@ -40,9 +26,7 @@
     ═════════════════════════════════════ -->
 
     <div id="spider-cursor">
-
         <div class="web">
-
             <span class="web-line line-1"></span>
             <span class="web-line line-2"></span>
             <span class="web-line line-3"></span>
@@ -50,22 +34,16 @@
 
             <span class="web-ring ring-1"></span>
             <span class="web-ring ring-2"></span>
-
         </div>
-
     </div>
 
-
-    <!-- ═════════════════════════════════════
-         MAIN ADVENTURE
-    ═════════════════════════════════════ -->
 
     <main class="adventure">
 
 
-        <!-- ╔════════════════════════════════════╗
+        <!-- ═════════════════════════════════════
              01 — WELCOME
-             ╚════════════════════════════════════╝ -->
+        ═════════════════════════════════════ -->
 
         <section
             class="page active"
@@ -80,16 +58,16 @@
                     class="interface-image"
                 >
 
-
-                <!-- WELCOME TITLE -->
+                <!-- WELCOME DANS LA ZONE BLANCHE -->
 
                 <div class="welcome-title">
-
                     <span class="welcome-name">
-                        WELCOME TO A<br>
-                        BIZARRE ADVENTURE
+                        WELCOME TO A
+                        <br>
+                        BIZARRE
+                        <br>
+                        ADVENTURE
                     </span>
-
                 </div>
 
 
@@ -109,7 +87,7 @@
                 </div>
 
 
-                <!-- ENTER ZONE -->
+                <!-- ZONE CLIQUABLE = ENCADRÉ BLANC -->
 
                 <button
                     class="hotspot welcome"
@@ -122,7 +100,6 @@
 
                 <button
                     class="strange-button strange-button-one"
-                    type="button"
                     aria-label="Don't"
                 >
                     DON'T
@@ -133,7 +110,6 @@
 
                 <button
                     class="secret-symbol"
-                    type="button"
                     aria-label="Something strange"
                 >
                     ✦
@@ -149,9 +125,9 @@
 
 
 
-        <!-- ╔════════════════════════════════════╗
+        <!-- ═════════════════════════════════════
              02 — THE DIVIDE
-             ╚════════════════════════════════════╝ -->
+        ═════════════════════════════════════ -->
 
         <section
             class="page"
@@ -167,22 +143,10 @@
                 >
 
 
-                <!-- THE DIVIDE
-                     Grille décalée -->
+                <!-- THE DIVIDE -->
 
-                <div class="section-whisper divide-heading shifted-heading">
-
-                    <span>T</span>
-                    <span>H</span>
-                    <span>E</span>
-
-                    <span>D</span>
-                    <span>I</span>
-                    <span>V</span>
-                    <span>I</span>
-                    <span>D</span>
-                    <span>E</span>
-
+                <div class="section-whisper divide-heading">
+                    THE DIVIDE
                 </div>
 
 
@@ -212,40 +176,31 @@
                 </div>
 
 
-                <!-- CENTER WHISPER -->
-
                 <div class="divide-whisper">
                     choose carefully
                 </div>
 
-
-                <!-- STRANGE CLOCK -->
 
                 <div class="strange-clock">
                     01:??:??
                 </div>
 
 
-                <!-- RESTART -->
-
                 <button
                     class="restart-button"
-                    type="button"
                     aria-label="Restart"
                 >
                     RESTART
                 </button>
 
 
-                <!-- SECRET -->
-
                 <button
                     class="divide-secret"
-                    type="button"
                     aria-label="Secret"
                 >
                     ✦
                 </button>
+
 
                 <div id="restart-message">
                     you never left.
@@ -257,9 +212,9 @@
 
 
 
-        <!-- ╔════════════════════════════════════╗
+        <!-- ═════════════════════════════════════
              03 — THE LIVING SIDE
-             ╚════════════════════════════════════╝ -->
+        ═════════════════════════════════════ -->
 
         <section
             class="page"
@@ -275,48 +230,51 @@
                 >
 
 
-                <!-- THE LIVING SIDE
-                     Grille décalée -->
+                <!-- THE LIVING SIDE -->
 
-                <div class="section-whisper living-heading shifted-heading">
-
-                    <span>T</span>
-                    <span>H</span>
-                    <span>E</span>
-
-                    <span>L</span>
-                    <span>I</span>
-                    <span>V</span>
-                    <span>I</span>
-                    <span>N</span>
-                    <span>G</span>
-
-                    <span>S</span>
-                    <span>I</span>
-                    <span>D</span>
-                    <span>E</span>
-
+                <div class="section-whisper living-heading">
+                    THE LIVING SIDE
                 </div>
 
 
                 <!-- REALITY -->
 
                 <div class="living-choice reality-choice">
-                    REALITY
+                    <span>R</span>
+                    <span>E</span>
+                    <span>A</span>
+                    <span>L</span>
+                    <span>I</span>
+                    <span>T</span>
+                    <span>Y</span>
                 </div>
 
 
                 <!-- IN BETWEEN -->
 
                 <div class="living-choice between-choice">
-                    IN BETWEEN
+                    <span>I</span>
+                    <span>N</span>
+                    <span>B</span>
+                    <span>E</span>
+                    <span>T</span>
+                    <span>W</span>
+                    <span>E</span>
+                    <span>E</span>
+                    <span>N</span>
                 </div>
 
 
                 <!-- FICTION -->
 
                 <div class="living-choice fiction-choice">
-                    FICTION
+                    <span>F</span>
+                    <span>I</span>
+                    <span>C</span>
+                    <span>T</span>
+                    <span>I</span>
+                    <span>O</span>
+                    <span>N</span>
                 </div>
 
 
@@ -328,7 +286,7 @@
                 </div>
 
 
-                <!-- INTERACTIVE ZONES -->
+                <!-- THREE CLICKABLE AREAS -->
 
                 <button
                     class="hotspot reality"
@@ -336,17 +294,13 @@
                     aria-label="Reality — Ephemeris"
                 ></button>
 
-
                 <button
                     class="hotspot between"
-                    type="button"
                     aria-label="In Between"
                 ></button>
 
-
                 <button
                     class="hotspot fiction"
-                    type="button"
                     aria-label="Fiction"
                 ></button>
 
@@ -354,8 +308,7 @@
                 <!-- SECRET + -->
 
                 <button
-                    class="life-secret visible-secret"
-                    type="button"
+                    class="life-secret"
                     aria-label="Something hidden"
                 >
                     +
@@ -371,9 +324,9 @@
 
 
 
-        <!-- ╔════════════════════════════════════╗
+        <!-- ═════════════════════════════════════
              EPHEMERIS
-             ╚════════════════════════════════════╝ -->
+        ═════════════════════════════════════ -->
 
         <section
             class="page"
@@ -381,9 +334,6 @@
         >
 
             <div class="ephemeris-interface">
-
-
-                <!-- HEADER -->
 
                 <div class="ephemeris-header">
 
@@ -402,9 +352,7 @@
                 </div>
 
 
-                <!-- ═════════════════════════════
-                     LOCK
-                ═════════════════════════════ -->
+                <!-- LOCK -->
 
                 <div
                     id="ephemeris-lock"
@@ -452,9 +400,7 @@
                 </div>
 
 
-                <!-- ═════════════════════════════
-                     CALENDAR
-                ═════════════════════════════ -->
+                <!-- CALENDAR -->
 
                 <div class="calendar">
 
@@ -463,7 +409,6 @@
                         <button
                             class="calendar-arrow"
                             id="previous-month"
-                            type="button"
                             aria-label="Previous month"
                         >
                             ‹
@@ -479,7 +424,6 @@
                         <button
                             class="calendar-arrow"
                             id="next-month"
-                            type="button"
                             aria-label="Next month"
                         >
                             ›
@@ -509,9 +453,7 @@
                 </div>
 
 
-                <!-- ═════════════════════════════
-                     DATE ENTRY
-                ═════════════════════════════ -->
+                <!-- DATE ENTRY -->
 
                 <div
                     id="date-entry"
@@ -529,9 +471,7 @@
                 </div>
 
 
-                <!-- ═════════════════════════════
-                     FOOTER
-                ═════════════════════════════ -->
+                <!-- FOOTER -->
 
                 <div class="ephemeris-footer">
 
@@ -559,7 +499,6 @@
 
                 <button
                     class="ephemeris-return"
-                    type="button"
                     onclick="showLostPage()"
                     aria-label="Return"
                 >
@@ -570,7 +509,6 @@
                 <button
                     id="ephemeris-secret"
                     class="ephemeris-secret"
-                    type="button"
                     aria-label="Something strange"
                 >
                     ✦
@@ -582,9 +520,9 @@
 
 
 
-        <!-- ╔════════════════════════════════════╗
+        <!-- ═════════════════════════════════════
              THE OTHER SIDE
-             ╚════════════════════════════════════╝ -->
+        ═════════════════════════════════════ -->
 
         <section
             class="page"
@@ -600,30 +538,14 @@
                 >
 
 
-                <!-- THE OTHER SIDE
-                     Grille décalée -->
+                <!-- THE OTHER SIDE -->
 
-                <div class="section-whisper other-heading shifted-heading">
-
-                    <span>T</span>
-                    <span>H</span>
-                    <span>E</span>
-
-                    <span>O</span>
-                    <span>T</span>
-                    <span>H</span>
-                    <span>E</span>
-                    <span>R</span>
-
-                    <span>S</span>
-                    <span>I</span>
-                    <span>D</span>
-                    <span>E</span>
-
+                <div class="section-whisper other-heading">
+                    THE OTHER SIDE
                 </div>
 
 
-                <!-- OBSESSION -->
+                <!-- OBSESSION — GRILLE DÉCALÉE -->
 
                 <div class="other-side-choice obsession-choice">
 
@@ -640,7 +562,7 @@
                 </div>
 
 
-                <!-- CARPE NOCTEM -->
+                <!-- CARPE NOCTEM — GRILLE DÉCALÉE -->
 
                 <div class="other-side-choice noctem-choice">
 
@@ -650,7 +572,7 @@
                     <span>P</span>
                     <span>E</span>
 
-                    <span class="letter-space"></span>
+                    <span class="word-gap"></span>
 
                     <span>N</span>
                     <span>O</span>
@@ -662,7 +584,7 @@
                 </div>
 
 
-                <!-- CONSPIRATIONS -->
+                <!-- CONSPIRATIONS — GRILLE DÉCALÉE -->
 
                 <div class="other-side-choice conspirations-choice">
 
@@ -683,25 +605,21 @@
                 </div>
 
 
-                <!-- WHISPER -->
-
                 <div class="death-whisper">
                     don't look too long.
                 </div>
 
 
-                <!-- INTERACTIVE ZONES -->
+                <!-- CLICKABLE AREAS -->
 
                 <button
                     class="hotspot obsession"
-                    type="button"
                     aria-label="Obsession"
                 ></button>
 
 
                 <button
                     class="hotspot noctem"
-                    type="button"
                     onclick="showPage('page-04')"
                     aria-label="Carpe Noctem"
                 ></button>
@@ -709,7 +627,6 @@
 
                 <button
                     class="hotspot conspirations"
-                    type="button"
                     aria-label="Conspirations"
                 ></button>
 
@@ -717,8 +634,7 @@
                 <!-- SECRET ? -->
 
                 <button
-                    class="death-secret visible-secret"
-                    type="button"
+                    class="death-secret"
                     aria-label="Do not click"
                 >
                     ?
@@ -734,9 +650,9 @@
 
 
 
-        <!-- ╔════════════════════════════════════╗
+        <!-- ═════════════════════════════════════
              04 — CARPE NOCTEM
-             ╚════════════════════════════════════╝ -->
+        ═════════════════════════════════════ -->
 
         <section
             class="page"
@@ -764,7 +680,7 @@
                 </div>
 
 
-                <!-- HEART — CHRONIQUES -->
+                <!-- HEARTS -->
 
                 <button
                     class="hotspot heart-left"
@@ -773,8 +689,6 @@
                 ></button>
 
 
-                <!-- HEART — LIBRARY -->
-
                 <button
                     class="hotspot heart-right"
                     onclick="showPage('page-library')"
@@ -782,15 +696,15 @@
                 ></button>
 
 
-                <!-- SECRET -->
+                <!-- CROSS -->
 
                 <button
                     class="noctem-secret"
-                    type="button"
                     aria-label="Something hidden"
                 >
                     †
                 </button>
+
 
                 <div id="noctem-secret-message">
                     stay until the lights go out.
@@ -802,9 +716,9 @@
 
 
 
-        <!-- ╔════════════════════════════════════╗
+        <!-- ═════════════════════════════════════
              CHRONIQUES
-             ╚════════════════════════════════════╝ -->
+        ═════════════════════════════════════ -->
 
         <section
             class="page"
@@ -827,119 +741,114 @@
                 </div>
 
 
+                <!-- INTRO — ABAISSÉ -->
+
                 <div class="chronicles-intro">
                     fragments from another life.
                 </div>
 
 
-                <!-- ═════════════════════════════
-                     CARD OF 10 — CLUBS
-                ═════════════════════════════ -->
+                <!-- 10 ENTRÉES — STYLE CARTE / TRÈFLE -->
 
-                <div class="chronicle-card-layout">
+                <button
+                    class="chronicle-entry chronicle-one"
+                    aria-label="Chronique 01"
+                >
+                    <span class="entry-number">7</span>
+                    <span class="entry-symbol">♣</span>
+                </button>
 
-                    <button
-                        class="chronicle-card card-club-1"
-                        type="button"
-                        aria-label="Chronique 1"
-                    >
-                        <span>♣</span>
-                        <span>1</span>
-                    </button>
 
-                    <button
-                        class="chronicle-card card-club-2"
-                        type="button"
-                        aria-label="Chronique 2"
-                    >
-                        <span>♣</span>
-                        <span>2</span>
-                    </button>
+                <button
+                    class="chronicle-entry chronicle-two"
+                    aria-label="Chronique 02"
+                >
+                    <span class="entry-number">2</span>
+                    <span class="entry-symbol">♣</span>
+                </button>
 
-                    <button
-                        class="chronicle-card card-club-3"
-                        type="button"
-                        aria-label="Chronique 3"
-                    >
-                        <span>♣</span>
-                        <span>3</span>
-                    </button>
 
-                    <button
-                        class="chronicle-card card-club-4"
-                        type="button"
-                        aria-label="Chronique 4"
-                    >
-                        <span>♣</span>
-                        <span>4</span>
-                    </button>
+                <button
+                    class="chronicle-entry chronicle-three"
+                    aria-label="Chronique 03"
+                >
+                    <span class="entry-number">10</span>
+                    <span class="entry-symbol">♣</span>
+                </button>
 
-                    <button
-                        class="chronicle-card card-club-5"
-                        type="button"
-                        aria-label="Chronique 5"
-                    >
-                        <span>♣</span>
-                        <span>5</span>
-                    </button>
 
-                    <button
-                        class="chronicle-card card-club-6"
-                        type="button"
-                        aria-label="Chronique 6"
-                    >
-                        <span>♣</span>
-                        <span>6</span>
-                    </button>
+                <button
+                    class="chronicle-entry chronicle-four"
+                    aria-label="Chronique 04"
+                >
+                    <span class="entry-number">4</span>
+                    <span class="entry-symbol">♣</span>
+                </button>
 
-                    <button
-                        class="chronicle-card card-club-7"
-                        type="button"
-                        aria-label="Chronique 7"
-                    >
-                        <span>♣</span>
-                        <span>7</span>
-                    </button>
 
-                    <button
-                        class="chronicle-card card-club-8"
-                        type="button"
-                        aria-label="Chronique 8"
-                    >
-                        <span>♣</span>
-                        <span>8</span>
-                    </button>
+                <button
+                    class="chronicle-entry chronicle-five"
+                    aria-label="Chronique 05"
+                >
+                    <span class="entry-number">9</span>
+                    <span class="entry-symbol">♣</span>
+                </button>
 
-                    <button
-                        class="chronicle-card card-club-9"
-                        type="button"
-                        aria-label="Chronique 9"
-                    >
-                        <span>♣</span>
-                        <span>9</span>
-                    </button>
 
-                    <button
-                        class="chronicle-card card-club-10"
-                        type="button"
-                        aria-label="Chronique 10"
-                    >
-                        <span>♣</span>
-                        <span>10</span>
-                    </button>
+                <button
+                    class="chronicle-entry chronicle-six"
+                    aria-label="Chronique 06"
+                >
+                    <span class="entry-number">1</span>
+                    <span class="entry-symbol">♣</span>
+                </button>
 
-                </div>
+
+                <button
+                    class="chronicle-entry chronicle-seven"
+                    aria-label="Chronique 07"
+                >
+                    <span class="entry-number">6</span>
+                    <span class="entry-symbol">♣</span>
+                </button>
+
+
+                <button
+                    class="chronicle-entry chronicle-eight"
+                    aria-label="Chronique 08"
+                >
+                    <span class="entry-number">8</span>
+                    <span class="entry-symbol">♣</span>
+                </button>
+
+
+                <button
+                    class="chronicle-entry chronicle-nine"
+                    aria-label="Chronique 09"
+                >
+                    <span class="entry-number">3</span>
+                    <span class="entry-symbol">♣</span>
+                </button>
+
+
+                <button
+                    class="chronicle-entry chronicle-ten"
+                    aria-label="Chronique 10"
+                >
+                    <span class="entry-number">5</span>
+                    <span class="entry-symbol">♣</span>
+                </button>
 
 
                 <!-- SECRET -->
 
                 <button
                     class="chronicle-secret"
-                    type="button"
                     aria-label="Something hidden"
                 >
                     ?
                 </button>
+
 
                 <div id="chronicle-secret-message">
                     some stories should remain unfinished.
@@ -951,9 +860,9 @@
 
 
 
-        <!-- ╔════════════════════════════════════╗
+        <!-- ═════════════════════════════════════
              LIBRARY
-             ╚════════════════════════════════════╝ -->
+        ═════════════════════════════════════ -->
 
         <section
             class="page"
@@ -969,124 +878,115 @@
                 >
 
 
-                <!-- TITLE -->
+                <!-- TITLE PRINCIPAL -->
 
                 <div class="page-main-title library-title">
                     LIBRARY
                 </div>
 
 
-                <!-- ═════════════════════════════
-                     CARD OF 10 — SPADES
-                ═════════════════════════════ -->
-
-                <div class="library-card-layout">
-
-                    <button
-                        class="library-card card-spade-1"
-                        type="button"
-                        aria-label="Library entry 1"
-                    >
-                        <span>♠</span>
-                        <span>1</span>
-                    </button>
-
-                    <button
-                        class="library-card card-spade-2"
-                        type="button"
-                        aria-label="Library entry 2"
-                    >
-                        <span>♠</span>
-                        <span>2</span>
-                    </button>
-
-                    <button
-                        class="library-card card-spade-3"
-                        type="button"
-                        aria-label="Library entry 3"
-                    >
-                        <span>♠</span>
-                        <span>3</span>
-                    </button>
-
-                    <button
-                        class="library-card card-spade-4"
-                        type="button"
-                        aria-label="Library entry 4"
-                    >
-                        <span>♠</span>
-                        <span>4</span>
-                    </button>
-
-                    <button
-                        class="library-card card-spade-5"
-                        type="button"
-                        aria-label="Library entry 5"
-                    >
-                        <span>♠</span>
-                        <span>5</span>
-                    </button>
-
-                    <button
-                        class="library-card card-spade-6"
-                        type="button"
-                        aria-label="Library entry 6"
-                    >
-                        <span>♠</span>
-                        <span>6</span>
-                    </button>
-
-                    <button
-                        class="library-card card-spade-7"
-                        type="button"
-                        aria-label="Library entry 7"
-                    >
-                        <span>♠</span>
-                        <span>7</span>
-                    </button>
-
-                    <button
-                        class="library-card card-spade-8"
-                        type="button"
-                        aria-label="Library entry 8"
-                    >
-                        <span>♠</span>
-                        <span>8</span>
-                    </button>
-
-                    <button
-                        class="library-card card-spade-9"
-                        type="button"
-                        aria-label="Library entry 9"
-                    >
-                        <span>♠</span>
-                        <span>9</span>
-                    </button>
-
-                    <!-- 10 = VISITOR BOOK -->
-
-                    <button
-                        class="library-card card-spade-10"
-                        type="button"
-                        onclick="showPage('page-visitor-book')"
-                        aria-label="The Visitor Book"
-                    >
-                        <span>♠</span>
-                        <span>10</span>
-                    </button>
-
-                </div>
-
-
-                <!-- SECRET CROSS -->
+                <!-- 10 ENTRÉES — STYLE PIQUE -->
 
                 <button
-                    class="library-secret visible-secret"
-                    type="button"
+                    class="library-entry library-one"
+                    aria-label="Library entry one"
+                >
+                    <span class="library-number">7</span>
+                    <span class="library-mark">♠</span>
+                </button>
+
+
+                <button
+                    class="library-entry library-two"
+                    onclick="showPage('page-visitor-book')"
+                    aria-label="The Visitor Book"
+                >
+                    <span class="library-number">2</span>
+                    <span class="library-mark">♠</span>
+                </button>
+
+
+                <button
+                    class="library-entry library-three"
+                    aria-label="Library entry three"
+                >
+                    <span class="library-number">10</span>
+                    <span class="library-mark">♠</span>
+                </button>
+
+
+                <button
+                    class="library-entry library-four"
+                    aria-label="Library entry four"
+                >
+                    <span class="library-number">4</span>
+                    <span class="library-mark">♠</span>
+                </button>
+
+
+                <button
+                    class="library-entry library-five"
+                    aria-label="Library entry five"
+                >
+                    <span class="library-number">9</span>
+                    <span class="library-mark">♠</span>
+                </button>
+
+
+                <button
+                    class="library-entry library-six"
+                    aria-label="Library entry six"
+                >
+                    <span class="library-number">1</span>
+                    <span class="library-mark">♠</span>
+                </button>
+
+
+                <button
+                    class="library-entry library-seven"
+                    aria-label="Library entry seven"
+                >
+                    <span class="library-number">6</span>
+                    <span class="library-mark">♠</span>
+                </button>
+
+
+                <button
+                    class="library-entry library-eight"
+                    aria-label="Library entry eight"
+                >
+                    <span class="library-number">8</span>
+                    <span class="library-mark">♠</span>
+                </button>
+
+
+                <button
+                    class="library-entry library-nine"
+                    aria-label="Library entry nine"
+                >
+                    <span class="library-number">3</span>
+                    <span class="library-mark">♠</span>
+                </button>
+
+
+                <button
+                    class="library-entry library-ten"
+                    aria-label="Library entry ten"
+                >
+                    <span class="library-number">5</span>
+                    <span class="library-mark">♠</span>
+                </button>
+
+
+                <!-- CROSS -->
+
+                <button
+                    class="library-secret"
                     aria-label="Something hidden"
                 >
                     †
                 </button>
+
 
                 <div id="library-secret-message">
                     this book was never written.
@@ -1098,9 +998,9 @@
 
 
 
-        <!-- ╔════════════════════════════════════╗
+        <!-- ═════════════════════════════════════
              VISITOR BOOK
-             ╚════════════════════════════════════╝ -->
+        ═════════════════════════════════════ -->
 
         <section
             class="page"
@@ -1108,9 +1008,6 @@
         >
 
             <div class="visitor-book">
-
-
-                <!-- HEADER -->
 
                 <div class="visitor-book-header">
 
@@ -1129,12 +1026,10 @@
                 </div>
 
 
-                <!-- CONTENT -->
-
                 <div class="visitor-book-content">
 
 
-                    <!-- MESSAGE FORM -->
+                    <!-- WRITE -->
 
                     <div class="visitor-write">
 
@@ -1216,9 +1111,9 @@
 
 
 
-        <!-- ╔════════════════════════════════════╗
+        <!-- ═════════════════════════════════════
              MYSTERY BOX
-             ╚════════════════════════════════════╝ -->
+        ═════════════════════════════════════ -->
 
         <div
             id="mystery-box-overlay"
@@ -1226,7 +1121,6 @@
         >
 
             <div class="mystery-box-scene">
-
 
                 <div class="mystery-box-whisper">
                     you left something behind.
@@ -1294,9 +1188,9 @@
 
 
 
-        <!-- ╔════════════════════════════════════╗
+        <!-- ═════════════════════════════════════
              ARE YOU LOST
-             ╚════════════════════════════════════╝ -->
+        ═════════════════════════════════════ -->
 
         <section
             class="page"
@@ -1323,13 +1217,11 @@
     </main>
 
 
-
     <!-- ═════════════════════════════════════
-         EPHEMERIS EVENTS
+         EPHEMERIS
     ═════════════════════════════════════ -->
 
     <script src="ephemeris/events.js"></script>
-
     <script src="ephemeris/ephemeris.js"></script>
 
 
@@ -1345,7 +1237,6 @@
     ═════════════════════════════════════ -->
 
     <script src="script.js"></script>
-
 
 </body>
 
