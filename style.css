@@ -716,17 +716,17 @@ textarea {
 
     z-index: 60;
 
-    padding: 7px 11px;
+    padding: 0;
 
-    background: rgba(10, 10, 10, 0.90);
+    border: none;
 
-    border: 1px solid rgba(255, 255, 255, 0.75);
+    background: transparent;
 
     color: #ffffff;
 
     font-family: var(--font-display);
 
-    font-size: clamp(18px, 2.4vw, 30px);
+    font-size: clamp(17px, 2vw, 27px);
 
     font-weight: 700;
 
@@ -734,19 +734,12 @@ textarea {
 
     line-height: 0.9;
 
-    writing-mode: horizontal-tb;
-    
-    white-space: pre-line;
-
-    text-orientation: mixed;
+    text-align: center;
 
     white-space: nowrap;
 
-    box-shadow:
-        4px 4px 0 rgba(181, 42, 80, 0.25);
-
     text-shadow:
-        0 0 8px rgba(0, 0, 0, 0.95);
+        0 0 8px rgba(255, 255, 255, 0.35);
 
     pointer-events: none;
 }
