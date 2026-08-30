@@ -38,6 +38,15 @@ body {
    overflow-y: hidden;
 }
 
+#page-ephemeris {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 
 html,
 body,
