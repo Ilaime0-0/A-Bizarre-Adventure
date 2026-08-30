@@ -928,14 +928,18 @@ a {
 
 .entry-number,
 .library-number {
-    font-size: 11px;
-    letter-spacing: 3px;
+    font-size: 16px;
+    letter-spacing: 4px;
+    font-weight: bold;
 }
-
 
 .entry-symbol,
 .library-mark {
-    font-size: 17px;
+    font-size: 23px;
+}
+.chronicle-entry,
+.library-entry {
+    min-width: 55px;
 }
 
 
