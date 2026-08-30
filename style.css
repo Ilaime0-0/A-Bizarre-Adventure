@@ -2044,3 +2044,9 @@ a {
 
     transform: rotate(-4deg);
 }
+.living-heading {
+    top: 4%;
+    right: 7%;
+
+    transform: rotate(4deg);
+}
