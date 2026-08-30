@@ -1,579 +1,389 @@
-/* ╔══════════════════════════════════════════════╗
-   📅 EPHEMERIS — CALENDRIER SECRET
-   ╚══════════════════════════════════════════════╝ */
+(function () {
+
+    const EPHEMERIS_PASSWORD = "7023";
 
 
-/* ═══════════════════════════════════════
-   ÉLÉMENTS HTML
-═══════════════════════════════════════ */
+    const ephemerisPage =
+        document.getElementById("page-ephemeris");
 
-const EPHEMERIS_PASSWORD = "7023";
+    const ephemerisPassword =
+        document.getElementById("ephemeris-password");
 
-const ephemerisPage =
-    document.getElementById("page-ephemeris");
+    const ephemerisUnlock =
+        document.getElementById("ephemeris-unlock");
 
-const ephemerisPassword =
-    document.getElementById("ephemeris-password");
+    const passwordError =
+        document.getElementById("password-error");
 
-const ephemerisUnlock =
-    document.getElementById("ephemeris-unlock");
+    const calendarDays =
+        document.getElementById("calendar-days");
 
-const passwordError =
-    document.getElementById("password-error");
+    const calendarMonth =
+        document.getElementById("calendar-month");
 
-const calendarDays =
-    document.getElementById("calendar-days");
-
-const calendarMonth =
-    document.getElementById("calendar-month");
-
-const dateEntry =
-    document.getElementById("date-entry");
-
-const entryDate =
-    dateEntry
-        ? dateEntry.querySelector(".entry-date")
-        : null;
-
-const entryContent =
-    dateEntry
-        ? dateEntry.querySelector(".entry-content")
-        : null;
-
-const ephemerisSecret =
-    document.getElementById("ephemeris-secret");
+    const dateEntry =
+        document.getElementById("date-entry");
 
 
-/* ═══════════════════════════════════════
-   ÉTAT DU CALENDRIER
-═══════════════════════════════════════ */
-
-let ephemerisUnlocked = false;
-
-
-/* ═══════════════════════════════════════
-   MOIS ACTUEL
-═══════════════════════════════════════ */
-
-let calendarDate =
-    new Date(2026, 7, 1);
+    const entryDate =
+        dateEntry
+            ? dateEntry.querySelector(".entry-date")
+            : null;
 
 
-/* ═══════════════════════════════════════
-   NOMS DES MOIS
-═══════════════════════════════════════ */
-
-const monthNames = [
-
-    "JANUARY",
-    "FEBRUARY",
-    "MARCH",
-    "APRIL",
-    "MAY",
-    "JUNE",
-    "JULY",
-    "AUGUST",
-    "SEPTEMBER",
-    "OCTOBER",
-    "NOVEMBER",
-    "DECEMBER"
-
-];
+    const entryContent =
+        dateEntry
+            ? dateEntry.querySelector(".entry-content")
+            : null;
 
 
-/* ═══════════════════════════════════════
-   FORMAT DE LA DATE
-═══════════════════════════════════════ */
-
-function getDateKey(year, month, day) {
-
-    return (
-        year +
-        "-" +
-        String(month + 1).padStart(2, "0") +
-        "-" +
-        String(day).padStart(2, "0")
-    );
-
-}
+    const ephemerisSecret =
+        document.getElementById("ephemeris-secret");
 
 
-/* ═══════════════════════════════════════
-   AFFICHER LE CALENDRIER
-═══════════════════════════════════════ */
+    const previousMonth =
+        document.getElementById("previous-month");
 
-function renderCalendar() {
 
-    if (
-        !calendarDays ||
-        !calendarMonth
+    const nextMonth =
+        document.getElementById("next-month");
+
+
+    const monthNames = [
+        "JANUARY",
+        "FEBRUARY",
+        "MARCH",
+        "APRIL",
+        "MAY",
+        "JUNE",
+        "JULY",
+        "AUGUST",
+        "SEPTEMBER",
+        "OCTOBER",
+        "NOVEMBER",
+        "DECEMBER"
+    ];
+
+
+    let ephemerisUnlocked = false;
+
+    let calendarDate =
+        new Date(2026, 7, 1);
+
+
+    /* ═══════════════════════════════
+       HELPERS
+    ═══════════════════════════════ */
+
+    function getDateKey(
+        year,
+        month,
+        day
     ) {
 
-        return;
+        return `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
 
     }
 
 
-    /* Vider les anciens jours */
-
-    calendarDays.innerHTML = "";
-
-
-    const year =
-        calendarDate.getFullYear();
-
-    const month =
-        calendarDate.getMonth();
-
-
-    /* Nom du mois */
-
-    calendarMonth.textContent =
-        monthNames[month] +
-        " " +
-        year;
-
-
-    /* Ne rien afficher si verrouillé */
-
-    if (!ephemerisUnlocked) {
-
-        return;
-
-    }
-
-
-    /* ═══════════════════════════════
-       PREMIER JOUR DU MOIS
-    ═══════════════════════════════ */
-
-    const firstDay =
-        new Date(
-            year,
-            month,
-            1
-        );
-
-
-    let startingDay =
-        firstDay.getDay();
-
-
-    /* Lundi = premier jour */
-
-    startingDay =
-        startingDay === 0
-            ? 6
-            : startingDay - 1;
-
-
-    /* Nombre de jours */
-
-    const daysInMonth =
-        new Date(
-            year,
-            month + 1,
-            0
-        ).getDate();
-
-
-    /* ═══════════════════════════════
-       CASES VIDES
-    ═══════════════════════════════ */
-
-    for (
-        let i = 0;
-        i < startingDay;
-        i++
+    function isToday(
+        year,
+        month,
+        day
     ) {
 
-        const emptyDay =
-            document.createElement("div");
+        const now = new Date();
 
-        emptyDay.classList.add(
-            "calendar-day",
-            "empty"
-        );
-
-        calendarDays.appendChild(
-            emptyDay
+        return (
+            year === now.getFullYear() &&
+            month === now.getMonth() &&
+            day === now.getDate()
         );
 
     }
 
 
     /* ═══════════════════════════════
-       JOURS
+       RENDER CALENDAR
     ═══════════════════════════════ */
 
-    for (
-        let day = 1;
-        day <= daysInMonth;
-        day++
-    ) {
+    function renderCalendar() {
 
-        const button =
-            document.createElement("button");
+        if (!calendarDays || !calendarMonth) {
+            return;
+        }
 
+        calendarDays.innerHTML = "";
 
-        button.type = "button";
+        const year =
+            calendarDate.getFullYear();
 
-
-        button.classList.add(
-            "calendar-day"
-        );
+        const month =
+            calendarDate.getMonth();
 
 
-        /* Numéro */
-
-        const number =
-            document.createElement("span");
-
-        number.classList.add(
-            "day-number"
-        );
-
-        number.textContent =
-            String(day).padStart(
-                2,
-                "0"
-            );
-
-        button.appendChild(
-            number
-        );
+        calendarMonth.textContent =
+            `${monthNames[month]} ${year}`;
 
 
-        /* Date complète */
+        if (!ephemerisUnlocked) {
+            return;
+        }
 
-        const key =
-            getDateKey(
+
+        const firstDay =
+            new Date(year, month, 1);
+
+
+        let startingDay =
+            firstDay.getDay();
+
+
+        startingDay =
+            startingDay === 0
+                ? 6
+                : startingDay - 1;
+
+
+        const daysInMonth =
+            new Date(
                 year,
-                month,
-                day
-            );
+                month + 1,
+                0
+            ).getDate();
 
 
-        /* ═══════════════════════════════
-           DATE ÉTRANGE
-        ═══════════════════════════════ */
-
-        if (
-            strangeEvents[key]
+        for (
+            let i = 0;
+            i < startingDay;
+            i++
         ) {
 
+            const emptyDay =
+                document.createElement("div");
+
+            emptyDay.classList.add(
+                "calendar-day",
+                "empty"
+            );
+
+            calendarDays.appendChild(
+                emptyDay
+            );
+
+        }
+
+
+        for (
+            let day = 1;
+            day <= daysInMonth;
+            day++
+        ) {
+
+            const button =
+                document.createElement("button");
+
+
+            button.type = "button";
+
+
             button.classList.add(
-                "strange"
+                "calendar-day"
             );
 
 
-            const symbol =
+            const number =
                 document.createElement("span");
 
 
-            symbol.classList.add(
-                "day-symbol"
+            number.classList.add(
+                "day-number"
             );
 
 
-            symbol.textContent =
-                "✦";
+            number.textContent =
+                String(day).padStart(2, "0");
 
 
-            button.appendChild(
-                symbol
-            );
-
-        }
+            button.appendChild(number);
 
 
-        /* ═══════════════════════════════
-           AUJOURD'HUI
-        ═══════════════════════════════ */
-
-        if (
-            year === 2026 &&
-            month === 7 &&
-            day === 29
-        ) {
-
-            button.classList.add(
-                "today"
-            );
-
-        }
-
-
-        /* ═══════════════════════════════
-           CLIQUER SUR UNE DATE
-        ═══════════════════════════════ */
-
-        button.addEventListener(
-            "click",
-            function() {
-
-                selectDate(
+            const key =
+                getDateKey(
                     year,
                     month,
-                    day,
-                    key
+                    day
+                );
+
+
+            if (strangeEvents[key]) {
+
+                button.classList.add(
+                    "strange"
+                );
+
+
+                const symbol =
+                    document.createElement("span");
+
+
+                symbol.classList.add(
+                    "day-symbol"
+                );
+
+
+                symbol.textContent = "✦";
+
+
+                button.appendChild(symbol);
+
+            }
+
+
+            if (
+                isToday(
+                    year,
+                    month,
+                    day
+                )
+            ) {
+
+                button.classList.add(
+                    "today"
                 );
 
             }
-        );
 
 
-        calendarDays.appendChild(
-            button
-        );
+            button.addEventListener(
+                "click",
+                () => {
+                    selectDate(
+                        year,
+                        month,
+                        day,
+                        key
+                    );
+                }
+            );
 
-    }
 
-}
+            calendarDays.appendChild(
+                button
+            );
 
-
-/* ═══════════════════════════════════════
-   SÉLECTIONNER UNE DATE
-═══════════════════════════════════════ */
-
-function selectDate(
-    year,
-    month,
-    day,
-    key
-) {
-
-    if (
-        !entryDate ||
-        !entryContent
-    ) {
-
-        return;
+        }
 
     }
 
 
-    entryDate.textContent =
-        String(day).padStart(
-            2,
-            "0"
-        ) +
-        " / " +
-        String(month + 1).padStart(
-            2,
-            "0"
-        ) +
-        " / " +
-        year;
+    /* ═══════════════════════════════
+       DATE SELECTION
+    ═══════════════════════════════ */
 
-
-    if (
-        strangeEvents[key]
+    function selectDate(
+        year,
+        month,
+        day,
+        key
     ) {
 
-        entryContent.textContent =
-            strangeEvents[key];
+        if (
+            !entryDate ||
+            !entryContent
+        ) {
+            return;
+        }
 
-    } else {
+
+        entryDate.textContent =
+            `${String(day).padStart(2, "0")} / ${String(month + 1).padStart(2, "0")} / ${year}`;
+
 
         entryContent.textContent =
+            strangeEvents[key] ||
             "nothing has been recorded.";
 
     }
 
-}
 
+    /* ═══════════════════════════════
+       MONTH NAVIGATION
+    ═══════════════════════════════ */
 
-/* ═══════════════════════════════════════
-   MOIS PRÉCÉDENT
-═══════════════════════════════════════ */
+    if (previousMonth) {
 
-const previousMonth =
-    document.getElementById(
-        "previous-month"
-    );
+        previousMonth.addEventListener(
+            "click",
+            () => {
 
+                calendarDate.setMonth(
+                    calendarDate.getMonth() - 1
+                );
 
-if (previousMonth) {
+                renderCalendar();
 
-    previousMonth.addEventListener(
-        "click",
-        function() {
-
-            calendarDate.setMonth(
-                calendarDate.getMonth() - 1
-            );
-
-            renderCalendar();
-
-        }
-    );
-
-}
-
-
-/* ═══════════════════════════════════════
-   MOIS SUIVANT
-═══════════════════════════════════════ */
-
-const nextMonth =
-    document.getElementById(
-        "next-month"
-    );
-
-
-if (nextMonth) {
-
-    nextMonth.addEventListener(
-        "click",
-        function() {
-
-            calendarDate.setMonth(
-                calendarDate.getMonth() + 1
-            );
-
-            renderCalendar();
-
-        }
-    );
-
-}
-
-
-/* ═══════════════════════════════════════
-   🔐 DÉVERROUILLAGE
-═══════════════════════════════════════ */
-
-function unlockEphemeris() {
-
-    if (!ephemerisPassword) {
-
-        return;
+            }
+        );
 
     }
 
 
-    if (
-        ephemerisPassword.value.trim() ===
-        EPHEMERIS_PASSWORD
-    ) {
+    if (nextMonth) {
 
-        /* Déverrouiller */
+        nextMonth.addEventListener(
+            "click",
+            () => {
 
-        ephemerisUnlocked = true;
+                calendarDate.setMonth(
+                    calendarDate.getMonth() + 1
+                );
 
+                renderCalendar();
 
-        if (ephemerisPage) {
-
-            ephemerisPage.classList.remove(
-                "is-locked"
-            );
-
-            ephemerisPage.classList.add(
-                "is-unlocked"
-            );
-
-        }
-
-
-        if (passwordError) {
-
-            passwordError.classList.remove(
-                "visible"
-            );
-
-        }
-
-
-        if (entryContent) {
-
-            entryContent.textContent =
-                "The records have been restored.";
-
-        }
-
-
-        renderCalendar();
-
-
-        ephemerisPassword.blur();
-
-
-    } else {
-
-        /* Mauvais mot de passe */
-
-        if (passwordError) {
-
-            passwordError.classList.add(
-                "visible"
-            );
-
-        }
-
-
-        ephemerisPassword.value = "";
-
-
-        ephemerisPassword.focus();
+            }
+        );
 
     }
 
-}
+
+    /* ═══════════════════════════════
+       PASSWORD
+    ═══════════════════════════════ */
+
+    function unlockEphemeris() {
+
+        if (!ephemerisPassword) {
+            return;
+        }
 
 
-/* ═══════════════════════════════════════
-   BOUTON ENTER
-═══════════════════════════════════════ */
+        if (
+            ephemerisPassword.value.trim() ===
+            EPHEMERIS_PASSWORD
+        ) {
 
-if (ephemerisUnlock) {
-
-    ephemerisUnlock.addEventListener(
-        "click",
-        unlockEphemeris
-    );
-
-}
+            ephemerisUnlocked = true;
 
 
-/* ═══════════════════════════════════════
-   TOUCHE ENTER DU CLAVIER
-═══════════════════════════════════════ */
+            if (ephemerisPage) {
 
-if (ephemerisPassword) {
+                ephemerisPage.classList.remove(
+                    "is-locked"
+                );
 
-    ephemerisPassword.addEventListener(
-        "keydown",
-        function(event) {
-
-            if (
-                event.key === "Enter"
-            ) {
-
-                unlockEphemeris();
+                ephemerisPage.classList.add(
+                    "is-unlocked"
+                );
 
             }
 
-        }
-    );
 
-}
+            if (passwordError) {
 
-
-/* ═══════════════════════════════════════
-   ✦ SECRET EPHEMERIS
-═══════════════════════════════════════ */
-
-if (ephemerisSecret) {
-
-    ephemerisSecret.addEventListener(
-        "click",
-        function() {
-
-            if (entryDate) {
-
-                entryDate.textContent =
-                    "UNKNOWN DATE";
+                passwordError.classList.remove(
+                    "visible"
+                );
 
             }
 
@@ -581,31 +391,116 @@ if (ephemerisSecret) {
             if (entryContent) {
 
                 entryContent.textContent =
-                    "You weren't supposed to find this.";
+                    "The records have been restored.";
 
             }
 
+
+            renderCalendar();
+
+
+            ephemerisPassword.blur();
+
+
+            setTimeout(() => {
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }, 100);
+
+        } else {
+
+            if (passwordError) {
+
+                passwordError.classList.add(
+                    "visible"
+                );
+
+            }
+
+
+            ephemerisPassword.value = "";
+
+            ephemerisPassword.focus();
+
         }
-    );
 
-}
-
-
-/* ═══════════════════════════════════════
-   🔐 ÉTAT INITIAL
-═══════════════════════════════════════ */
-
-if (ephemerisPage) {
-
-    ephemerisPage.classList.add(
-        "is-locked"
-    );
-
-}
+    }
 
 
-/* ═══════════════════════════════════════
-   PREMIER AFFICHAGE
-═══════════════════════════════════════ */
+    if (ephemerisUnlock) {
 
-renderCalendar();
+        ephemerisUnlock.addEventListener(
+            "click",
+            unlockEphemeris
+        );
+
+    }
+
+
+    if (ephemerisPassword) {
+
+        ephemerisPassword.addEventListener(
+            "keydown",
+            event => {
+
+                if (event.key === "Enter") {
+                    unlockEphemeris();
+                }
+
+            }
+        );
+
+    }
+
+
+    /* ═══════════════════════════════
+       EPHEMERIS SECRET
+    ═══════════════════════════════ */
+
+    if (ephemerisSecret) {
+
+        ephemerisSecret.addEventListener(
+            "click",
+            () => {
+
+                if (entryDate) {
+
+                    entryDate.textContent =
+                        "UNKNOWN DATE";
+
+                }
+
+
+                if (entryContent) {
+
+                    entryContent.textContent =
+                        "You weren't supposed to find this.";
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* ═══════════════════════════════
+       INITIAL STATE
+    ═══════════════════════════════ */
+
+    if (ephemerisPage) {
+
+        ephemerisPage.classList.add(
+            "is-locked"
+        );
+
+    }
+
+
+    renderCalendar();
+
+})();
