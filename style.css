@@ -2102,3 +2102,21 @@ a {
         translateX(-50%)
         rotate(-2deg);
 }
+.library-title {
+    left: 50%;
+
+    padding: 13px 30px;
+
+    background: rgba(250, 247, 240, 0.97);
+
+    border: 2px solid rgba(255, 255, 255, 0.95);
+
+    color: var(--bordeaux);
+
+    box-shadow:
+        5px 5px 0 rgba(255, 255, 255, 0.25);
+
+    transform:
+        translateX(-50%)
+        rotate(2deg);
+}
