@@ -72,7 +72,6 @@ body {
 
 /* ═══════════════════════════════════════
    INTERFACE
-   CORRECTION STRUCTURELLE
 ═══════════════════════════════════════ */
 
 .interface {
@@ -277,7 +276,10 @@ textarea {
 
     top: 13%;
 
-    left: 50%;
+    /*
+       1,5 cm vers la gauche
+    */
+    left: calc(50% - 1.5cm);
 
     width: min(430px, 38%);
 
@@ -297,8 +299,10 @@ textarea {
 
     color: var(--bordeaux);
 
-    text-shadow:
-        0 0 10px var(--bordeaux-glow);
+    /*
+       OMBRE SUPPRIMÉE
+    */
+    text-shadow: none;
 }
 
 .welcome-name {
@@ -321,24 +325,15 @@ textarea {
     padding: 8px 15px;
 
     /*
-       Le fond reste volontairement
-       à l'intérieur de la zone du texte.
+       RECTANGLE SUPPRIMÉ
     */
+    background: transparent;
 
-    background:
-        rgba(10, 10, 10, 0.86);
-
-    text-shadow:
-        0 0 8px rgba(0, 0, 0, 0.95),
-        0 0 14px var(--bordeaux-glow);
+    /*
+       OMBRE SUPPRIMÉE
+    */
+    text-shadow: none;
 }
-
-
-/*
-   ZONE CLIQUABLE :
-   exactement autour du Welcome,
-   pas au milieu de toute l'image.
-*/
 
 .welcome {
     top: 11%;
@@ -350,7 +345,7 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   WARNING — BAS DROITE
+   WARNING
 ═══════════════════════════════════════ */
 
 .time-warning {
@@ -359,8 +354,10 @@ textarea {
     top: auto;
     bottom: 6%;
 
-    left: auto;
-    right: 7%;
+    /*
+       1 cm vers la gauche
+    */
+    right: calc(7% + 1cm);
 
     transform: rotate(-3deg);
 
@@ -369,9 +366,9 @@ textarea {
     display: flex;
     flex-direction: column;
 
-    gap: 7px;
+    gap: 3.5px;
 
-    padding: 12px 18px;
+    padding: 6px 9px;
 
     border:
         1px solid rgba(255, 255, 255, 0.65);
@@ -381,9 +378,12 @@ textarea {
 
     font-family: var(--font-mono);
 
-    font-size: 11px;
+    /*
+       50 % plus petit
+    */
+    font-size: 5.5px;
 
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 
     text-align: center;
 
@@ -392,19 +392,25 @@ textarea {
     pointer-events: none;
 
     box-shadow:
-        0 0 15px rgba(255, 255, 255, 0.08);
+        0 0 8px rgba(255, 255, 255, 0.08);
 
     white-space: nowrap;
 }
 
 .warning-title {
-    font-size: 14px;
+    /*
+       50 % plus petit
+    */
+    font-size: 7px;
 
-    letter-spacing: 4px;
+    letter-spacing: 2px;
 }
 
 .time-warning strong {
-    font-size: 17px;
+    /*
+       50 % plus petit
+    */
+    font-size: 8.5px;
 
     font-weight: normal;
 
@@ -480,6 +486,38 @@ textarea {
 }
 
 
+/*
+   THE DIVIDE = MÊME ESPRIT QUE WARNING
+*/
+
+.divide-heading {
+    top: 4%;
+    left: 7%;
+
+    padding: 6px 9px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.65);
+
+    background:
+        rgba(10, 10, 10, 0.7);
+
+    color: var(--ink);
+
+    font-family: var(--font-mono);
+
+    font-size: 5.5px;
+
+    letter-spacing: 2px;
+
+    transform: rotate(-4deg);
+
+    text-shadow: none;
+
+    box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.08);
+}
+
 .divide-label {
     position: absolute;
 
@@ -499,7 +537,12 @@ textarea {
 
     font-family: var(--font-display);
 
-    font-size: clamp(31px, 4.5vw, 56px);
+    /*
+       20 % plus petit
+       ancien : 4.5vw
+       nouveau : 3.6vw
+    */
+    font-size: clamp(24.8px, 3.6vw, 44.8px);
 
     font-weight: 700;
 
@@ -519,7 +562,11 @@ textarea {
 }
 
 .divide-life-label {
-    top: 20%;
+    /*
+       2 cm plus haut
+    */
+    top: calc(20% - 2cm);
+
     left: 50%;
 
     transform:
@@ -528,7 +575,11 @@ textarea {
 }
 
 .divide-death-label {
-    top: 65%;
+    /*
+       1 cm plus haut
+    */
+    top: calc(65% - 1cm);
+
     left: 50%;
 
     transform:
@@ -628,12 +679,6 @@ textarea {
     height: 29%;
 }
 
-
-/*
-   IN BETWEEN REMIS EXACTEMENT
-   À SA POSITION PRÉCÉDENTE.
-*/
-
 .between {
     top: 36%;
     height: 29%;
@@ -642,6 +687,40 @@ textarea {
 .fiction {
     top: 68%;
     height: 29%;
+}
+
+
+/*
+   THE LIVING SIDE
+   Même mise en forme que WARNING
+*/
+
+.living-heading {
+    top: 4%;
+    right: 7%;
+
+    padding: 6px 9px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.65);
+
+    background:
+        rgba(10, 10, 10, 0.7);
+
+    color: var(--ink);
+
+    font-family: var(--font-mono);
+
+    font-size: 5.5px;
+
+    letter-spacing: 2px;
+
+    transform: rotate(4deg);
+
+    text-shadow: none;
+
+    box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.08);
 }
 
 
@@ -666,7 +745,10 @@ textarea {
 
     font-family: var(--font-display);
 
-    font-size: clamp(27px, 3.8vw, 48px);
+    /*
+       20 % plus petit
+    */
+    font-size: clamp(21.6px, 3.04vw, 38.4px);
 
     font-weight: 700;
 
@@ -714,7 +796,7 @@ textarea {
 
 /*
    EVERYTHING IS REAL
-   remonté d'environ 1 cm.
+   3 cm plus haut
 */
 
 .life-whisper {
@@ -722,7 +804,10 @@ textarea {
 
     left: 6%;
 
-    bottom: 12%;
+    /*
+       Monter de 3 cm
+    */
+    bottom: calc(12% + 3cm);
 
     z-index: 40;
 
@@ -743,9 +828,6 @@ textarea {
     pointer-events: none;
 }
 
-
-/* + */
-
 .life-secret {
     right: 7%;
     bottom: 7%;
@@ -758,7 +840,6 @@ textarea {
 
 /* ═══════════════════════════════════════
    OTHER SIDE
-   GRILLE DÉCALÉE
 ═══════════════════════════════════════ */
 
 .obsession {
@@ -787,8 +868,42 @@ textarea {
 
 
 /*
-   Chaque lettre reste sur sa ligne verticale,
-   mais son X varie.
+   THE OTHER SIDE
+   Même mise en forme que WARNING
+*/
+
+.other-heading {
+    top: 4%;
+    right: 7%;
+
+    padding: 6px 9px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.65);
+
+    background:
+        rgba(10, 10, 10, 0.7);
+
+    color: var(--ink);
+
+    font-family: var(--font-mono);
+
+    font-size: 5.5px;
+
+    letter-spacing: 2px;
+
+    transform: rotate(4deg);
+
+    text-shadow: none;
+
+    box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.08);
+}
+
+
+/*
+   OBSESSION / CARPE NOCTEM / CONSPIRATIONS
+   25 % PLUS PETIT
 */
 
 .other-side-choice {
@@ -812,11 +927,7 @@ textarea {
 
     font-family: var(--font-display);
 
-    /*
-       Réduit de 3-4 px.
-    */
-
-    font-size: clamp(14px, 1.65vw, 23px);
+    font-size: clamp(10.5px, 1.2375vw, 17.25px);
 
     font-weight: 700;
 
@@ -838,46 +949,141 @@ textarea {
     display: block;
 
     position: relative;
+
+    /*
+       Chaque lettre participe à la diagonale
+    */
+    transform:
+        translate(
+            calc(var(--diagonal-x, 0px)),
+            calc(var(--diagonal-y, 0px))
+        );
 }
 
 
-/* OBSESSION */
+/* ═══════════════════════════════════════
+   DIAGONALE — OBSESSION
+═══════════════════════════════════════ */
 
 .obsession-choice {
     top: 16%;
     left: 24%;
 
     transform:
-        translate(-50%, -50%)
-        rotate(-3deg);
+        translate(-50%, -50%);
 }
 
-.obsession-choice span:nth-child(odd) {
-    transform: translateX(-5px);
+.obsession-choice span:nth-child(1) {
+    --diagonal-x: -22px;
+    --diagonal-y: -22px;
 }
 
-.obsession-choice span:nth-child(even) {
-    transform: translateX(4px);
+.obsession-choice span:nth-child(2) {
+    --diagonal-x: -17px;
+    --diagonal-y: -17px;
+}
+
+.obsession-choice span:nth-child(3) {
+    --diagonal-x: -12px;
+    --diagonal-y: -12px;
+}
+
+.obsession-choice span:nth-child(4) {
+    --diagonal-x: -7px;
+    --diagonal-y: -7px;
+}
+
+.obsession-choice span:nth-child(5) {
+    --diagonal-x: -2px;
+    --diagonal-y: -2px;
+}
+
+.obsession-choice span:nth-child(6) {
+    --diagonal-x: 3px;
+    --diagonal-y: 3px;
+}
+
+.obsession-choice span:nth-child(7) {
+    --diagonal-x: 8px;
+    --diagonal-y: 8px;
+}
+
+.obsession-choice span:nth-child(8) {
+    --diagonal-x: 13px;
+    --diagonal-y: 13px;
+}
+
+.obsession-choice span:nth-child(9) {
+    --diagonal-x: 18px;
+    --diagonal-y: 18px;
+}
+
+.obsession-choice span:nth-child(10) {
+    --diagonal-x: 23px;
+    --diagonal-y: 23px;
 }
 
 
-/* CARPE NOCTEM */
+/* ═══════════════════════════════════════
+   DIAGONALE — CARPE NOCTEM
+═══════════════════════════════════════ */
 
 .noctem-choice {
     top: 50%;
     left: 75%;
 
     transform:
-        translate(-50%, -50%)
-        rotate(3deg);
+        translate(-50%, -50%);
 }
 
-.noctem-choice span:nth-child(odd) {
-    transform: translateX(4px);
+.noctem-choice span:nth-child(1) {
+    --diagonal-x: -24px;
+    --diagonal-y: -24px;
 }
 
-.noctem-choice span:nth-child(even) {
-    transform: translateX(-5px);
+.noctem-choice span:nth-child(2) {
+    --diagonal-x: -19px;
+    --diagonal-y: -19px;
+}
+
+.noctem-choice span:nth-child(3) {
+    --diagonal-x: -14px;
+    --diagonal-y: -14px;
+}
+
+.noctem-choice span:nth-child(4) {
+    --diagonal-x: -9px;
+    --diagonal-y: -9px;
+}
+
+.noctem-choice span:nth-child(5) {
+    --diagonal-x: -4px;
+    --diagonal-y: -4px;
+}
+
+.noctem-choice span:nth-child(7) {
+    --diagonal-x: 4px;
+    --diagonal-y: 4px;
+}
+
+.noctem-choice span:nth-child(8) {
+    --diagonal-x: 9px;
+    --diagonal-y: 9px;
+}
+
+.noctem-choice span:nth-child(9) {
+    --diagonal-x: 14px;
+    --diagonal-y: 14px;
+}
+
+.noctem-choice span:nth-child(10) {
+    --diagonal-x: 19px;
+    --diagonal-y: 19px;
+}
+
+.noctem-choice span:nth-child(11) {
+    --diagonal-x: 24px;
+    --diagonal-y: 24px;
 }
 
 .noctem-choice .word-gap {
@@ -885,23 +1091,81 @@ textarea {
 }
 
 
-/* CONSPIRATIONS */
+/* ═══════════════════════════════════════
+   DIAGONALE — CONSPIRATIONS
+═══════════════════════════════════════ */
 
 .conspirations-choice {
     top: 82%;
     left: 24%;
 
     transform:
-        translate(-50%, -50%)
-        rotate(-3deg);
+        translate(-50%, -50%);
 }
 
-.conspirations-choice span:nth-child(odd) {
-    transform: translateX(-5px);
+.conspirations-choice span:nth-child(1) {
+    --diagonal-x: -28px;
+    --diagonal-y: -28px;
 }
 
-.conspirations-choice span:nth-child(even) {
-    transform: translateX(5px);
+.conspirations-choice span:nth-child(2) {
+    --diagonal-x: -23px;
+    --diagonal-y: -23px;
+}
+
+.conspirations-choice span:nth-child(3) {
+    --diagonal-x: -18px;
+    --diagonal-y: -18px;
+}
+
+.conspirations-choice span:nth-child(4) {
+    --diagonal-x: -13px;
+    --diagonal-y: -13px;
+}
+
+.conspirations-choice span:nth-child(5) {
+    --diagonal-x: -8px;
+    --diagonal-y: -8px;
+}
+
+.conspirations-choice span:nth-child(6) {
+    --diagonal-x: -3px;
+    --diagonal-y: -3px;
+}
+
+.conspirations-choice span:nth-child(7) {
+    --diagonal-x: 2px;
+    --diagonal-y: 2px;
+}
+
+.conspirations-choice span:nth-child(8) {
+    --diagonal-x: 7px;
+    --diagonal-y: 7px;
+}
+
+.conspirations-choice span:nth-child(9) {
+    --diagonal-x: 12px;
+    --diagonal-y: 12px;
+}
+
+.conspirations-choice span:nth-child(10) {
+    --diagonal-x: 17px;
+    --diagonal-y: 17px;
+}
+
+.conspirations-choice span:nth-child(11) {
+    --diagonal-x: 22px;
+    --diagonal-y: 22px;
+}
+
+.conspirations-choice span:nth-child(12) {
+    --diagonal-x: 27px;
+    --diagonal-y: 27px;
+}
+
+.conspirations-choice span:nth-child(13) {
+    --diagonal-x: 32px;
+    --diagonal-y: 32px;
 }
 
 
@@ -927,7 +1191,6 @@ textarea {
 
 /* ═══════════════════════════════════════
    ?
-   CONSPIRATIONS — PLUS GROS + GRAS
 ═══════════════════════════════════════ */
 
 .death-secret {
@@ -945,15 +1208,11 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   CARPE NOCTEM
+   CARPE NOCTEM — PAGE 04
 ═══════════════════════════════════════ */
 
 .noctem-main-title {
     position: absolute;
-
-    /*
-       Descendu d'environ 1,5 cm.
-    */
 
     top: 17%;
 
@@ -970,10 +1229,11 @@ textarea {
     font-family: var(--font-display);
 
     /*
-       2 points environ plus petit.
+       33 % plus petit
+       ancien : 3.5vw
+       nouveau : environ 2.35vw
     */
-
-    font-size: clamp(25px, 3.5vw, 42px);
+    font-size: clamp(16.75px, 2.345vw, 28px);
 
     font-weight: 700;
 
@@ -1024,9 +1284,9 @@ textarea {
 }
 
 
-/*
-   Zones des deux cœurs.
-*/
+/* ═══════════════════════════════════════
+   COEURS
+═══════════════════════════════════════ */
 
 .heart-left {
     left: 10%;
@@ -1046,22 +1306,29 @@ textarea {
 
 
 /*
-   CROIX — PLUS GRANDE ET GRASSE
+   CROIX AU CENTRE
+   PLUS GRANDE + TRÈS GRASSE
 */
 
 .noctem-secret {
     top: 50%;
     left: 50%;
 
-    font-size: 24px !important;
+    font-size: 36px !important;
 
     font-weight: 900 !important;
 
-    font-family: var(--font-serif);
+    font-family: Georgia, serif;
 
     color: #ffffff;
 
     z-index: 100;
+
+    transform:
+        translate(-50%, -50%);
+
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.35);
 }
 
 
@@ -1100,11 +1367,6 @@ textarea {
 ═══════════════════════════════════════ */
 
 .chronicles-title {
-    /*
-       Centré dans la zone supérieure.
-       Plus petit de 5 px.
-    */
-
     top: 8%;
     left: 64%;
 
@@ -1112,7 +1374,10 @@ textarea {
         translateX(-50%)
         rotate(-2deg);
 
-    font-size: clamp(33px, 5vw, 55px);
+    /*
+       50 % plus petit
+    */
+    font-size: clamp(16.5px, 2.5vw, 27.5px);
 
     color: #ffffff;
 
@@ -1124,6 +1389,12 @@ textarea {
 
     padding: 6px 16px;
 }
+
+
+/*
+   FRAGMENTS FROM ANOTHER LIFE
+   50 % plus petit
+*/
 
 .chronicles-intro {
     position: absolute;
@@ -1145,9 +1416,9 @@ textarea {
 
     font-family: var(--font-mono);
 
-    font-size: 9px;
+    font-size: 4.5px;
 
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 
     text-align: center;
 
@@ -1162,9 +1433,6 @@ textarea {
 
 /* ═══════════════════════════════════════
    CARTES CHRONIQUES
-   10 POSITIONS
-   2/3 DROITE
-   SANS RECTANGLES
 ═══════════════════════════════════════ */
 
 .chronicle-entry {
@@ -1205,12 +1473,6 @@ textarea {
         0 0 8px rgba(255, 255, 255, 0.35);
 }
 
-
-/*
-   Le trèfle sert de forme visuelle.
-   Aucun rectangle.
-*/
-
 .chronicle-entry .card-suit {
     display: block;
 
@@ -1223,11 +1485,19 @@ textarea {
     opacity: 0.9;
 }
 
+
+/*
+   CHIFFRES
+   2 cm à gauche
+   BORDEAUX
+*/
+
 .chronicle-entry .card-number {
     position: absolute;
 
     top: 8px;
-    left: 50%;
+
+    left: calc(50% - 2cm);
 
     transform:
         translateX(-50%);
@@ -1239,13 +1509,12 @@ textarea {
     font-weight: 700;
 
     letter-spacing: 0;
+
+    color: var(--bordeaux);
 }
 
 
-/*
-   Disposition type carte à jouer de 10.
-   Les 10 entrées occupent la zone droite.
-*/
+/* POSITIONS */
 
 .chronicle-01 {
     top: 28%;
@@ -1296,7 +1565,6 @@ textarea {
     top: 64%;
     left: 82%;
 }
-
 
 .chronicle-entry:hover {
     color: var(--bordeaux);
@@ -1354,10 +1622,6 @@ textarea {
 ═══════════════════════════════════════ */
 
 .library-title {
-    /*
-       Centré en haut et plus petit.
-    */
-
     top: 8%;
     left: 64%;
 
@@ -1365,7 +1629,10 @@ textarea {
         translateX(-50%)
         rotate(-2deg);
 
-    font-size: clamp(33px, 5vw, 55px);
+    /*
+       25 % plus petit
+    */
+    font-size: clamp(24.75px, 3.75vw, 41.25px);
 
     color: #ffffff;
 
@@ -1384,11 +1651,6 @@ textarea {
         0 0 12px rgba(255, 255, 255, 0.4);
 }
 
-
-/*
-   THE LIBRARY supprimé.
-*/
-
 .library-whisper {
     display: none;
 }
@@ -1396,9 +1658,6 @@ textarea {
 
 /* ═══════════════════════════════════════
    CARTES LIBRARY
-   10 POSITIONS
-   PIQUES
-   SANS RECTANGLES
 ═══════════════════════════════════════ */
 
 .library-entry {
@@ -1439,7 +1698,6 @@ textarea {
         0 0 8px rgba(255, 255, 255, 0.35);
 }
 
-
 .library-entry .card-suit {
     display: block;
 
@@ -1452,18 +1710,29 @@ textarea {
     opacity: 0.9;
 }
 
+
+/*
+   CHIFFRES LIBRARY
+   50 % PLUS GRANDS
+   4 cm À GAUCHE
+*/
+
 .library-entry .card-number {
     position: absolute;
 
     top: 8px;
-    left: 50%;
+
+    left: calc(50% - 4cm);
 
     transform:
         translateX(-50%);
 
     z-index: 2;
 
-    font-size: 13px;
+    /*
+       13px → 19.5px
+    */
+    font-size: 19.5px;
 
     font-weight: 700;
 
@@ -1471,9 +1740,7 @@ textarea {
 }
 
 
-/*
-   Même logique de carte à jouer de 10.
-*/
+/* POSITIONS */
 
 .library-01 {
     top: 28%;
@@ -1524,7 +1791,6 @@ textarea {
     top: 64%;
     left: 82%;
 }
-
 
 .library-entry:hover {
     color: var(--bordeaux);
@@ -2197,25 +2463,25 @@ textarea {
         0 0 8px rgba(0, 0, 0, 0.9);
 }
 
+
+/*
+   Ces trois règles sont déjà remplacées
+   individuellement plus haut.
+*/
+
 .divide-heading {
     top: 4%;
     left: 7%;
-
-    transform: rotate(-4deg);
 }
 
 .living-heading {
     top: 4%;
     right: 7%;
-
-    transform: rotate(4deg);
 }
 
 .other-heading {
     top: 4%;
     right: 7%;
-
-    transform: rotate(4deg);
 }
 
 .library-heading {
@@ -2377,11 +2643,11 @@ textarea {
     top: 50%;
     left: 50%;
 
-    font-size: 24px;
+    font-size: 36px;
 
     font-weight: 900;
 
-    font-family: var(--font-serif);
+    font-family: Georgia, serif;
 }
 
 .chronicle-secret {
@@ -2422,11 +2688,6 @@ textarea {
 
     overflow-y: auto;
 }
-
-
-/* ═══════════════════════════════════════
-   THE BOOK
-═══════════════════════════════════════ */
 
 #page-visitor-book .visitor-book {
     position: relative;
@@ -2473,11 +2734,6 @@ textarea {
     overflow: hidden;
 }
 
-
-/* ═══════════════════════════════════════
-   SPOOKY BOOK DECOR
-═══════════════════════════════════════ */
-
 #page-visitor-book .visitor-book::before {
     content: "✦";
 
@@ -2513,11 +2769,6 @@ textarea {
 
     opacity: 0.65;
 }
-
-
-/* ═══════════════════════════════════════
-   HEADER
-═══════════════════════════════════════ */
 
 .visitor-book-header {
     position: relative;
@@ -2603,11 +2854,6 @@ textarea {
     color: rgba(255, 255, 255, 0.55);
 }
 
-
-/* ═══════════════════════════════════════
-   CONTENT
-═══════════════════════════════════════ */
-
 .visitor-book-content {
     display: grid;
 
@@ -2619,11 +2865,6 @@ textarea {
 
     align-items: start;
 }
-
-
-/* ═══════════════════════════════════════
-   LABELS
-═══════════════════════════════════════ */
 
 .visitor-label {
     position: relative;
@@ -2653,11 +2894,6 @@ textarea {
 
     font-size: 8px;
 }
-
-
-/* ═══════════════════════════════════════
-   WRITING
-═══════════════════════════════════════ */
 
 .visitor-write {
     position: relative;
@@ -2771,11 +3007,6 @@ textarea {
         0 0 18px rgba(181, 42, 80, 0.08);
 }
 
-
-/* ═══════════════════════════════════════
-   SUBMIT
-═══════════════════════════════════════ */
-
 #visitor-submit {
     position: relative;
 
@@ -2821,11 +3052,6 @@ textarea {
         rotate(-2deg);
 }
 
-
-/* ═══════════════════════════════════════
-   STATUS
-═══════════════════════════════════════ */
-
 .visitor-status {
     margin-top: 13px;
 
@@ -2841,11 +3067,6 @@ textarea {
 
     opacity: 0.8;
 }
-
-
-/* ═══════════════════════════════════════
-   MESSAGE ARCHIVE
-═══════════════════════════════════════ */
 
 .visitor-messages {
     max-height: 430px;
@@ -2872,11 +3093,6 @@ textarea {
 .visitor-messages::-webkit-scrollbar-thumb {
     background: var(--bordeaux);
 }
-
-
-/* ═══════════════════════════════════════
-   EMPTY BOOK
-═══════════════════════════════════════ */
 
 .visitor-empty {
     position: relative;
@@ -2911,11 +3127,6 @@ textarea {
 
     opacity: 0.7;
 }
-
-
-/* ═══════════════════════════════════════
-   INDIVIDUAL VISITOR
-═══════════════════════════════════════ */
 
 .visitor-message-entry {
     position: relative;
@@ -2986,11 +3197,6 @@ textarea {
 
     white-space: pre-wrap;
 }
-
-
-/* ═══════════════════════════════════════
-   RETURN
-═══════════════════════════════════════ */
 
 .visitor-book-return {
     position: absolute;
@@ -3468,6 +3674,8 @@ textarea {
 
     .welcome-title {
         width: 48%;
+
+        left: calc(50% - 1.5cm);
     }
 
     .welcome-name {
@@ -3487,21 +3695,29 @@ textarea {
     /* WARNING */
 
     .time-warning {
-        right: 5%;
+        right: calc(5% + 1cm);
         bottom: 5%;
 
-        font-size: 9px;
+        font-size: 4.5px;
 
         padding:
-            9px
-            12px;
+            4.5px
+            6px;
+    }
+
+    .warning-title {
+        font-size: 6px;
+    }
+
+    .time-warning strong {
+        font-size: 7px;
     }
 
 
     /* OTHER SIDE */
 
     .other-side-choice {
-        font-size: 16px;
+        font-size: 12px;
     }
 
 
@@ -3510,7 +3726,11 @@ textarea {
     .noctem-main-title {
         top: 17%;
 
-        font-size: 24px;
+        font-size: 16px;
+    }
+
+    .noctem-secret {
+        font-size: 32px !important;
     }
 
 
@@ -3527,9 +3747,14 @@ textarea {
         font-size: 30px;
     }
 
-    .chronicle-entry .card-number,
-    .library-entry .card-number {
+    .chronicle-entry .card-number {
         font-size: 11px;
+        left: calc(50% - 2cm);
+    }
+
+    .library-entry .card-number {
+        font-size: 16.5px;
+        left: calc(50% - 4cm);
     }
 
 
