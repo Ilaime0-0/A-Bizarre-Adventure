@@ -2158,18 +2158,17 @@ a {
 .page > .interface-image {
     display: block;
 
-    width: 100vw;
+    width: auto;
     height: 100vh;
 
     max-width: none;
-    max-height: none;
+    max-height: 100vh;
 
-    object-fit: fill;
+    object-fit: contain;
 
     user-select: none;
     -webkit-user-drag: none;
 }
-
 
 /*
    EPHEMERIS est la seule page qui peut
