@@ -2091,3 +2091,10 @@ a {
 
     transform: rotate(4deg);
 }
+.chronicles-title {
+    left: 56%;
+
+    transform:
+        translateX(-50%)
+        rotate(-2deg);
+}
