@@ -816,15 +816,9 @@ textarea {
 
     color: #ffffff;
 
-    background: rgba(10, 10, 10, 0.88);
-
-    border: 1px solid rgba(255, 255, 255, 0.75);
-
-    padding: 8px 20px;
-
     font-family: var(--font-display);
 
-    font-size: clamp(34px, 4.8vw, 58px);
+    font-size: clamp(27px, 3.8vw, 45px);
 
     font-weight: 700;
 
@@ -834,11 +828,8 @@ textarea {
 
     white-space: nowrap;
 
-    box-shadow:
-        4px 4px 0 rgba(255, 255, 255, 0.12);
-
     text-shadow:
-        0 0 10px rgba(255, 255, 255, 0.45);
+        0 0 12px rgba(255, 255, 255, 0.45);
 
     pointer-events: none;
 }
