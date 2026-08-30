@@ -1,3 +1,10 @@
+const SUPABASE_URL = "TA_PROJECT_URL";
+const SUPABASE_PUBLISHABLE_KEY = "TA_PUBLISHABLE_KEY";
+
+const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+);
 (function () {
 
     let pageHistory = [];
