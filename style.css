@@ -288,7 +288,7 @@ textarea {
     width: 600px;
     max-width: 72vw;
 
-    font-size: clamp(25px, 3.4vw, 42px);
+    font-size: clamp(25px, 2vw, 30px);
 
     letter-spacing: 3px;
     line-height: 1.02;
