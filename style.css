@@ -1,19 +1,8 @@
-/* ╔══════════════════════════════════════════════════════════════╗
-   CARPE NOCTEM — COMPLETE STYLE
-   Correspond exactement au nouveau HTML
-   ╚══════════════════════════════════════════════════════════════╝ */
-
-
-/* ═══════════════════════════════════════
-   VARIABLES
-═══════════════════════════════════════ */
-
 :root {
-    --void: #0a0a0a;
 
+    --void: #0a0a0a;
     --wine-dark: #090909;
     --wine-soft: #5b1029;
-    --wine-mid: #741735;
 
     --bordeaux: #b52a50;
     --bordeaux-deep: #7a1834;
@@ -35,6 +24,7 @@
 
 html,
 body {
+
     margin: 0;
     padding: 0;
 
@@ -42,146 +32,34 @@ body {
     min-height: 100%;
 
     background: var(--void);
-
-    overflow: hidden;
 }
 
 body {
+
     min-height: 100vh;
 
     display: flex;
+
     justify-content: center;
     align-items: flex-start;
 
-    color: var(--ink);
-}
-
-* {
-    box-sizing: border-box;
+    overflow: hidden;
 }
 
 
 /* ═══════════════════════════════════════
-   CURSOR
-═══════════════════════════════════════ */
-
-html,
-body,
-button,
-a,
-input,
-textarea {
-    cursor: none !important;
-}
-
-#spider-cursor {
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    width: 45px;
-    height: 45px;
-
-    pointer-events: none;
-
-    z-index: 99999;
-
-    transform: translate(-50%, -50%);
-
-    opacity: 1;
-
-    transition: opacity 0.15s ease;
-}
-
-.web {
-    position: relative;
-
-    width: 45px;
-    height: 45px;
-
-    animation: webFloat 2s ease-in-out infinite;
-}
-
-.web-line {
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    width: 45px;
-    height: 1px;
-
-    background: rgba(255, 255, 255, 0.9);
-
-    transform-origin: center;
-}
-
-.line-1 {
-    transform: translate(-50%, -50%) rotate(0deg);
-}
-
-.line-2 {
-    transform: translate(-50%, -50%) rotate(45deg);
-}
-
-.line-3 {
-    transform: translate(-50%, -50%) rotate(90deg);
-}
-
-.line-4 {
-    transform: translate(-50%, -50%) rotate(135deg);
-}
-
-.web-ring {
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    border: 1px solid rgba(255, 255, 255, 0.85);
-
-    border-radius: 50%;
-
-    transform: translate(-50%, -50%);
-}
-
-.ring-1 {
-    width: 18px;
-    height: 18px;
-}
-
-.ring-2 {
-    width: 34px;
-    height: 34px;
-}
-
-.escaping-spider {
-    position: fixed;
-
-    pointer-events: none;
-
-    z-index: 100000;
-
-    font-size: 24px;
-
-    transform: translate(-50%, -50%);
-
-    animation: spiderEscape 1.4s ease-in forwards;
-}
-
-
-/* ═══════════════════════════════════════
-   MAIN ADVENTURE
+   ADVENTURE
 ═══════════════════════════════════════ */
 
 .adventure {
-    position: relative;
 
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
 
-    overflow: hidden;
+    display: flex;
+
+    justify-content: center;
+    align-items: flex-start;
 }
 
 
@@ -190,19 +68,21 @@ textarea {
 ═══════════════════════════════════════ */
 
 .page {
-    position: absolute;
 
-    inset: 0;
+    position: relative;
 
     width: 100vw;
     height: 100vh;
+
+    max-width: 100vw;
+    max-height: 100vh;
+
+    overflow: hidden;
 
     display: none;
 
     justify-content: center;
     align-items: flex-start;
-
-    overflow: hidden;
 }
 
 .page.active {
@@ -211,16 +91,15 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   IMAGE CONTAINER
+   INTERFACE
 ═══════════════════════════════════════ */
 
 .interface {
+
     position: relative;
 
-    display: inline-block;
-
-    width: max-content;
     height: 100vh;
+    width: max-content;
 
     flex-shrink: 0;
 }
@@ -231,6 +110,7 @@ textarea {
 ═══════════════════════════════════════ */
 
 .interface-image {
+
     position: relative;
 
     z-index: 1;
@@ -252,51 +132,174 @@ textarea {
 
 
 /* ═══════════════════════════════════════
+   CURSEUR ARAIGNÉE
+═══════════════════════════════════════ */
+
+html,
+body,
+button,
+a,
+input,
+textarea {
+
+    cursor: none !important;
+}
+
+#spider-cursor {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 45px;
+    height: 45px;
+
+    pointer-events: none;
+
+    z-index: 99999;
+
+    transform: translate(-50%, -50%);
+
+    opacity: 1;
+
+    transition: opacity 0.15s ease;
+}
+
+.web {
+
+    position: relative;
+
+    width: 45px;
+    height: 45px;
+
+    animation: webFloat 2s ease-in-out infinite;
+}
+
+.web-line {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 45px;
+    height: 1px;
+
+    transform-origin: center;
+
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.line-1 {
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.line-2 {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.line-3 {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.line-4 {
+    transform: translate(-50%, -50%) rotate(135deg);
+}
+
+.web-ring {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    border: 1px solid rgba(255, 255, 255, 0.85);
+
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+.ring-1 {
+
+    width: 18px;
+    height: 18px;
+}
+
+.ring-2 {
+
+    width: 34px;
+    height: 34px;
+}
+
+.escaping-spider {
+
+    position: fixed;
+
+    pointer-events: none;
+
+    z-index: 100000;
+
+    font-size: 24px;
+
+    transform: translate(-50%, -50%);
+
+    animation: spiderEscape 1.4s ease-in forwards;
+}
+
+
+/* ═══════════════════════════════════════
    HOTSPOTS
 ═══════════════════════════════════════ */
 
 .hotspot {
+
     position: absolute;
 
     padding: 0;
     margin: 0;
 
     border: none;
-
     background: transparent;
 
     cursor: none;
 
-    z-index: 50;
+    z-index: 100;
 
     transition:
-        background 0.25s ease,
-        transform 0.25s ease;
+        transform 0.25s ease,
+        background 0.25s ease;
 }
 
 .hotspot:hover {
-    background: rgba(255, 255, 255, 0.055);
+
+    background: rgba(255, 255, 255, 0.07);
+
+    transform: scale(1.025);
 }
 
 
 /* ═══════════════════════════════════════
-   WELCOME
+   PAGE 01 — WELCOME
 ═══════════════════════════════════════ */
 
 .welcome-title {
+
     position: absolute;
 
-    top: 11%;
-    left: 50%;
+    top: 12%;
 
-    width: 500px;
-    max-width: 65%;
+    left: 50%;
 
     transform:
         translateX(-50%)
         rotate(-2deg);
 
     z-index: 40;
+
+    width: 520px;
+    max-width: 65vw;
 
     pointer-events: none;
 
@@ -311,41 +314,37 @@ textarea {
 }
 
 .welcome-name {
+
     display: block;
 
-    width: 100%;
-
-    padding: 8px 18px;
-
-    background: rgba(10, 10, 10, 0.9);
-
-    font-size: clamp(22px, 2.1vw, 30px);
-
-    font-weight: 700;
+    font-size: clamp(25px, 2.2vw, 34px);
 
     letter-spacing: 3px;
 
     line-height: 1.05;
 
-    text-align: center;
+    padding: 10px 22px;
+
+    background: rgba(10, 10, 10, 0.86);
+
+    text-shadow:
+        0 0 8px rgba(0, 0, 0, 0.95),
+        0 0 14px var(--bordeaux-glow);
 }
 
 
 /*
-   Zone interactive :
-   abaissée et encadrée sur la zone blanche.
+   ZONE CLIQUABLE
+   placée sur la zone blanche contenant WELCOME
 */
 
 .welcome {
-    top: 30%;
-    left: 24%;
 
-    width: 52%;
-    height: 48%;
-}
+    top: 7%;
+    left: 22%;
 
-.welcome:hover {
-    background: rgba(255, 255, 255, 0.035);
+    width: 56%;
+    height: 22%;
 }
 
 
@@ -354,14 +353,15 @@ textarea {
 ═══════════════════════════════════════ */
 
 .time-warning {
+
     position: absolute;
 
-    top: auto;
-    bottom: 10%;
+    bottom: 9%;
+    left: 31%;
 
-    left: 25%;
-
-    transform: rotate(-3deg);
+    transform:
+        translateX(-50%)
+        rotate(-3deg);
 
     z-index: 70;
 
@@ -369,40 +369,42 @@ textarea {
 
     flex-direction: column;
 
-    gap: 6px;
+    gap: 7px;
 
-    padding: 10px 15px;
+    padding: 12px 18px;
 
     border: 1px solid rgba(255, 255, 255, 0.65);
 
-    background: rgba(10, 10, 10, 0.78);
-
-    color: var(--ink);
+    background: rgba(10, 10, 10, 0.76);
 
     font-family: var(--font-mono);
 
-    font-size: 10px;
+    font-size: 11px;
 
     letter-spacing: 1px;
 
     text-align: center;
 
-    white-space: nowrap;
+    color: var(--ink);
 
     pointer-events: none;
 
     box-shadow:
         0 0 15px rgba(255, 255, 255, 0.08);
+
+    white-space: nowrap;
 }
 
 .warning-title {
-    font-size: 13px;
+
+    font-size: 14px;
 
     letter-spacing: 4px;
 }
 
 .time-warning strong {
-    font-size: 16px;
+
+    font-size: 17px;
 
     font-weight: normal;
 
@@ -416,19 +418,20 @@ textarea {
 ═══════════════════════════════════════ */
 
 .strange-button {
+
     position: absolute;
 
     border: 1px solid rgba(255, 255, 255, 0.65);
 
-    background: rgba(10, 10, 10, 0.78);
+    background: rgba(10, 10, 10, 0.7);
 
     color: var(--ink);
 
-    padding: 8px 15px;
+    padding: 9px 16px;
 
     font-family: var(--font-mono);
 
-    font-size: 14px;
+    font-size: 15px;
 
     letter-spacing: 3px;
 
@@ -437,66 +440,23 @@ textarea {
     z-index: 70;
 
     transition:
-        transform 0.3s ease,
-        opacity 0.3s ease;
+        opacity 0.3s ease,
+        transform 0.3s ease;
 }
 
 .strange-button-one {
-    top: 79%;
-    right: 12%;
+
+    top: 80%;
+    right: 13%;
 
     transform: rotate(-7deg);
 }
 
 .strange-button:hover {
-    opacity: 1;
 
     transform:
         rotate(-7deg)
-        scale(1.12);
-}
-
-
-/* ═══════════════════════════════════════
-   SECRET SYMBOL — WELCOME
-═══════════════════════════════════════ */
-
-.secret-symbol {
-    position: absolute;
-
-    top: 18%;
-    right: 8%;
-
-    padding: 0;
-
-    border: none;
-
-    background: transparent;
-
-    color: var(--ink-dim);
-
-    font-family: var(--font-mono);
-
-    font-size: 18px;
-
-    cursor: none;
-
-    z-index: 60;
-
-    animation:
-        strangePulse 2.5s ease-in-out infinite;
-
-    transition:
-        transform 0.4s ease,
-        opacity 0.3s ease;
-}
-
-.secret-symbol:hover {
-    opacity: 1;
-
-    transform:
-        rotate(180deg)
-        scale(1.35);
+        scale(1.15);
 }
 
 
@@ -506,32 +466,38 @@ textarea {
 
 .life,
 .death {
-    left: 22%;
 
-    width: 56%;
-
-    height: 28%;
+    z-index: 100;
 }
 
 .life {
+
     top: 5%;
+    left: 22%;
+
+    width: 56%;
+    height: 20%;
 }
 
 .death {
+
     top: 60%;
+    left: 22%;
+
+    width: 56%;
+    height: 20%;
 }
 
 
-/* Labels centrés dans les zones rouges */
-
 .divide-label {
-    position: absolute;
 
-    left: 50%;
+    position: absolute;
 
     z-index: 60;
 
-    padding: 8px 20px;
+    pointer-events: none;
+
+    padding: 10px 25px;
 
     background: rgba(250, 247, 240, 0.97);
 
@@ -541,7 +507,7 @@ textarea {
 
     font-family: var(--font-display);
 
-    font-size: clamp(30px, 4vw, 48px);
+    font-size: clamp(29px, 4.3vw, 52px);
 
     font-weight: 700;
 
@@ -551,16 +517,19 @@ textarea {
 
     text-align: center;
 
-    white-space: nowrap;
+    text-shadow:
+        0 0 8px rgba(181, 42, 80, 0.25);
 
     box-shadow:
-        4px 4px 0 rgba(181, 42, 80, 0.35);
+        5px 5px 0 rgba(181, 42, 80, 0.35);
 
-    pointer-events: none;
+    white-space: nowrap;
 }
 
 .divide-life-label {
-    top: 19%;
+
+    top: 18%;
+    left: 50%;
 
     transform:
         translateX(-50%)
@@ -568,19 +537,17 @@ textarea {
 }
 
 .divide-death-label {
-    top: 64%;
+
+    top: 63%;
+    left: 50%;
 
     transform:
         translateX(-50%)
         rotate(3deg);
 }
 
-
-/* ═══════════════════════════════════════
-   DIVIDE WHISPERS
-═══════════════════════════════════════ */
-
 .divide-whisper {
+
     position: absolute;
 
     top: 48%;
@@ -590,24 +557,23 @@ textarea {
         translate(-50%, -50%)
         rotate(2deg);
 
-    color: var(--ink-dim);
-
     font-family: var(--font-mono);
 
     font-size: 10px;
 
     letter-spacing: 4px;
 
+    color: var(--ink-dim);
+
     pointer-events: none;
 }
 
 .strange-clock {
+
     position: absolute;
 
     top: 7%;
     right: 8%;
-
-    color: var(--ink-dim);
 
     font-family: var(--font-mono);
 
@@ -615,23 +581,21 @@ textarea {
 
     letter-spacing: 3px;
 
+    color: var(--ink-dim);
+
     transform: rotate(6deg);
 
     pointer-events: none;
 }
 
-
-/* ═══════════════════════════════════════
-   RESTART
-═══════════════════════════════════════ */
-
 .restart-button {
+
     position: absolute;
 
     right: 8%;
     bottom: 14%;
 
-    padding: 8px 13px;
+    padding: 9px 14px;
 
     border: 1px solid rgba(255, 255, 255, 0.55);
 
@@ -650,11 +614,10 @@ textarea {
     z-index: 60;
 
     transform: rotate(-8deg);
-
-    transition: transform 0.3s ease;
 }
 
 .restart-button:hover {
+
     transform:
         rotate(-8deg)
         scale(1.2);
@@ -665,271 +628,59 @@ textarea {
    THE LIVING SIDE
 ═══════════════════════════════════════ */
 
-.reality,
-.between,
-.fiction {
+.reality {
+
+    top: 4%;
     left: 20%;
 
     width: 60%;
-
-    height: 27%;
-}
-
-.reality {
-    top: 4%;
+    height: 29%;
 }
 
 .between {
+
     top: 36%;
+    left: 20%;
+
+    width: 60%;
+    height: 29%;
 }
 
 .fiction {
+
     top: 68%;
+    left: 20%;
+
+    width: 60%;
+    height: 29%;
 }
 
 
 /* ═══════════════════════════════════════
-   LIVING CHOICES
+   GRILLE DÉCALÉE
 ═══════════════════════════════════════ */
 
 .living-choice {
+
     position: absolute;
 
     left: 50%;
 
     z-index: 60;
 
-    padding: 6px 16px;
+    display: flex;
 
-    background: rgba(10, 10, 10, 0.9);
+    flex-direction: column;
 
-    border: 1px solid rgba(255, 255, 255, 0.7);
+    align-items: center;
+
+    width: 170px;
 
     color: #ffffff;
 
     font-family: var(--font-display);
 
-    font-size: clamp(24px, 3vw, 39px);
-
-    font-weight: 700;
-
-    letter-spacing: 3px;
-
-    line-height: 1;
-
-    text-align: center;
-
-    white-space: nowrap;
-
-    box-shadow:
-        4px 4px 0 rgba(181, 42, 80, 0.28);
-
-    pointer-events: none;
-}
-
-.reality-choice {
-    top: 18%;
-
-    transform:
-        translateX(-50%)
-        rotate(-3deg);
-}
-
-.between-choice {
-    top: 50%;
-
-    transform:
-        translateX(-50%)
-        rotate(2deg);
-}
-
-.fiction-choice {
-    top: 82%;
-
-    transform:
-        translateX(-50%)
-        rotate(-2deg);
-}
-
-
-/* ═══════════════════════════════════════
-   LIFE WHISPER
-═══════════════════════════════════════ */
-
-.life-whisper {
-    position: absolute;
-
-    left: 7%;
-    bottom: 7%;
-
-    z-index: 40;
-
-    padding: 9px 14px;
-
-    background: rgba(10, 10, 10, 0.78);
-
-    border: 1px solid rgba(255, 255, 255, 0.6);
-
-    color: var(--ink-dim);
-
-    font-family: var(--font-mono);
-
-    font-size: 9px;
-
-    line-height: 1.7;
-
-    letter-spacing: 2px;
-
-    text-align: left;
-
-    transform: rotate(-4deg);
-
-    pointer-events: none;
-}
-
-
-/* ═══════════════════════════════════════
-   LIFE SECRET "+"
-═══════════════════════════════════════ */
-
-.life-secret {
-    position: absolute;
-
-    right: 7%;
-    bottom: 8%;
-
-    padding: 0;
-
-    border: none;
-
-    background: transparent;
-
-    color: #ffffff;
-
-    font-family: var(--font-mono);
-
-    font-size: 25px;
-
-    font-weight: bold;
-
-    line-height: 1;
-
-    cursor: none;
-
-    z-index: 70;
-
-    transition:
-        transform 0.4s ease,
-        opacity 0.3s ease;
-}
-
-.life-secret:hover {
-    opacity: 1;
-
-    transform:
-        rotate(180deg)
-        scale(1.3);
-}
-
-
-/* ═══════════════════════════════════════
-   SECTION HEADINGS
-═══════════════════════════════════════ */
-
-.section-whisper {
-    position: absolute;
-
-    z-index: 55;
-
-    padding: 8px 14px;
-
-    background: rgba(10, 10, 10, 0.82);
-
-    border: 1px solid rgba(255, 255, 255, 0.6);
-
-    color: rgba(255, 255, 255, 0.9);
-
-    font-family: var(--font-mono);
-
-    font-size: 9px;
-
-    font-weight: normal;
-
-    letter-spacing: 4px;
-
-    text-transform: uppercase;
-
-    pointer-events: none;
-
-    text-shadow:
-        0 0 8px rgba(0, 0, 0, 0.9);
-}
-
-.divide-heading {
-    top: 4%;
-    left: 7%;
-
-    transform: rotate(-4deg);
-}
-
-.living-heading {
-    top: 4%;
-    right: 7%;
-
-    transform: rotate(4deg);
-}
-
-.other-heading {
-    top: 4%;
-    right: 7%;
-
-    transform: rotate(4deg);
-}
-
-
-/* ═══════════════════════════════════════
-   THE OTHER SIDE
-═══════════════════════════════════════ */
-
-.obsession {
-    top: 4%;
-    left: 4%;
-
-    width: 42%;
-    height: 29%;
-}
-
-.noctem {
-    top: 36%;
-    left: 54%;
-
-    width: 42%;
-    height: 29%;
-}
-
-.conspirations {
-    top: 68%;
-    left: 4%;
-
-    width: 42%;
-    height: 28%;
-}
-
-
-/* ═══════════════════════════════════════
-   VERTICAL CHOICES
-═══════════════════════════════════════ */
-
-.other-side-choice {
-    position: absolute;
-
-    z-index: 60;
-
-    color: #ffffff;
-
-    font-family: var(--font-display);
-
-    font-size: clamp(16px, 1.7vw, 23px);
+    font-size: clamp(25px, 3.4vw, 43px);
 
     font-weight: 700;
 
@@ -939,16 +690,278 @@ textarea {
 
     text-align: center;
 
-    white-space: nowrap;
+    pointer-events: none;
 
     text-shadow:
-        0 0 8px rgba(255, 255, 255, 0.35);
+        0 0 8px rgba(0, 0, 0, 0.95);
+
+    filter:
+        drop-shadow(0 0 5px rgba(255, 255, 255, 0.15));
+}
+
+.living-choice span {
+
+    display: block;
+
+    height: 0.9em;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+/* décalages gauche / droite */
+
+.reality-choice span:nth-child(odd) {
+    transform: translateX(-12px);
+}
+
+.reality-choice span:nth-child(even) {
+    transform: translateX(10px);
+}
+
+.between-choice span:nth-child(odd) {
+    transform: translateX(11px);
+}
+
+.between-choice span:nth-child(even) {
+    transform: translateX(-10px);
+}
+
+.fiction-choice span:nth-child(odd) {
+    transform: translateX(-10px);
+}
+
+.fiction-choice span:nth-child(even) {
+    transform: translateX(12px);
+}
+
+
+.reality-choice {
+
+    top: 11%;
+
+    transform:
+        translateX(-50%)
+        rotate(-3deg);
+}
+
+.between-choice {
+
+    top: 43%;
+
+    transform:
+        translateX(-50%)
+        rotate(2deg);
+}
+
+.fiction-choice {
+
+    top: 75%;
+
+    transform:
+        translateX(-50%)
+        rotate(-2deg);
+}
+
+
+/* EVERYTHING IS REAL
+   déplacé vers le haut
+*/
+
+.life-whisper {
+
+    position: absolute;
+
+    left: 7%;
+    bottom: 13%;
+
+    z-index: 70;
+
+    padding: 10px 15px;
+
+    background: rgba(10, 10, 10, 0.78);
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+
+    font-family: var(--font-mono);
+
+    font-size: 10px;
+
+    line-height: 1.8;
+
+    letter-spacing: 2px;
+
+    color: var(--ink-dim);
+
+    text-align: left;
+
+    transform: rotate(-4deg);
 
     pointer-events: none;
 }
 
+
+/* PLUS */
+
+.life-secret {
+
+    right: 7%;
+    bottom: 7%;
+
+    font-size: 22px;
+
+    font-weight: 900;
+
+    color: #ffffff;
+}
+
+
+/* ═══════════════════════════════════════
+   SECTION HEADINGS
+═══════════════════════════════════════ */
+
+.section-whisper {
+
+    position: absolute;
+
+    z-index: 75;
+
+    padding: 9px 15px;
+
+    background: rgba(10, 10, 10, 0.78);
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+
+    font-family: var(--font-mono);
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    text-transform: uppercase;
+
+    pointer-events: none;
+
+    box-shadow:
+        0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+.divide-heading {
+
+    top: 4%;
+    left: 7%;
+
+    transform: rotate(-4deg);
+}
+
+.living-heading {
+
+    top: 4%;
+    right: 7%;
+
+    transform: rotate(4deg);
+}
+
+.other-heading {
+
+    top: 4%;
+    right: 7%;
+
+    transform: rotate(4deg);
+}
+
+
+/* ═══════════════════════════════════════
+   OTHER SIDE
+═══════════════════════════════════════ */
+
+.obsession {
+
+    top: 4%;
+    left: 4%;
+
+    width: 42%;
+    height: 29%;
+}
+
+.noctem {
+
+    top: 36%;
+    left: 54%;
+
+    width: 42%;
+    height: 29%;
+}
+
+.conspirations {
+
+    top: 68%;
+    left: 4%;
+
+    width: 42%;
+    height: 28%;
+}
+
+
+/* ═══════════════════════════════════════
+   OTHER SIDE — GRILLE DÉCALÉE
+═══════════════════════════════════════ */
+
+.other-side-choice {
+
+    position: absolute;
+
+    z-index: 60;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    width: 105px;
+
+    color: #ffffff;
+
+    font-family: var(--font-display);
+
+    font-size: clamp(16px, 1.8vw, 25px);
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    line-height: 0.86;
+
+    text-align: center;
+
+    white-space: nowrap;
+
+    pointer-events: none;
+
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.35);
+}
+
+.other-side-choice span {
+
+    display: block;
+
+    height: 0.88em;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+/* OBSESSION */
+
 .obsession-choice {
-    top: 17%;
+
+    top: 8%;
     left: 24%;
 
     transform:
@@ -956,8 +969,20 @@ textarea {
         rotate(-3deg);
 }
 
+.obsession-choice span:nth-child(odd) {
+    transform: translateX(-8px);
+}
+
+.obsession-choice span:nth-child(even) {
+    transform: translateX(8px);
+}
+
+
+/* CARPE NOCTEM */
+
 .noctem-choice {
-    top: 50%;
+
+    top: 49%;
     left: 75%;
 
     transform:
@@ -965,8 +990,25 @@ textarea {
         rotate(3deg);
 }
 
+.noctem-choice span:nth-child(odd) {
+    transform: translateX(8px);
+}
+
+.noctem-choice span:nth-child(even) {
+    transform: translateX(-8px);
+}
+
+.noctem-choice .word-gap {
+
+    height: 0.45em;
+}
+
+
+/* CONSPIRATIONS */
+
 .conspirations-choice {
-    top: 82%;
+
+    top: 80%;
     left: 24%;
 
     transform:
@@ -974,30 +1016,29 @@ textarea {
         rotate(-3deg);
 }
 
+.conspirations-choice span:nth-child(odd) {
+    transform: translateX(-8px);
+}
 
-/* ═══════════════════════════════════════
-   DEATH WHISPER
-═══════════════════════════════════════ */
+.conspirations-choice span:nth-child(even) {
+    transform: translateX(8px);
+}
+
 
 .death-whisper {
+
     position: absolute;
 
     right: 7%;
     bottom: 7%;
 
-    padding: 8px 13px;
-
-    background: rgba(10, 10, 10, 0.78);
-
-    border: 1px solid rgba(255, 255, 255, 0.6);
-
-    color: var(--ink-dim);
-
     font-family: var(--font-mono);
 
-    font-size: 9px;
+    font-size: 10px;
 
     letter-spacing: 3px;
+
+    color: var(--ink-dim);
 
     transform: rotate(4deg);
 
@@ -1005,45 +1046,18 @@ textarea {
 }
 
 
-/* ═══════════════════════════════════════
-   DEATH SECRET "?"
-═══════════════════════════════════════ */
+/* ? plus gros et gras */
 
 .death-secret {
-    position: absolute;
 
     left: 7%;
     bottom: 7%;
 
-    padding: 0;
+    font-size: 21px;
 
-    border: none;
-
-    background: transparent;
+    font-weight: 900;
 
     color: #ffffff;
-
-    font-family: var(--font-mono);
-
-    font-size: 25px;
-
-    font-weight: bold;
-
-    cursor: none;
-
-    z-index: 70;
-
-    transition:
-        transform 0.4s ease,
-        opacity 0.3s ease;
-}
-
-.death-secret:hover {
-    opacity: 1;
-
-    transform:
-        rotate(180deg)
-        scale(1.3);
 }
 
 
@@ -1052,9 +1066,11 @@ textarea {
 ═══════════════════════════════════════ */
 
 .noctem-main-title {
+
     position: absolute;
 
-    top: 14%;
+    top: 17%;
+
     left: 50%;
 
     transform:
@@ -1067,7 +1083,11 @@ textarea {
 
     font-family: var(--font-display);
 
-    font-size: clamp(23px, 3vw, 36px);
+    /*
+       plus petit comme demandé
+    */
+
+    font-size: clamp(23px, 3.2vw, 39px);
 
     font-weight: 700;
 
@@ -1083,12 +1103,8 @@ textarea {
     pointer-events: none;
 }
 
-
-/* ═══════════════════════════════════════
-   NOCTEM WHISPER
-═══════════════════════════════════════ */
-
 .noctem-whisper {
+
     position: absolute;
 
     top: 23%;
@@ -1096,17 +1112,17 @@ textarea {
 
     z-index: 70;
 
-    padding: 9px 14px;
+    padding: 10px 16px;
 
-    background: rgba(10, 10, 10, 0.86);
+    background: rgba(10, 10, 10, 0.88);
 
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.65);
 
     color: var(--ink);
 
     font-family: var(--font-mono);
 
-    font-size: 10px;
+    font-size: 11px;
 
     letter-spacing: 2px;
 
@@ -1118,72 +1134,53 @@ textarea {
 }
 
 
-/* ═══════════════════════════════════════
-   CARPE NOCTEM HEART HOTSPOTS
-═══════════════════════════════════════ */
+/* CŒURS
+   zones cliquables exactement centrées
+   sur les deux cœurs
+*/
 
 .heart-left {
-    left: 10%;
-    bottom: 3%;
 
-    width: 17%;
-    height: 17%;
+    left: 7%;
+    bottom: 1%;
+
+    width: 23%;
+    height: 23%;
 }
 
 .heart-right {
-    right: 4%;
-    bottom: 3%;
 
-    width: 17%;
-    height: 17%;
+    right: 1%;
+    bottom: 1%;
+
+    width: 23%;
+    height: 23%;
 }
 
 
-/* ═══════════════════════════════════════
-   NOCTEM SECRET
-═══════════════════════════════════════ */
+/* croix centrale */
 
 .noctem-secret {
-    position: absolute;
 
     top: 50%;
     left: 50%;
 
-    padding: 0;
+    font-size: 23px;
 
-    border: none;
-
-    background: transparent;
-
-    color: var(--ink);
+    font-weight: 900;
 
     font-family: var(--font-serif);
 
-    font-size: 18px;
-
-    cursor: none;
-
-    z-index: 70;
-
-    transition:
-        transform 0.4s ease,
-        opacity 0.3s ease;
-}
-
-.noctem-secret:hover {
-    opacity: 1;
-
-    transform:
-        rotate(180deg)
-        scale(1.3);
+    color: #ffffff;
 }
 
 
 /* ═══════════════════════════════════════
-   CHRONIQUES
+   TITRES CHRONIQUES / LIBRARY
 ═══════════════════════════════════════ */
 
 .page-main-title {
+
     position: absolute;
 
     z-index: 60;
@@ -1199,48 +1196,63 @@ textarea {
     white-space: nowrap;
 
     pointer-events: none;
-
-    text-shadow:
-        0 0 12px rgba(255, 255, 255, 0.4);
 }
 
+
+/* ═══════════════════════════════════════
+   CHRONIQUES
+═══════════════════════════════════════ */
+
 .chronicles-title {
+
+    /*
+       plus petit
+       vers la droite
+       collé à l'image
+    */
+
     top: 8%;
-    left: 64%;
+
+    left: 72%;
 
     transform:
         translateX(-50%)
         rotate(-2deg);
 
-    padding: 6px 17px;
+    font-size: clamp(30px, 4.5vw, 48px);
 
-    font-size: clamp(32px, 4.5vw, 50px);
+    letter-spacing: 3px;
 
-    letter-spacing: 4px;
+    color: #ffffff;
 
     background: rgba(10, 10, 10, 0.88);
 
-    border: 1px solid rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(181, 42, 80, 0.55);
+
+    padding: 7px 17px;
+
+    text-shadow:
+        0 0 12px rgba(255, 255, 255, 0.4);
+
+    box-shadow:
+        4px 4px 0 rgba(181, 42, 80, 0.2);
 }
 
 
-/* ═══════════════════════════════════════
-   CHRONICLES INTRO
-═══════════════════════════════════════ */
-
 .chronicles-intro {
+
     position: absolute;
 
     top: 19%;
-    right: 7%;
+    right: 5%;
 
     z-index: 70;
 
     padding: 8px 13px;
 
-    background: rgba(10, 10, 10, 0.86);
+    background: rgba(10, 10, 10, 0.82);
 
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(181, 42, 80, 0.5);
 
     color: #ffffff;
 
@@ -1259,10 +1271,11 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   CHRONICLE CARDS
+   CHRONIQUES — 10 CARTES TRÈFLE
 ═══════════════════════════════════════ */
 
 .chronicle-entry {
+
     position: absolute;
 
     z-index: 60;
@@ -1275,299 +1288,10 @@ textarea {
 
     justify-content: center;
 
-    gap: 3px;
+    gap: 2px;
 
-    width: 52px;
-    height: 68px;
-
-    padding: 5px;
-
-    border: none;
-
-    background: transparent;
-
-    color: #ffffff;
-
-    font-family: var(--font-mono);
-
-    cursor: none;
-
-    transition:
-        transform 0.35s ease,
-        color 0.35s ease;
-}
-
-
-/*
-   On utilise le trèfle plutôt qu'un rectangle.
-*/
-
-.chronicle-entry::before {
-    content: "♣";
-
-    position: absolute;
-
-    inset: 0;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    color: rgba(255, 255, 255, 0.15);
-
-    font-family: Georgia, serif;
-
-    font-size: 58px;
-
-    z-index: -1;
-
-    transition:
-        color 0.35s ease,
-        transform 0.35s ease;
-}
-
-.chronicle-entry:hover {
-    color: #ffffff;
-
-    transform:
-        scale(1.15)
-        rotate(-4deg);
-}
-
-.chronicle-entry:hover::before {
-    color: rgba(181, 42, 80, 0.38);
-
-    transform: scale(1.08);
-}
-
-.chronicle-entry .entry-number {
-    font-size: 12px;
-
-    font-weight: bold;
-
-    letter-spacing: 2px;
-}
-
-.chronicle-entry .entry-symbol {
-    font-size: 15px;
-
-    line-height: 1;
-}
-
-.chronicle-one {
-    top: 31%;
-    left: 19%;
-}
-
-.chronicle-two {
-    top: 47%;
-    left: 19%;
-}
-
-.chronicle-three {
-    top: 63%;
-    left: 19%;
-}
-
-
-/* ═══════════════════════════════════════
-   CHRONICLE SECRET
-═══════════════════════════════════════ */
-
-.chronicle-secret {
-    position: absolute;
-
-    bottom: 6%;
-    left: 7%;
-
-    padding: 0;
-
-    border: none;
-
-    background: transparent;
-
-    color: var(--ink-faint);
-
-    font-family: var(--font-mono);
-
-    font-size: 14px;
-
-    cursor: none;
-
-    z-index: 60;
-
-    transition:
-        transform 0.4s ease,
-        opacity 0.3s ease;
-}
-
-.chronicle-secret:hover {
-    opacity: 1;
-
-    transform:
-        rotate(180deg)
-        scale(1.35);
-}
-
-
-/* ═══════════════════════════════════════
-   LIBRARY
-═══════════════════════════════════════ */
-
-.library-heading {
-    display: none;
-}
-
-.library-title {
-    top: 7%;
-    left: 50%;
-
-    transform:
-        translateX(-50%)
-        rotate(-2deg);
-
-    padding: 5px 16px;
-
-    font-size: clamp(32px, 4.5vw, 50px);
-
-    letter-spacing: 4px;
-
-    background: rgba(10, 10, 10, 0.88);
-
-    border: 1px solid rgba(255, 255, 255, 0.72);
-
-    box-shadow:
-        4px 4px 0 rgba(255, 255, 255, 0.1);
-}
-
-
-/* ═══════════════════════════════════════
-   LIBRARY CARDS
-═══════════════════════════════════════ */
-
-.library-entry {
-    position: absolute;
-
-    z-index: 60;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 3px;
-
-    width: 52px;
-    height: 68px;
-
-    padding: 5px;
-
-    border: none;
-
-    background: transparent;
-
-    color: #ffffff;
-
-    font-family: var(--font-mono);
-
-    cursor: none;
-
-    transition:
-        transform 0.35s ease,
-        color 0.35s ease;
-}
-
-
-/*
-   Pique = style carte à jouer.
-*/
-
-.library-entry::before {
-    content: "♠";
-
-    position: absolute;
-
-    inset: 0;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    color: rgba(255, 255, 255, 0.15);
-
-    font-family: Georgia, serif;
-
-    font-size: 58px;
-
-    z-index: -1;
-
-    transition:
-        color 0.35s ease,
-        transform 0.35s ease;
-}
-
-.library-entry:hover {
-    color: #ffffff;
-
-    transform:
-        scale(1.15)
-        rotate(-4deg);
-}
-
-.library-entry:hover::before {
-    color: rgba(181, 42, 80, 0.38);
-
-    transform: scale(1.08);
-}
-
-.library-number {
-    font-size: 11px;
-
-    font-weight: bold;
-
-    letter-spacing: 2px;
-}
-
-.library-mark {
-    font-size: 14px;
-
-    line-height: 1;
-}
-
-
-/* Carte verticale */
-
-.library-one {
-    top: 30%;
-    left: 19%;
-}
-
-.library-two {
-    top: 46%;
-    left: 19%;
-}
-
-.library-three {
-    top: 62%;
-    left: 19%;
-}
-
-
-/* ═══════════════════════════════════════
-   LIBRARY SECRET
-═══════════════════════════════════════ */
-
-.library-secret {
-    position: absolute;
-
-    bottom: 7%;
-    right: 7%;
+    width: 42px;
+    height: 52px;
 
     padding: 0;
 
@@ -1579,25 +1303,332 @@ textarea {
 
     font-family: var(--font-serif);
 
-    font-size: 22px;
+    cursor: none;
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+.chronicle-entry:hover {
+
+    color: var(--bordeaux);
+
+    transform:
+        scale(1.18)
+        rotate(-5deg);
+}
+
+.entry-number {
+
+    font-size: 13px;
+
+    line-height: 1;
 
     font-weight: bold;
+}
+
+.entry-symbol {
+
+    font-size: 18px;
+
+    line-height: 1;
+
+    color: var(--bordeaux);
+}
+
+
+/*
+   Répartition comme une carte de jeu de 10
+   dans la zone sombre pointillée
+*/
+
+.chronicle-one {
+
+    top: 30%;
+    left: 29%;
+}
+
+.chronicle-two {
+
+    top: 38%;
+    left: 29%;
+}
+
+.chronicle-three {
+
+    top: 46%;
+    left: 29%;
+}
+
+.chronicle-four {
+
+    top: 54%;
+    left: 29%;
+}
+
+.chronicle-five {
+
+    top: 62%;
+    left: 29%;
+}
+
+.chronicle-six {
+
+    top: 30%;
+    left: 36%;
+}
+
+.chronicle-seven {
+
+    top: 38%;
+    left: 36%;
+}
+
+.chronicle-eight {
+
+    top: 46%;
+    left: 36%;
+}
+
+.chronicle-nine {
+
+    top: 54%;
+    left: 36%;
+}
+
+.chronicle-ten {
+
+    top: 62%;
+    left: 36%;
+}
+
+
+/* ═══════════════════════════════════════
+   LIBRARY
+═══════════════════════════════════════ */
+
+.library-title {
+
+    /*
+       centré en haut
+       et plus petit
+    */
+
+    top: 7%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        rotate(-2deg);
+
+    font-size: clamp(32px, 4.5vw, 48px);
+
+    letter-spacing: 3px;
+
+    color: #ffffff;
+
+    background: rgba(10, 10, 10, 0.88);
+
+    border: 1px solid rgba(181, 42, 80, 0.55);
+
+    padding: 7px 18px;
+
+    box-shadow:
+        4px 4px 0 rgba(181, 42, 80, 0.18);
+
+    text-shadow:
+        0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+
+/* supprimé :
+   THE LIBRARY en haut à droite
+*/
+
+
+.library-heading,
+.library-whisper {
+
+    display: none;
+}
+
+
+/* ═══════════════════════════════════════
+   LIBRARY — 10 PIQUES
+═══════════════════════════════════════ */
+
+.library-entry {
+
+    position: absolute;
+
+    z-index: 60;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 2px;
+
+    width: 42px;
+    height: 52px;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-family: var(--font-serif);
 
     cursor: none;
 
-    z-index: 70;
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+.library-entry:hover {
+
+    color: var(--bordeaux);
+
+    transform:
+        scale(1.18)
+        rotate(5deg);
+}
+
+.library-number {
+
+    font-size: 13px;
+
+    line-height: 1;
+
+    font-weight: bold;
+}
+
+.library-mark {
+
+    font-size: 18px;
+
+    line-height: 1;
+
+    color: var(--bordeaux);
+}
+
+
+/*
+   Même logique de carte de 10
+*/
+
+.library-one {
+
+    top: 30%;
+    left: 29%;
+}
+
+.library-two {
+
+    top: 38%;
+    left: 29%;
+}
+
+.library-three {
+
+    top: 46%;
+    left: 29%;
+}
+
+.library-four {
+
+    top: 54%;
+    left: 29%;
+}
+
+.library-five {
+
+    top: 62%;
+    left: 29%;
+}
+
+.library-six {
+
+    top: 30%;
+    left: 36%;
+}
+
+.library-seven {
+
+    top: 38%;
+    left: 36%;
+}
+
+.library-eight {
+
+    top: 46%;
+    left: 36%;
+}
+
+.library-nine {
+
+    top: 54%;
+    left: 36%;
+}
+
+.library-ten {
+
+    top: 62%;
+    left: 36%;
+}
+
+
+/* ═══════════════════════════════════════
+   CROIX LIBRARY
+═══════════════════════════════════════ */
+
+.library-secret {
+
+    position: absolute;
+
+    right: 6%;
+    bottom: 5%;
+
+    z-index: 80;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-family: var(--font-serif);
+
+    font-size: 23px;
+
+    font-weight: 900;
+
+    cursor: none;
 
     transition:
-        transform 0.4s ease,
+        transform 0.3s ease,
         opacity 0.3s ease;
 }
 
 .library-secret:hover {
+
     opacity: 1;
 
     transform:
         rotate(180deg)
-        scale(1.3);
+        scale(1.25);
 }
 
 
@@ -1606,38 +1637,45 @@ textarea {
 ═══════════════════════════════════════ */
 
 #page-ephemeris {
+
     width: 100vw;
     height: 100vh;
 
+    max-width: 100vw;
+    max-height: none;
+
     overflow-y: auto;
     overflow-x: hidden;
-
-    justify-content: center;
 }
 
 .ephemeris-interface {
+
     position: relative;
 
     width: min(900px, 88vw);
 
     min-height: 850px;
 
-    padding: 45px;
-
     box-sizing: border-box;
+
+    padding: 45px;
 
     color: var(--ink);
 
     font-family: var(--font-mono);
+
+    overflow: visible;
 }
 
 .ephemeris-header {
+
     text-align: center;
 
     margin-bottom: 30px;
 }
 
 .ephemeris-number {
+
     display: block;
 
     font-size: 10px;
@@ -1648,9 +1686,8 @@ textarea {
 }
 
 .ephemeris-header h1 {
-    margin: 10px 0 6px;
 
-    color: var(--bordeaux);
+    margin: 10px 0 6px;
 
     font-family: var(--font-display);
 
@@ -1660,11 +1697,14 @@ textarea {
 
     letter-spacing: 2px;
 
+    color: var(--bordeaux);
+
     text-shadow:
         0 0 12px var(--bordeaux-glow);
 }
 
 .ephemeris-subtitle {
+
     font-size: 10px;
 
     letter-spacing: 2px;
@@ -1672,12 +1712,8 @@ textarea {
     opacity: 0.5;
 }
 
-
-/* ═══════════════════════════════════════
-   CALENDAR
-═══════════════════════════════════════ */
-
 .calendar {
+
     width: 100%;
 
     border-top:
@@ -1688,6 +1724,7 @@ textarea {
 }
 
 .calendar-top {
+
     display: flex;
 
     align-items: center;
@@ -1698,7 +1735,6 @@ textarea {
 }
 
 .calendar-month {
-    color: var(--bordeaux);
 
     font-family: var(--font-display);
 
@@ -1708,11 +1744,14 @@ textarea {
 
     letter-spacing: 2px;
 
+    color: var(--bordeaux);
+
     text-shadow:
         0 0 9px var(--bordeaux-glow);
 }
 
 .calendar-arrow {
+
     border: none;
 
     background: transparent;
@@ -1726,22 +1765,21 @@ textarea {
     cursor: none;
 
     opacity: 0.75;
-
-    transition:
-        opacity 0.2s ease,
-        color 0.2s ease;
 }
 
 .calendar-arrow:hover {
+
     opacity: 1;
 
     color: var(--bordeaux);
 }
 
 .calendar-weekdays {
+
     display: grid;
 
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns:
+        repeat(7, 1fr);
 
     border-bottom:
         1px solid rgba(255, 255, 255, 0.85);
@@ -1750,28 +1788,32 @@ textarea {
 }
 
 .calendar-weekdays span {
+
     display: block;
 
-    padding: 9px 0;
+    text-align: center;
 
-    color: var(--ink);
+    padding: 9px 0;
 
     font-size: 9px;
 
     letter-spacing: 2px;
 
-    text-align: center;
+    color: var(--ink);
 
     opacity: 0.85;
 }
 
 .calendar-days {
+
     display: grid;
 
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns:
+        repeat(7, 1fr);
 }
 
 .calendar-day {
+
     position: relative;
 
     min-height: 62px;
@@ -1793,17 +1835,20 @@ textarea {
     font-size: 11px;
 
     cursor: none;
+}
 
-    transition:
-        background 0.2s ease,
-        transform 0.2s ease;
+.calendar-day:nth-child(odd) {
+
+    background: var(--wine-dark);
 }
 
 .calendar-day:nth-child(even) {
+
     background: var(--wine-soft);
 }
 
 .calendar-day:hover {
+
     background: var(--bordeaux-deep);
 
     transform: scale(1.04);
@@ -1812,28 +1857,33 @@ textarea {
 }
 
 .calendar-day.empty {
+
     pointer-events: none;
 
     opacity: 0.12;
 }
 
 .calendar-day.today {
+
     box-shadow:
         inset 0 0 0 1px var(--bordeaux);
 }
 
 .calendar-day.today .day-number {
+
     color: var(--bordeaux);
 
     font-weight: bold;
 }
 
 .calendar-day.strange {
+
     animation:
         strangePulse 2s ease-in-out infinite;
 }
 
 .day-number {
+
     position: absolute;
 
     top: 8px;
@@ -1841,24 +1891,21 @@ textarea {
 }
 
 .day-symbol {
+
     position: absolute;
 
     right: 8px;
     bottom: 7px;
 
-    color: var(--bordeaux);
-
     font-size: 10px;
 
     opacity: 0.7;
+
+    color: var(--bordeaux);
 }
 
-
-/* ═══════════════════════════════════════
-   DATE ENTRY
-═══════════════════════════════════════ */
-
 .date-entry {
+
     margin-top: 24px;
 
     min-height: 80px;
@@ -1873,16 +1920,18 @@ textarea {
 }
 
 .entry-date {
-    margin-bottom: 10px;
 
     font-size: 10px;
 
     letter-spacing: 3px;
 
+    margin-bottom: 10px;
+
     opacity: 0.6;
 }
 
 .entry-content {
+
     font-family: var(--font-serif);
 
     font-size: 15px;
@@ -1892,12 +1941,8 @@ textarea {
     line-height: 1.6;
 }
 
-
-/* ═══════════════════════════════════════
-   EPHEMERIS FOOTER
-═══════════════════════════════════════ */
-
 .ephemeris-footer {
+
     display: flex;
 
     justify-content: space-between;
@@ -1914,10 +1959,12 @@ textarea {
 }
 
 .unknown {
+
     letter-spacing: 3px;
 }
 
 .ephemeris-whisper {
+
     position: absolute;
 
     bottom: 55px;
@@ -1935,6 +1982,7 @@ textarea {
 }
 
 .ephemeris-return {
+
     position: absolute;
 
     bottom: 20px;
@@ -1955,15 +2003,15 @@ textarea {
     cursor: none;
 
     opacity: 0.45;
-
-    transition: opacity 0.3s ease;
 }
 
 .ephemeris-return:hover {
+
     opacity: 1;
 }
 
 .ephemeris-secret {
+
     position: absolute;
 
     top: 25px;
@@ -1980,13 +2028,10 @@ textarea {
     cursor: none;
 
     opacity: 0.4;
-
-    transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
 }
 
 .ephemeris-secret:hover {
+
     opacity: 1;
 
     transform: rotate(90deg);
@@ -1998,33 +2043,31 @@ textarea {
 ═══════════════════════════════════════ */
 
 .ephemeris-lock {
+
     position: absolute;
 
     top: 52%;
     left: 50%;
 
-    width: 300px;
-
     transform:
         translate(-50%, -50%);
 
-    z-index: 200;
+    width: 300px;
 
     text-align: center;
 
     font-family: var(--font-mono);
 
-    transition:
-        opacity 0.6s ease,
-        transform 0.6s ease;
+    z-index: 200;
 }
 
 .lock-symbol {
+
+    font-size: 24px;
+
     margin-bottom: 18px;
 
     color: var(--bordeaux);
-
-    font-size: 24px;
 
     opacity: 0.85;
 
@@ -2033,9 +2076,6 @@ textarea {
 }
 
 .lock-title {
-    margin-bottom: 14px;
-
-    color: var(--bordeaux);
 
     font-family: var(--font-display);
 
@@ -2045,14 +2085,15 @@ textarea {
 
     letter-spacing: 2px;
 
+    color: var(--bordeaux);
+
     text-shadow:
         0 0 10px var(--bordeaux-glow);
+
+    margin-bottom: 14px;
 }
 
 .lock-text {
-    margin-bottom: 25px;
-
-    color: var(--ink);
 
     font-size: 9px;
 
@@ -2061,9 +2102,14 @@ textarea {
     line-height: 1.8;
 
     opacity: 0.55;
+
+    margin-bottom: 25px;
+
+    color: var(--ink);
 }
 
 .password-area {
+
     display: flex;
 
     justify-content: center;
@@ -2074,6 +2120,7 @@ textarea {
 }
 
 #ephemeris-password {
+
     width: 85px;
 
     padding: 8px 5px;
@@ -2099,10 +2146,12 @@ textarea {
 }
 
 #ephemeris-password::placeholder {
+
     color: rgba(255, 255, 255, 0.2);
 }
 
 #ephemeris-unlock {
+
     border: none;
 
     background: transparent;
@@ -2116,22 +2165,18 @@ textarea {
     letter-spacing: 2px;
 
     cursor: none;
-
-    transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
 }
 
 #ephemeris-unlock:hover {
+
     opacity: 1;
 
     transform: scale(1.15);
 }
 
 .password-error {
-    margin-top: 15px;
 
-    color: var(--ink);
+    margin-top: 15px;
 
     font-size: 9px;
 
@@ -2139,23 +2184,23 @@ textarea {
 
     opacity: 0;
 
-    transition: opacity 0.3s ease;
+    color: var(--ink);
 }
 
 .password-error.visible {
+
     opacity: 0.7;
 }
-
-
-/* LOCK STATE */
 
 #page-ephemeris.is-locked .calendar,
 #page-ephemeris.is-locked .date-entry,
 #page-ephemeris.is-locked .ephemeris-footer {
+
     visibility: hidden;
 }
 
 #page-ephemeris.is-unlocked .ephemeris-lock {
+
     opacity: 0;
 
     pointer-events: none;
@@ -2168,66 +2213,217 @@ textarea {
 #page-ephemeris.is-unlocked .calendar,
 #page-ephemeris.is-unlocked .date-entry,
 #page-ephemeris.is-unlocked .ephemeris-footer {
+
     visibility: visible;
 }
 
 
 /* ═══════════════════════════════════════
+   SECRET MESSAGES
+═══════════════════════════════════════ */
+
+#strange-message,
+#restart-message,
+#life-secret-message,
+#death-secret-message,
+#noctem-secret-message,
+#chronicle-secret-message,
+#library-secret-message {
+
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.8);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 9000;
+
+    font-family: var(--font-mono);
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    text-align: center;
+
+    color: var(--ink);
+
+    padding: 15px 22px;
+
+    border: 1px solid rgba(255, 255, 255, 0.6);
+
+    background: rgba(10, 10, 10, 0.94);
+}
+
+#strange-message.visible,
+#restart-message.visible,
+#life-secret-message.visible,
+#death-secret-message.visible,
+#noctem-secret-message.visible,
+#chronicle-secret-message.visible,
+#library-secret-message.visible {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+}
+
+
+/* ═══════════════════════════════════════
+   SECRET BUTTONS
+═══════════════════════════════════════ */
+
+.secret-symbol,
+.divide-secret,
+.life-secret,
+.death-secret,
+.noctem-secret,
+.chronicle-secret,
+.library-secret {
+
+    position: absolute;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--ink-faint);
+
+    cursor: none;
+
+    z-index: 80;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.4s ease;
+}
+
+.secret-symbol:hover,
+.divide-secret:hover,
+.life-secret:hover,
+.death-secret:hover,
+.noctem-secret:hover,
+.chronicle-secret:hover,
+.library-secret:hover {
+
+    opacity: 1;
+
+    transform:
+        rotate(180deg)
+        scale(1.35);
+}
+
+.secret-symbol {
+
+    top: 18%;
+    right: 9%;
+
+    font-size: 18px;
+
+    color: var(--ink-dim);
+
+    animation:
+        strangePulse 2.5s ease-in-out infinite;
+}
+
+.divide-secret {
+
+    left: 8%;
+    bottom: 8%;
+
+    font-size: 14px;
+}
+
+.chronicle-secret {
+
+    bottom: 6%;
+    left: 7%;
+
+    font-size: 17px;
+
+    font-weight: 900;
+}
+
+
+/* ═══════════════════════════════════════
    VISITOR BOOK
+   OPAQUE + SPOOKY
 ═══════════════════════════════════════ */
 
 #page-visitor-book {
-    position: absolute;
+
+    position: fixed;
 
     inset: 0;
 
     width: 100vw;
     height: 100vh;
 
+    z-index: 1000;
+
     overflow-y: auto;
     overflow-x: hidden;
 
-    display: none;
-
     background:
         radial-gradient(
-            circle at 50% 35%,
-            rgba(91, 16, 41, 0.24),
-            transparent 48%
+            circle at 50% 40%,
+            rgba(91, 16, 41, 0.25),
+            transparent 45%
         ),
         radial-gradient(
             circle at 15% 80%,
             rgba(181, 42, 80, 0.07),
             transparent 30%
         ),
-        #0a0a0a;
+        #080808;
 }
 
+
+/*
+   Important :
+   le Visitor Book est maintenant totalement opaque,
+   donc les images des pages précédentes ne peuvent
+   plus apparaître dessous.
+*/
+
 #page-visitor-book.active {
+
     display: flex;
+
+    z-index: 1000;
 }
 
 
 /* ═══════════════════════════════════════
-   VISITOR BOOK
+   THE BOOK
 ═══════════════════════════════════════ */
 
 #page-visitor-book .visitor-book {
+
     position: relative;
+
+    top: 5vh;
 
     width: min(900px, 90vw);
 
     min-height: 88vh;
 
-    margin: 6vh auto 8vh;
-
     padding: 50px 58px 75px;
 
     box-sizing: border-box;
 
-    transform: rotate(-0.8deg);
-
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.55);
 
     background:
         linear-gradient(
@@ -2237,25 +2433,28 @@ textarea {
             transparent 92%,
             rgba(255, 255, 255, 0.02)
         ),
-        rgba(10, 10, 10, 0.97);
+        #0b0b0b;
 
     color: #ffffff;
 
-    z-index: 70;
+    z-index: 1100;
 
     box-shadow:
-        10px 10px 0 rgba(91, 16, 41, 0.25),
-        -3px 0 0 rgba(255, 255, 255, 0.04);
+        10px 10px 0 rgba(91, 16, 41, 0.28),
+        0 0 45px rgba(0, 0, 0, 0.8);
 
     overflow: hidden;
+
+    transform: rotate(-0.8deg);
 }
 
 
-/*
-   SPOOKY ATMOSPHERE
-*/
+/* ═══════════════════════════════════════
+   DECORATIONS
+═══════════════════════════════════════ */
 
 #page-visitor-book .visitor-book::before {
+
     content: "✦";
 
     position: absolute;
@@ -2273,6 +2472,7 @@ textarea {
 }
 
 #page-visitor-book .visitor-book::after {
+
     content: "†";
 
     position: absolute;
@@ -2291,23 +2491,25 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   VISITOR HEADER
+   HEADER
 ═══════════════════════════════════════ */
 
 .visitor-book-header {
+
     position: relative;
+
+    text-align: center;
 
     margin-bottom: 38px;
 
     padding-bottom: 25px;
-
-    text-align: center;
 
     border-bottom:
         1px solid rgba(255, 255, 255, 0.28);
 }
 
 .visitor-book-header::after {
+
     content: "✦ ─────── ✦";
 
     position: absolute;
@@ -2315,9 +2517,11 @@ textarea {
     bottom: -9px;
     left: 50%;
 
+    transform: translateX(-50%);
+
     padding: 0 12px;
 
-    background: #0a0a0a;
+    background: #0b0b0b;
 
     color: var(--bordeaux);
 
@@ -2326,16 +2530,11 @@ textarea {
     font-size: 11px;
 
     letter-spacing: 4px;
-
-    transform: translateX(-50%);
 }
 
 .visitor-book-number {
+
     display: block;
-
-    margin-bottom: 12px;
-
-    color: var(--bordeaux);
 
     font-family: var(--font-mono);
 
@@ -2343,13 +2542,16 @@ textarea {
 
     letter-spacing: 5px;
 
+    color: var(--bordeaux);
+
     opacity: 0.8;
+
+    margin-bottom: 12px;
 }
 
 .visitor-book-header h1 {
-    margin: 0 0 10px;
 
-    color: #ffffff;
+    margin: 0 0 10px;
 
     font-family: var(--font-display);
 
@@ -2359,14 +2561,12 @@ textarea {
 
     letter-spacing: 4px;
 
-    text-shadow:
-        0 0 12px rgba(255, 255, 255, 0.15);
+    color: #ffffff;
 }
 
 .visitor-book-header p {
-    margin: 0;
 
-    color: rgba(255, 255, 255, 0.55);
+    margin: 0;
 
     font-family: var(--font-serif);
 
@@ -2375,14 +2575,17 @@ textarea {
     font-style: italic;
 
     letter-spacing: 2px;
+
+    color: rgba(255, 255, 255, 0.55);
 }
 
 
 /* ═══════════════════════════════════════
-   VISITOR CONTENT
+   CONTENT
 ═══════════════════════════════════════ */
 
 .visitor-book-content {
+
     display: grid;
 
     grid-template-columns:
@@ -2400,28 +2603,30 @@ textarea {
 ═══════════════════════════════════════ */
 
 .visitor-label {
+
     position: relative;
-
-    margin-bottom: 15px;
-
-    padding-left: 14px;
-
-    color: rgba(255, 255, 255, 0.65);
 
     font-family: var(--font-mono);
 
     font-size: 9px;
 
     letter-spacing: 4px;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    margin-bottom: 15px;
+
+    padding-left: 14px;
 }
 
 .visitor-label::before {
+
     content: "✦";
 
     position: absolute;
 
-    top: 0;
     left: 0;
+    top: 0;
 
     color: var(--bordeaux);
 
@@ -2430,10 +2635,11 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   WRITING SIDE
+   WRITING AREA
 ═══════════════════════════════════════ */
 
 .visitor-write {
+
     position: relative;
 
     padding-right: 25px;
@@ -2448,44 +2654,44 @@ textarea {
 ═══════════════════════════════════════ */
 
 .visitor-write input {
+
     display: block;
 
     width: 100%;
+
     height: 42px;
 
-    margin-bottom: 15px;
+    box-sizing: border-box;
 
     padding: 11px 13px;
 
-    box-sizing: border-box;
+    margin-bottom: 15px;
 
     border: none;
 
     border-bottom:
         1px solid rgba(255, 255, 255, 0.38);
 
-    outline: none;
-
     background: transparent;
 
     color: #ffffff;
+
+    outline: none;
 
     font-family: var(--font-mono);
 
     font-size: 11px;
 
     letter-spacing: 1px;
-
-    transition:
-        border-color 0.3s ease,
-        background 0.3s ease;
 }
 
 .visitor-write input::placeholder {
+
     color: rgba(255, 255, 255, 0.3);
 }
 
 .visitor-write input:focus {
+
     border-bottom-color: var(--bordeaux);
 
     background:
@@ -2498,10 +2704,11 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   MESSAGE TEXTAREA
+   MESSAGE
 ═══════════════════════════════════════ */
 
 .visitor-write textarea {
+
     display: block;
 
     width: 100%;
@@ -2517,8 +2724,6 @@ textarea {
     border:
         1px solid rgba(255, 255, 255, 0.28);
 
-    outline: none;
-
     background:
         repeating-linear-gradient(
             to bottom,
@@ -2529,25 +2734,26 @@ textarea {
 
     color: #ffffff;
 
+    outline: none;
+
     font-family: var(--font-serif);
 
     font-size: 14px;
 
     line-height: 29px;
-
-    transition:
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
 }
 
 .visitor-write textarea::placeholder {
+
     color: rgba(255, 255, 255, 0.28);
 
     font-style: italic;
 }
 
 .visitor-write textarea:focus {
-    border-color: rgba(181, 42, 80, 0.75);
+
+    border-color:
+        rgba(181, 42, 80, 0.75);
 
     box-shadow:
         0 0 18px rgba(181, 42, 80, 0.08);
@@ -2559,6 +2765,7 @@ textarea {
 ═══════════════════════════════════════ */
 
 #visitor-submit {
+
     position: relative;
 
     margin-top: 18px;
@@ -2581,13 +2788,10 @@ textarea {
     letter-spacing: 3px;
 
     cursor: none;
-
-    transition:
-        color 0.3s ease,
-        transform 0.3s ease;
 }
 
 #visitor-submit::before {
+
     content: "✦";
 
     margin-right: 8px;
@@ -2596,17 +2800,12 @@ textarea {
 }
 
 #visitor-submit:hover {
+
     color: var(--bordeaux);
 
     transform:
         translateX(4px)
         rotate(-2deg);
-}
-
-#visitor-submit:disabled {
-    opacity: 0.4;
-
-    pointer-events: none;
 }
 
 
@@ -2615,11 +2814,10 @@ textarea {
 ═══════════════════════════════════════ */
 
 .visitor-status {
-    min-height: 15px;
 
     margin-top: 13px;
 
-    color: var(--bordeaux);
+    min-height: 15px;
 
     font-family: var(--font-mono);
 
@@ -2627,15 +2825,18 @@ textarea {
 
     letter-spacing: 2px;
 
+    color: var(--bordeaux);
+
     opacity: 0.8;
 }
 
 
 /* ═══════════════════════════════════════
-   MESSAGE ARCHIVE
+   MESSAGES
 ═══════════════════════════════════════ */
 
 .visitor-messages {
+
     max-height: 430px;
 
     overflow-y: auto;
@@ -2650,28 +2851,32 @@ textarea {
 }
 
 .visitor-messages::-webkit-scrollbar {
+
     width: 3px;
 }
 
 .visitor-messages::-webkit-scrollbar-track {
+
     background: transparent;
 }
 
 .visitor-messages::-webkit-scrollbar-thumb {
+
     background: var(--bordeaux);
 }
 
 
 /* ═══════════════════════════════════════
-   EMPTY BOOK
+   EMPTY
 ═══════════════════════════════════════ */
 
 .visitor-empty {
+
     position: relative;
 
     padding: 55px 25px;
 
-    color: rgba(255, 255, 255, 0.42);
+    text-align: center;
 
     font-family: var(--font-serif);
 
@@ -2681,10 +2886,11 @@ textarea {
 
     line-height: 1.9;
 
-    text-align: center;
+    color: rgba(255, 255, 255, 0.42);
 }
 
 .visitor-empty::before {
+
     content: "†";
 
     display: block;
@@ -2702,23 +2908,11 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   SUPABASE — ACTUAL CLASS GENERATED
+   VISITOR MESSAGE
 ═══════════════════════════════════════ */
 
-/*
-   Le nouveau JS crée :
-
-   <div class="visitor-message">
-       <div class="visitor-message-name">...</div>
-       <div class="visitor-message-text">...</div>
-       <div class="visitor-message-date">...</div>
-   </div>
-
-   Donc on cible .visitor-message,
-   pas seulement .visitor-message-entry.
-*/
-
 .visitor-message {
+
     position: relative;
 
     padding: 18px 12px 20px 18px;
@@ -2741,41 +2935,22 @@ textarea {
     text-align: left;
 }
 
-.visitor-message::before {
-    content: "✦";
-
-    position: absolute;
-
-    left: -5px;
-    top: 17px;
-
-    padding: 0 2px;
-
-    background: #0a0a0a;
-
-    color: var(--bordeaux);
-
-    font-size: 8px;
-}
-
 .visitor-message-name {
-    margin-bottom: 8px;
 
-    color: var(--bordeaux);
+    margin-bottom: 8px;
 
     font-family: var(--font-mono);
 
     font-size: 9px;
 
-    font-weight: bold;
-
     letter-spacing: 3px;
+
+    color: var(--bordeaux);
 
     text-transform: uppercase;
 }
 
 .visitor-message-text {
-    color: rgba(255, 255, 255, 0.85);
 
     font-family: var(--font-serif);
 
@@ -2783,13 +2958,14 @@ textarea {
 
     line-height: 1.7;
 
+    color: rgba(255, 255, 255, 0.85);
+
     white-space: pre-wrap;
 }
 
 .visitor-message-date {
-    margin-top: 9px;
 
-    color: rgba(255, 255, 255, 0.28);
+    margin-top: 9px;
 
     font-family: var(--font-mono);
 
@@ -2797,15 +2973,16 @@ textarea {
 
     letter-spacing: 2px;
 
-    text-align: right;
+    color: rgba(255, 255, 255, 0.3);
 }
 
 
 /* ═══════════════════════════════════════
-   CLOSE BOOK
+   RETURN
 ═══════════════════════════════════════ */
 
 .visitor-book-return {
+
     position: absolute;
 
     bottom: 25px;
@@ -2824,25 +3001,22 @@ textarea {
     letter-spacing: 3px;
 
     cursor: none;
-
-    transition:
-        color 0.3s ease,
-        transform 0.3s ease;
 }
 
 .visitor-book-return:hover {
+
     color: var(--bordeaux);
 
-    transform: translateX(-4px);
+    transform:
+        translateX(-4px);
 }
 
 .visitor-book-whisper {
+
     position: absolute;
 
     right: 58px;
     bottom: 25px;
-
-    color: rgba(255, 255, 255, 0.3);
 
     font-family: var(--font-serif);
 
@@ -2851,14 +3025,17 @@ textarea {
     font-style: italic;
 
     letter-spacing: 1px;
+
+    color: rgba(255, 255, 255, 0.3);
 }
 
 
 /* ═══════════════════════════════════════
-   MYSTERY BOX OVERLAY
+   MYSTERY BOX
 ═══════════════════════════════════════ */
 
 .mystery-box-overlay {
+
     position: fixed;
 
     inset: 0;
@@ -2873,8 +3050,8 @@ textarea {
     background:
         radial-gradient(
             circle at center,
-            rgba(91, 16, 41, 0.22),
-            rgba(10, 10, 10, 0.985) 65%
+            rgba(91, 16, 41, 0.18),
+            rgba(10, 10, 10, 0.98) 65%
         );
 
     opacity: 0;
@@ -2889,6 +3066,7 @@ textarea {
 }
 
 .mystery-box-overlay.visible {
+
     opacity: 1;
 
     visibility: visible;
@@ -2897,9 +3075,11 @@ textarea {
 }
 
 .mystery-box-scene {
+
     position: relative;
 
     width: min(600px, 90vw);
+
     height: min(650px, 85vh);
 
     display: flex;
@@ -2910,17 +3090,11 @@ textarea {
     align-items: center;
 }
 
-
-/* ═══════════════════════════════════════
-   MYSTERY WHISPER
-═══════════════════════════════════════ */
-
 .mystery-box-whisper {
+
     position: absolute;
 
     top: 12%;
-
-    color: var(--ink-dim);
 
     font-family: var(--font-mono);
 
@@ -2928,19 +3102,15 @@ textarea {
 
     letter-spacing: 4px;
 
-    text-transform: lowercase;
+    color: var(--ink-dim);
 
     transform: rotate(-3deg);
 
     opacity: 0.75;
 }
 
-
-/* ═══════════════════════════════════════
-   MYSTERY BOX
-═══════════════════════════════════════ */
-
 .mystery-box {
+
     position: relative;
 
     width: 190px;
@@ -2959,21 +3129,19 @@ textarea {
         translateY(15px);
 
     transition:
-        transform 0.5s ease,
-        filter 0.5s ease;
+        transform 0.5s ease;
 }
 
 .mystery-box:hover {
+
     transform:
         rotate(-3deg)
         translateY(5px)
         scale(1.07);
 }
 
-
-/* BODY */
-
 .box-body {
+
     position: absolute;
 
     left: 15px;
@@ -3006,15 +3174,10 @@ textarea {
     box-shadow:
         8px 8px 0 rgba(181, 42, 80, 0.25),
         inset 0 0 25px rgba(0, 0, 0, 0.5);
-
-    transition:
-        transform 0.7s ease;
 }
 
-
-/* LID */
-
 .box-lid {
+
     position: absolute;
 
     left: 5px;
@@ -3035,23 +3198,20 @@ textarea {
             rgba(35, 8, 17, 0.98)
         );
 
-    box-shadow:
-        5px 5px 0 rgba(181, 42, 80, 0.22);
-
     transform-origin: left bottom;
 
     transition:
         transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
-/* LOCK */
-
 .box-lock {
+
     position: absolute;
 
     left: 50%;
     top: 66px;
+
+    transform: translateX(-50%);
 
     width: 20px;
     height: 24px;
@@ -3060,8 +3220,6 @@ textarea {
 
     justify-content: center;
     align-items: center;
-
-    transform: translateX(-50%);
 
     border:
         1px solid rgba(255, 255, 255, 0.75);
@@ -3077,37 +3235,35 @@ textarea {
     z-index: 5;
 }
 
-
-/* OPEN */
-
 .mystery-box.opened {
+
     transform:
         rotate(-1deg)
         translateY(15px);
 }
 
 .mystery-box.opened .box-lid {
+
     transform:
         rotate(-55deg)
         translate(-5px, -12px);
 }
 
 .mystery-box.opened .box-lock {
-    opacity: 0;
 
-    transition: opacity 0.2s ease;
+    opacity: 0;
 }
 
-
-/* ═══════════════════════════════════════
-   BOX MESSAGE
-═══════════════════════════════════════ */
-
 .box-message {
+
     position: absolute;
 
     top: 58%;
+
     left: 50%;
+
+    transform:
+        translate(-50%, 20px);
 
     display: flex;
 
@@ -3116,9 +3272,6 @@ textarea {
     align-items: center;
 
     gap: 12px;
-
-    transform:
-        translate(-50%, 20px);
 
     opacity: 0;
 
@@ -3130,6 +3283,7 @@ textarea {
 }
 
 .box-message.visible {
+
     opacity: 1;
 
     transform:
@@ -3139,17 +3293,17 @@ textarea {
 }
 
 .box-message-small {
-    color: var(--ink-dim);
 
     font-family: var(--font-mono);
 
     font-size: 9px;
 
     letter-spacing: 4px;
+
+    color: var(--ink-dim);
 }
 
 .box-password {
-    color: var(--bordeaux);
 
     font-family: var(--font-display);
 
@@ -3157,13 +3311,13 @@ textarea {
 
     letter-spacing: 12px;
 
+    color: var(--bordeaux);
+
     text-shadow:
-        0 0 12px var(--bordeaux-glow),
-        0 0 30px rgba(181, 42, 80, 0.2);
+        0 0 12px var(--bordeaux-glow);
 }
 
 .box-message-hint {
-    color: var(--ink-dim);
 
     font-family: var(--font-serif);
 
@@ -3172,9 +3326,12 @@ textarea {
     font-style: italic;
 
     letter-spacing: 2px;
+
+    color: var(--ink-dim);
 }
 
 #enter-ephemeris {
+
     margin-top: 10px;
 
     padding: 9px 15px;
@@ -3192,26 +3349,18 @@ textarea {
     letter-spacing: 2px;
 
     cursor: none;
-
-    opacity: 0.65;
-
-    transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
 }
 
 #enter-ephemeris:hover {
+
     opacity: 1;
 
-    transform: translateX(4px);
+    transform:
+        translateX(4px);
 }
 
-
-/* ═══════════════════════════════════════
-   BOX RETURN
-═══════════════════════════════════════ */
-
 .box-return {
+
     position: absolute;
 
     bottom: 8%;
@@ -3231,86 +3380,20 @@ textarea {
     cursor: none;
 
     opacity: 0.4;
-
-    transition: opacity 0.3s ease;
 }
 
 .box-return:hover {
+
     opacity: 1;
 }
 
 
 /* ═══════════════════════════════════════
-   SECRET MESSAGES
-═══════════════════════════════════════ */
-
-#strange-message,
-#restart-message,
-#life-secret-message,
-#death-secret-message,
-#noctem-secret-message,
-#chronicle-secret-message,
-#library-secret-message {
-    position: fixed;
-
-    top: 50%;
-    left: 50%;
-
-    z-index: 9000;
-
-    max-width: 80vw;
-
-    padding: 15px 22px;
-
-    transform:
-        translate(-50%, -50%)
-        scale(0.8);
-
-    border:
-        1px solid rgba(255, 255, 255, 0.6);
-
-    background:
-        rgba(10, 10, 10, 0.93);
-
-    color: var(--ink);
-
-    font-family: var(--font-mono);
-
-    font-size: 13px;
-
-    letter-spacing: 3px;
-
-    text-align: center;
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    transition:
-        opacity 0.5s ease,
-        transform 0.5s ease;
-}
-
-#strange-message.visible,
-#restart-message.visible,
-#life-secret-message.visible,
-#death-secret-message.visible,
-#noctem-secret-message.visible,
-#chronicle-secret-message.visible,
-#library-secret-message.visible {
-    opacity: 1;
-
-    transform:
-        translate(-50%, -50%)
-        scale(1);
-}
-
-
-/* ═══════════════════════════════════════
-   LOST PAGE
+   LOST
 ═══════════════════════════════════════ */
 
 .lost-title {
+
     position: absolute;
 
     top: 50%;
@@ -3342,19 +3425,11 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   GLITCH
-═══════════════════════════════════════ */
-
-.strange-glitch {
-    animation: strangeGlitch 0.7s steps(2, end);
-}
-
-
-/* ═══════════════════════════════════════
    ANIMATIONS
 ═══════════════════════════════════════ */
 
 @keyframes webFloat {
+
     0%,
     100% {
         transform: translateY(0);
@@ -3366,12 +3441,14 @@ textarea {
 }
 
 @keyframes spiderEscape {
+
     0% {
         opacity: 1;
 
         transform:
             translate(-50%, -50%)
-            scale(1);
+            scale(1)
+            rotate(0deg);
     }
 
     100% {
@@ -3379,82 +3456,35 @@ textarea {
 
         transform:
             translate(
-                calc(-50% + 35px),
-                calc(-50% - 45px)
+                calc(-50% + 80px),
+                calc(-50% - 80px)
             )
-            rotate(25deg)
-            scale(0.4);
+            scale(0.2)
+            rotate(360deg);
     }
 }
 
 @keyframes arrowPulse {
+
     0%,
     100% {
-        opacity: 0.45;
-
-        transform: translateX(0);
+        opacity: 0.5;
     }
 
     50% {
         opacity: 1;
-
-        transform: translateX(5px);
     }
 }
 
 @keyframes strangePulse {
+
     0%,
     100% {
-        opacity: 0.55;
-
-        filter: brightness(0.8);
+        opacity: 0.45;
     }
 
     50% {
         opacity: 1;
-
-        filter: brightness(1.35);
-    }
-}
-
-@keyframes strangeGlitch {
-    0% {
-        transform: translate(0);
-        filter: none;
-    }
-
-    20% {
-        transform: translate(-3px, 2px);
-
-        filter:
-            contrast(1.4)
-            brightness(1.3);
-    }
-
-    40% {
-        transform: translate(3px, -2px);
-
-        filter:
-            contrast(0.7);
-    }
-
-    60% {
-        transform: translate(-2px, -1px);
-
-        filter:
-            brightness(1.5);
-    }
-
-    80% {
-        transform: translate(2px, 2px);
-
-        filter: none;
-    }
-
-    100% {
-        transform: translate(0);
-
-        filter: none;
     }
 }
 
@@ -3466,72 +3496,66 @@ textarea {
 @media (max-width: 700px) {
 
     .welcome-title {
-        width: 75%;
 
-        top: 10%;
+        width: 330px;
+        max-width: 65vw;
+
+        top: 13%;
     }
 
     .welcome-name {
-        font-size: 20px;
 
-        padding: 7px 12px;
+        font-size: 21px;
+
+        letter-spacing: 2px;
     }
 
     .time-warning {
-        left: 16%;
 
-        bottom: 9%;
+        left: 29%;
 
-        font-size: 8px;
-    }
+        bottom: 8%;
 
-    .strange-button-one {
-        right: 8%;
-
-        font-size: 12px;
+        font-size: 9px;
     }
 
     .divide-label {
-        font-size: 27px;
 
-        padding: 7px 14px;
+        font-size: 28px;
     }
 
     .living-choice {
-        font-size: 23px;
-    }
 
-    .section-whisper {
-        font-size: 7px;
+        font-size: 25px;
 
-        letter-spacing: 3px;
+        width: 120px;
     }
 
     .other-side-choice {
-        font-size: 14px;
+
+        font-size: 16px;
+
+        width: 75px;
     }
 
     .noctem-main-title {
-        font-size: 23px;
+
+        font-size: 25px;
     }
 
     .chronicles-title,
     .library-title {
-        font-size: 32px;
-    }
 
-    .visitor-book-content {
-        grid-template-columns: 1fr;
-
-        gap: 35px;
+        font-size: 31px;
     }
 
     #page-visitor-book .visitor-book {
+
+        top: 3vh;
+
         width: 94vw;
 
         min-height: 94vh;
-
-        margin: 3vh auto 6vh;
 
         padding:
             35px
@@ -3541,7 +3565,20 @@ textarea {
         transform: rotate(0deg);
     }
 
+    .visitor-book-header h1 {
+
+        font-size: 40px;
+    }
+
+    .visitor-book-content {
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
     .visitor-write {
+
         padding-right: 0;
 
         padding-bottom: 30px;
@@ -3553,72 +3590,39 @@ textarea {
     }
 
     .visitor-messages {
+
         max-height: 320px;
     }
 
-    .visitor-book-header h1 {
-        font-size: 40px;
-    }
-
     .visitor-book-return {
-        left: 25px;
 
+        left: 25px;
         bottom: 22px;
     }
 
     .visitor-book-whisper {
+
         display: none;
     }
 
-    .mystery-box-whisper {
-        top: 8%;
-
-        font-size: 8px;
-
-        letter-spacing: 3px;
-    }
-
     .mystery-box {
+
         transform:
             scale(0.85)
             rotate(-3deg);
     }
 
     .mystery-box:hover {
+
         transform:
             scale(0.9)
             rotate(-3deg);
     }
 
     .mystery-box.opened {
+
         transform:
             scale(0.85)
             rotate(-1deg);
-    }
-
-    .box-message {
-        top: 60%;
-    }
-
-    .box-return {
-        bottom: 5%;
-    }
-
-    #page-ephemeris .ephemeris-interface {
-        width: 94vw;
-
-        padding: 30px 20px;
-    }
-
-    .calendar-day {
-        min-height: 50px;
-
-        font-size: 9px;
-    }
-
-    .ephemeris-footer {
-        flex-direction: column;
-
-        gap: 8px;
     }
 }
