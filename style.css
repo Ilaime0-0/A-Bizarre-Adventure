@@ -17,6 +17,10 @@
 }
 
 
+/* ═══════════════════════════════════════
+   BASE
+═══════════════════════════════════════ */
+
 html,
 body {
     margin: 0;
@@ -24,7 +28,6 @@ body {
     width: 100%;
     min-height: 100%;
 }
-
 
 body {
     min-height: 100vh;
@@ -34,37 +37,20 @@ body {
     justify-content: center;
     align-items: flex-start;
 
-   overflow-x: hidden;
-   overflow-y: hidden;
-}
-
-#page-ephemeris {
-    width: 100vw;
-    height: 100vh;
-    max-width: 100vw;
-    max-height: 100vh;
-
-    overflow-y: auto;
     overflow-x: hidden;
-}
-
-html,
-body,
-button,
-a {
-    cursor: none !important;
+    overflow-y: hidden;
 }
 
 
-.adventure {
-    width: 100vw;
-    min-height: 100vh;
+/* ═══════════════════════════════════════
+   PAGES
+═══════════════════════════════════════ */
 
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
+/*
+   IMPORTANT :
+   Une seule page est visible à la fois.
+   La page possédant .active est affichée.
+*/
 
 .page {
     position: relative;
@@ -76,15 +62,23 @@ a {
     max-height: 100vh;
 
     overflow: hidden;
-}
 
-.page.active {
-    display: flex;
+    display: none;
+
     justify-content: center;
     align-items: flex-start;
 }
 
-.interface-image {
+.page.active {
+    display: flex;
+}
+
+
+/*
+   Images des interfaces
+*/
+
+.page > .interface-image {
     display: block;
 
     width: auto;
@@ -99,9 +93,48 @@ a {
     -webkit-user-drag: none;
 }
 
-/* ═══════════════════════════════
+
+.adventure {
+    width: 100vw;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+/* ═══════════════════════════════════════
+   EPHEMERIS
+═══════════════════════════════════════ */
+
+#page-ephemeris {
+    width: 100vw;
+    height: 100vh;
+
+    max-width: 100vw;
+    max-height: none;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+/* ═══════════════════════════════════════
+   CURSEUR
+═══════════════════════════════════════ */
+
+html,
+body,
+button,
+a {
+    cursor: none !important;
+}
+
+
+/* ═══════════════════════════════════════
    HOTSPOTS
-═══════════════════════════════ */
+═══════════════════════════════════════ */
 
 .hotspot {
     position: absolute;
@@ -121,24 +154,25 @@ a {
         background 0.25s ease;
 }
 
-
 .hotspot:hover {
     background: rgba(255, 255, 255, 0.08);
     transform: scale(1.03);
 }
 
 
-/* ═══════════════════════════════
+/* ═══════════════════════════════════════
    WELCOME
-═══════════════════════════════ */
+═══════════════════════════════════════ */
 
 .welcome-title {
     position: absolute;
 
-    top: 6%;
+    top: 13%;
     left: 50%;
 
-    transform: translateX(-50%) rotate(-2deg);
+    transform:
+        translateX(-50%)
+        rotate(-2deg);
 
     z-index: 40;
 
@@ -155,24 +189,27 @@ a {
         0 0 10px var(--bordeaux-glow);
 }
 
-
 .welcome-name {
     display: block;
 
-    width: 520px;
-    max-width: 70vw;
+    width: 600px;
+    max-width: 72vw;
 
-    font-size: clamp(24px, 3.2vw, 38px);
+    font-size: clamp(25px, 3.4vw, 42px);
 
     letter-spacing: 3px;
-    line-height: 1.05;
+    line-height: 1.02;
 
     white-space: normal;
     text-align: center;
-}
 
-.welcome-title {
-    top: 10%;
+    padding: 10px 22px;
+
+    background: rgba(10, 10, 10, 0.90);
+
+    text-shadow:
+        0 0 8px rgba(0, 0, 0, 0.95),
+        0 0 14px var(--bordeaux-glow);
 }
 
 .welcome {
@@ -219,12 +256,10 @@ a {
         0 0 15px rgba(255, 255, 255, 0.08);
 }
 
-
 .warning-title {
     font-size: 14px;
     letter-spacing: 4px;
 }
-
 
 .time-warning strong {
     font-size: 17px;
@@ -259,7 +294,6 @@ a {
         transform 0.3s ease;
 }
 
-
 .strange-button-one {
     top: 80%;
     right: 13%;
@@ -267,15 +301,14 @@ a {
     transform: rotate(-7deg);
 }
 
-
 .strange-button:hover {
     transform: rotate(-7deg) scale(1.15);
 }
 
 
-/* ═══════════════════════════════
-   DIVIDE
-═══════════════════════════════ */
+/* ═══════════════════════════════════════
+   THE DIVIDE
+═══════════════════════════════════════ */
 
 .life,
 .death {
@@ -283,15 +316,13 @@ a {
     left: 22%;
 }
 
-
 .life {
-    top: 14%;
+    top: 10%;
     height: 27%;
 }
 
-
 .death {
-    top: 59%;
+    top: 63%;
     height: 27%;
 }
 
@@ -311,6 +342,7 @@ a {
     color: var(--bordeaux);
 
     font-family: var(--font-display);
+
     font-size: clamp(34px, 5vw, 62px);
     font-weight: 700;
 
@@ -329,7 +361,7 @@ a {
 }
 
 .divide-life-label {
-    top: 24%;
+    top: 25%;
     left: 50%;
 
     transform:
@@ -338,7 +370,7 @@ a {
 }
 
 .divide-death-label {
-    top: 69%;
+    top: 72%;
     left: 50%;
 
     transform:
@@ -366,7 +398,6 @@ a {
     pointer-events: none;
 }
 
-
 .strange-clock {
     position: absolute;
 
@@ -384,7 +415,6 @@ a {
 
     pointer-events: none;
 }
-
 
 .restart-button {
     position: absolute;
@@ -412,15 +442,14 @@ a {
     transform: rotate(-8deg);
 }
 
-
 .restart-button:hover {
     transform: rotate(-8deg) scale(1.2);
 }
 
 
-/* ═══════════════════════════════
+/* ═══════════════════════════════════════
    LIVING SIDE
-═══════════════════════════════ */
+═══════════════════════════════════════ */
 
 .reality,
 .between,
@@ -429,18 +458,15 @@ a {
     width: 60%;
 }
 
-
 .reality {
-    top: 3%;
+    top: 4%;
     height: 29%;
 }
-
 
 .between {
-    top: 35%;
+    top: 36%;
     height: 29%;
 }
-
 
 .fiction {
     top: 68%;
@@ -457,17 +483,17 @@ a {
 
     z-index: 60;
 
-    padding: 13px 28px;
+    padding: 8px 20px;
 
-    background: rgba(250, 247, 240, 0.97);
+    background: rgba(10, 10, 10, 0.90);
 
-    border: 2px solid var(--bordeaux);
+    border: 1px solid rgba(255, 255, 255, 0.75);
 
-    color: var(--bordeaux);
+    color: #ffffff;
 
     font-family: var(--font-display);
 
-    font-size: clamp(32px, 4.7vw, 58px);
+    font-size: clamp(27px, 3.8vw, 48px);
 
     font-weight: 700;
 
@@ -483,13 +509,13 @@ a {
         5px 5px 0 rgba(181, 42, 80, 0.3);
 
     text-shadow:
-        0 0 8px rgba(181, 42, 80, 0.2);
+        0 0 8px rgba(0, 0, 0, 0.95);
 
     pointer-events: none;
 }
 
 .reality-choice {
-    top: 13%;
+    top: 16%;
 
     transform:
         translateX(-50%)
@@ -497,7 +523,7 @@ a {
 }
 
 .between-choice {
-    top: 45%;
+    top: 48%;
 
     transform:
         translateX(-50%)
@@ -505,7 +531,7 @@ a {
 }
 
 .fiction-choice {
-    top: 77%;
+    top: 80%;
 
     transform:
         translateX(-50%)
@@ -539,33 +565,31 @@ a {
 }
 
 
-/* ═══════════════════════════════
+/* ═══════════════════════════════════════
    OTHER SIDE
-═══════════════════════════════ */
+═══════════════════════════════════════ */
 
 .obsession {
     top: 4%;
     left: 4%;
 
-    width: 44%;
+    width: 42%;
     height: 29%;
 }
 
-
 .noctem {
-    top: 35%;
-    left: 53%;
+    top: 36%;
+    left: 54%;
 
-    width: 43%;
-    height: 30%;
+    width: 42%;
+    height: 29%;
 }
-
 
 .conspirations {
     top: 68%;
     left: 4%;
 
-    width: 44%;
+    width: 42%;
     height: 28%;
 }
 
@@ -575,62 +599,64 @@ a {
 
     z-index: 60;
 
-    padding: 13px 25px;
+    padding: 7px 11px;
 
-    background: rgba(250, 247, 240, 0.97);
+    background: rgba(10, 10, 10, 0.90);
 
-    border: 2px solid var(--bordeaux);
+    border: 1px solid rgba(255, 255, 255, 0.75);
 
-    color: var(--bordeaux);
+    color: #ffffff;
 
     font-family: var(--font-display);
 
-    font-size: clamp(30px, 4vw, 50px);
+    font-size: clamp(25px, 3.4vw, 42px);
 
     font-weight: 700;
 
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 
     line-height: 1;
 
     text-align: center;
 
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+
     white-space: nowrap;
 
     box-shadow:
-        5px 5px 0 rgba(181, 42, 80, 0.3);
+        4px 4px 0 rgba(181, 42, 80, 0.25);
 
     text-shadow:
-        0 0 8px rgba(181, 42, 80, 0.2);
+        0 0 8px rgba(0, 0, 0, 0.95);
 
     pointer-events: none;
 }
 
-
 .obsession-choice {
-    top: 13%;
-    left: 27%;
+    top: 17%;
+    left: 24%;
 
     transform:
-        translateX(-50%)
+        translate(-50%, -50%)
         rotate(-3deg);
 }
 
 .noctem-choice {
-    top: 45%;
-    left: 74%;
+    top: 50%;
+    left: 75%;
 
     transform:
-        translateX(-50%)
+        translate(-50%, -50%)
         rotate(3deg);
 }
 
 .conspirations-choice {
-    top: 77%;
-    left: 27%;
+    top: 82%;
+    left: 24%;
 
     transform:
-        translateX(-50%)
+        translate(-50%, -50%)
         rotate(-3deg);
 }
 
@@ -654,14 +680,14 @@ a {
 }
 
 
-/* ═══════════════════════════════
+/* ═══════════════════════════════════════
    CARPE NOCTEM
-═══════════════════════════════ */
+═══════════════════════════════════════ */
 
 .noctem-main-title {
     position: absolute;
 
-    top: 23%;
+    top: 14%;
     left: 50%;
 
     transform:
@@ -670,50 +696,48 @@ a {
 
     z-index: 60;
 
-    color: var(--bordeaux);
+    color: #ffffff;
 
-    background: rgba(250, 247, 240, 0.97);
+    background: rgba(10, 10, 10, 0.88);
 
-    border: 2px solid var(--bordeaux);
+    border: 1px solid rgba(255, 255, 255, 0.75);
 
-    padding: 16px 32px;
+    padding: 8px 20px;
 
     font-family: var(--font-display);
 
-    font-size: clamp(42px, 6vw, 72px);
+    font-size: clamp(34px, 4.8vw, 58px);
 
     font-weight: 700;
 
-    letter-spacing: 4px;
+    letter-spacing: 3px;
 
     text-align: center;
 
     white-space: nowrap;
 
     box-shadow:
-        6px 6px 0 rgba(181, 42, 80, 0.35);
+        4px 4px 0 rgba(255, 255, 255, 0.12);
 
     text-shadow:
-        0 0 10px rgba(181, 42, 80, 0.2);
+        0 0 10px rgba(255, 255, 255, 0.45);
 
     pointer-events: none;
 }
 
-
 .noctem-whisper {
     position: absolute;
 
-    top: auto;
+    top: 23%;
     right: 7%;
-    bottom: 8%;
 
     z-index: 70;
 
-    padding: 11px 17px;
+    padding: 10px 16px;
 
-    background: rgba(10, 10, 10, 0.82);
+    background: rgba(10, 10, 10, 0.88);
 
-    border: 1px solid rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.65);
 
     color: var(--ink);
 
@@ -733,15 +757,13 @@ a {
     pointer-events: none;
 }
 
-
 .heart-left {
-    left: 4%;
+    left: 10%;
     bottom: 3%;
 
     width: 17%;
     height: 17%;
 }
-
 
 .heart-right {
     right: 4%;
@@ -752,9 +774,9 @@ a {
 }
 
 
-/* ═══════════════════════════════
-   CHRONIQUES / LIBRARY
-═══════════════════════════════ */
+/* ═══════════════════════════════════════
+   CHRONIQUES
+═══════════════════════════════════════ */
 
 .page-main-title {
     position: absolute;
@@ -788,64 +810,56 @@ a {
     pointer-events: none;
 }
 
+.chronicles-title {
+    top: 8%;
+    left: 64%;
 
-.library-title {
     transform:
         translateX(-50%)
-        rotate(2deg);
+        rotate(-2deg);
+
+    font-size: clamp(38px, 5.5vw, 60px);
+
+    color: #ffffff;
+
+    background: rgba(10, 10, 10, 0.88);
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    padding: 8px 20px;
 }
 
-
-.chronicles-intro,
-.library-whisper {
+.chronicles-intro {
     position: absolute;
 
-    top: auto;
-    left: 7%;
-    bottom: 8%;
+    top: 19%;
+    right: 7%;
 
     z-index: 70;
 
-    padding: 11px 17px;
+    padding: 10px 16px;
 
-    background: rgba(10, 10, 10, 0.82);
+    background: rgba(10, 10, 10, 0.88);
 
-    border: 1px solid rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.65);
 
-    color: var(--ink);
+    color: #ffffff;
 
     font-family: var(--font-mono);
 
-    font-size: 11px;
+    font-size: 13px;
 
     letter-spacing: 2px;
 
     text-align: center;
 
-    transform: rotate(-3deg);
+    transform: rotate(3deg);
 
-    box-shadow:
-        0 0 15px rgba(255, 255, 255, 0.08);
+    text-shadow:
+        0 0 8px rgba(0, 0, 0, 0.9);
 
     pointer-events: none;
 }
-
-
-.chronicles-intro {
-    top: 19%;
-    right: 8%;
-
-    transform: rotate(3deg);
-}
-
-
-.library-whisper {
-    top: 20%;
-    left: 8%;
-
-    transform: rotate(-3deg);
-}
-
 
 .chronicle-entry,
 .library-entry {
@@ -877,7 +891,6 @@ a {
         color 0.4s ease;
 }
 
-
 .chronicle-entry:hover,
 .library-entry:hover {
     color: #ffffff;
@@ -887,42 +900,33 @@ a {
         rotate(-4deg);
 }
 
+.chronicle-entry {
+    font-size: 15px;
+}
+
+.chronicle-entry .entry-number {
+    font-size: 15px;
+    letter-spacing: 4px;
+}
+
+.chronicle-entry .entry-symbol {
+    font-size: 23px;
+}
 
 .chronicle-one {
     top: 32%;
     left: 18%;
 }
 
-
 .chronicle-two {
     top: 50%;
     left: 48%;
 }
 
-
 .chronicle-three {
     top: 70%;
     right: 16%;
 }
-
-
-.library-one {
-    top: 31%;
-    left: 20%;
-}
-
-
-.library-two {
-    top: 51%;
-    left: 49%;
-}
-
-
-.library-three {
-    top: 70%;
-    right: 18%;
-}
-
 
 .entry-number,
 .library-number {
@@ -935,21 +939,80 @@ a {
 .library-mark {
     font-size: 23px;
 }
-.chronicle-entry,
+
+
+/* ═══════════════════════════════════════
+   LIBRARY
+═══════════════════════════════════════ */
+
+.library-title {
+    top: 8%;
+
+    left: 50%;
+
+    padding: 13px 30px;
+
+    background: rgba(250, 247, 240, 0.97);
+
+    border: 2px solid rgba(255, 255, 255, 0.95);
+
+    color: var(--bordeaux);
+
+    box-shadow:
+        5px 5px 0 rgba(255, 255, 255, 0.25);
+
+    transform:
+        translateX(-50%)
+        rotate(2deg);
+}
+
+.library-whisper {
+    display: none;
+}
+
 .library-entry {
-    min-width: 55px;
+    padding: 10px 16px;
+
+    background: rgba(10, 10, 10, 0.88);
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    text-shadow:
+        0 0 8px rgba(0, 0, 0, 0.9);
+}
+
+.library-number {
+    font-size: 15px;
+    letter-spacing: 4px;
+}
+
+.library-mark {
+    font-size: 23px;
+}
+
+.library-one {
+    top: 34%;
+    left: 20%;
+}
+
+.library-two {
+    top: 53%;
+    left: 49%;
+}
+
+.library-three {
+    top: 72%;
+    right: 18%;
 }
 
 
-/* ═══════════════════════════════
-   EPHEMERIS
-═══════════════════════════════ */
-
-#page-ephemeris {
-    width: 100%;
-    max-width: 95vw;
-}
-
+/* ═══════════════════════════════════════
+   EPHEMERIS INTERFACE
+═══════════════════════════════════════ */
 
 .ephemeris-interface {
     position: relative;
@@ -969,13 +1032,11 @@ a {
     overflow: visible;
 }
 
-
 .ephemeris-header {
     text-align: center;
 
     margin-bottom: 30px;
 }
-
 
 .ephemeris-number {
     display: block;
@@ -986,7 +1047,6 @@ a {
 
     opacity: 0.6;
 }
-
 
 .ephemeris-header h1 {
     margin: 10px 0 6px;
@@ -1005,7 +1065,6 @@ a {
         0 0 12px var(--bordeaux-glow);
 }
 
-
 .ephemeris-subtitle {
     font-size: 10px;
 
@@ -1013,7 +1072,6 @@ a {
 
     opacity: 0.5;
 }
-
 
 .calendar {
     width: 100%;
@@ -1025,7 +1083,6 @@ a {
         1px solid rgba(255, 255, 255, 0.45);
 }
 
-
 .calendar-top {
     display: flex;
 
@@ -1035,7 +1092,6 @@ a {
 
     padding: 20px 10px 16px;
 }
-
 
 .calendar-month {
     font-family: var(--font-display);
@@ -1051,7 +1107,6 @@ a {
     text-shadow:
         0 0 9px var(--bordeaux-glow);
 }
-
 
 .calendar-arrow {
     border: none;
@@ -1073,13 +1128,11 @@ a {
         color 0.2s ease;
 }
 
-
 .calendar-arrow:hover {
     opacity: 1;
 
     color: var(--bordeaux);
 }
-
 
 .calendar-weekdays {
     display: grid;
@@ -1092,7 +1145,6 @@ a {
 
     background: var(--wine-dark);
 }
-
 
 .calendar-weekdays span {
     display: block;
@@ -1110,14 +1162,12 @@ a {
     opacity: 0.85;
 }
 
-
 .calendar-days {
     display: grid;
 
     grid-template-columns:
         repeat(7, 1fr);
 }
-
 
 .calendar-day {
     position: relative;
@@ -1147,16 +1197,13 @@ a {
         transform 0.2s ease;
 }
 
-
 .calendar-day:nth-child(odd) {
     background: var(--wine-dark);
 }
 
-
 .calendar-day:nth-child(even) {
     background: var(--wine-soft);
 }
-
 
 .calendar-day:hover {
     background: var(--bordeaux-deep);
@@ -1166,19 +1213,16 @@ a {
     z-index: 2;
 }
 
-
 .calendar-day.empty {
     pointer-events: none;
 
     opacity: 0.12;
 }
 
-
 .calendar-day.today {
     box-shadow:
         inset 0 0 0 1px var(--bordeaux);
 }
-
 
 .calendar-day.today .day-number {
     color: var(--bordeaux);
@@ -1186,12 +1230,10 @@ a {
     font-weight: bold;
 }
 
-
 .calendar-day.strange {
     animation:
         strangePulse 2s ease-in-out infinite;
 }
-
 
 .day-number {
     position: absolute;
@@ -1199,7 +1241,6 @@ a {
     top: 8px;
     left: 9px;
 }
-
 
 .day-symbol {
     position: absolute;
@@ -1213,7 +1254,6 @@ a {
 
     color: var(--bordeaux);
 }
-
 
 .date-entry {
     margin-top: 24px;
@@ -1229,7 +1269,6 @@ a {
         rgba(255, 255, 255, 0.025);
 }
 
-
 .entry-date {
     font-size: 10px;
 
@@ -1240,7 +1279,6 @@ a {
     opacity: 0.6;
 }
 
-
 .entry-content {
     font-family: var(--font-serif);
 
@@ -1250,7 +1288,6 @@ a {
 
     line-height: 1.6;
 }
-
 
 .ephemeris-footer {
     display: flex;
@@ -1268,11 +1305,9 @@ a {
     opacity: 0.5;
 }
 
-
 .unknown {
     letter-spacing: 3px;
 }
-
 
 .ephemeris-whisper {
     position: absolute;
@@ -1290,7 +1325,6 @@ a {
 
     transform: rotate(-4deg);
 }
-
 
 .ephemeris-return {
     position: absolute;
@@ -1315,11 +1349,9 @@ a {
     opacity: 0.45;
 }
 
-
 .ephemeris-return:hover {
     opacity: 1;
 }
-
 
 .ephemeris-secret {
     position: absolute;
@@ -1344,7 +1376,6 @@ a {
         transform 0.3s ease;
 }
 
-
 .ephemeris-secret:hover {
     opacity: 1;
 
@@ -1352,9 +1383,9 @@ a {
 }
 
 
-/* ═══════════════════════════════
+/* ═══════════════════════════════════════
    EPHEMERIS LOCK
-═══════════════════════════════ */
+═══════════════════════════════════════ */
 
 .ephemeris-lock {
     position: absolute;
@@ -1378,7 +1409,6 @@ a {
         transform 0.6s ease;
 }
 
-
 .lock-symbol {
     font-size: 24px;
 
@@ -1391,7 +1421,6 @@ a {
     animation:
         strangePulse 2.5s ease-in-out infinite;
 }
-
 
 .lock-title {
     font-family: var(--font-display);
@@ -1410,7 +1439,6 @@ a {
     margin-bottom: 14px;
 }
 
-
 .lock-text {
     font-size: 9px;
 
@@ -1425,7 +1453,6 @@ a {
     color: var(--ink);
 }
 
-
 .password-area {
     display: flex;
 
@@ -1435,7 +1462,6 @@ a {
 
     gap: 10px;
 }
-
 
 #ephemeris-password {
     width: 85px;
@@ -1462,11 +1488,9 @@ a {
     text-align: center;
 }
 
-
 #ephemeris-password::placeholder {
     color: rgba(255, 255, 255, 0.2);
 }
-
 
 #ephemeris-unlock {
     border: none;
@@ -1488,13 +1512,11 @@ a {
         transform 0.3s ease;
 }
 
-
 #ephemeris-unlock:hover {
     opacity: 1;
 
     transform: scale(1.15);
 }
-
 
 .password-error {
     margin-top: 15px;
@@ -1511,24 +1533,17 @@ a {
         opacity 0.3s ease;
 }
 
-
 .password-error.visible {
     opacity: 0.7;
 }
 
-
-#page-ephemeris.is-locked
-.calendar,
-#page-ephemeris.is-locked
-.date-entry,
-#page-ephemeris.is-locked
-.ephemeris-footer {
+#page-ephemeris.is-locked .calendar,
+#page-ephemeris.is-locked .date-entry,
+#page-ephemeris.is-locked .ephemeris-footer {
     visibility: hidden;
 }
 
-
-#page-ephemeris.is-unlocked
-.ephemeris-lock {
+#page-ephemeris.is-unlocked .ephemeris-lock {
     opacity: 0;
 
     pointer-events: none;
@@ -1538,20 +1553,16 @@ a {
         scale(0.85);
 }
 
-
-#page-ephemeris.is-unlocked
-.calendar,
-#page-ephemeris.is-unlocked
-.date-entry,
-#page-ephemeris.is-unlocked
-.ephemeris-footer {
+#page-ephemeris.is-unlocked .calendar,
+#page-ephemeris.is-unlocked .date-entry,
+#page-ephemeris.is-unlocked .ephemeris-footer {
     visibility: visible;
 }
 
 
-/* ═══════════════════════════════
+/* ═══════════════════════════════════════
    ARE YOU LOST
-═══════════════════════════════ */
+═══════════════════════════════════════ */
 
 .lost-title {
     position: absolute;
@@ -1569,7 +1580,9 @@ a {
 
     font-family: var(--font-display);
 
-    font-size: clamp(45px, 8vw, 90px);
+    font-size: clamp(40px, 7vw, 78px);
+
+    letter-spacing: 2px;
 
     text-align: center;
 
@@ -1582,9 +1595,63 @@ a {
 }
 
 
-/* ═══════════════════════════════
+/* ═══════════════════════════════════════
+   SECTION WHISPERS
+═══════════════════════════════════════ */
+
+.section-whisper {
+    position: absolute;
+
+    z-index: 55;
+
+    font-family: var(--font-mono);
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    text-transform: uppercase;
+
+    pointer-events: none;
+
+    text-shadow:
+        0 0 8px rgba(0, 0, 0, 0.9);
+}
+
+.divide-heading {
+    top: 4%;
+    left: 7%;
+
+    transform: rotate(-4deg);
+}
+
+.living-heading {
+    top: 4%;
+    right: 7%;
+
+    transform: rotate(4deg);
+}
+
+.other-heading {
+    top: 4%;
+    right: 7%;
+
+    transform: rotate(4deg);
+}
+
+.library-heading {
+    top: 4%;
+    right: 7%;
+
+    transform: rotate(3deg);
+}
+
+
+/* ═══════════════════════════════════════
    SECRET MESSAGES
-═══════════════════════════════ */
+═══════════════════════════════════════ */
 
 #strange-message,
 #restart-message,
@@ -1593,7 +1660,6 @@ a {
 #noctem-secret-message,
 #chronicle-secret-message,
 #library-secret-message {
-
     position: fixed;
 
     top: 50%;
@@ -1630,7 +1696,6 @@ a {
         transform 0.5s ease;
 }
 
-
 #strange-message.visible,
 #restart-message.visible,
 #life-secret-message.visible,
@@ -1638,7 +1703,6 @@ a {
 #noctem-secret-message.visible,
 #chronicle-secret-message.visible,
 #library-secret-message.visible {
-
     opacity: 1;
 
     transform:
@@ -1647,9 +1711,9 @@ a {
 }
 
 
-/* ═══════════════════════════════
+/* ═══════════════════════════════════════
    SECRET BUTTONS
-═══════════════════════════════ */
+═══════════════════════════════════════ */
 
 .secret-symbol,
 .divide-secret,
@@ -1658,7 +1722,6 @@ a {
 .noctem-secret,
 .chronicle-secret,
 .library-secret {
-
     position: absolute;
 
     padding: 0;
@@ -1680,7 +1743,6 @@ a {
         transform 0.4s ease;
 }
 
-
 .secret-symbol:hover,
 .divide-secret:hover,
 .life-secret:hover,
@@ -1688,14 +1750,12 @@ a {
 .noctem-secret:hover,
 .chronicle-secret:hover,
 .library-secret:hover {
-
     opacity: 1;
 
     transform:
         rotate(180deg)
         scale(1.35);
 }
-
 
 .secret-symbol {
     top: 18%;
@@ -1709,14 +1769,12 @@ a {
         strangePulse 2.5s ease-in-out infinite;
 }
 
-
 .divide-secret {
     left: 8%;
     bottom: 8%;
 
     font-size: 14px;
 }
-
 
 .life-secret {
     right: 7%;
@@ -1725,14 +1783,12 @@ a {
     font-size: 17px;
 }
 
-
 .death-secret {
     left: 7%;
     bottom: 7%;
 
     font-size: 14px;
 }
-
 
 .noctem-secret {
     top: 50%;
@@ -1743,14 +1799,12 @@ a {
     font-family: var(--font-serif);
 }
 
-
 .chronicle-secret {
     bottom: 6%;
     left: 7%;
 
     font-size: 14px;
 }
-
 
 .library-secret {
     bottom: 7%;
@@ -1762,9 +1816,9 @@ a {
 }
 
 
-/* ═══════════════════════════════
+/* ═══════════════════════════════════════
    SPIDER CURSOR
-═══════════════════════════════ */
+═══════════════════════════════════════ */
 
 #spider-cursor {
     position: fixed;
@@ -1783,7 +1837,6 @@ a {
         translate(-50%, -50%);
 }
 
-
 .web {
     position: relative;
 
@@ -1793,7 +1846,6 @@ a {
     animation:
         webFloat 2s ease-in-out infinite;
 }
-
 
 .web-line {
     position: absolute;
@@ -1810,13 +1862,11 @@ a {
         rgba(255, 255, 255, 0.8);
 }
 
-
 .line-1 {
     transform:
         translate(-50%, -50%)
         rotate(0deg);
 }
-
 
 .line-2 {
     transform:
@@ -1824,20 +1874,17 @@ a {
         rotate(45deg);
 }
 
-
 .line-3 {
     transform:
         translate(-50%, -50%)
         rotate(90deg);
 }
 
-
 .line-4 {
     transform:
         translate(-50%, -50%)
         rotate(135deg);
 }
-
 
 .web-ring {
     position: absolute;
@@ -1854,18 +1901,15 @@ a {
         translate(-50%, -50%);
 }
 
-
 .ring-1 {
     width: 18px;
     height: 18px;
 }
 
-
 .ring-2 {
     width: 34px;
     height: 34px;
 }
-
 
 .escaping-spider {
     position: fixed;
@@ -1884,12 +1928,11 @@ a {
 }
 
 
-/* ═══════════════════════════════
+/* ═══════════════════════════════════════
    ANIMATIONS
-═══════════════════════════════ */
+═══════════════════════════════════════ */
 
 @keyframes strangePulse {
-
     0%,
     100% {
         opacity: 0.65;
@@ -1900,9 +1943,7 @@ a {
     }
 }
 
-
 @keyframes arrowPulse {
-
     0%,
     100% {
         opacity: 0.45;
@@ -1916,15 +1957,12 @@ a {
     }
 }
 
-
 .strange-glitch {
     animation:
         strangeGlitch 0.7s steps(2);
 }
 
-
 @keyframes strangeGlitch {
-
     0% {
         transform: translate(0);
     }
@@ -1949,9 +1987,7 @@ a {
     }
 }
 
-
 @keyframes webFloat {
-
     0%,
     100% {
         transform:
@@ -1964,9 +2000,7 @@ a {
     }
 }
 
-
 @keyframes spiderEscape {
-
     0% {
         opacity: 1;
 
@@ -2015,1280 +2049,14 @@ a {
 }
 
 
-/* ═══════════════════════════════
-   RESPONSIVE
-═══════════════════════════════ */
-
-@media (max-width: 700px) {
-
-    .page {
-        max-width: 100vw;
-    }
-
-    .interface-image {
-        max-width: 100vw;
-    }
-
-    .ephemeris-interface {
-        width: 96vw;
-        padding: 25px 15px;
-    }
-
-    .calendar-day {
-        min-height: 48px;
-    }
-
-    .calendar-weekdays span {
-        font-size: 7px;
-        letter-spacing: 1px;
-    }
-
-    .calendar-month {
-        font-size: 20px;
-    }
-
-    .ephemeris-footer {
-        flex-direction: column;
-    }
-
-    .lost-title {
-        font-size: 12vw;
-    }
-}
-.section-whisper {
-    position: absolute;
-
-    z-index: 55;
-
-    font-family: var(--font-mono);
-    font-size: 10px;
-
-    letter-spacing: 5px;
-
-    color: rgba(255, 255, 255, 0.85);
-
-    text-transform: uppercase;
-
-    pointer-events: none;
-
-    text-shadow:
-        0 0 8px rgba(0, 0, 0, 0.9);
-}
-
-.divide-heading {
-    top: 4%;
-    left: 7%;
-
-    transform: rotate(-4deg);
-}
-.living-heading {
-    top: 4%;
-    right: 7%;
-
-    transform: rotate(4deg);
-}
-.other-heading {
-    top: 4%;
-    right: 7%;
-
-    transform: rotate(4deg);
-}
-.chronicles-title {
-    left: 56%;
-
-    transform:
-        translateX(-50%)
-        rotate(-2deg);
-}
-.library-title {
-    left: 50%;
-
-    padding: 13px 30px;
-
-    background: rgba(250, 247, 240, 0.97);
-
-    border: 2px solid rgba(255, 255, 255, 0.95);
-
-    color: var(--bordeaux);
-
-    box-shadow:
-        5px 5px 0 rgba(255, 255, 255, 0.25);
-
-    transform:
-        translateX(-50%)
-        rotate(2deg);
-}
-.library-heading {
-    top: 4%;
-    right: 7%;
-
-    transform: rotate(3deg);
-}
-/* ╔══════════════════════════════════════════════════════════════╗
-   FINAL PAGE + TYPOGRAPHY ADJUSTMENTS
-   ╚══════════════════════════════════════════════════════════════╝ */
-
-
-/* ═══════════════════════════════
-   01 — TOUTES LES PAGES
-═══════════════════════════════ */
-
-/*
-   Toutes les pages normales ont exactement
-   la même taille que la fenêtre.
-*/
-
-.page {
-    position: relative;
-
-    width: 100vw;
-    height: 100vh;
-
-    max-width: 100vw;
-    max-height: 100vh;
-
-    overflow: hidden;
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-
-/*
-   Les images remplissent exactement le même
-   espace sur chaque page.
-*/
-
-.page > .interface-image {
-    display: block;
-
-    width: auto;
-    height: 100vh;
-
-    max-width: none;
-    max-height: 100vh;
-
-    object-fit: contain;
-
-    user-select: none;
-    -webkit-user-drag: none;
-}
-
-/*
-   EPHEMERIS est la seule page qui peut
-   dépasser et scroller.
-*/
-
-#page-ephemeris {
-    width: 100vw;
-    height: 100vh;
-
-    max-width: 100vw;
-    max-height: none;
-
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-
-/* ═══════════════════════════════
-   01 — WELCOME
-═══════════════════════════════ */
-
-.welcome-title {
-    top: 13%;
-    left: 50%;
-
-    transform:
-        translateX(-50%)
-        rotate(-2deg);
-}
-
-.welcome-name {
-    display: block;
-
-    width: 600px;
-    max-width: 72vw;
-
-    font-size: clamp(25px, 3.4vw, 42px);
-
-    letter-spacing: 3px;
-    line-height: 1.02;
-
-    white-space: normal;
-    text-align: center;
-
-    /*
-       Empêche le + de l'image de traverser
-       les lettres.
-    */
-    padding: 10px 22px;
-
-    background: rgba(10, 10, 10, 0.90);
-
-    text-shadow:
-        0 0 8px rgba(0, 0, 0, 0.95),
-        0 0 14px var(--bordeaux-glow);
-}
-
-
-/* ═══════════════════════════════
-   THE DIVIDE — LIFE / DEATH
-═══════════════════════════════ */
-
-.life,
-.death {
-    width: 56%;
-    left: 22%;
-}
-
-
-/* LIFE légèrement plus haut */
-
-.life {
-    top: 10%;
-    height: 27%;
-}
-
-
-/* DEATH légèrement plus bas */
-
-.death {
-    top: 63%;
-    height: 27%;
-}
-
-
-/*
-   Les titres occupent le centre de leur tier.
-*/
-
-.divide-life-label {
-    top: 25%;
-}
-
-.divide-death-label {
-    top: 72%;
-}
-
-
-/* ═══════════════════════════════
-   LIVING SIDE
-═══════════════════════════════ */
-
-/*
-   Chaque zone correspond à son tier.
-*/
-
-.reality {
-    top: 4%;
-    height: 29%;
-}
-
-.between {
-    top: 36%;
-    height: 29%;
-}
-
-.fiction {
-    top: 68%;
-    height: 29%;
-}
-
-
-/*
-   Les mots sont placés au milieu
-   de leur propre tier.
-*/
-
-.reality-choice {
-    top: 16%;
-}
-
-.between-choice {
-    top: 48%;
-}
-
-.fiction-choice {
-    top: 80%;
-}
-
-
-/*
-   Même style opaque que le titre Welcome.
-*/
-
-.living-choice {
-    background: rgba(10, 10, 10, 0.90);
-
-    border: 1px solid rgba(255, 255, 255, 0.75);
-
-    color: #ffffff;
-
-    padding: 8px 20px;
-
-    font-size: clamp(27px, 3.8vw, 48px);
-
-    text-shadow:
-        0 0 8px rgba(0, 0, 0, 0.95);
-}
-
-
-/* ═══════════════════════════════
-   ARE YOU LOST
-═══════════════════════════════ */
-
-.lost-title {
-    font-size: clamp(40px, 7vw, 78px);
-
-    /*
-       Juste assez petit pour que
-       A et T restent dans l'image.
-    */
-
-    letter-spacing: 2px;
-}
-
-
-/* ═══════════════════════════════
-   THE OTHER SIDE
-   OBSESSION / CARPE NOCTEM / CONSPIRATIONS
-═══════════════════════════════ */
-
-
-/*
-   Chaque zone reste dans son tier.
-*/
-
-.obsession {
-    top: 4%;
-    left: 4%;
-
-    width: 42%;
-    height: 29%;
-}
-
-.noctem {
-    top: 36%;
-    left: 54%;
-
-    width: 42%;
-    height: 29%;
-}
-
-.conspirations {
-    top: 68%;
-    left: 4%;
-
-    width: 42%;
-    height: 28%;
-}
-
-
-/*
-   TEXTE VERTICAL
-*/
-
-.other-side-choice {
-    position: absolute;
-
-    z-index: 60;
-
-    padding: 7px 11px;
-
-    background: rgba(10, 10, 10, 0.90);
-
-    border: 1px solid rgba(255, 255, 255, 0.75);
-
-    color: #ffffff;
-
-    font-family: var(--font-display);
-
-    font-size: clamp(25px, 3.4vw, 42px);
-
-    font-weight: 700;
-
-    letter-spacing: 2px;
-
-    line-height: 1;
-
-    text-align: center;
-
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-
-    white-space: nowrap;
-
-    box-shadow:
-        4px 4px 0 rgba(181, 42, 80, 0.25);
-
-    text-shadow:
-        0 0 8px rgba(0, 0, 0, 0.95);
-
-    pointer-events: none;
-}
-
-
-/*
-   OBSESSION — centre du premier tier
-*/
-
-.obsession-choice {
-    top: 17%;
-    left: 24%;
-
-    transform:
-        translate(-50%, -50%)
-        rotate(-3deg);
-}
-
-
-/*
-   CARPE NOCTEM — centre du deuxième tier
-*/
-
-.noctem-choice {
-    top: 50%;
-    left: 75%;
-
-    transform:
-        translate(-50%, -50%)
-        rotate(3deg);
-}
-
-
-/*
-   CONSPIRATIONS — centre du troisième tier
-*/
-
-.conspirations-choice {
-    top: 82%;
-    left: 24%;
-
-    transform:
-        translate(-50%, -50%)
-        rotate(-3deg);
-}
-
-
-/* ═══════════════════════════════
-   CARPE NOCTEM
-═══════════════════════════════ */
-
-.noctem-main-title {
-    top: 14%;
-    left: 50%;
-
-    transform:
-        translate(-50%, -50%)
-        rotate(-3deg);
-
-    /*
-       Blanc uniquement.
-    */
-
-    color: #ffffff;
-
-    /*
-       Fond beaucoup plus discret.
-    */
-
-    background: rgba(10, 10, 10, 0.88);
-
-    border: 1px solid rgba(255, 255, 255, 0.75);
-
-    padding: 8px 20px;
-
-    font-size: clamp(34px, 4.8vw, 58px);
-
-    letter-spacing: 3px;
-
-    box-shadow:
-        4px 4px 0 rgba(255, 255, 255, 0.12);
-
-    text-shadow:
-        0 0 10px rgba(255, 255, 255, 0.45);
-}
-
-
-/*
-   THE NIGHT REMEMBERS
-   → remonte
-*/
-
-.noctem-whisper {
-    top: 23%;
-    bottom: auto;
-    right: 7%;
-
-    padding: 10px 16px;
-
-    background: rgba(10, 10, 10, 0.88);
-
-    border: 1px solid rgba(255, 255, 255, 0.65);
-
-    font-size: 11px;
-
-    letter-spacing: 2px;
-}
-
-
-/*
-   Coeur gauche :
-   zone cliquable légèrement plus à droite.
-*/
-
-.heart-left {
-    left: 10%;
-    bottom: 3%;
-
-    width: 17%;
-    height: 17%;
-}
-
-
-/* ═══════════════════════════════
-   CHRONIQUES
-═══════════════════════════════ */
-
-.chronicles-title {
-    top: 8%;
-    left: 64%;
-
-    transform:
-        translateX(-50%)
-        rotate(-2deg);
-
-    font-size: clamp(38px, 5.5vw, 60px);
-
-    color: #ffffff;
-
-    background: rgba(10, 10, 10, 0.88);
-
-    border: 1px solid rgba(255, 255, 255, 0.75);
-
-    padding: 8px 20px;
-}
-
-
-/*
-   L'inscription "fragments..."
-   reprend le langage visuel du WARNING.
-*/
-
-.chronicles-intro {
-    top: 19%;
-    right: 7%;
-
-    padding: 10px 16px;
-
-    background: rgba(10, 10, 10, 0.88);
-
-    border: 1px solid rgba(255, 255, 255, 0.65);
-
-    color: #ffffff;
-
-    font-family: var(--font-mono);
-
-    font-size: 13px;
-
-    letter-spacing: 2px;
-
-    text-align: center;
-
-    transform: rotate(3deg);
-
-    text-shadow:
-        0 0 8px rgba(0, 0, 0, 0.9);
-}
-
-
-/*
-   Entrées plus grosses.
-*/
-
-.chronicle-entry {
-    font-size: 15px;
-}
-
-.chronicle-entry .entry-number {
-    font-size: 15px;
-    letter-spacing: 4px;
-}
-
-.chronicle-entry .entry-symbol {
-    font-size: 23px;
-}
-
-
-/* ═══════════════════════════════
-   LIBRARY
-═══════════════════════════════ */
-
-
-/*
-   Le titre reste comme il est,
-   puisqu'il fonctionne déjà.
-*/
-
-.library-title {
-    top: 8%;
-}
-
-
-/*
-   On retire l'inscription minuscule
-   "books..." du coin gauche.
-*/
-
-.library-whisper {
-    display: none;
-}
-
-
-/*
-   Les entrées Library reprennent le
-   style WARNING.
-*/
-
-.library-entry {
-    padding: 10px 16px;
-
-    background: rgba(10, 10, 10, 0.88);
-
-    border: 1px solid rgba(255, 255, 255, 0.65);
-
-    color: #ffffff;
-
-    font-size: 15px;
-
-    text-shadow:
-        0 0 8px rgba(0, 0, 0, 0.9);
-}
-
-
-.library-number {
-    font-size: 15px;
-    letter-spacing: 4px;
-}
-
-.library-mark {
-    font-size: 23px;
-}
-
-
-/*
-   Placement des trois inscriptions.
-*/
-
-.library-one {
-    top: 34%;
-    left: 20%;
-}
-
-.library-two {
-    top: 53%;
-    left: 49%;
-}
-
-.library-three {
-    top: 72%;
-    right: 18%;
-}
-
-
-/* ═══════════════════════════════
-   PETIT AJUSTEMENT MOBILE
-═══════════════════════════════ */
-
-@media (max-width: 700px) {
-
-   .page > .interface-image {
-    width: auto;
-    height: 100vh;
-    max-width: none;
-    max-height: 100vh;
-    object-fit: contain;
-}
-
-    .welcome-name {
-        max-width: 80vw;
-        font-size: 25px;
-    }
-
-    .living-choice {
-        font-size: 28px;
-    }
-
-    .other-side-choice {
-        font-size: 25px;
-    }
-
-    .noctem-main-title {
-        font-size: 35px;
-    }
-
-    .chronicles-intro {
-        font-size: 10px;
-    }
-
-}
-/* ╔══════════════════════════════════════════════════════════════╗
+/* ═══════════════════════════════════════
    VISITOR BOOK
-   ╚══════════════════════════════════════════════════════════════╝ */
+═══════════════════════════════════════ */
 
 #page-visitor-book {
     background: #0a0a0a;
     color: #ffffff;
 }
-
-
-/* ═══════════════════════════════
-   BOOK
-═══════════════════════════════ */
-
-.visitor-book {
-
-    position: relative;
-
-    width: min(1100px, 90vw);
-    height: 88vh;
-
-    margin: 6vh auto 0;
-
-    box-sizing: border-box;
-
-    padding: 45px 55px;
-
-    font-family: var(--font-mono);
-
-    overflow: hidden;
-
-    /*
-       Une grande "page" plutôt qu'une
-       interface informatique.
-    */
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,0.035),
-            rgba(255,255,255,0.01) 50%,
-            rgba(255,255,255,0.035)
-        );
-
-    border-top:
-        1px solid rgba(255,255,255,0.65);
-
-    border-bottom:
-        1px solid rgba(255,255,255,0.65);
-
-}
-
-
-/* ═══════════════════════════════
-   HEADER
-═══════════════════════════════ */
-
-.visitor-book-header {
-
-    text-align: center;
-
-    margin-bottom: 35px;
-
-}
-
-
-.visitor-book-number {
-
-    display: block;
-
-    font-size: 10px;
-
-    letter-spacing: 5px;
-
-    opacity: 0.5;
-
-    margin-bottom: 8px;
-
-}
-
-
-.visitor-book-header h1 {
-
-    margin: 0;
-
-    font-family: var(--font-display);
-
-    font-size: clamp(45px, 6vw, 72px);
-
-    font-weight: 700;
-
-    letter-spacing: 4px;
-
-    color: #ffffff;
-
-    text-shadow:
-        0 0 12px rgba(255,255,255,0.35);
-
-}
-
-
-.visitor-book-header p {
-
-    margin: 8px 0 0;
-
-    font-family: var(--font-serif);
-
-    font-style: italic;
-
-    font-size: 13px;
-
-    letter-spacing: 2px;
-
-    opacity: 0.55;
-
-}
-
-
-/* ═══════════════════════════════
-   TWO SIDES
-═══════════════════════════════ */
-
-.visitor-book-content {
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 55px;
-
-    height: calc(100% - 150px);
-
-}
-
-
-/* ═══════════════════════════════
-   LABELS
-═══════════════════════════════ */
-
-.visitor-label {
-
-    margin-bottom: 16px;
-
-    font-size: 11px;
-
-    letter-spacing: 4px;
-
-    color: rgba(255,255,255,0.85);
-
-}
-
-
-/* ═══════════════════════════════
-   WRITE
-═══════════════════════════════ */
-
-.visitor-write {
-
-    display: flex;
-
-    flex-direction: column;
-
-    padding-right: 35px;
-
-    border-right:
-        1px solid rgba(255,255,255,0.35);
-
-}
-
-
-/* NAME */
-
-#visitor-name {
-
-    width: 100%;
-
-    box-sizing: border-box;
-
-    padding: 12px 5px;
-
-    margin-bottom: 15px;
-
-    border: none;
-
-    border-bottom:
-        1px solid rgba(255,255,255,0.35);
-
-    outline: none;
-
-    background: transparent;
-
-    color: #ffffff;
-
-    font-family: var(--font-mono);
-
-    font-size: 12px;
-
-    letter-spacing: 2px;
-
-}
-
-
-#visitor-name::placeholder,
-#visitor-message::placeholder {
-
-    color: rgba(255,255,255,0.28);
-
-}
-
-
-/* MESSAGE */
-
-#visitor-message {
-
-    width: 100%;
-
-    min-height: 230px;
-
-    box-sizing: border-box;
-
-    padding: 15px;
-
-    resize: none;
-
-    outline: none;
-
-    border:
-        1px solid rgba(255,255,255,0.35);
-
-    background:
-        rgba(255,255,255,0.025);
-
-    color: #ffffff;
-
-    font-family: var(--font-serif);
-
-    font-size: 15px;
-
-    line-height: 1.7;
-
-}
-
-
-#visitor-message:focus {
-
-    border-color:
-        rgba(255,255,255,0.7);
-
-}
-
-
-/* SUBMIT */
-
-#visitor-submit {
-
-    align-self: flex-start;
-
-    margin-top: 18px;
-
-    padding: 11px 18px;
-
-    border:
-        1px solid rgba(255,255,255,0.65);
-
-    background:
-        rgba(10,10,10,0.8);
-
-    color: #ffffff;
-
-    font-family: var(--font-mono);
-
-    font-size: 11px;
-
-    letter-spacing: 3px;
-
-    cursor: none;
-
-    transition:
-        transform 0.3s ease,
-        background 0.3s ease;
-
-}
-
-
-#visitor-submit:hover {
-
-    transform:
-        rotate(-2deg)
-        scale(1.08);
-
-    background:
-        rgba(255,255,255,0.08);
-
-}
-
-
-/* STATUS */
-
-.visitor-status {
-
-    margin-top: 15px;
-
-    min-height: 18px;
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-
-    opacity: 0.65;
-
-}
-
-
-/* ═══════════════════════════════
-   MESSAGE LIST
-═══════════════════════════════ */
-
-.visitor-messages {
-
-    overflow-y: auto;
-
-    padding-left: 5px;
-
-}
-
-
-#visitor-message-list {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 22px;
-
-    padding-right: 15px;
-
-}
-
-
-/* INDIVIDUAL MESSAGE */
-
-.visitor-message {
-
-    position: relative;
-
-    padding: 18px 20px;
-
-    border-left:
-        1px solid rgba(255,255,255,0.6);
-
-    background:
-        rgba(255,255,255,0.025);
-
-    transform:
-        rotate(-0.5deg);
-
-}
-
-
-.visitor-message:nth-child(even) {
-
-    transform:
-        rotate(0.6deg);
-
-}
-
-
-.visitor-message-name {
-
-    font-family: var(--font-mono);
-
-    font-size: 10px;
-
-    letter-spacing: 3px;
-
-    margin-bottom: 9px;
-
-    opacity: 0.6;
-
-}
-
-
-.visitor-message-text {
-
-    font-family: var(--font-serif);
-
-    font-size: 15px;
-
-    line-height: 1.65;
-
-    white-space: pre-wrap;
-
-}
-
-
-.visitor-message-date {
-
-    margin-top: 12px;
-
-    font-family: var(--font-mono);
-
-    font-size: 8px;
-
-    letter-spacing: 2px;
-
-    opacity: 0.35;
-
-}
-
-
-/* EMPTY */
-
-.visitor-empty {
-
-    padding: 35px 15px;
-
-    font-family: var(--font-serif);
-
-    font-style: italic;
-
-    font-size: 14px;
-
-    line-height: 1.8;
-
-    opacity: 0.45;
-
-    text-align: center;
-
-}
-
-
-/* ═══════════════════════════════
-   RETURN
-═══════════════════════════════ */
-
-.visitor-book-return {
-
-    position: absolute;
-
-    left: 35px;
-    bottom: 22px;
-
-    border: none;
-
-    background: transparent;
-
-    color: #ffffff;
-
-    font-family: var(--font-mono);
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
-
-    opacity: 0.45;
-
-    cursor: none;
-
-    transition:
-        opacity 0.3s ease;
-
-}
-
-
-.visitor-book-return:hover {
-
-    opacity: 1;
-
-}
-
-
-/* ═══════════════════════════════
-   WHISPER
-═══════════════════════════════ */
-
-.visitor-book-whisper {
-
-    position: absolute;
-
-    right: 40px;
-    bottom: 22px;
-
-    font-family: var(--font-serif);
-
-    font-size: 10px;
-
-    font-style: italic;
-
-    letter-spacing: 1px;
-
-    opacity: 0.3;
-
-    transform:
-        rotate(-2deg);
-
-}
-
-
-/* ═══════════════════════════════
-   MOBILE
-═══════════════════════════════ */
-
-@media (max-width: 700px) {
-
-    .visitor-book {
-
-        width: 94vw;
-        height: 94vh;
-
-        margin-top: 3vh;
-
-        padding: 30px 22px;
-
-    }
-
-    .visitor-book-content {
-
-        grid-template-columns: 1fr;
-
-        gap: 35px;
-
-        overflow-y: auto;
-
-    }
-
-    .visitor-write {
-
-        padding-right: 0;
-
-        padding-bottom: 30px;
-
-        border-right: none;
-
-        border-bottom:
-            1px solid rgba(255,255,255,0.35);
-
-    }
-
-    .visitor-messages {
-
-        overflow: visible;
-
-    }
-
-    .visitor-book-whisper {
-
-        display: none;
-
-    }
-
-}
-/* ═══════════════════════════════
-   SECRET VISITOR'S BOOK
-═══════════════════════════════ */
 
 .visitor-book {
     position: absolute;
@@ -3296,7 +2064,9 @@ a {
     top: 28%;
     left: 50%;
 
-    transform: translateX(-50%) rotate(-1deg);
+    transform:
+        translateX(-50%)
+        rotate(-1deg);
 
     width: min(430px, 55vw);
 
@@ -3318,7 +2088,6 @@ a {
         6px 6px 0 rgba(181, 42, 80, 0.25);
 }
 
-
 .visitor-book-title {
     font-family: var(--font-display);
 
@@ -3328,7 +2097,6 @@ a {
 
     margin-bottom: 8px;
 }
-
 
 .visitor-book-subtitle {
     font-family: var(--font-mono);
@@ -3341,7 +2109,6 @@ a {
 
     margin-bottom: 22px;
 }
-
 
 #visitor-message {
     display: block;
@@ -3371,16 +2138,13 @@ a {
     outline: none;
 }
 
-
 #visitor-message::placeholder {
     color: rgba(255, 255, 255, 0.35);
 }
 
-
 #visitor-message:focus {
     border-color: rgba(255, 255, 255, 0.9);
 }
-
 
 #visitor-submit {
     margin-top: 18px;
@@ -3406,13 +2170,14 @@ a {
         background 0.3s ease;
 }
 
-
 #visitor-submit:hover {
-    transform: rotate(-2deg) scale(1.08);
+    transform:
+        rotate(-2deg)
+        scale(1.08);
 
-    background: rgba(181, 42, 80, 0.35);
+    background:
+        rgba(181, 42, 80, 0.35);
 }
-
 
 #visitor-status {
     margin-top: 14px;
@@ -3426,4 +2191,59 @@ a {
     letter-spacing: 2px;
 
     opacity: 0.7;
+}
+
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+
+@media (max-width: 700px) {
+
+    .page {
+        max-width: 100vw;
+    }
+
+    .page > .interface-image {
+        width: auto;
+
+        height: 100vh;
+
+        max-width: none;
+        max-height: 100vh;
+
+        object-fit: contain;
+    }
+
+    .welcome-name {
+        max-width: 80vw;
+
+        font-size: 25px;
+    }
+
+    .living-choice {
+        font-size: 28px;
+    }
+
+    .other-side-choice {
+        font-size: 25px;
+    }
+
+    .noctem-main-title {
+        font-size: 35px;
+    }
+
+    .chronicles-intro {
+        font-size: 10px;
+    }
+
+    .visitor-book {
+        width: 94vw;
+
+        height: 94vh;
+
+        margin-top: 3vh;
+
+        padding: 30px 22px;
+    }
 }
