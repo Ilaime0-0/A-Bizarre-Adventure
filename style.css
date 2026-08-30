@@ -1946,48 +1946,145 @@ textarea {
 
 /* ═══════════════════════════════════════
    VISITOR BOOK
+   CARPE NOCTEM — THE VISITOR BOOK
 ═══════════════════════════════════════ */
 
 #page-visitor-book {
-    background: #0a0a0a;
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(91, 16, 41, 0.16),
+            transparent 55%
+        ),
+        #0a0a0a;
 
     color: #ffffff;
+
+    overflow-y: auto;
 }
 
+
+/* ═══════════════════════════════════════
+   THE BOOK
+═══════════════════════════════════════ */
+
 #page-visitor-book .visitor-book {
-    position: absolute;
+    position: relative;
 
-    top: 8%;
-    left: 50%;
+    top: 6vh;
+    left: auto;
 
-    transform:
-        translateX(-50%)
-        rotate(-1deg);
+    transform: rotate(-0.8deg);
 
-    width: min(760px, 88vw);
+    width: min(900px, 90vw);
 
-    min-height: 78vh;
+    min-height: 88vh;
 
-    padding: 35px 42px;
+    padding: 50px 58px 75px;
 
     box-sizing: border-box;
 
-    border: 1px solid rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.55);
 
-    background: rgba(10, 10, 10, 0.92);
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.025),
+            transparent 8%,
+            transparent 92%,
+            rgba(255, 255, 255, 0.02)
+        ),
+        rgba(10, 10, 10, 0.96);
 
     color: #ffffff;
 
     z-index: 70;
 
     box-shadow:
-        6px 6px 0 rgba(181, 42, 80, 0.25);
+        10px 10px 0 rgba(91, 16, 41, 0.25),
+        -3px 0 0 rgba(255, 255, 255, 0.04);
+
+    overflow: hidden;
 }
 
+
+/* ═══════════════════════════════════════
+   DECORATIVE BOOK MARKS
+══════════════════════════════════════ */
+
+#page-visitor-book .visitor-book::before {
+    content: "✦";
+
+    position: absolute;
+
+    top: 20px;
+    left: 25px;
+
+    color: var(--bordeaux);
+
+    font-family: Georgia, serif;
+
+    font-size: 17px;
+
+    opacity: 0.75;
+}
+
+#page-visitor-book .visitor-book::after {
+    content: "†";
+
+    position: absolute;
+
+    top: 18px;
+    right: 25px;
+
+    color: var(--bordeaux);
+
+    font-family: Georgia, serif;
+
+    font-size: 19px;
+
+    opacity: 0.65;
+}
+
+
+/* ═══════════════════════════════════════
+   HEADER
+═══════════════════════════════════════ */
+
 .visitor-book-header {
+    position: relative;
+
     text-align: center;
 
-    margin-bottom: 30px;
+    margin-bottom: 38px;
+
+    padding-bottom: 25px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.28);
+}
+
+.visitor-book-header::after {
+    content: "✦ ─────── ✦";
+
+    position: absolute;
+
+    bottom: -9px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    padding: 0 12px;
+
+    background: #0a0a0a;
+
+    color: var(--bordeaux);
+
+    font-family: Georgia, serif;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
 }
 
 .visitor-book-number {
@@ -1997,66 +2094,133 @@ textarea {
 
     font-size: 9px;
 
-    letter-spacing: 4px;
+    letter-spacing: 5px;
 
-    opacity: 0.5;
+    color: var(--bordeaux);
 
-    margin-bottom: 8px;
+    opacity: 0.8;
+
+    margin-bottom: 12px;
 }
 
 .visitor-book-header h1 {
-    margin: 0 0 8px;
+    margin: 0 0 10px;
 
     font-family: var(--font-display);
 
-    font-size: clamp(35px, 5vw, 58px);
+    font-size: clamp(40px, 6vw, 68px);
 
-    letter-spacing: 3px;
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 12px rgba(255, 255, 255, 0.15);
 }
 
 .visitor-book-header p {
     margin: 0;
 
-    font-family: var(--font-mono);
+    font-family: var(--font-serif);
 
-    font-size: 10px;
+    font-size: 12px;
 
-    letter-spacing: 3px;
+    font-style: italic;
 
-    opacity: 0.6;
+    letter-spacing: 2px;
+
+    color: rgba(255, 255, 255, 0.55);
 }
+
+
+/* ═══════════════════════════════════════
+   CONTENT
+═══════════════════════════════════════ */
 
 .visitor-book-content {
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
 
-    gap: 35px;
+    gap: 48px;
+
+    align-items: start;
 }
+
+
+/* ═══════════════════════════════════════
+   SECTION LABELS
+═══════════════════════════════════════ */
 
 .visitor-label {
+    position: relative;
+
     font-family: var(--font-mono);
 
-    font-size: 10px;
+    font-size: 9px;
 
-    letter-spacing: 3px;
+    letter-spacing: 4px;
 
-    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.65);
 
-    opacity: 0.65;
+    margin-bottom: 15px;
+
+    padding-left: 14px;
 }
 
-.visitor-write input,
-.visitor-write textarea {
+.visitor-label::before {
+    content: "✦";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    color: var(--bordeaux);
+
+    font-size: 8px;
+}
+
+
+/* ═══════════════════════════════════════
+   WRITING AREA
+═══════════════════════════════════════ */
+
+.visitor-write {
+    position: relative;
+
+    padding-right: 25px;
+
+    border-right:
+        1px solid rgba(255, 255, 255, 0.16);
+}
+
+
+/* ═══════════════════════════════════════
+   NAME
+═══════════════════════════════════════ */
+
+.visitor-write input {
     display: block;
 
     width: 100%;
 
+    height: 42px;
+
     box-sizing: border-box;
 
-    border: 1px solid rgba(255, 255, 255, 0.45);
+    padding: 11px 13px;
 
-    background: rgba(255, 255, 255, 0.04);
+    margin-bottom: 15px;
+
+    border: none;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.38);
+
+    background: transparent;
 
     color: #ffffff;
 
@@ -2064,146 +2228,103 @@ textarea {
 
     font-family: var(--font-mono);
 
-    font-size: 12px;
-}
+    font-size: 11px;
 
-.visitor-write input {
-    height: 38px;
-
-    padding: 10px 12px;
-
-    margin-bottom: 12px;
-}
-
-.visitor-write textarea {
-    min-height: 190px;
-
-    padding: 14px;
-
-    resize: vertical;
-
-    line-height: 1.6;
-}
-
-.visitor-write input::placeholder,
-.visitor-write textarea::placeholder {
-    color: rgba(255, 255, 255, 0.35);
-}
-
-.visitor-write input:focus,
-.visitor-write textarea:focus {
-    border-color: rgba(255, 255, 255, 0.9);
-}
-
-#visitor-submit {
-    margin-top: 16px;
-
-    padding: 10px 18px;
-
-    border: 1px solid rgba(255, 255, 255, 0.7);
-
-    background: rgba(10, 10, 10, 0.8);
-
-    color: #ffffff;
-
-    font-family: var(--font-mono);
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-
-    cursor: none;
+    letter-spacing: 1px;
 
     transition:
-        transform 0.3s ease,
+        border-color 0.3s ease,
         background 0.3s ease;
 }
 
-#visitor-submit:hover {
-    transform:
-        rotate(-2deg)
-        scale(1.08);
+.visitor-write input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.visitor-write input:focus {
+    border-bottom-color: var(--bordeaux);
 
     background:
-        rgba(181, 42, 80, 0.35);
+        linear-gradient(
+            90deg,
+            rgba(181, 42, 80, 0.08),
+            transparent
+        );
 }
 
-.visitor-status {
-    margin-top: 12px;
 
-    min-height: 15px;
+/* ═══════════════════════════════════════
+   MESSAGE
+═══════════════════════════════════════ */
 
-    font-family: var(--font-mono);
+.visitor-write textarea {
+    display: block;
 
-    font-size: 9px;
+    width: 100%;
 
-    letter-spacing: 2px;
+    min-height: 210px;
 
-    opacity: 0.7;
-}
+    box-sizing: border-box;
 
-.visitor-messages {
-    max-height: 390px;
+    padding: 15px;
 
-    overflow-y: auto;
+    resize: vertical;
 
-    padding-right: 10px;
-}
+    border:
+        1px solid rgba(255, 255, 255, 0.28);
 
-.visitor-empty {
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 28px,
+            rgba(255, 255, 255, 0.055) 29px
+        );
+
+    color: #ffffff;
+
+    outline: none;
+
     font-family: var(--font-serif);
 
-    font-size: 13px;
+    font-size: 14px;
+
+    line-height: 29px;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.visitor-write textarea::placeholder {
+    color: rgba(255, 255, 255, 0.28);
 
     font-style: italic;
-
-    line-height: 1.7;
-
-    opacity: 0.45;
-
-    text-align: center;
-
-    padding: 35px 15px;
 }
 
-.visitor-message-entry {
-    padding: 15px 0;
+.visitor-write textarea:focus {
+    border-color: rgba(181, 42, 80, 0.75);
 
-    border-bottom:
-        1px solid rgba(255, 255, 255, 0.15);
-
-    text-align: left;
+    box-shadow:
+        0 0 18px rgba(181, 42, 80, 0.08);
 }
 
-.visitor-message-name {
-    font-family: var(--font-mono);
 
-    font-size: 10px;
+/* ═══════════════════════════════════════
+   SUBMIT BUTTON
+═══════════════════════════════════════ */
 
-    letter-spacing: 2px;
+#visitor-submit {
+    position: relative;
 
-    color: var(--bordeaux);
+    margin-top: 18px;
 
-    margin-bottom: 7px;
-}
-
-.visitor-message-text {
-    font-family: var(--font-serif);
-
-    font-size: 13px;
-
-    line-height: 1.6;
-
-    white-space: pre-wrap;
-}
-
-.visitor-book-return {
-    position: absolute;
-
-    bottom: 22px;
-    left: 42px;
+    padding: 11px 20px;
 
     border: none;
+
+    border-bottom:
+        1px solid var(--bordeaux);
 
     background: transparent;
 
@@ -2213,22 +2334,239 @@ textarea {
 
     font-size: 9px;
 
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 
     cursor: none;
 
-    opacity: 0.5;
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+#visitor-submit::before {
+    content: "✦";
+
+    margin-right: 8px;
+
+    color: var(--bordeaux);
+}
+
+#visitor-submit:hover {
+    color: var(--bordeaux);
+
+    transform:
+        translateX(4px)
+        rotate(-2deg);
+}
+
+
+/* ═══════════════════════════════════════
+   STATUS
+═══════════════════════════════════════ */
+
+.visitor-status {
+    margin-top: 13px;
+
+    min-height: 15px;
+
+    font-family: var(--font-mono);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: var(--bordeaux);
+
+    opacity: 0.8;
+}
+
+
+/* ═══════════════════════════════════════
+   MESSAGE ARCHIVE
+═══════════════════════════════════════ */
+
+.visitor-messages {
+    max-height: 430px;
+
+    overflow-y: auto;
+
+    padding-left: 5px;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        var(--bordeaux)
+        transparent;
+}
+
+.visitor-messages::-webkit-scrollbar {
+    width: 3px;
+}
+
+.visitor-messages::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.visitor-messages::-webkit-scrollbar-thumb {
+    background: var(--bordeaux);
+}
+
+
+/* ═══════════════════════════════════════
+   EMPTY BOOK
+═══════════════════════════════════════ */
+
+.visitor-empty {
+    position: relative;
+
+    padding: 55px 25px;
+
+    text-align: center;
+
+    font-family: var(--font-serif);
+
+    font-size: 14px;
+
+    font-style: italic;
+
+    line-height: 1.9;
+
+    color: rgba(255, 255, 255, 0.42);
+}
+
+.visitor-empty::before {
+    content: "†";
+
+    display: block;
+
+    margin-bottom: 14px;
+
+    color: var(--bordeaux);
+
+    font-family: Georgia, serif;
+
+    font-size: 24px;
+
+    opacity: 0.7;
+}
+
+
+/* ═══════════════════════════════════════
+   INDIVIDUAL VISITOR
+═══════════════════════════════════════ */
+
+.visitor-message-entry {
+    position: relative;
+
+    padding: 18px 12px 20px 18px;
+
+    margin-bottom: 10px;
+
+    border-left:
+        1px solid rgba(181, 42, 80, 0.55);
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.1);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(181, 42, 80, 0.035),
+            transparent
+        );
+
+    text-align: left;
+}
+
+.visitor-message-entry::before {
+    content: "✦";
+
+    position: absolute;
+
+    left: -5px;
+    top: 17px;
+
+    padding: 0 2px;
+
+    background: #0a0a0a;
+
+    color: var(--bordeaux);
+
+    font-size: 8px;
+}
+
+.visitor-message-name {
+    margin-bottom: 8px;
+
+    font-family: var(--font-mono);
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: var(--bordeaux);
+
+    text-transform: uppercase;
+}
+
+.visitor-message-text {
+    font-family: var(--font-serif);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    white-space: pre-wrap;
+}
+
+
+/* ═══════════════════════════════════════
+   RETURN
+═══════════════════════════════════════ */
+
+.visitor-book-return {
+    position: absolute;
+
+    bottom: 25px;
+    left: 58px;
+
+    border: none;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.5);
+
+    font-family: var(--font-mono);
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    cursor: none;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
 .visitor-book-return:hover {
-    opacity: 1;
+    color: var(--bordeaux);
+
+    transform: translateX(-4px);
 }
+
+
+/* ═══════════════════════════════════════
+   WHISPER
+═══════════════════════════════════════ */
 
 .visitor-book-whisper {
     position: absolute;
 
-    right: 42px;
-    bottom: 22px;
+    right: 58px;
+    bottom: 25px;
 
     font-family: var(--font-serif);
 
@@ -2236,198 +2574,68 @@ textarea {
 
     font-style: italic;
 
-    opacity: 0.3;
+    letter-spacing: 1px;
+
+    color: rgba(255, 255, 255, 0.3);
 }
 
 
 /* ═══════════════════════════════════════
-   ANIMATIONS
-═══════════════════════════════════════ */
-
-@keyframes strangePulse {
-    0%,
-    100% {
-        opacity: 0.65;
-    }
-
-    50% {
-        opacity: 1;
-    }
-}
-
-@keyframes arrowPulse {
-    0%,
-    100% {
-        opacity: 0.45;
-    }
-
-    50% {
-        opacity: 1;
-
-        transform:
-            translateX(-3px);
-    }
-}
-
-.strange-glitch {
-    animation:
-        strangeGlitch 0.7s steps(2);
-}
-
-@keyframes strangeGlitch {
-    0% {
-        transform: translate(0);
-    }
-
-    25% {
-        transform:
-            translate(2px, -1px);
-    }
-
-    50% {
-        transform:
-            translate(-2px, 1px);
-    }
-
-    75% {
-        transform:
-            translate(1px, 2px);
-    }
-
-    100% {
-        transform: translate(0);
-    }
-}
-
-@keyframes webFloat {
-    0%,
-    100% {
-        transform:
-            translateY(0);
-    }
-
-    50% {
-        transform:
-            translateY(-3px);
-    }
-}
-
-@keyframes spiderEscape {
-    0% {
-        opacity: 1;
-
-        transform:
-            translate(-50%, -50%)
-            scale(0.4)
-            rotate(0deg);
-    }
-
-    20% {
-        transform:
-            translate(-50%, -50%)
-            scale(1)
-            rotate(-10deg);
-    }
-
-    45% {
-        transform:
-            translate(
-                calc(-50% + 8px),
-                calc(-50% + 35px)
-            )
-            rotate(12deg);
-    }
-
-    70% {
-        transform:
-            translate(
-                calc(-50% - 10px),
-                calc(-50% + 75px)
-            )
-            rotate(-15deg);
-    }
-
-    100% {
-        opacity: 0;
-
-        transform:
-            translate(
-                calc(-50% + 15px),
-                calc(-50% + 130px)
-            )
-            scale(0.6)
-            rotate(20deg);
-    }
-}
-
-
-/* ═══════════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE — VISITOR BOOK
 ═══════════════════════════════════════ */
 
 @media (max-width: 700px) {
 
-    .page {
-        max-width: 100vw;
-    }
-
-    .page > .interface-image {
-        width: auto;
-
-        height: 100vh;
-
-        max-width: none;
-
-        max-height: 100vh;
-
-        object-fit: contain;
-    }
-
-    .welcome-name {
-        max-width: 80vw;
-
-        font-size: 25px;
-    }
-
-    .living-choice {
-        font-size: 28px;
-    }
-
-    .other-side-choice {
-        font-size: 25px;
-    }
-
-    .noctem-main-title {
-        font-size: 35px;
-    }
-
-    .chronicles-intro {
-        font-size: 10px;
+    #page-visitor-book {
+        overflow-y: auto;
     }
 
     #page-visitor-book .visitor-book {
+        top: 3vh;
+
         width: 94vw;
 
-        min-height: 90vh;
+        min-height: 94vh;
 
-        top: 4vh;
+        padding:
+            35px
+            25px
+            70px;
 
-        padding: 25px 22px;
+        transform: rotate(0deg);
+
+        box-shadow:
+            6px 6px 0 rgba(91, 16, 41, 0.25);
+    }
+
+    .visitor-book-header h1 {
+        font-size: 40px;
     }
 
     .visitor-book-content {
         grid-template-columns: 1fr;
 
-        gap: 25px;
+        gap: 35px;
+    }
+
+    .visitor-write {
+        padding-right: 0;
+
+        padding-bottom: 30px;
+
+        border-right: none;
+
+        border-bottom:
+            1px solid rgba(255, 255, 255, 0.16);
     }
 
     .visitor-messages {
-        max-height: 250px;
+        max-height: 320px;
     }
 
     .visitor-book-return {
-        left: 22px;
-        bottom: 12px;
+        left: 25px;
+        bottom: 22px;
     }
 
     .visitor-book-whisper {
