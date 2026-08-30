@@ -289,7 +289,7 @@ const supabaseClient = supabase.createClient(
 
 })();
 /* ═══════════════════════════════
-   VISITOR BOOK
+VISITOR BOOK — SUPABASE
 ═══════════════════════════════ */
 
 const visitorName = document.getElementById("visitor-name");
@@ -297,153 +297,200 @@ const visitorMessage = document.getElementById("visitor-message");
 const visitorSubmit = document.getElementById("visitor-submit");
 const visitorStatus = document.getElementById("visitor-status");
 const visitorMessageList =
-    document.getElementById("visitor-message-list");
+document.getElementById("visitor-message-list");
+
+/* ═══════════════════════════════
+LOAD MESSAGES FROM SUPABASE
+═══════════════════════════════ */
+
+async function loadVisitorMessages() {
+
+```
+const { data, error } = await supabaseClient
+    .from("visitor_messages")
+    .select("*")
+    .order("created_at", { ascending: false });
 
 
-function loadVisitorMessages() {
+if (error) {
 
-    const messages =
-        JSON.parse(
-            localStorage.getItem("visitorMessages") || "[]"
-        );
+    console.error("Erreur chargement messages :", error);
 
-    visitorMessageList.innerHTML = "";
+    visitorMessageList.innerHTML = `
+        <div class="visitor-empty">
+            the book could not be opened.
+        </div>
+    `;
 
-    if (messages.length === 0) {
+    return;
+}
 
-        visitorMessageList.innerHTML = `
-            <div class="visitor-empty">
-                no messages have been left yet.
-                <br>
-                perhaps you could be the first.
-            </div>
-        `;
+
+visitorMessageList.innerHTML = "";
+
+
+if (!data || data.length === 0) {
+
+    visitorMessageList.innerHTML = `
+        <div class="visitor-empty">
+            no messages have been left yet.
+            <br>
+            perhaps you could be the first.
+        </div>
+    `;
+
+    return;
+}
+
+
+data.forEach(message => {
+
+    const entry =
+        document.createElement("div");
+
+    entry.className =
+        "visitor-message";
+
+
+    const name =
+        document.createElement("div");
+
+    name.className =
+        "visitor-message-name";
+
+    name.textContent =
+        message.name || "ANONYMOUS";
+
+
+    const text =
+        document.createElement("div");
+
+    text.className =
+        "visitor-message-text";
+
+    text.textContent =
+        message.message;
+
+
+    const date =
+        document.createElement("div");
+
+    date.className =
+        "visitor-message-date";
+
+    if (message.created_at) {
+
+        date.textContent =
+            new Date(
+                message.created_at
+            ).toLocaleDateString(
+                "en-GB",
+                {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric"
+                }
+            );
+
+    }
+
+
+    entry.appendChild(name);
+    entry.appendChild(text);
+    entry.appendChild(date);
+
+    visitorMessageList.appendChild(entry);
+
+});
+```
+
+}
+
+/* ═══════════════════════════════
+SEND MESSAGE TO SUPABASE
+═══════════════════════════════ */
+
+visitorSubmit.addEventListener(
+"click",
+async () => {
+
+```
+    const name =
+        visitorName.value.trim();
+
+    const text =
+        visitorMessage.value.trim();
+
+
+    if (!text) {
+
+        visitorStatus.textContent =
+            "you left nothing behind.";
 
         return;
     }
 
 
-    messages
-        .slice()
-        .reverse()
-        .forEach(message => {
+    visitorSubmit.disabled = true;
 
-            const entry =
-                document.createElement("div");
-
-            entry.className =
-                "visitor-message";
+    visitorStatus.textContent =
+        "leaving something behind...";
 
 
-            const name =
-                document.createElement("div");
+    const { error } = await supabaseClient
+        .from("visitor_messages")
+        .insert([
+            {
+                name:
+                    name || "ANONYMOUS",
 
-            name.className =
-                "visitor-message-name";
-
-            name.textContent =
-                message.name || "ANONYMOUS";
-
-
-            const text =
-                document.createElement("div");
-
-            text.className =
-                "visitor-message-text";
-
-            text.textContent =
-                message.text;
+                message:
+                    text
+            }
+        ]);
 
 
-            const date =
-                document.createElement("div");
+    if (error) {
 
-            date.className =
-                "visitor-message-date";
-
-            date.textContent =
-                message.date;
-
-
-            entry.appendChild(name);
-            entry.appendChild(text);
-            entry.appendChild(date);
-
-            visitorMessageList.appendChild(entry);
-
-        });
-
-}
-
-
-visitorSubmit.addEventListener(
-    "click",
-    () => {
-
-        const name =
-            visitorName.value.trim();
-
-        const text =
-            visitorMessage.value.trim();
-
-
-        if (!text) {
-
-            visitorStatus.textContent =
-                "you left nothing behind.";
-
-            return;
-        }
-
-
-        const messages =
-            JSON.parse(
-                localStorage.getItem(
-                    "visitorMessages"
-                ) || "[]"
-            );
-
-
-        messages.push({
-
-            name:
-                name || "ANONYMOUS",
-
-            text:
-                text,
-
-            date:
-                new Date().toLocaleDateString(
-                    "en-GB",
-                    {
-                        day: "2-digit",
-                        month: "2-digit",
-                        year: "numeric"
-                    }
-                )
-
-        });
-
-
-        localStorage.setItem(
-            "visitorMessages",
-            JSON.stringify(messages)
+        console.error(
+            "Erreur envoi message :",
+            error
         );
 
-
-        visitorName.value = "";
-        visitorMessage.value = "";
-
-
         visitorStatus.textContent =
-            "your message has been recorded.";
+            "the message could not be recorded.";
 
+        visitorSubmit.disabled = false;
 
-        loadVisitorMessages();
-
+        return;
     }
+
+
+    visitorName.value = "";
+    visitorMessage.value = "";
+
+
+    visitorStatus.textContent =
+        "your message has been recorded.";
+
+
+    visitorSubmit.disabled = false;
+
+
+    await loadVisitorMessages();
+
+}
+```
+
 );
 
+/* ═══════════════════════════════
+INITIAL LOAD
+═══════════════════════════════ */
 
 loadVisitorMessages();
-console.log("Supabase connecté :", supabaseClient);
+
+console.log(
+"Supabase connecté :",
+supabaseClient
+);
