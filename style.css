@@ -734,9 +734,9 @@ textarea {
 
     line-height: 1;
 
-    text-align: center;
-
-    writing-mode: vertical-rl;
+    writing-mode: horizontal-tb;
+    
+    white-space: pre-line;
 
     text-orientation: mixed;
 
