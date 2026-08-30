@@ -2139,3 +2139,9 @@ a {
         translateX(-50%)
         rotate(2deg);
 }
+.library-heading {
+    top: 4%;
+    right: 7%;
+
+    transform: rotate(3deg);
+}
