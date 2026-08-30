@@ -612,7 +612,108 @@
 
         </section>
 
+<!-- ═════════════════════════════
+     VISITOR BOOK
+═══════════════════════════════ -->
 
+<section class="page" id="page-visitor-book">
+
+    <div class="visitor-book">
+
+        <div class="visitor-book-header">
+
+            <span class="visitor-book-number">
+                II — THE VISITOR BOOK
+            </span>
+
+            <h1>VISITOR BOOK</h1>
+
+            <p>
+                leave something behind.
+            </p>
+
+        </div>
+
+
+        <div class="visitor-book-content">
+
+            <!-- MESSAGE FORM -->
+
+            <div class="visitor-write">
+
+                <div class="visitor-label">
+                    WRITE SOMETHING
+                </div>
+
+                <input
+                    type="text"
+                    id="visitor-name"
+                    maxlength="30"
+                    placeholder="your name / anonymous"
+                    autocomplete="off"
+                >
+
+                <textarea
+                    id="visitor-message"
+                    maxlength="500"
+                    placeholder="leave your message here..."
+                ></textarea>
+
+                <button
+                    id="visitor-submit"
+                    type="button"
+                >
+                    LEAVE IT ✦
+                </button>
+
+                <div
+                    id="visitor-status"
+                    class="visitor-status"
+                ></div>
+
+            </div>
+
+
+            <!-- MESSAGES -->
+
+            <div class="visitor-messages">
+
+                <div class="visitor-label">
+                    THOSE WHO CAME BEFORE
+                </div>
+
+                <div id="visitor-message-list">
+
+                    <div class="visitor-empty">
+                        no messages have been left yet.
+                        <br>
+                        perhaps you could be the first.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="visitor-book-return"
+            onclick="showPage('page-library')"
+            aria-label="Return to Library"
+        >
+            ← RETURN TO LIBRARY
+        </button>
+
+
+        <div class="visitor-book-whisper">
+            words remain, even when their writers disappear.
+        </div>
+
+    </div>
+
+</section>
+        
         <!-- ═════════════════════════════
              ARE YOU LOST
         ═════════════════════════════ -->
