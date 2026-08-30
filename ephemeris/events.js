@@ -1,8 +1,9 @@
-/* ╔════════════════════════════════════════════════════╗
-   EPHEMERIS — EVENTS
-   Add entries using:
-   "YYYY-MM-DD": "text"
-   ╚════════════════════════════════════════════════════╝ */
+/*
+    EPHEMERIS — EVENTS
+
+    Add entries using:
+    "YYYY-MM-DD": "text"
+*/
 
 const strangeEvents = {
 
@@ -25,6 +26,9 @@ const strangeEvents = {
         "Something is waiting here.",
 
     "2026-12-31":
-        "LAST RECORDED DATE."
+        "LAST RECORDED DATE.", 
+ 
+   "2026-09-17":
+        "In between."
 
 };
