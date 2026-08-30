@@ -10,9 +10,8 @@ const supabaseClient = supabase.createClient(
     SUPABASE_PUBLISHABLE_KEY
 );
 
-
 /* ═══════════════════════════════════════
-   MAIN NAVIGATION
+   PAGE NAVIGATION
 ═══════════════════════════════════════ */
 
 (function () {
@@ -20,10 +19,6 @@ const supabaseClient = supabase.createClient(
     let pageHistory = [];
     let currentPage = "page-01";
 
-
-    /* ─────────────────────────────────────
-       SHOW PAGE
-    ───────────────────────────────────── */
 
     function showPage(pageId) {
 
@@ -51,10 +46,6 @@ const supabaseClient = supabase.createClient(
         });
     }
 
-
-    /* ─────────────────────────────────────
-       GO BACK
-    ───────────────────────────────────── */
 
     function goBackInTime() {
 
@@ -88,18 +79,40 @@ const supabaseClient = supabase.createClient(
     }
 
 
-    /* ─────────────────────────────────────
-       LOST PAGE
-    ───────────────────────────────────── */
-
     function showLostPage() {
         showPage("page-lost");
     }
 
 
-    /* ─────────────────────────────────────
+    function restartAdventure() {
+
+        pageHistory = [];
+
+        document
+            .querySelectorAll(".page")
+            .forEach(page => {
+                page.classList.remove("active");
+            });
+
+        const firstPage =
+            document.getElementById("page-01");
+
+        if (firstPage) {
+            firstPage.classList.add("active");
+        }
+
+        currentPage = "page-01";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "instant"
+        });
+    }
+
+
+    /* ═══════════════════════════════
        KEYBOARD NAVIGATION
-    ───────────────────────────────────── */
+    ═══════════════════════════════ */
 
     document.addEventListener("keydown", event => {
 
@@ -112,26 +125,22 @@ const supabaseClient = supabase.createClient(
                 activeElement.tagName === "TEXTAREA"
             );
 
-        if (
-            event.key === "ArrowLeft" &&
-            !typing
-        ) {
+        if (event.key === "ArrowLeft" && !typing) {
             goBackInTime();
         }
 
     });
 
 
-    /* Make functions available to HTML */
-
     window.showPage = showPage;
     window.goBackInTime = goBackInTime;
     window.showLostPage = showLostPage;
+    window.restartAdventure = restartAdventure;
 
 
-    /* ═══════════════════════════════════════
+    /* ═══════════════════════════════
        SPIDER CURSOR
-    ═══════════════════════════════════════ */
+    ═══════════════════════════════ */
 
     const spiderCursor =
         document.getElementById("spider-cursor");
@@ -152,11 +161,23 @@ const supabaseClient = supabase.createClient(
     });
 
 
-    /* ─────────────────────────────────────
-       SPIDER ESCAPES WHEN CLICKING
-    ───────────────────────────────────── */
+    /* ═══════════════════════════════
+       SPIDER ESCAPE ON CLICK
+    ═══════════════════════════════ */
 
     document.addEventListener("click", event => {
+
+        /*
+         * Ne pas créer une araignée supplémentaire
+         * lorsqu'on clique directement sur le curseur.
+         */
+
+        if (
+            event.target.closest("#spider-cursor")
+        ) {
+            return;
+        }
+
 
         const spider =
             document.createElement("div");
@@ -174,6 +195,7 @@ const supabaseClient = supabase.createClient(
 
         document.body.appendChild(spider);
 
+
         setTimeout(() => {
             spider.remove();
         }, 1400);
@@ -181,9 +203,9 @@ const supabaseClient = supabase.createClient(
     });
 
 
-    /* ═══════════════════════════════════════
-       SECRET MESSAGE SYSTEM
-    ═══════════════════════════════════════ */
+    /* ═══════════════════════════════
+       SECRET MESSAGE HELPER
+    ═══════════════════════════════ */
 
     function bindSecretReveal(
         trigger,
@@ -197,7 +219,10 @@ const supabaseClient = supabase.createClient(
 
         let hideTimeout;
 
-        trigger.addEventListener("click", () => {
+
+        trigger.addEventListener("click", event => {
+
+            event.stopPropagation();
 
             message.classList.add("visible");
 
@@ -214,9 +239,9 @@ const supabaseClient = supabase.createClient(
     }
 
 
-    /* ─────────────────────────────────────
-       WELCOME SECRET
-    ───────────────────────────────────── */
+    /* ═══════════════════════════════
+       SECRET MESSAGES
+    ═══════════════════════════════ */
 
     bindSecretReveal(
         document.querySelector(".strange-button-one"),
@@ -224,19 +249,11 @@ const supabaseClient = supabase.createClient(
     );
 
 
-    /* ─────────────────────────────────────
-       DIVIDE SECRET
-    ───────────────────────────────────── */
-
     bindSecretReveal(
         document.querySelector(".restart-button"),
         document.getElementById("restart-message")
     );
 
-
-    /* ─────────────────────────────────────
-       LIFE SECRET
-    ───────────────────────────────────── */
 
     bindSecretReveal(
         document.querySelector(".life-secret"),
@@ -244,29 +261,17 @@ const supabaseClient = supabase.createClient(
     );
 
 
-    /* ─────────────────────────────────────
-       DEATH SECRET
-    ───────────────────────────────────── */
-
     bindSecretReveal(
         document.querySelector(".death-secret"),
         document.getElementById("death-secret-message")
     );
 
 
-    /* ─────────────────────────────────────
-       NOCTEM SECRET
-    ───────────────────────────────────── */
-
     bindSecretReveal(
         document.querySelector(".noctem-secret"),
         document.getElementById("noctem-secret-message")
     );
 
-
-    /* ─────────────────────────────────────
-       CHRONIQUES SECRET
-    ───────────────────────────────────── */
 
     bindSecretReveal(
         document.querySelector(".chronicle-secret"),
@@ -275,10 +280,6 @@ const supabaseClient = supabase.createClient(
     );
 
 
-    /* ─────────────────────────────────────
-       LIBRARY SECRET
-    ───────────────────────────────────── */
-
     bindSecretReveal(
         document.querySelector(".library-secret"),
         document.getElementById("library-secret-message"),
@@ -286,9 +287,9 @@ const supabaseClient = supabase.createClient(
     );
 
 
-    /* ═══════════════════════════════════════
-       WELCOME STRANGE SYMBOL
-    ═══════════════════════════════════════ */
+    /* ═══════════════════════════════
+       WELCOME SECRET
+    ═══════════════════════════════ */
 
     const secretSymbol =
         document.querySelector(".secret-symbol");
@@ -296,11 +297,14 @@ const supabaseClient = supabase.createClient(
 
     if (secretSymbol) {
 
-        secretSymbol.addEventListener("click", () => {
+        secretSymbol.addEventListener("click", event => {
+
+            event.stopPropagation();
 
             document.body.classList.add(
                 "strange-glitch"
             );
+
 
             setTimeout(() => {
 
@@ -315,9 +319,56 @@ const supabaseClient = supabase.createClient(
     }
 
 
-    /* ═══════════════════════════════════════
-       DIVIDE CLOCK
-    ═══════════════════════════════════════ */
+    /* ═══════════════════════════════
+       RESTART BUTTON
+    ═══════════════════════════════ */
+
+    const restartButton =
+        document.querySelector(".restart-button");
+
+
+    if (restartButton) {
+
+        restartButton.addEventListener("click", event => {
+
+            event.stopPropagation();
+
+            /*
+             * On montre d'abord le message secret.
+             * Le vrai retour au début se fait après.
+             */
+
+            const restartMessage =
+                document.getElementById("restart-message");
+
+            if (restartMessage) {
+
+                restartMessage.classList.add("visible");
+
+                setTimeout(() => {
+
+                    restartMessage.classList.remove(
+                        "visible"
+                    );
+
+                    restartAdventure();
+
+                }, 1800);
+
+            } else {
+
+                restartAdventure();
+
+            }
+
+        });
+
+    }
+
+
+    /* ═══════════════════════════════
+       DIVIDE SECRET CLOCK
+    ═══════════════════════════════ */
 
     const divideSecret =
         document.querySelector(".divide-secret");
@@ -328,22 +379,50 @@ const supabaseClient = supabase.createClient(
 
     if (divideSecret && strangeClock) {
 
-        divideSecret.addEventListener(
-            "click",
-            () => {
+        divideSecret.addEventListener("click", event => {
+
+            event.stopPropagation();
+
+            strangeClock.textContent =
+                "00:00:00";
+
+
+            setTimeout(() => {
 
                 strangeClock.textContent =
-                    "00:00:00";
+                    "01:??:??";
 
-                setTimeout(() => {
+            }, 1800);
 
-                    strangeClock.textContent =
-                        "01:??:??";
+        });
 
-                }, 1800);
+    }
+
+
+    /* ═══════════════════════════════
+       ENTER PASSWORD WITH ENTER KEY
+    ═══════════════════════════════ */
+
+    const passwordInput =
+        document.getElementById("ephemeris-password");
+
+    const unlockButton =
+        document.getElementById("ephemeris-unlock");
+
+
+    if (passwordInput && unlockButton) {
+
+        passwordInput.addEventListener("keydown", event => {
+
+            if (event.key === "Enter") {
+
+                event.preventDefault();
+
+                unlockButton.click();
 
             }
-        );
+
+        });
 
     }
 
@@ -354,44 +433,45 @@ const supabaseClient = supabase.createClient(
    VISITOR BOOK — SUPABASE
 ═══════════════════════════════════════ */
 
-/*
-   IMPORTANT :
-   Le HTML possède deux zones "visitor-book".
-   On utilise uniquement les éléments du
-   véritable #page-visitor-book.
-*/
-
-const visitorBookPage =
-    document.getElementById("page-visitor-book");
-
-
-if (visitorBookPage) {
+document.addEventListener("DOMContentLoaded", () => {
 
     const visitorName =
-        visitorBookPage.querySelector("#visitor-name");
+        document.getElementById("visitor-name");
 
     const visitorMessage =
-        visitorBookPage.querySelector("#visitor-message");
+        document.getElementById("visitor-message");
 
     const visitorSubmit =
-        visitorBookPage.querySelector("#visitor-submit");
+        document.getElementById("visitor-submit");
 
     const visitorStatus =
-        visitorBookPage.querySelector("#visitor-status");
+        document.getElementById("visitor-status");
 
     const visitorMessageList =
-        visitorBookPage.querySelector("#visitor-message-list");
+        document.getElementById("visitor-message-list");
 
 
-    /* ═══════════════════════════════════════
+    /*
+     * Si la page Visitor Book n'existe pas,
+     * on ne fait rien.
+     */
+
+    if (
+        !visitorName ||
+        !visitorMessage ||
+        !visitorSubmit ||
+        !visitorStatus ||
+        !visitorMessageList
+    ) {
+        return;
+    }
+
+
+    /* ═══════════════════════════════
        LOAD MESSAGES
-    ═══════════════════════════════════════ */
+    ═══════════════════════════════ */
 
     async function loadVisitorMessages() {
-
-        if (!visitorMessageList) {
-            return;
-        }
 
         const {
             data,
@@ -399,17 +479,10 @@ if (visitorBookPage) {
         } = await supabaseClient
             .from("visitor_messages")
             .select("*")
-            .order(
-                "created_at",
-                {
-                    ascending: false
-                }
-            );
+            .order("created_at", {
+                ascending: false
+            });
 
-
-        /* ─────────────────────────────────────
-           ERROR
-        ───────────────────────────────────── */
 
         if (error) {
 
@@ -431,10 +504,6 @@ if (visitorBookPage) {
         visitorMessageList.innerHTML = "";
 
 
-        /* ─────────────────────────────────────
-           EMPTY BOOK
-        ───────────────────────────────────── */
-
         if (!data || data.length === 0) {
 
             visitorMessageList.innerHTML = `
@@ -449,10 +518,6 @@ if (visitorBookPage) {
         }
 
 
-        /* ─────────────────────────────────────
-           CREATE EACH MESSAGE
-        ───────────────────────────────────── */
-
         data.forEach(message => {
 
             const entry =
@@ -461,8 +526,6 @@ if (visitorBookPage) {
             entry.className =
                 "visitor-message";
 
-
-            /* NAME */
 
             const name =
                 document.createElement("div");
@@ -474,8 +537,6 @@ if (visitorBookPage) {
                 message.name || "ANONYMOUS";
 
 
-            /* MESSAGE */
-
             const text =
                 document.createElement("div");
 
@@ -485,8 +546,6 @@ if (visitorBookPage) {
             text.textContent =
                 message.message || "";
 
-
-            /* DATE */
 
             const date =
                 document.createElement("div");
@@ -523,110 +582,87 @@ if (visitorBookPage) {
     }
 
 
-    /* ═══════════════════════════════════════
+    /* ═══════════════════════════════
        SEND MESSAGE
-    ═══════════════════════════════════════ */
+    ═══════════════════════════════ */
 
-    if (
-        visitorSubmit &&
-        visitorMessage &&
-        visitorStatus
-    ) {
+    visitorSubmit.addEventListener(
+        "click",
+        async () => {
 
-        visitorSubmit.addEventListener(
-            "click",
-            async () => {
+            const name =
+                visitorName.value.trim();
 
-                const name =
-                    visitorName
-                        ? visitorName.value.trim()
-                        : "";
-
-                const text =
-                    visitorMessage.value.trim();
+            const text =
+                visitorMessage.value.trim();
 
 
-                /* EMPTY MESSAGE */
-
-                if (!text) {
-
-                    visitorStatus.textContent =
-                        "you left nothing behind.";
-
-                    return;
-                }
-
-
-                /* DISABLE BUTTON */
-
-                visitorSubmit.disabled = true;
+            if (!text) {
 
                 visitorStatus.textContent =
-                    "leaving something behind...";
+                    "you left nothing behind.";
+
+                return;
+            }
 
 
-                /* SEND TO SUPABASE */
+            visitorSubmit.disabled = true;
 
-                const {
+            visitorStatus.textContent =
+                "leaving something behind...";
+
+
+            const {
+                error
+            } = await supabaseClient
+                .from("visitor_messages")
+                .insert([
+                    {
+                        name:
+                            name || "ANONYMOUS",
+
+                        message:
+                            text
+                    }
+                ]);
+
+
+            if (error) {
+
+                console.error(
+                    "Erreur envoi message :",
                     error
-                } = await supabaseClient
-                    .from("visitor_messages")
-                    .insert([
-                        {
-                            name:
-                                name || "ANONYMOUS",
-
-                            message:
-                                text
-                        }
-                    ]);
-
-
-                /* ERROR */
-
-                if (error) {
-
-                    console.error(
-                        "Erreur envoi message :",
-                        error
-                    );
-
-                    visitorStatus.textContent =
-                        "the message could not be recorded.";
-
-                    visitorSubmit.disabled = false;
-
-                    return;
-                }
-
-
-                /* SUCCESS */
-
-                if (visitorName) {
-                    visitorName.value = "";
-                }
-
-                visitorMessage.value = "";
+                );
 
                 visitorStatus.textContent =
-                    "your message has been recorded.";
+                    "the message could not be recorded.";
 
                 visitorSubmit.disabled = false;
 
-
-                /* REFRESH BOOK */
-
-                await loadVisitorMessages();
-
+                return;
             }
-        );
-
-    }
 
 
-    /* ═══════════════════════════════════════
-       INITIAL LOAD
-    ═══════════════════════════════════════ */
+            visitorName.value = "";
+            visitorMessage.value = "";
+
+
+            visitorStatus.textContent =
+                "your message has been recorded.";
+
+
+            visitorSubmit.disabled = false;
+
+
+            await loadVisitorMessages();
+
+        }
+    );
+
+
+    /* ═══════════════════════════════
+       LOAD AT START
+    ═══════════════════════════════ */
 
     loadVisitorMessages();
 
@@ -636,5 +672,4 @@ if (visitorBookPage) {
         supabaseClient
     );
 
-}
-
+});
