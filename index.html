@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -17,16 +18,20 @@
     >
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
+
 
     <!-- ═════════════════════════════════════
          SPIDER CURSOR
     ═════════════════════════════════════ -->
 
     <div id="spider-cursor">
+
         <div class="web">
+
             <span class="web-line line-1"></span>
             <span class="web-line line-2"></span>
             <span class="web-line line-3"></span>
@@ -34,8 +39,11 @@
 
             <span class="web-ring ring-1"></span>
             <span class="web-ring ring-2"></span>
+
         </div>
+
     </div>
+
 
 
     <main class="adventure">
@@ -58,20 +66,23 @@
                     class="interface-image"
                 >
 
-                <!-- TEXTE DANS LA ZONE BLANCHE -->
+
+                <!-- WELCOME -->
 
                 <div class="welcome-title">
 
                     <span class="welcome-name">
+
                         WELCOME<br>
                         TO A BIZARRE<br>
                         ADVENTURE
+
                     </span>
 
                 </div>
 
 
-                <!-- WARNING — BAS DROITE -->
+                <!-- WARNING -->
 
                 <div class="time-warning">
 
@@ -80,14 +91,17 @@
                     </span>
 
                     <span>
+
                         to go back in time, press
+
                         <strong>←</strong>
+
                     </span>
 
                 </div>
 
 
-                <!-- ZONE CLIQUABLE EXACTEMENT SUR LE WELCOME -->
+                <!-- ZONE CLIQUABLE WELCOME -->
 
                 <button
                     class="hotspot welcome"
@@ -126,7 +140,7 @@
 
 
         <!-- ═════════════════════════════════════
-             THE DIVIDE
+             02 — THE DIVIDE
         ═════════════════════════════════════ -->
 
         <section
@@ -148,6 +162,8 @@
                 </div>
 
 
+                <!-- LIFE -->
+
                 <button
                     class="hotspot life"
                     onclick="showPage('page-03')"
@@ -155,10 +171,13 @@
                     type="button"
                 ></button>
 
+
                 <div class="divide-label divide-life-label">
                     LIFE
                 </div>
 
+
+                <!-- DEATH -->
 
                 <button
                     class="hotspot death"
@@ -166,6 +185,7 @@
                     aria-label="Death"
                     type="button"
                 ></button>
+
 
                 <div class="divide-label divide-death-label">
                     DEATH
@@ -211,7 +231,7 @@
 
 
         <!-- ═════════════════════════════════════
-             THE LIVING SIDE
+             03 — THE LIVING SIDE
         ═════════════════════════════════════ -->
 
         <section
@@ -240,7 +260,7 @@
                 </div>
 
 
-                <!-- IN BETWEEN — CONSERVÉ COMME AVANT -->
+                <!-- IN BETWEEN -->
 
                 <div class="living-choice between-choice">
                     IN BETWEEN
@@ -254,11 +274,13 @@
                 </div>
 
 
-                <!-- EVERYTHING IS REAL — PLUS HAUT -->
+                <!-- EVERYTHING IS REAL -->
 
                 <div class="life-whisper">
+
                     everything is real<br>
                     until it isn't
+
                 </div>
 
 
@@ -461,17 +483,23 @@
                 <div class="ephemeris-footer">
 
                     <div>
+
                         LAST RECORDED:
+
                         <span id="last-recorded">
                             29 / 08 / 2026
                         </span>
+
                     </div>
 
                     <div>
+
                         NEXT EVENT:
+
                         <span class="unknown">
                             ██████████
                         </span>
+
                     </div>
 
                 </div>
@@ -508,7 +536,7 @@
 
 
         <!-- ═════════════════════════════════════
-             THE OTHER SIDE
+             03' — THE OTHER SIDE
         ═════════════════════════════════════ -->
 
         <section
@@ -530,9 +558,10 @@
                 </div>
 
 
-                <!-- OBSESSION — GRILLE DÉCALÉE -->
+                <!-- OBSESSION -->
 
                 <div class="other-side-choice obsession-choice">
+
                     <span>O</span>
                     <span>B</span>
                     <span>S</span>
@@ -543,30 +572,36 @@
                     <span>I</span>
                     <span>O</span>
                     <span>N</span>
+
                 </div>
 
 
-                <!-- CARPE NOCTEM — GRILLE DÉCALÉE -->
+                <!-- CARPE NOCTEM -->
 
                 <div class="other-side-choice noctem-choice">
+
                     <span>C</span>
                     <span>A</span>
                     <span>R</span>
                     <span>P</span>
                     <span>E</span>
+
                     <span class="word-gap"></span>
+
                     <span>N</span>
                     <span>O</span>
                     <span>C</span>
                     <span>T</span>
                     <span>E</span>
                     <span>M</span>
+
                 </div>
 
 
-                <!-- CONSPIRATIONS — GRILLE DÉCALÉE -->
+                <!-- CONSPIRATIONS -->
 
                 <div class="other-side-choice conspirations-choice">
+
                     <span>C</span>
                     <span>O</span>
                     <span>N</span>
@@ -580,6 +615,7 @@
                     <span>O</span>
                     <span>N</span>
                     <span>S</span>
+
                 </div>
 
 
@@ -610,8 +646,6 @@
                 ></button>
 
 
-                <!-- ? FONCTIONNEL -->
-
                 <button
                     class="death-secret"
                     aria-label="Do not click"
@@ -632,7 +666,7 @@
 
 
         <!-- ═════════════════════════════════════
-             CARPE NOCTEM
+             04' — CARPE NOCTEM
         ═════════════════════════════════════ -->
 
         <section
@@ -649,8 +683,6 @@
                 >
 
 
-                <!-- PLUS PETIT + DESCENDU -->
-
                 <div class="noctem-main-title">
                     CARPE NOCTEM
                 </div>
@@ -661,7 +693,7 @@
                 </div>
 
 
-                <!-- COEURS : ZONES CLIQUABLES CADRÉES -->
+                <!-- COEURS -->
 
                 <button
                     class="hotspot heart-left"
@@ -679,7 +711,7 @@
                 ></button>
 
 
-                <!-- CROIX PLUS GRANDE + GRAS -->
+                <!-- CROIX CENTRALE -->
 
                 <button
                     class="noctem-secret"
@@ -718,8 +750,6 @@
                 >
 
 
-                <!-- TITRE PLUS PETIT -->
-
                 <div class="page-main-title chronicles-title">
                     CHRONIQUES
                 </div>
@@ -730,9 +760,7 @@
                 </div>
 
 
-                <!-- ═════════════════════════════
-                     10 ENTRÉES — TRÈFLES
-                ═════════════════════════════ -->
+                <!-- 10 ENTRÉES -->
 
                 <button
                     class="chronicle-entry chronicle-01"
@@ -871,18 +899,12 @@
                 >
 
 
-                <!-- THE LIBRARY SUPPRIMÉ -->
-
-                <!-- TITRE CENTRÉ + PLUS PETIT -->
-
                 <div class="page-main-title library-title">
                     LIBRARY
                 </div>
 
 
-                <!-- ═════════════════════════════
-                     10 ENTRÉES — PIQUES
-                ═════════════════════════════ -->
+                <!-- 10 ENTRÉES -->
 
                 <button
                     class="library-entry library-01"
@@ -1091,9 +1113,13 @@
                         <div id="visitor-message-list">
 
                             <div class="visitor-empty">
+
                                 no messages have been left yet.
+
                                 <br>
+
                                 perhaps you could be the first.
+
                             </div>
 
                         </div>
