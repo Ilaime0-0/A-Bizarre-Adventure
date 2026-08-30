@@ -510,17 +510,27 @@ a {
 }
 
 .reality-choice {
-    top: 16%;
-}
+    top: 13%;
 
+    transform:
+        translateX(-50%)
+        rotate(-3deg);
+}
 
 .between-choice {
-    top: 48%;
+    top: 45%;
+
+    transform:
+        translateX(-50%)
+        rotate(2deg);
 }
 
-
 .fiction-choice {
-    top: 81%;
+    top: 77%;
+
+    transform:
+        translateX(-50%)
+        rotate(-2deg);
 }
 
 
