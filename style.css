@@ -2750,3 +2750,555 @@ a {
     }
 
 }
+/* ╔══════════════════════════════════════════════════════════════╗
+   VISITOR BOOK
+   ╚══════════════════════════════════════════════════════════════╝ */
+
+#page-visitor-book {
+    background: #0a0a0a;
+    color: #ffffff;
+}
+
+
+/* ═══════════════════════════════
+   BOOK
+═══════════════════════════════ */
+
+.visitor-book {
+
+    position: relative;
+
+    width: min(1100px, 90vw);
+    height: 88vh;
+
+    margin: 6vh auto 0;
+
+    box-sizing: border-box;
+
+    padding: 45px 55px;
+
+    font-family: var(--font-mono);
+
+    overflow: hidden;
+
+    /*
+       Une grande "page" plutôt qu'une
+       interface informatique.
+    */
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.035),
+            rgba(255,255,255,0.01) 50%,
+            rgba(255,255,255,0.035)
+        );
+
+    border-top:
+        1px solid rgba(255,255,255,0.65);
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.65);
+
+}
+
+
+/* ═══════════════════════════════
+   HEADER
+═══════════════════════════════ */
+
+.visitor-book-header {
+
+    text-align: center;
+
+    margin-bottom: 35px;
+
+}
+
+
+.visitor-book-number {
+
+    display: block;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    opacity: 0.5;
+
+    margin-bottom: 8px;
+
+}
+
+
+.visitor-book-header h1 {
+
+    margin: 0;
+
+    font-family: var(--font-display);
+
+    font-size: clamp(45px, 6vw, 72px);
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 12px rgba(255,255,255,0.35);
+
+}
+
+
+.visitor-book-header p {
+
+    margin: 8px 0 0;
+
+    font-family: var(--font-serif);
+
+    font-style: italic;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.55;
+
+}
+
+
+/* ═══════════════════════════════
+   TWO SIDES
+═══════════════════════════════ */
+
+.visitor-book-content {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 55px;
+
+    height: calc(100% - 150px);
+
+}
+
+
+/* ═══════════════════════════════
+   LABELS
+═══════════════════════════════ */
+
+.visitor-label {
+
+    margin-bottom: 16px;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    color: rgba(255,255,255,0.85);
+
+}
+
+
+/* ═══════════════════════════════
+   WRITE
+═══════════════════════════════ */
+
+.visitor-write {
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding-right: 35px;
+
+    border-right:
+        1px solid rgba(255,255,255,0.35);
+
+}
+
+
+/* NAME */
+
+#visitor-name {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 12px 5px;
+
+    margin-bottom: 15px;
+
+    border: none;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.35);
+
+    outline: none;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-family: var(--font-mono);
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+}
+
+
+#visitor-name::placeholder,
+#visitor-message::placeholder {
+
+    color: rgba(255,255,255,0.28);
+
+}
+
+
+/* MESSAGE */
+
+#visitor-message {
+
+    width: 100%;
+
+    min-height: 230px;
+
+    box-sizing: border-box;
+
+    padding: 15px;
+
+    resize: none;
+
+    outline: none;
+
+    border:
+        1px solid rgba(255,255,255,0.35);
+
+    background:
+        rgba(255,255,255,0.025);
+
+    color: #ffffff;
+
+    font-family: var(--font-serif);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+}
+
+
+#visitor-message:focus {
+
+    border-color:
+        rgba(255,255,255,0.7);
+
+}
+
+
+/* SUBMIT */
+
+#visitor-submit {
+
+    align-self: flex-start;
+
+    margin-top: 18px;
+
+    padding: 11px 18px;
+
+    border:
+        1px solid rgba(255,255,255,0.65);
+
+    background:
+        rgba(10,10,10,0.8);
+
+    color: #ffffff;
+
+    font-family: var(--font-mono);
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    cursor: none;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+
+}
+
+
+#visitor-submit:hover {
+
+    transform:
+        rotate(-2deg)
+        scale(1.08);
+
+    background:
+        rgba(255,255,255,0.08);
+
+}
+
+
+/* STATUS */
+
+.visitor-status {
+
+    margin-top: 15px;
+
+    min-height: 18px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.65;
+
+}
+
+
+/* ═══════════════════════════════
+   MESSAGE LIST
+═══════════════════════════════ */
+
+.visitor-messages {
+
+    overflow-y: auto;
+
+    padding-left: 5px;
+
+}
+
+
+#visitor-message-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+
+    padding-right: 15px;
+
+}
+
+
+/* INDIVIDUAL MESSAGE */
+
+.visitor-message {
+
+    position: relative;
+
+    padding: 18px 20px;
+
+    border-left:
+        1px solid rgba(255,255,255,0.6);
+
+    background:
+        rgba(255,255,255,0.025);
+
+    transform:
+        rotate(-0.5deg);
+
+}
+
+
+.visitor-message:nth-child(even) {
+
+    transform:
+        rotate(0.6deg);
+
+}
+
+
+.visitor-message-name {
+
+    font-family: var(--font-mono);
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 9px;
+
+    opacity: 0.6;
+
+}
+
+
+.visitor-message-text {
+
+    font-family: var(--font-serif);
+
+    font-size: 15px;
+
+    line-height: 1.65;
+
+    white-space: pre-wrap;
+
+}
+
+
+.visitor-message-date {
+
+    margin-top: 12px;
+
+    font-family: var(--font-mono);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.35;
+
+}
+
+
+/* EMPTY */
+
+.visitor-empty {
+
+    padding: 35px 15px;
+
+    font-family: var(--font-serif);
+
+    font-style: italic;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    opacity: 0.45;
+
+    text-align: center;
+
+}
+
+
+/* ═══════════════════════════════
+   RETURN
+═══════════════════════════════ */
+
+.visitor-book-return {
+
+    position: absolute;
+
+    left: 35px;
+    bottom: 22px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-family: var(--font-mono);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.45;
+
+    cursor: none;
+
+    transition:
+        opacity 0.3s ease;
+
+}
+
+
+.visitor-book-return:hover {
+
+    opacity: 1;
+
+}
+
+
+/* ═══════════════════════════════
+   WHISPER
+═══════════════════════════════ */
+
+.visitor-book-whisper {
+
+    position: absolute;
+
+    right: 40px;
+    bottom: 22px;
+
+    font-family: var(--font-serif);
+
+    font-size: 10px;
+
+    font-style: italic;
+
+    letter-spacing: 1px;
+
+    opacity: 0.3;
+
+    transform:
+        rotate(-2deg);
+
+}
+
+
+/* ═══════════════════════════════
+   MOBILE
+═══════════════════════════════ */
+
+@media (max-width: 700px) {
+
+    .visitor-book {
+
+        width: 94vw;
+        height: 94vh;
+
+        margin-top: 3vh;
+
+        padding: 30px 22px;
+
+    }
+
+    .visitor-book-content {
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        overflow-y: auto;
+
+    }
+
+    .visitor-write {
+
+        padding-right: 0;
+
+        padding-bottom: 30px;
+
+        border-right: none;
+
+        border-bottom:
+            1px solid rgba(255,255,255,0.35);
+
+    }
+
+    .visitor-messages {
+
+        overflow: visible;
+
+    }
+
+    .visitor-book-whisper {
+
+        display: none;
+
+    }
+
+}
