@@ -478,25 +478,36 @@ a {
 
     z-index: 60;
 
-    padding: 9px 18px;
+    padding: 13px 28px;
 
-    border: 1px solid rgba(255, 255, 255, 0.7);
+    background: rgba(250, 247, 240, 0.97);
 
-    background: rgba(10, 10, 10, 0.65);
+    border: 2px solid var(--bordeaux);
 
-    color: #ffffff;
+    color: var(--bordeaux);
 
-    font-family: var(--font-mono);
+    font-family: var(--font-display);
 
-    font-size: 16px;
+    font-size: clamp(32px, 4.7vw, 58px);
 
-    font-weight: bold;
+    font-weight: 700;
 
-    letter-spacing: 4px;
+    letter-spacing: 3px;
+
+    line-height: 1;
+
+    text-align: center;
+
+    white-space: nowrap;
+
+    box-shadow:
+        5px 5px 0 rgba(181, 42, 80, 0.3);
+
+    text-shadow:
+        0 0 8px rgba(181, 42, 80, 0.2);
 
     pointer-events: none;
 }
-
 
 .reality-choice {
     top: 16%;
