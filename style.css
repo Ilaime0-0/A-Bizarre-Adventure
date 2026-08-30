@@ -682,31 +682,40 @@ a {
 .noctem-main-title {
     position: absolute;
 
-    top: 50%;
+    top: 23%;
     left: 50%;
 
     transform:
         translate(-50%, -50%)
-        rotate(-2deg);
+        rotate(-3deg);
 
     z-index: 60;
 
-    color: #ffffff;
+    color: var(--bordeaux);
+
+    background: rgba(250, 247, 240, 0.97);
+
+    border: 2px solid var(--bordeaux);
+
+    padding: 16px 32px;
 
     font-family: var(--font-display);
 
-    font-size: clamp(30px, 5vw, 52px);
+    font-size: clamp(42px, 6vw, 72px);
 
     font-weight: 700;
 
-    letter-spacing: 3px;
+    letter-spacing: 4px;
 
     text-align: center;
 
     white-space: nowrap;
 
+    box-shadow:
+        6px 6px 0 rgba(181, 42, 80, 0.35);
+
     text-shadow:
-        0 0 12px rgba(255, 255, 255, 0.4);
+        0 0 10px rgba(181, 42, 80, 0.2);
 
     pointer-events: none;
 }
