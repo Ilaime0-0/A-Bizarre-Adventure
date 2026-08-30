@@ -31,6 +31,7 @@ body {
 
 body {
     min-height: 100vh;
+
     background: var(--void);
 
     display: flex;
@@ -61,6 +62,10 @@ body {
 
     justify-content: center;
     align-items: flex-start;
+
+    background: var(--void);
+
+    isolation: isolate;
 }
 
 .page.active {
@@ -69,16 +74,26 @@ body {
 
 
 /* ═══════════════════════════════════════
+   INTERFACE
+═══════════════════════════════════════ */
+
+.interface {
+    position: relative;
+
+    height: 100vh;
+    width: max-content;
+
+    flex-shrink: 0;
+
+    z-index: 1;
+}
+
+
+/* ═══════════════════════════════════════
    INTERFACE IMAGES
 ═══════════════════════════════════════ */
 
 .interface-image {
-    .interface {
-    position: relative;
-    height: 100vh;
-    width: max-content;
-    flex-shrink: 0;
-}
     position: relative;
 
     z-index: 1;
@@ -107,13 +122,14 @@ body {
     min-height: 100vh;
 
     display: flex;
+
     justify-content: center;
     align-items: flex-start;
 }
 
 
 /* ═══════════════════════════════════════
-   CURSEUR
+   CURSEUR ARAIGNÉE
 ═══════════════════════════════════════ */
 
 html,
@@ -249,7 +265,7 @@ textarea {
 .hotspot:hover {
     background: rgba(255, 255, 255, 0.08);
 
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
 
 
@@ -260,7 +276,7 @@ textarea {
 .welcome-title {
     position: absolute;
 
-    top: 13%;
+    top: 11%;
     left: 50%;
 
     transform:
@@ -269,9 +285,12 @@ textarea {
 
     z-index: 40;
 
+    width: 58%;
+
     pointer-events: none;
 
     font-family: var(--font-display);
+
     font-weight: 700;
 
     text-align: center;
@@ -285,28 +304,36 @@ textarea {
 .welcome-name {
     display: block;
 
-    width: 600px;
-    max-width: 72vw;
+    width: min(600px, 100%);
 
-    font-size: clamp(25px, 2vw, 25px);
+    margin: 0 auto;
+
+    font-size: clamp(25px, 2.5vw, 34px);
 
     letter-spacing: 3px;
-    line-height: 1.02;
+
+    line-height: 1.05;
 
     white-space: normal;
+
     text-align: center;
 
-    padding: 10px 22px;
+    padding: 8px 18px;
 
-    background: rgba(10, 10, 10, 0.90);
+    box-sizing: border-box;
+
+    background: rgba(10, 10, 10, 0.88);
 
     text-shadow:
         0 0 8px rgba(0, 0, 0, 0.95),
         0 0 14px var(--bordeaux-glow);
 }
 
+
+/* Zone interactive abaissée
+   pour correspondre à l'encadré blanc */
 .welcome {
-    top: 7%;
+    top: 14%;
     left: 23%;
 
     width: 54%;
@@ -314,37 +341,39 @@ textarea {
 }
 
 
-/* WARNING
-   Positionné par rapport au centre de l'interface.
-*/
+/* ═══════════════════════════════════════
+   WARNING
+═══════════════════════════════════════ */
 
 .time-warning {
     position: absolute;
 
     top: auto;
-    bottom: 7%;
+    bottom: 10%;
 
-    left: 40%;
+    left: 31%;
 
     transform:
-        translateX(100px)
+        translateX(-50%)
         rotate(-3deg);
 
     z-index: 70;
 
     display: flex;
+
     flex-direction: column;
 
     gap: 7px;
 
-    padding: 12px 18px;
+    padding: 10px 16px;
 
     border: 1px solid rgba(255, 255, 255, 0.65);
 
-    background: rgba(10, 10, 10, 0.7);
+    background: rgba(10, 10, 10, 0.78);
 
     font-family: var(--font-mono);
-    font-size: 11px;
+
+    font-size: 10px;
 
     letter-spacing: 1px;
 
@@ -361,7 +390,7 @@ textarea {
 }
 
 .warning-title {
-    font-size: 14px;
+    font-size: 13px;
 
     letter-spacing: 4px;
 }
@@ -392,6 +421,7 @@ textarea {
     padding: 9px 16px;
 
     font-family: var(--font-mono);
+
     font-size: 15px;
 
     letter-spacing: 3px;
@@ -439,6 +469,10 @@ textarea {
     height: 20%;
 }
 
+
+/* LIFE / DEATH
+   Plus petits + centrés dans leurs encadrés */
+
 .divide-label {
     position: absolute;
 
@@ -446,7 +480,7 @@ textarea {
 
     pointer-events: none;
 
-    padding: 13px 28px;
+    padding: 9px 22px;
 
     background: rgba(250, 247, 240, 0.97);
 
@@ -456,7 +490,7 @@ textarea {
 
     font-family: var(--font-display);
 
-    font-size: clamp(34px, 5vw, 62px);
+    font-size: clamp(27px, 4vw, 48px);
 
     font-weight: 700;
 
@@ -593,6 +627,10 @@ textarea {
     height: 29%;
 }
 
+
+/* Zones parfaitement alignées
+   sur les trois grands cadres */
+
 .living-choice {
     position: absolute;
 
@@ -602,7 +640,7 @@ textarea {
 
     z-index: 60;
 
-    padding: 8px 20px;
+    padding: 7px 16px;
 
     background: rgba(10, 10, 10, 0.90);
 
@@ -612,7 +650,7 @@ textarea {
 
     font-family: var(--font-display);
 
-    font-size: clamp(27px, 3.8vw, 48px);
+    font-size: clamp(23px, 3.2vw, 40px);
 
     font-weight: 700;
 
@@ -657,29 +695,53 @@ textarea {
         rotate(-2deg);
 }
 
+
+/* Message déplacé vers une zone visible,
+   style WARNING / DON'T */
+
 .life-whisper {
     position: absolute;
 
-    left: 6%;
-    bottom: 7%;
+    left: 7%;
+    bottom: 8%;
 
-    z-index: 40;
+    z-index: 70;
+
+    padding: 9px 14px;
+
+    background: rgba(10, 10, 10, 0.78);
+
+    border: 1px solid rgba(255, 255, 255, 0.6);
 
     font-family: var(--font-mono);
 
-    font-size: 10px;
+    font-size: 9px;
 
-    line-height: 1.8;
+    line-height: 1.6;
 
     letter-spacing: 2px;
 
-    color: var(--ink-dim);
+    color: var(--ink);
 
-    text-align: left;
+    text-align: center;
 
     transform: rotate(-4deg);
 
     pointer-events: none;
+}
+
+
+/* + rendu visible, plus gros et plus gras */
+
+.life-secret {
+    right: 8%;
+    bottom: 8%;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    color: #ffffff;
 }
 
 
@@ -711,6 +773,11 @@ textarea {
     height: 28%;
 }
 
+
+/* Grille décalée :
+   chaque lettre reste verticale,
+   mais sa position horizontale varie */
+
 .other-side-choice {
     position: absolute;
 
@@ -726,13 +793,13 @@ textarea {
 
     font-family: var(--font-display);
 
-    font-size: clamp(17px, 2vw, 27px);
+    font-size: clamp(15px, 1.65vw, 23px);
 
     font-weight: 700;
 
     letter-spacing: 2px;
 
-    line-height: 0.9;
+    line-height: 0.92;
 
     text-align: center;
 
@@ -744,6 +811,9 @@ textarea {
     pointer-events: none;
 }
 
+
+/* OBSSESSION */
+
 .obsession-choice {
     top: 17%;
     left: 24%;
@@ -753,14 +823,23 @@ textarea {
         rotate(-3deg);
 }
 
+
+/* CARPE NOCTEM
+   plus petit et centré */
+
 .noctem-choice {
     top: 50%;
     left: 75%;
 
+    font-size: clamp(14px, 1.55vw, 21px);
+
     transform:
         translate(-50%, -50%)
-        rotate(3deg);
+        rotate(2deg);
 }
+
+
+/* CONSPIRATIONS */
 
 .conspirations-choice {
     top: 82%;
@@ -771,23 +850,73 @@ textarea {
         rotate(-3deg);
 }
 
-.death-whisper {
-    position: absolute;
 
-    right: 7%;
+/* ═══════════════════════════════════════
+   LETTRES DÉCALÉES
+═══════════════════════════════════════ */
+
+.obsession-choice br:nth-of-type(1),
+.noctem-choice br:nth-of-type(1),
+.conspirations-choice br:nth-of-type(1) {
+    margin-left: 0;
+}
+
+.obsession-choice br:nth-of-type(2) {
+    margin-left: 5px;
+}
+
+.obsession-choice br:nth-of-type(3) {
+    margin-left: -4px;
+}
+
+.obsession-choice br:nth-of-type(4) {
+    margin-left: 7px;
+}
+
+.obsession-choice br:nth-of-type(5) {
+    margin-left: -3px;
+}
+
+.conspirations-choice br:nth-of-type(2) {
+    margin-left: -5px;
+}
+
+.conspirations-choice br:nth-of-type(3) {
+    margin-left: 6px;
+}
+
+.conspirations-choice br:nth-of-type(4) {
+    margin-left: -4px;
+}
+
+.conspirations-choice br:nth-of-type(5) {
+    margin-left: 7px;
+}
+
+.conspirations-choice br:nth-of-type(6) {
+    margin-left: -5px;
+}
+
+.conspirations-choice br:nth-of-type(7) {
+    margin-left: 4px;
+}
+
+.conspirations-choice br:nth-of-type(8) {
+    margin-left: -3px;
+}
+
+
+/* ? visible */
+
+.death-secret {
+    left: 8%;
     bottom: 7%;
 
-    font-family: var(--font-mono);
+    font-size: 22px;
 
-    font-size: 10px;
+    font-weight: 700;
 
-    letter-spacing: 3px;
-
-    color: var(--ink-dim);
-
-    transform: rotate(4deg);
-
-    pointer-events: none;
+    color: #ffffff;
 }
 
 
@@ -811,7 +940,9 @@ textarea {
 
     font-family: var(--font-display);
 
-    font-size: clamp(27px, 3.8vw, 45px);
+    /* plus petit */
+
+    font-size: clamp(23px, 3vw, 38px);
 
     font-weight: 700;
 
@@ -826,6 +957,9 @@ textarea {
 
     pointer-events: none;
 }
+
+
+/* Le titre reste centré dans son encadré */
 
 .noctem-whisper {
     position: absolute;
@@ -859,20 +993,23 @@ textarea {
     pointer-events: none;
 }
 
+
+/* Cœurs : zones cliquables plus précises */
+
 .heart-left {
-    left: 10%;
+    left: 9%;
     bottom: 3%;
 
-    width: 17%;
-    height: 17%;
+    width: 19%;
+    height: 19%;
 }
 
 .heart-right {
-    right: 4%;
+    right: 3%;
     bottom: 3%;
 
-    width: 17%;
-    height: 17%;
+    width: 19%;
+    height: 19%;
 }
 
 
@@ -883,44 +1020,36 @@ textarea {
 .page-main-title {
     position: absolute;
 
-    top: 9%;
-    left: 56%;
-
-    transform:
-        translateX(-50%)
-        rotate(-2deg);
-
     z-index: 60;
 
     color: #ffffff;
 
     font-family: var(--font-display);
 
-    font-size: clamp(30px, 5vw, 50px);
-
     font-weight: 700;
-
-    letter-spacing: 4px;
 
     text-align: center;
 
     white-space: nowrap;
 
+    pointer-events: none;
+
     text-shadow:
         0 0 12px rgba(255, 255, 255, 0.4);
-
-    pointer-events: none;
 }
 
+
+/* Plus petit + tout à droite */
+
 .chronicles-title {
-    top: 8%;
-    left: 64%;
+    top: 9%;
+    left: 77%;
 
     transform:
         translateX(-50%)
         rotate(-2deg);
 
-    font-size: clamp(38px, 5.5vw, 60px);
+    font-size: clamp(28px, 4vw, 45px);
 
     color: #ffffff;
 
@@ -928,28 +1057,31 @@ textarea {
 
     border: 1px solid rgba(255, 255, 255, 0.75);
 
-    padding: 8px 20px;
+    padding: 6px 16px;
 }
+
+
+/* Fragment from another life : plus discret */
 
 .chronicles-intro {
     position: absolute;
 
     top: 19%;
-    right: 7%;
+    right: 5%;
 
     z-index: 70;
 
-    padding: 10px 16px;
+    padding: 7px 12px;
 
-    background: rgba(10, 10, 10, 0.88);
+    background: rgba(10, 10, 10, 0.82);
 
-    border: 1px solid rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.55);
 
     color: #ffffff;
 
     font-family: var(--font-mono);
 
-    font-size: 9px;
+    font-size: 8px;
 
     letter-spacing: 2px;
 
@@ -963,118 +1095,144 @@ textarea {
     pointer-events: none;
 }
 
+
+/* ═══════════════════════════════════════
+   CHRONIQUES — CARTES À JOUER
+═══════════════════════════════════════ */
+
 .chronicle-entry,
 .library-entry {
     position: absolute;
 
-    padding: 0;
+    z-index: 60;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 2px;
+
+    width: 38px;
+    height: 52px;
+
+    padding: 4px;
+
+    box-sizing: border-box;
 
     border: none;
 
     background: transparent;
 
-    cursor: none;
-
-    z-index: 60;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    gap: 5px;
-
-    color: var(--ink-dim);
-
-    font-family: var(--font-mono);
-
-    transition:
-        transform 0.4s ease,
-        color 0.4s ease;
-}
-
-.chronicle-entry:hover,
-.library-entry:hover {
     color: #ffffff;
 
-    transform:
-        scale(1.15)
-        rotate(-4deg);
+    font-family: Georgia, serif;
+
+    cursor: none;
+
+    transition:
+        transform 0.35s ease,
+        color 0.35s ease;
 }
 
-.chronicle-entry {
+
+/* Pas de rectangle :
+   les chiffres flottent comme sur une carte */
+
+.chronicle-entry::before,
+.library-entry::before {
     position: absolute;
 
-    padding: 10px 16px;
+    inset: 0;
 
-    border: 1px solid rgba(255, 255, 255, 0.65);
+    font-family: Georgia, serif;
 
-    background: rgba(10, 10, 10, 0.88);
+    font-size: 28px;
 
-    color: #ffffff;
+    line-height: 1;
 
-    cursor: none;
+    opacity: 0.95;
 
-    z-index: 60;
+    pointer-events: none;
+}
 
-    display: flex;
+.chronicle-entry::before {
+    content: "♣";
+}
 
-    flex-direction: column;
+.library-entry::before {
+    content: "♠";
+}
 
-    align-items: center;
 
-    gap: 5px;
+.chronicle-entry .entry-number,
+.library-entry .library-number {
+    position: relative;
+
+    z-index: 2;
 
     font-family: var(--font-mono);
 
-    font-size: 15px;
+    font-size: 10px;
 
-    text-shadow:
-        0 0 8px rgba(0, 0, 0, 0.9);
+    letter-spacing: 1px;
 
-    transition:
-        transform 0.4s ease,
-        color 0.4s ease;
+    font-weight: 700;
+
+    color: #ffffff;
+
+    transform: translateY(-1px);
 }
 
-.chronicle-entry .entry-number {
-    font-size: 15px;
+.chronicle-entry .entry-symbol,
+.library-entry .library-mark {
+    position: relative;
 
-    letter-spacing: 4px;
+    z-index: 2;
+
+    font-family: Georgia, serif;
+
+    font-size: 11px;
+
+    color: #ffffff;
 }
 
-.chronicle-entry .entry-symbol {
-    font-size: 23px;
-}
+
+/* Placement des trois éléments actuels */
 
 .chronicle-one {
-    top: 32%;
+    top: 34%;
     left: 18%;
 }
 
 .chronicle-two {
     top: 50%;
-    left: 48%;
+    left: 22%;
 }
 
 .chronicle-three {
-    top: 70%;
-    right: 16%;
+    top: 66%;
+    left: 18%;
 }
 
-.entry-number,
-.library-number {
-    font-size: 16px;
 
-    letter-spacing: 4px;
+/* Effet carte */
 
-    font-weight: bold;
+.chronicle-entry:hover,
+.library-entry:hover {
+    color: var(--bordeaux);
+
+    transform:
+        scale(1.22)
+        rotate(-5deg);
 }
 
-.entry-symbol,
-.library-mark {
-    font-size: 23px;
+.chronicle-entry:hover::before,
+.library-entry:hover::before {
+    opacity: 1;
 }
 
 
@@ -1083,14 +1241,14 @@ textarea {
 ═══════════════════════════════════════ */
 
 .library-title {
-    top: 8%;
-    left: 64%;
+    top: 9%;
+    left: 76%;
 
     transform:
         translateX(-50%)
         rotate(-2deg);
 
-    font-size: clamp(38px, 5.5vw, 60px);
+    font-size: clamp(28px, 4vw, 45px);
 
     color: #ffffff;
 
@@ -1098,7 +1256,7 @@ textarea {
 
     border: 1px solid rgba(255, 255, 255, 0.75);
 
-    padding: 8px 20px;
+    padding: 6px 16px;
 
     box-shadow:
         4px 4px 0 rgba(255, 255, 255, 0.12);
@@ -1107,34 +1265,26 @@ textarea {
         0 0 12px rgba(255, 255, 255, 0.4);
 }
 
+
+/* THE LIBRARY en haut à droite supprimé */
+
+.library-heading {
+    display: none;
+}
+
 .library-whisper {
     display: none;
 }
 
-.library-entry {
-    padding: 10px 16px;
 
-    background: rgba(10, 10, 10, 0.88);
+/* Cartes pique */
 
-    border: 1px solid rgba(255, 255, 255, 0.65);
-
-    color: #ffffff;
-
-    font-size: 15px;
-
-    text-shadow:
-        0 0 8px rgba(0, 0, 0, 0.9);
+.library-entry::before {
+    content: "♠";
 }
 
-.library-number {
-    font-size: 15px;
 
-    letter-spacing: 4px;
-}
-
-.library-mark {
-    font-size: 23px;
-}
+/* Placement vertical façon carte */
 
 .library-one {
     top: 34%;
@@ -1142,13 +1292,241 @@ textarea {
 }
 
 .library-two {
-    top: 53%;
-    left: 49%;
+    top: 50%;
+    left: 24%;
 }
 
 .library-three {
-    top: 72%;
-    right: 18%;
+    top: 66%;
+    left: 20%;
+}
+
+
+/* Croix en bas à droite :
+   plus grosse + plus visible */
+
+.library-secret {
+    bottom: 7%;
+    right: 7%;
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+    color: #ffffff;
+
+    opacity: 0.8;
+}
+
+
+/* ═══════════════════════════════════════
+   SECTION WHISPERS
+═══════════════════════════════════════ */
+
+.section-whisper {
+    position: absolute;
+
+    z-index: 55;
+
+    font-family: var(--font-mono);
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    text-transform: uppercase;
+
+    pointer-events: none;
+
+    text-shadow:
+        0 0 8px rgba(0, 0, 0, 0.9);
+}
+
+
+/* Même style que DON'T / WARNING */
+
+.divide-heading,
+.living-heading,
+.other-heading {
+    padding: 8px 13px;
+
+    background: rgba(10, 10, 10, 0.82);
+
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.divide-heading {
+    top: 4%;
+    left: 7%;
+
+    transform: rotate(-4deg);
+}
+
+.living-heading {
+    top: 4%;
+    right: 7%;
+
+    transform: rotate(4deg);
+}
+
+.other-heading {
+    top: 4%;
+    right: 7%;
+
+    transform: rotate(4deg);
+}
+
+.library-heading {
+    top: 4%;
+    right: 7%;
+
+    transform: rotate(3deg);
+}
+
+
+/* ═══════════════════════════════════════
+   SECRET MESSAGES
+═══════════════════════════════════════ */
+
+#strange-message,
+#restart-message,
+#life-secret-message,
+#death-secret-message,
+#noctem-secret-message,
+#chronicle-secret-message,
+#library-secret-message {
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.8);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 9000;
+
+    font-family: var(--font-mono);
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    text-align: center;
+
+    color: var(--ink);
+
+    padding: 15px 22px;
+
+    border: 1px solid rgba(255, 255, 255, 0.6);
+
+    background: rgba(10, 10, 10, 0.94);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+}
+
+#strange-message.visible,
+#restart-message.visible,
+#life-secret-message.visible,
+#death-secret-message.visible,
+#noctem-secret-message.visible,
+#chronicle-secret-message.visible,
+#library-secret-message.visible {
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+}
+
+
+/* ═══════════════════════════════════════
+   SECRET BUTTONS
+═══════════════════════════════════════ */
+
+.secret-symbol,
+.divide-secret,
+.life-secret,
+.death-secret,
+.noctem-secret,
+.chronicle-secret,
+.library-secret {
+    position: absolute;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--ink-faint);
+
+    font-family: var(--font-mono);
+
+    cursor: none;
+
+    z-index: 60;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.4s ease;
+}
+
+.secret-symbol:hover,
+.divide-secret:hover,
+.life-secret:hover,
+.death-secret:hover,
+.noctem-secret:hover,
+.chronicle-secret:hover,
+.library-secret:hover {
+    opacity: 1;
+
+    transform:
+        rotate(180deg)
+        scale(1.35);
+}
+
+.secret-symbol {
+    top: 18%;
+    right: 9%;
+
+    font-size: 18px;
+
+    color: var(--ink-dim);
+
+    animation:
+        strangePulse 2.5s ease-in-out infinite;
+}
+
+.divide-secret {
+    left: 8%;
+    bottom: 8%;
+
+    font-size: 14px;
+}
+
+.noctem-secret {
+    top: 50%;
+    left: 50%;
+
+    font-size: 18px;
+
+    font-family: var(--font-serif);
+}
+
+.chronicle-secret {
+    bottom: 6%;
+    left: 7%;
+
+    font-size: 14px;
 }
 
 
@@ -1165,6 +1543,14 @@ textarea {
 
     overflow-y: auto;
     overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(91, 16, 41, 0.16),
+            transparent 55%
+        ),
+        #0a0a0a;
 }
 
 .ephemeris-interface {
@@ -1749,243 +2135,58 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   SECTION WHISPERS
-═══════════════════════════════════════ */
-
-.section-whisper {
-    position: absolute;
-
-    z-index: 55;
-
-    font-family: var(--font-mono);
-
-    font-size: 10px;
-
-    letter-spacing: 5px;
-
-    color: rgba(255, 255, 255, 0.85);
-
-    text-transform: uppercase;
-
-    pointer-events: none;
-
-    text-shadow:
-        0 0 8px rgba(0, 0, 0, 0.9);
-}
-
-.divide-heading {
-    top: 4%;
-    left: 7%;
-
-    transform: rotate(-4deg);
-}
-
-.living-heading {
-    top: 4%;
-    right: 7%;
-
-    transform: rotate(4deg);
-}
-
-.other-heading {
-    top: 4%;
-    right: 7%;
-
-    transform: rotate(4deg);
-}
-
-.library-heading {
-    top: 4%;
-    right: 7%;
-
-    transform: rotate(3deg);
-}
-
-
-/* ═══════════════════════════════════════
-   SECRET MESSAGES
-═══════════════════════════════════════ */
-
-#strange-message,
-#restart-message,
-#life-secret-message,
-#death-secret-message,
-#noctem-secret-message,
-#chronicle-secret-message,
-#library-secret-message {
-    position: fixed;
-
-    top: 50%;
-    left: 50%;
-
-    transform:
-        translate(-50%, -50%)
-        scale(0.8);
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    z-index: 9000;
-
-    font-family: var(--font-mono);
-
-    font-size: 13px;
-
-    letter-spacing: 3px;
-
-    text-align: center;
-
-    color: var(--ink);
-
-    padding: 15px 22px;
-
-    border: 1px solid rgba(255, 255, 255, 0.6);
-
-    background: rgba(10, 10, 10, 0.9);
-
-    transition:
-        opacity 0.5s ease,
-        transform 0.5s ease;
-}
-
-#strange-message.visible,
-#restart-message.visible,
-#life-secret-message.visible,
-#death-secret-message.visible,
-#noctem-secret-message.visible,
-#chronicle-secret-message.visible,
-#library-secret-message.visible {
-    opacity: 1;
-
-    transform:
-        translate(-50%, -50%)
-        scale(1);
-}
-
-
-/* ═══════════════════════════════════════
-   SECRET BUTTONS
-═══════════════════════════════════════ */
-
-.secret-symbol,
-.divide-secret,
-.life-secret,
-.death-secret,
-.noctem-secret,
-.chronicle-secret,
-.library-secret {
-    position: absolute;
-
-    padding: 0;
-
-    border: none;
-
-    background: transparent;
-
-    color: var(--ink-faint);
-
-    font-family: var(--font-mono);
-
-    cursor: none;
-
-    z-index: 60;
-
-    transition:
-        opacity 0.3s ease,
-        transform 0.4s ease;
-}
-
-.secret-symbol:hover,
-.divide-secret:hover,
-.life-secret:hover,
-.death-secret:hover,
-.noctem-secret:hover,
-.chronicle-secret:hover,
-.library-secret:hover {
-    opacity: 1;
-
-    transform:
-        rotate(180deg)
-        scale(1.35);
-}
-
-.secret-symbol {
-    top: 18%;
-    right: 9%;
-
-    font-size: 18px;
-
-    color: var(--ink-dim);
-
-    animation:
-        strangePulse 2.5s ease-in-out infinite;
-}
-
-.divide-secret {
-    left: 8%;
-    bottom: 8%;
-
-    font-size: 14px;
-}
-
-.life-secret {
-    right: 7%;
-    bottom: 7%;
-
-    font-size: 17px;
-}
-
-.death-secret {
-    left: 7%;
-    bottom: 7%;
-
-    font-size: 14px;
-}
-
-.noctem-secret {
-    top: 50%;
-    left: 50%;
-
-    font-size: 18px;
-
-    font-family: var(--font-serif);
-}
-
-.chronicle-secret {
-    bottom: 6%;
-    left: 7%;
-
-    font-size: 14px;
-}
-
-.library-secret {
-    bottom: 7%;
-    right: 7%;
-
-    font-size: 18px;
-
-    font-family: var(--font-serif);
-}
-
-
-/* ═══════════════════════════════════════
    VISITOR BOOK
-   CARPE NOCTEM — THE VISITOR BOOK
 ═══════════════════════════════════════ */
 
 #page-visitor-book {
+    position: relative;
+
     background:
         radial-gradient(
             circle at 50% 40%,
-            rgba(91, 16, 41, 0.16),
-            transparent 55%
+            rgba(91, 16, 41, 0.22),
+            transparent 50%
         ),
-        #0a0a0a;
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(181, 42, 80, 0.07),
+            transparent 35%
+        ),
+        #050505;
 
     color: #ffffff;
 
     overflow-y: auto;
+
+    isolation: isolate;
+}
+
+
+/* Ombre spooky */
+
+#page-visitor-book::before {
+    content: "✦   †   ✦   †   ✦";
+
+    position: fixed;
+
+    top: 20px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 1;
+
+    font-family: Georgia, serif;
+
+    font-size: 13px;
+
+    letter-spacing: 18px;
+
+    color: var(--bordeaux);
+
+    opacity: 0.22;
+
+    pointer-events: none;
 }
 
 
@@ -2009,7 +2210,8 @@ textarea {
 
     box-sizing: border-box;
 
-    border: 1px solid rgba(255, 255, 255, 0.55);
+    border:
+        1px solid rgba(255, 255, 255, 0.55);
 
     background:
         linear-gradient(
@@ -2019,7 +2221,7 @@ textarea {
             transparent 92%,
             rgba(255, 255, 255, 0.02)
         ),
-        rgba(10, 10, 10, 0.96);
+        rgba(5, 5, 5, 0.99);
 
     color: #ffffff;
 
@@ -2027,15 +2229,14 @@ textarea {
 
     box-shadow:
         10px 10px 0 rgba(91, 16, 41, 0.25),
-        -3px 0 0 rgba(255, 255, 255, 0.04);
+        -3px 0 0 rgba(255, 255, 255, 0.04),
+        0 0 45px rgba(91, 16, 41, 0.14);
 
     overflow: hidden;
 }
 
 
-/* ═══════════════════════════════════════
-   DECORATIVE BOOK MARKS
-══════════════════════════════════════ */
+/* Ombre intérieure pour donner un aspect vieux livre */
 
 #page-visitor-book .visitor-book::before {
     content: "✦";
@@ -2066,9 +2267,11 @@ textarea {
 
     font-family: Georgia, serif;
 
-    font-size: 19px;
+    font-size: 22px;
 
-    opacity: 0.65;
+    font-weight: bold;
+
+    opacity: 0.8;
 }
 
 
@@ -2101,7 +2304,7 @@ textarea {
 
     padding: 0 12px;
 
-    background: #0a0a0a;
+    background: #050505;
 
     color: var(--bordeaux);
 
@@ -2167,7 +2370,9 @@ textarea {
 .visitor-book-content {
     display: grid;
 
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    grid-template-columns:
+        minmax(0, 0.9fr)
+        minmax(0, 1.1fr);
 
     gap: 48px;
 
@@ -2480,7 +2685,8 @@ textarea {
    INDIVIDUAL VISITOR
 ═══════════════════════════════════════ */
 
-.visitor-message-entry {
+.visitor-message-entry,
+.visitor-message {
     position: relative;
 
     padding: 18px 12px 20px 18px;
@@ -2503,7 +2709,8 @@ textarea {
     text-align: left;
 }
 
-.visitor-message-entry::before {
+.visitor-message-entry::before,
+.visitor-message::before {
     content: "✦";
 
     position: absolute;
@@ -2513,7 +2720,7 @@ textarea {
 
     padding: 0 2px;
 
-    background: #0a0a0a;
+    background: #050505;
 
     color: var(--bordeaux);
 
@@ -2544,6 +2751,18 @@ textarea {
     color: rgba(255, 255, 255, 0.85);
 
     white-space: pre-wrap;
+}
+
+.visitor-message-date {
+    margin-top: 8px;
+
+    font-family: var(--font-mono);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color: rgba(255, 255, 255, 0.35);
 }
 
 
@@ -2606,68 +2825,6 @@ textarea {
 
 
 /* ═══════════════════════════════════════
-   RESPONSIVE — VISITOR BOOK
-═══════════════════════════════════════ */
-
-@media (max-width: 700px) {
-
-    #page-visitor-book {
-        overflow-y: auto;
-    }
-
-    #page-visitor-book .visitor-book {
-        top: 3vh;
-
-        width: 94vw;
-
-        min-height: 94vh;
-
-        padding:
-            35px
-            25px
-            70px;
-
-        transform: rotate(0deg);
-
-        box-shadow:
-            6px 6px 0 rgba(91, 16, 41, 0.25);
-    }
-
-    .visitor-book-header h1 {
-        font-size: 40px;
-    }
-
-    .visitor-book-content {
-        grid-template-columns: 1fr;
-
-        gap: 35px;
-    }
-
-    .visitor-write {
-        padding-right: 0;
-
-        padding-bottom: 30px;
-
-        border-right: none;
-
-        border-bottom:
-            1px solid rgba(255, 255, 255, 0.16);
-    }
-
-    .visitor-messages {
-        max-height: 320px;
-    }
-
-    .visitor-book-return {
-        left: 25px;
-        bottom: 22px;
-    }
-
-    .visitor-book-whisper {
-        display: none;
-    }
-}
-/* ═══════════════════════════════════════
    MYSTERY BOX
 ═══════════════════════════════════════ */
 
@@ -2686,8 +2843,8 @@ textarea {
     background:
         radial-gradient(
             circle at center,
-            rgba(91, 16, 41, 0.18),
-            rgba(10, 10, 10, 0.98) 65%
+            rgba(91, 16, 41, 0.28),
+            rgba(5, 5, 5, 0.99) 68%
         );
 
     opacity: 0;
@@ -2726,9 +2883,9 @@ textarea {
 }
 
 
-/* ─────────────────────────────────────
-   WHISPER
-───────────────────────────────────── */
+/* ═══════════════════════════════════════
+   MYSTERY WHISPER
+═══════════════════════════════════════ */
 
 .mystery-box-whisper {
     position: absolute;
@@ -2751,9 +2908,9 @@ textarea {
 }
 
 
-/* ─────────────────────────────────────
-   BOX
-───────────────────────────────────── */
+/* ═══════════════════════════════════════
+   MYSTERY BOX
+═══════════════════════════════════════ */
 
 .mystery-box {
     position: relative;
@@ -2784,9 +2941,6 @@ textarea {
         translateY(5px)
         scale(1.07);
 }
-
-
-/* BOX BODY */
 
 .box-body {
     position: absolute;
@@ -2826,9 +2980,6 @@ textarea {
         transform 0.7s ease;
 }
 
-
-/* BOX LID */
-
 .box-lid {
     position: absolute;
 
@@ -2858,9 +3009,6 @@ textarea {
     transition:
         transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-
-/* LITTLE LOCK */
 
 .box-lock {
     position: absolute;
@@ -2892,9 +3040,6 @@ textarea {
     z-index: 5;
 }
 
-
-/* OPEN STATE */
-
 .mystery-box.opened {
     transform:
         rotate(-1deg)
@@ -2914,9 +3059,9 @@ textarea {
 }
 
 
-/* ─────────────────────────────────────
-   PASSWORD
-───────────────────────────────────── */
+/* ═══════════════════════════════════════
+   PASSWORD BOX
+═══════════════════════════════════════ */
 
 .box-message {
     position: absolute;
@@ -3024,9 +3169,9 @@ textarea {
 }
 
 
-/* ─────────────────────────────────────
-   RETURN
-───────────────────────────────────── */
+/* ═══════════════════════════════════════
+   BOX RETURN
+═══════════════════════════════════════ */
 
 .box-return {
     position: absolute;
@@ -3058,11 +3203,173 @@ textarea {
 }
 
 
-/* ─────────────────────────────────────
-   MOBILE
-───────────────────────────────────── */
+/* ═══════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════ */
+
+@keyframes webFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+@keyframes arrowPulse {
+    0%,
+    100% {
+        opacity: 0.55;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes strangePulse {
+    0%,
+    100% {
+        opacity: 0.45;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes spiderEscape {
+    0% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1)
+            rotate(0deg);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(
+                calc(-50% + 120px),
+                calc(-50% - 90px)
+            )
+            scale(0.45)
+            rotate(360deg);
+    }
+}
+
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
 
 @media (max-width: 700px) {
+
+    .welcome-title {
+        width: 70%;
+    }
+
+    .welcome-name {
+        font-size: 23px;
+    }
+
+    .time-warning {
+        left: 27%;
+        bottom: 9%;
+
+        font-size: 8px;
+    }
+
+    .divide-label {
+        font-size: 28px;
+
+        padding: 7px 15px;
+    }
+
+    .other-side-choice {
+        font-size: 14px;
+    }
+
+    .chronicles-title,
+    .library-title {
+        left: 72%;
+
+        font-size: 30px;
+    }
+
+    .chronicle-entry,
+    .library-entry {
+        transform: scale(0.85);
+    }
+
+    .chronicle-entry:hover,
+    .library-entry:hover {
+        transform:
+            scale(1)
+            rotate(-5deg);
+    }
+
+    #page-visitor-book {
+        overflow-y: auto;
+    }
+
+    #page-visitor-book .visitor-book {
+        top: 3vh;
+
+        width: 94vw;
+
+        min-height: 94vh;
+
+        padding:
+            35px
+            25px
+            70px;
+
+        transform: rotate(0deg);
+
+        box-shadow:
+            6px 6px 0 rgba(91, 16, 41, 0.25),
+            0 0 35px rgba(91, 16, 41, 0.15);
+    }
+
+    .visitor-book-header h1 {
+        font-size: 40px;
+    }
+
+    .visitor-book-content {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .visitor-write {
+        padding-right: 0;
+
+        padding-bottom: 30px;
+
+        border-right: none;
+
+        border-bottom:
+            1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .visitor-messages {
+        max-height: 320px;
+    }
+
+    .visitor-book-return {
+        left: 25px;
+        bottom: 22px;
+    }
+
+    .visitor-book-whisper {
+        display: none;
+    }
 
     .mystery-box-whisper {
         top: 8%;
