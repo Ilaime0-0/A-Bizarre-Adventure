@@ -2699,11 +2699,13 @@ a {
 
 @media (max-width: 700px) {
 
-    .page > .interface-image {
-        width: 100vw;
-        height: 100vh;
-        object-fit: fill;
-    }
+   .page > .interface-image {
+    width: auto;
+    height: 100vh;
+    max-width: none;
+    max-height: 100vh;
+    object-fit: contain;
+}
 
     .welcome-name {
         max-width: 80vw;
