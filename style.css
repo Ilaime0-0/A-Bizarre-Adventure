@@ -821,13 +821,32 @@ a {
 .library-whisper {
     position: absolute;
 
+    top: auto;
+    left: 7%;
+    bottom: 8%;
+
+    z-index: 70;
+
+    padding: 11px 17px;
+
+    background: rgba(10, 10, 10, 0.82);
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+
+    color: var(--ink);
+
     font-family: var(--font-mono);
 
-    font-size: 10px;
+    font-size: 11px;
 
     letter-spacing: 2px;
 
-    color: var(--ink-dim);
+    text-align: center;
+
+    transform: rotate(-3deg);
+
+    box-shadow:
+        0 0 15px rgba(255, 255, 255, 0.08);
 
     pointer-events: none;
 }
