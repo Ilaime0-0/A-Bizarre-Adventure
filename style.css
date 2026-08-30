@@ -1069,23 +1069,27 @@ textarea {
 
 .library-title {
     top: 8%;
-
-    left: 50%;
-
-    padding: 13px 30px;
-
-    background: rgba(250, 247, 240, 0.97);
-
-    border: 2px solid rgba(255, 255, 255, 0.95);
-
-    color: var(--bordeaux);
-
-    box-shadow:
-        5px 5px 0 rgba(255, 255, 255, 0.25);
+    left: 64%;
 
     transform:
         translateX(-50%)
-        rotate(2deg);
+        rotate(-2deg);
+
+    font-size: clamp(38px, 5.5vw, 60px);
+
+    color: #ffffff;
+
+    background: rgba(10, 10, 10, 0.88);
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    padding: 8px 20px;
+
+    box-shadow:
+        4px 4px 0 rgba(255, 255, 255, 0.12);
+
+    text-shadow:
+        0 0 12px rgba(255, 255, 255, 0.4);
 }
 
 .library-whisper {
