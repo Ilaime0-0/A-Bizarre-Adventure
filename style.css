@@ -192,6 +192,9 @@ a {
     text-align: center;
 }
 
+.welcome-title {
+    top: 10%;
+}
 
 .welcome {
     top: 7%;
