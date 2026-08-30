@@ -1,3 +1,7 @@
+/* ═══════════════════════════════════════
+   SUPABASE
+═══════════════════════════════════════ */
+
 const SUPABASE_URL = "https://jmkcmvkdplnqjiqgmacs.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_6P_SZeBcu721HqK_5umVbA_ykh-lruw";
 
@@ -5,15 +9,21 @@ const supabaseClient = supabase.createClient(
     SUPABASE_URL,
     SUPABASE_PUBLISHABLE_KEY
 );
+
+
+/* ═══════════════════════════════════════
+   MAIN NAVIGATION
+═══════════════════════════════════════ */
+
 (function () {
 
     let pageHistory = [];
     let currentPage = "page-01";
 
 
-    /* ═══════════════════════════════
-       PAGE NAVIGATION
-    ═══════════════════════════════ */
+    /* ─────────────────────────────────────
+       SHOW PAGE
+    ───────────────────────────────────── */
 
     function showPage(pageId) {
 
@@ -41,6 +51,10 @@ const supabaseClient = supabase.createClient(
         });
     }
 
+
+    /* ─────────────────────────────────────
+       GO BACK
+    ───────────────────────────────────── */
 
     function goBackInTime() {
 
@@ -74,20 +88,33 @@ const supabaseClient = supabase.createClient(
     }
 
 
-    function showLostPage() {
+    /* ─────────────────────────────────────
+       LOST PAGE
+    ───────────────────────────────────── */
 
+    function showLostPage() {
         showPage("page-lost");
     }
 
 
+    /* ─────────────────────────────────────
+       KEYBOARD NAVIGATION
+    ───────────────────────────────────── */
+
     document.addEventListener("keydown", event => {
+
+        const activeElement = document.activeElement;
+
+        const typing =
+            activeElement &&
+            (
+                activeElement.tagName === "INPUT" ||
+                activeElement.tagName === "TEXTAREA"
+            );
 
         if (
             event.key === "ArrowLeft" &&
-            !(
-                document.activeElement &&
-                document.activeElement.tagName === "INPUT"
-            )
+            !typing
         ) {
             goBackInTime();
         }
@@ -95,14 +122,16 @@ const supabaseClient = supabase.createClient(
     });
 
 
+    /* Make functions available to HTML */
+
     window.showPage = showPage;
     window.goBackInTime = goBackInTime;
     window.showLostPage = showLostPage;
 
 
-    /* ═══════════════════════════════
+    /* ═══════════════════════════════════════
        SPIDER CURSOR
-    ═══════════════════════════════ */
+    ═══════════════════════════════════════ */
 
     const spiderCursor =
         document.getElementById("spider-cursor");
@@ -123,14 +152,17 @@ const supabaseClient = supabase.createClient(
     });
 
 
+    /* ─────────────────────────────────────
+       SPIDER ESCAPES WHEN CLICKING
+    ───────────────────────────────────── */
+
     document.addEventListener("click", event => {
 
         const spider =
             document.createElement("div");
 
-        spider.classList.add(
-            "escaping-spider"
-        );
+        spider.className =
+            "escaping-spider";
 
         spider.textContent = "🕷️";
 
@@ -149,9 +181,9 @@ const supabaseClient = supabase.createClient(
     });
 
 
-    /* ═══════════════════════════════
-       SECRET MESSAGE HELPER
-    ═══════════════════════════════ */
+    /* ═══════════════════════════════════════
+       SECRET MESSAGE SYSTEM
+    ═══════════════════════════════════════ */
 
     function bindSecretReveal(
         trigger,
@@ -182,11 +214,19 @@ const supabaseClient = supabase.createClient(
     }
 
 
+    /* ─────────────────────────────────────
+       WELCOME SECRET
+    ───────────────────────────────────── */
+
     bindSecretReveal(
         document.querySelector(".strange-button-one"),
         document.getElementById("strange-message")
     );
 
+
+    /* ─────────────────────────────────────
+       DIVIDE SECRET
+    ───────────────────────────────────── */
 
     bindSecretReveal(
         document.querySelector(".restart-button"),
@@ -194,11 +234,19 @@ const supabaseClient = supabase.createClient(
     );
 
 
+    /* ─────────────────────────────────────
+       LIFE SECRET
+    ───────────────────────────────────── */
+
     bindSecretReveal(
         document.querySelector(".life-secret"),
         document.getElementById("life-secret-message")
     );
 
+
+    /* ─────────────────────────────────────
+       DEATH SECRET
+    ───────────────────────────────────── */
 
     bindSecretReveal(
         document.querySelector(".death-secret"),
@@ -206,11 +254,19 @@ const supabaseClient = supabase.createClient(
     );
 
 
+    /* ─────────────────────────────────────
+       NOCTEM SECRET
+    ───────────────────────────────────── */
+
     bindSecretReveal(
         document.querySelector(".noctem-secret"),
         document.getElementById("noctem-secret-message")
     );
 
+
+    /* ─────────────────────────────────────
+       CHRONIQUES SECRET
+    ───────────────────────────────────── */
 
     bindSecretReveal(
         document.querySelector(".chronicle-secret"),
@@ -219,6 +275,10 @@ const supabaseClient = supabase.createClient(
     );
 
 
+    /* ─────────────────────────────────────
+       LIBRARY SECRET
+    ───────────────────────────────────── */
+
     bindSecretReveal(
         document.querySelector(".library-secret"),
         document.getElementById("library-secret-message"),
@@ -226,9 +286,9 @@ const supabaseClient = supabase.createClient(
     );
 
 
-    /* ═══════════════════════════════
-       WELCOME SECRET
-    ═══════════════════════════════ */
+    /* ═══════════════════════════════════════
+       WELCOME STRANGE SYMBOL
+    ═══════════════════════════════════════ */
 
     const secretSymbol =
         document.querySelector(".secret-symbol");
@@ -255,9 +315,9 @@ const supabaseClient = supabase.createClient(
     }
 
 
-    /* ═══════════════════════════════
-       DIVIDE SECRET CLOCK
-    ═══════════════════════════════ */
+    /* ═══════════════════════════════════════
+       DIVIDE CLOCK
+    ═══════════════════════════════════════ */
 
     const divideSecret =
         document.querySelector(".divide-secret");
@@ -288,209 +348,293 @@ const supabaseClient = supabase.createClient(
     }
 
 })();
-/* ═══════════════════════════════
-VISITOR BOOK — SUPABASE
-═══════════════════════════════ */
-
-const visitorName = document.getElementById("visitor-name");
-const visitorMessage = document.getElementById("visitor-message");
-const visitorSubmit = document.getElementById("visitor-submit");
-const visitorStatus = document.getElementById("visitor-status");
-const visitorMessageList =
-document.getElementById("visitor-message-list");
-
-/* ═══════════════════════════════
-LOAD MESSAGES FROM SUPABASE
-═══════════════════════════════ */
-
-async function loadVisitorMessages() {
-
-```
-const { data, error } = await supabaseClient
-    .from("visitor_messages")
-    .select("*")
-    .order("created_at", { ascending: false });
 
 
-if (error) {
+/* ═══════════════════════════════════════
+   VISITOR BOOK — SUPABASE
+═══════════════════════════════════════ */
 
-    console.error("Erreur chargement messages :", error);
+/*
+   IMPORTANT :
+   Le HTML possède deux zones "visitor-book".
+   On utilise uniquement les éléments du
+   véritable #page-visitor-book.
+*/
 
-    visitorMessageList.innerHTML = `
-        <div class="visitor-empty">
-            the book could not be opened.
-        </div>
-    `;
-
-    return;
-}
-
-
-visitorMessageList.innerHTML = "";
+const visitorBookPage =
+    document.getElementById("page-visitor-book");
 
 
-if (!data || data.length === 0) {
+if (visitorBookPage) {
 
-    visitorMessageList.innerHTML = `
-        <div class="visitor-empty">
-            no messages have been left yet.
-            <br>
-            perhaps you could be the first.
-        </div>
-    `;
+    const visitorName =
+        visitorBookPage.querySelector("#visitor-name");
 
-    return;
-}
+    const visitorMessage =
+        visitorBookPage.querySelector("#visitor-message");
 
+    const visitorSubmit =
+        visitorBookPage.querySelector("#visitor-submit");
 
-data.forEach(message => {
+    const visitorStatus =
+        visitorBookPage.querySelector("#visitor-status");
 
-    const entry =
-        document.createElement("div");
-
-    entry.className =
-        "visitor-message";
+    const visitorMessageList =
+        visitorBookPage.querySelector("#visitor-message-list");
 
 
-    const name =
-        document.createElement("div");
+    /* ═══════════════════════════════════════
+       LOAD MESSAGES
+    ═══════════════════════════════════════ */
 
-    name.className =
-        "visitor-message-name";
+    async function loadVisitorMessages() {
 
-    name.textContent =
-        message.name || "ANONYMOUS";
+        if (!visitorMessageList) {
+            return;
+        }
 
-
-    const text =
-        document.createElement("div");
-
-    text.className =
-        "visitor-message-text";
-
-    text.textContent =
-        message.message;
-
-
-    const date =
-        document.createElement("div");
-
-    date.className =
-        "visitor-message-date";
-
-    if (message.created_at) {
-
-        date.textContent =
-            new Date(
-                message.created_at
-            ).toLocaleDateString(
-                "en-GB",
+        const {
+            data,
+            error
+        } = await supabaseClient
+            .from("visitor_messages")
+            .select("*")
+            .order(
+                "created_at",
                 {
-                    day: "2-digit",
-                    month: "2-digit",
-                    year: "numeric"
+                    ascending: false
                 }
             );
 
-    }
+
+        /* ─────────────────────────────────────
+           ERROR
+        ───────────────────────────────────── */
+
+        if (error) {
+
+            console.error(
+                "Erreur chargement messages :",
+                error
+            );
+
+            visitorMessageList.innerHTML = `
+                <div class="visitor-empty">
+                    the book could not be opened.
+                </div>
+            `;
+
+            return;
+        }
 
 
-    entry.appendChild(name);
-    entry.appendChild(text);
-    entry.appendChild(date);
-
-    visitorMessageList.appendChild(entry);
-
-});
-```
-
-}
-
-/* ═══════════════════════════════
-SEND MESSAGE TO SUPABASE
-═══════════════════════════════ */
-
-visitorSubmit.addEventListener(
-"click",
-async () => {
-
-```
-    const name =
-        visitorName.value.trim();
-
-    const text =
-        visitorMessage.value.trim();
+        visitorMessageList.innerHTML = "";
 
 
-    if (!text) {
+        /* ─────────────────────────────────────
+           EMPTY BOOK
+        ───────────────────────────────────── */
 
-        visitorStatus.textContent =
-            "you left nothing behind.";
+        if (!data || data.length === 0) {
 
-        return;
-    }
+            visitorMessageList.innerHTML = `
+                <div class="visitor-empty">
+                    no messages have been left yet.
+                    <br>
+                    perhaps you could be the first.
+                </div>
+            `;
+
+            return;
+        }
 
 
-    visitorSubmit.disabled = true;
+        /* ─────────────────────────────────────
+           CREATE EACH MESSAGE
+        ───────────────────────────────────── */
 
-    visitorStatus.textContent =
-        "leaving something behind...";
+        data.forEach(message => {
+
+            const entry =
+                document.createElement("div");
+
+            entry.className =
+                "visitor-message";
 
 
-    const { error } = await supabaseClient
-        .from("visitor_messages")
-        .insert([
-            {
-                name:
-                    name || "ANONYMOUS",
+            /* NAME */
 
-                message:
-                    text
+            const name =
+                document.createElement("div");
+
+            name.className =
+                "visitor-message-name";
+
+            name.textContent =
+                message.name || "ANONYMOUS";
+
+
+            /* MESSAGE */
+
+            const text =
+                document.createElement("div");
+
+            text.className =
+                "visitor-message-text";
+
+            text.textContent =
+                message.message || "";
+
+
+            /* DATE */
+
+            const date =
+                document.createElement("div");
+
+            date.className =
+                "visitor-message-date";
+
+
+            if (message.created_at) {
+
+                date.textContent =
+                    new Date(
+                        message.created_at
+                    ).toLocaleDateString(
+                        "en-GB",
+                        {
+                            day: "2-digit",
+                            month: "2-digit",
+                            year: "numeric"
+                        }
+                    );
+
             }
-        ]);
 
 
-    if (error) {
+            entry.appendChild(name);
+            entry.appendChild(text);
+            entry.appendChild(date);
 
-        console.error(
-            "Erreur envoi message :",
-            error
+            visitorMessageList.appendChild(entry);
+
+        });
+
+    }
+
+
+    /* ═══════════════════════════════════════
+       SEND MESSAGE
+    ═══════════════════════════════════════ */
+
+    if (
+        visitorSubmit &&
+        visitorMessage &&
+        visitorStatus
+    ) {
+
+        visitorSubmit.addEventListener(
+            "click",
+            async () => {
+
+                const name =
+                    visitorName
+                        ? visitorName.value.trim()
+                        : "";
+
+                const text =
+                    visitorMessage.value.trim();
+
+
+                /* EMPTY MESSAGE */
+
+                if (!text) {
+
+                    visitorStatus.textContent =
+                        "you left nothing behind.";
+
+                    return;
+                }
+
+
+                /* DISABLE BUTTON */
+
+                visitorSubmit.disabled = true;
+
+                visitorStatus.textContent =
+                    "leaving something behind...";
+
+
+                /* SEND TO SUPABASE */
+
+                const {
+                    error
+                } = await supabaseClient
+                    .from("visitor_messages")
+                    .insert([
+                        {
+                            name:
+                                name || "ANONYMOUS",
+
+                            message:
+                                text
+                        }
+                    ]);
+
+
+                /* ERROR */
+
+                if (error) {
+
+                    console.error(
+                        "Erreur envoi message :",
+                        error
+                    );
+
+                    visitorStatus.textContent =
+                        "the message could not be recorded.";
+
+                    visitorSubmit.disabled = false;
+
+                    return;
+                }
+
+
+                /* SUCCESS */
+
+                if (visitorName) {
+                    visitorName.value = "";
+                }
+
+                visitorMessage.value = "";
+
+                visitorStatus.textContent =
+                    "your message has been recorded.";
+
+                visitorSubmit.disabled = false;
+
+
+                /* REFRESH BOOK */
+
+                await loadVisitorMessages();
+
+            }
         );
 
-        visitorStatus.textContent =
-            "the message could not be recorded.";
-
-        visitorSubmit.disabled = false;
-
-        return;
     }
 
 
-    visitorName.value = "";
-    visitorMessage.value = "";
+    /* ═══════════════════════════════════════
+       INITIAL LOAD
+    ═══════════════════════════════════════ */
+
+    loadVisitorMessages();
 
 
-    visitorStatus.textContent =
-        "your message has been recorded.";
-
-
-    visitorSubmit.disabled = false;
-
-
-    await loadVisitorMessages();
+    console.log(
+        "Supabase connecté :",
+        supabaseClient
+    );
 
 }
-```
 
-);
-
-/* ═══════════════════════════════
-INITIAL LOAD
-═══════════════════════════════ */
-
-loadVisitorMessages();
-
-console.log(
-"Supabase connecté :",
-supabaseClient
-);
