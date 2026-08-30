@@ -2667,3 +2667,434 @@ textarea {
         display: none;
     }
 }
+/* ═══════════════════════════════════════
+   MYSTERY BOX
+═══════════════════════════════════════ */
+
+.mystery-box-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 5000;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(91, 16, 41, 0.18),
+            rgba(10, 10, 10, 0.98) 65%
+        );
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.7s ease,
+        visibility 0.7s ease;
+}
+
+.mystery-box-overlay.visible {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+.mystery-box-scene {
+    position: relative;
+
+    width: min(600px, 90vw);
+
+    height: min(650px, 85vh);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+/* ─────────────────────────────────────
+   WHISPER
+───────────────────────────────────── */
+
+.mystery-box-whisper {
+    position: absolute;
+
+    top: 12%;
+
+    font-family: var(--font-mono);
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: var(--ink-dim);
+
+    text-transform: lowercase;
+
+    transform: rotate(-3deg);
+
+    opacity: 0.75;
+}
+
+
+/* ─────────────────────────────────────
+   BOX
+───────────────────────────────────── */
+
+.mystery-box {
+    position: relative;
+
+    width: 190px;
+    height: 145px;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: none;
+
+    transform:
+        rotate(-3deg)
+        translateY(15px);
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+.mystery-box:hover {
+    transform:
+        rotate(-3deg)
+        translateY(5px)
+        scale(1.07);
+}
+
+
+/* BOX BODY */
+
+.box-body {
+    position: absolute;
+
+    left: 15px;
+    bottom: 8px;
+
+    width: 160px;
+    height: 105px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.75);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(91, 16, 41, 0.95),
+            rgba(25, 8, 15, 0.98)
+        );
+
+    color: var(--bordeaux);
+
+    font-size: 28px;
+
+    box-shadow:
+        8px 8px 0 rgba(181, 42, 80, 0.25),
+        inset 0 0 25px rgba(0, 0, 0, 0.5);
+
+    transition:
+        transform 0.7s ease;
+}
+
+
+/* BOX LID */
+
+.box-lid {
+    position: absolute;
+
+    left: 5px;
+    top: 23px;
+
+    width: 180px;
+    height: 45px;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.8);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(122, 24, 52, 0.98),
+            rgba(35, 8, 17, 0.98)
+        );
+
+    box-shadow:
+        5px 5px 0 rgba(181, 42, 80, 0.22);
+
+    transform-origin: left bottom;
+
+    transition:
+        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* LITTLE LOCK */
+
+.box-lock {
+    position: absolute;
+
+    left: 50%;
+    top: 66px;
+
+    transform: translateX(-50%);
+
+    width: 20px;
+    height: 24px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.75);
+
+    background: #0a0a0a;
+
+    color: #ffffff;
+
+    font-family: var(--font-mono);
+
+    font-size: 10px;
+
+    z-index: 5;
+}
+
+
+/* OPEN STATE */
+
+.mystery-box.opened {
+    transform:
+        rotate(-1deg)
+        translateY(15px);
+}
+
+.mystery-box.opened .box-lid {
+    transform:
+        rotate(-55deg)
+        translate(-5px, -12px);
+}
+
+.mystery-box.opened .box-lock {
+    opacity: 0;
+
+    transition: opacity 0.2s ease;
+}
+
+
+/* ─────────────────────────────────────
+   PASSWORD
+───────────────────────────────────── */
+
+.box-message {
+    position: absolute;
+
+    top: 58%;
+
+    left: 50%;
+
+    transform:
+        translate(-50%, 20px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.box-message.visible {
+    opacity: 1;
+
+    transform:
+        translate(-50%, 0);
+
+    pointer-events: auto;
+}
+
+.box-message-small {
+    font-family: var(--font-mono);
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: var(--ink-dim);
+}
+
+.box-password {
+    font-family: var(--font-display);
+
+    font-size: clamp(45px, 7vw, 70px);
+
+    letter-spacing: 12px;
+
+    color: var(--bordeaux);
+
+    text-shadow:
+        0 0 12px var(--bordeaux-glow),
+        0 0 30px rgba(181, 42, 80, 0.2);
+}
+
+.box-message-hint {
+    font-family: var(--font-serif);
+
+    font-size: 11px;
+
+    font-style: italic;
+
+    letter-spacing: 2px;
+
+    color: var(--ink-dim);
+}
+
+#enter-ephemeris {
+    margin-top: 10px;
+
+    padding: 9px 15px;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--ink);
+
+    font-family: var(--font-mono);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    cursor: none;
+
+    opacity: 0.65;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+#enter-ephemeris:hover {
+    opacity: 1;
+
+    transform:
+        translateX(4px);
+}
+
+
+/* ─────────────────────────────────────
+   RETURN
+───────────────────────────────────── */
+
+.box-return {
+    position: absolute;
+
+    bottom: 8%;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--ink);
+
+    font-family: var(--font-mono);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    cursor: none;
+
+    opacity: 0.4;
+
+    transition:
+        opacity 0.3s ease;
+}
+
+.box-return:hover {
+    opacity: 1;
+}
+
+
+/* ─────────────────────────────────────
+   MOBILE
+───────────────────────────────────── */
+
+@media (max-width: 700px) {
+
+    .mystery-box-whisper {
+        top: 8%;
+
+        font-size: 8px;
+
+        letter-spacing: 3px;
+    }
+
+    .mystery-box {
+        transform:
+            scale(0.85)
+            rotate(-3deg);
+    }
+
+    .mystery-box:hover {
+        transform:
+            scale(0.9)
+            rotate(-3deg);
+    }
+
+    .mystery-box.opened {
+        transform:
+            scale(0.85)
+            rotate(-1deg);
+    }
+
+    .box-message {
+        top: 60%;
+    }
+
+    .box-return {
+        bottom: 5%;
+    }
+}
