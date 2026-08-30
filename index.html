@@ -58,20 +58,20 @@
                     class="interface-image"
                 >
 
-                <!-- WELCOME DANS LA ZONE BLANCHE -->
+                <!-- TEXTE DANS LA ZONE BLANCHE -->
 
                 <div class="welcome-title">
+
                     <span class="welcome-name">
-                        WELCOME TO A
-                        <br>
-                        BIZARRE
-                        <br>
+                        WELCOME<br>
+                        TO A BIZARRE<br>
                         ADVENTURE
                     </span>
+
                 </div>
 
 
-                <!-- WARNING -->
+                <!-- WARNING — BAS DROITE -->
 
                 <div class="time-warning">
 
@@ -87,33 +87,33 @@
                 </div>
 
 
-                <!-- ZONE CLIQUABLE = ENCADRÉ BLANC -->
+                <!-- ZONE CLIQUABLE EXACTEMENT SUR LE WELCOME -->
 
                 <button
                     class="hotspot welcome"
                     onclick="showPage('page-02')"
                     aria-label="Enter the bizarre adventure"
+                    type="button"
                 ></button>
 
-
-                <!-- DON'T -->
 
                 <button
                     class="strange-button strange-button-one"
                     aria-label="Don't"
+                    type="button"
                 >
                     DON'T
                 </button>
 
 
-                <!-- SECRET -->
-
                 <button
                     class="secret-symbol"
                     aria-label="Something strange"
+                    type="button"
                 >
                     ✦
                 </button>
+
 
                 <div id="strange-message">
                     you weren't supposed to find this.
@@ -126,7 +126,7 @@
 
 
         <!-- ═════════════════════════════════════
-             02 — THE DIVIDE
+             THE DIVIDE
         ═════════════════════════════════════ -->
 
         <section
@@ -143,19 +143,16 @@
                 >
 
 
-                <!-- THE DIVIDE -->
-
                 <div class="section-whisper divide-heading">
                     THE DIVIDE
                 </div>
 
 
-                <!-- LIFE -->
-
                 <button
                     class="hotspot life"
                     onclick="showPage('page-03')"
                     aria-label="Life"
+                    type="button"
                 ></button>
 
                 <div class="divide-label divide-life-label">
@@ -163,12 +160,11 @@
                 </div>
 
 
-                <!-- DEATH -->
-
                 <button
                     class="hotspot death"
                     onclick="showPage('page-03-death')"
                     aria-label="Death"
+                    type="button"
                 ></button>
 
                 <div class="divide-label divide-death-label">
@@ -189,6 +185,7 @@
                 <button
                     class="restart-button"
                     aria-label="Restart"
+                    type="button"
                 >
                     RESTART
                 </button>
@@ -197,6 +194,7 @@
                 <button
                     class="divide-secret"
                     aria-label="Secret"
+                    type="button"
                 >
                     ✦
                 </button>
@@ -213,7 +211,7 @@
 
 
         <!-- ═════════════════════════════════════
-             03 — THE LIVING SIDE
+             THE LIVING SIDE
         ═════════════════════════════════════ -->
 
         <section
@@ -230,8 +228,6 @@
                 >
 
 
-                <!-- THE LIVING SIDE -->
-
                 <div class="section-whisper living-heading">
                     THE LIVING SIDE
                 </div>
@@ -240,45 +236,25 @@
                 <!-- REALITY -->
 
                 <div class="living-choice reality-choice">
-                    <span>R</span>
-                    <span>E</span>
-                    <span>A</span>
-                    <span>L</span>
-                    <span>I</span>
-                    <span>T</span>
-                    <span>Y</span>
+                    REALITY
                 </div>
 
 
-                <!-- IN BETWEEN -->
+                <!-- IN BETWEEN — CONSERVÉ COMME AVANT -->
 
                 <div class="living-choice between-choice">
-                    <span>I</span>
-                    <span>N</span>
-                    <span>B</span>
-                    <span>E</span>
-                    <span>T</span>
-                    <span>W</span>
-                    <span>E</span>
-                    <span>E</span>
-                    <span>N</span>
+                    IN BETWEEN
                 </div>
 
 
                 <!-- FICTION -->
 
                 <div class="living-choice fiction-choice">
-                    <span>F</span>
-                    <span>I</span>
-                    <span>C</span>
-                    <span>T</span>
-                    <span>I</span>
-                    <span>O</span>
-                    <span>N</span>
+                    FICTION
                 </div>
 
 
-                <!-- WHISPER -->
+                <!-- EVERYTHING IS REAL — PLUS HAUT -->
 
                 <div class="life-whisper">
                     everything is real<br>
@@ -286,33 +262,36 @@
                 </div>
 
 
-                <!-- THREE CLICKABLE AREAS -->
-
                 <button
                     class="hotspot reality"
                     onclick="showPage('page-ephemeris')"
                     aria-label="Reality — Ephemeris"
+                    type="button"
                 ></button>
+
 
                 <button
                     class="hotspot between"
                     aria-label="In Between"
+                    type="button"
                 ></button>
+
 
                 <button
                     class="hotspot fiction"
                     aria-label="Fiction"
+                    type="button"
                 ></button>
 
-
-                <!-- SECRET + -->
 
                 <button
                     class="life-secret"
                     aria-label="Something hidden"
+                    type="button"
                 >
                     +
                 </button>
+
 
                 <div id="life-secret-message">
                     you're somewhere between.
@@ -371,6 +350,7 @@
                         this record is not meant for everyone.
                     </div>
 
+
                     <div class="password-area">
 
                         <input
@@ -389,6 +369,7 @@
                         </button>
 
                     </div>
+
 
                     <div
                         id="password-error"
@@ -410,9 +391,11 @@
                             class="calendar-arrow"
                             id="previous-month"
                             aria-label="Previous month"
+                            type="button"
                         >
                             ‹
                         </button>
+
 
                         <div
                             id="calendar-month"
@@ -421,10 +404,12 @@
                             AUGUST 2026
                         </div>
 
+
                         <button
                             class="calendar-arrow"
                             id="next-month"
                             aria-label="Next month"
+                            type="button"
                         >
                             ›
                         </button>
@@ -501,6 +486,7 @@
                     class="ephemeris-return"
                     onclick="showLostPage()"
                     aria-label="Return"
+                    type="button"
                 >
                     RETURN ←
                 </button>
@@ -510,6 +496,7 @@
                     id="ephemeris-secret"
                     class="ephemeris-secret"
                     aria-label="Something strange"
+                    type="button"
                 >
                     ✦
                 </button>
@@ -538,8 +525,6 @@
                 >
 
 
-                <!-- THE OTHER SIDE -->
-
                 <div class="section-whisper other-heading">
                     THE OTHER SIDE
                 </div>
@@ -548,9 +533,9 @@
                 <!-- OBSESSION — GRILLE DÉCALÉE -->
 
                 <div class="other-side-choice obsession-choice">
-
                     <span>O</span>
                     <span>B</span>
+                    <span>S</span>
                     <span>S</span>
                     <span>E</span>
                     <span>S</span>
@@ -558,36 +543,30 @@
                     <span>I</span>
                     <span>O</span>
                     <span>N</span>
-
                 </div>
 
 
                 <!-- CARPE NOCTEM — GRILLE DÉCALÉE -->
 
                 <div class="other-side-choice noctem-choice">
-
                     <span>C</span>
                     <span>A</span>
                     <span>R</span>
                     <span>P</span>
                     <span>E</span>
-
                     <span class="word-gap"></span>
-
                     <span>N</span>
                     <span>O</span>
                     <span>C</span>
                     <span>T</span>
                     <span>E</span>
                     <span>M</span>
-
                 </div>
 
 
                 <!-- CONSPIRATIONS — GRILLE DÉCALÉE -->
 
                 <div class="other-side-choice conspirations-choice">
-
                     <span>C</span>
                     <span>O</span>
                     <span>N</span>
@@ -601,7 +580,6 @@
                     <span>O</span>
                     <span>N</span>
                     <span>S</span>
-
                 </div>
 
 
@@ -610,11 +588,10 @@
                 </div>
 
 
-                <!-- CLICKABLE AREAS -->
-
                 <button
                     class="hotspot obsession"
                     aria-label="Obsession"
+                    type="button"
                 ></button>
 
 
@@ -622,23 +599,27 @@
                     class="hotspot noctem"
                     onclick="showPage('page-04')"
                     aria-label="Carpe Noctem"
+                    type="button"
                 ></button>
 
 
                 <button
                     class="hotspot conspirations"
                     aria-label="Conspirations"
+                    type="button"
                 ></button>
 
 
-                <!-- SECRET ? -->
+                <!-- ? FONCTIONNEL -->
 
                 <button
                     class="death-secret"
                     aria-label="Do not click"
+                    type="button"
                 >
                     ?
                 </button>
+
 
                 <div id="death-secret-message">
                     it knows you're here.
@@ -651,7 +632,7 @@
 
 
         <!-- ═════════════════════════════════════
-             04 — CARPE NOCTEM
+             CARPE NOCTEM
         ═════════════════════════════════════ -->
 
         <section
@@ -668,7 +649,7 @@
                 >
 
 
-                <!-- TITLE -->
+                <!-- PLUS PETIT + DESCENDU -->
 
                 <div class="noctem-main-title">
                     CARPE NOCTEM
@@ -680,12 +661,13 @@
                 </div>
 
 
-                <!-- HEARTS -->
+                <!-- COEURS : ZONES CLIQUABLES CADRÉES -->
 
                 <button
                     class="hotspot heart-left"
                     onclick="showPage('page-chroniques')"
                     aria-label="Chroniques"
+                    type="button"
                 ></button>
 
 
@@ -693,14 +675,16 @@
                     class="hotspot heart-right"
                     onclick="showPage('page-library')"
                     aria-label="Library"
+                    type="button"
                 ></button>
 
 
-                <!-- CROSS -->
+                <!-- CROIX PLUS GRANDE + GRAS -->
 
                 <button
                     class="noctem-secret"
                     aria-label="Something hidden"
+                    type="button"
                 >
                     †
                 </button>
@@ -734,117 +718,126 @@
                 >
 
 
-                <!-- TITLE -->
+                <!-- TITRE PLUS PETIT -->
 
                 <div class="page-main-title chronicles-title">
                     CHRONIQUES
                 </div>
 
 
-                <!-- INTRO — ABAISSÉ -->
-
                 <div class="chronicles-intro">
                     fragments from another life.
                 </div>
 
 
-                <!-- 10 ENTRÉES — STYLE CARTE / TRÈFLE -->
+                <!-- ═════════════════════════════
+                     10 ENTRÉES — TRÈFLES
+                ═════════════════════════════ -->
 
                 <button
-                    class="chronicle-entry chronicle-one"
+                    class="chronicle-entry chronicle-01"
                     aria-label="Chronique 01"
+                    type="button"
                 >
-                    <span class="entry-number">7</span>
-                    <span class="entry-symbol">♣</span>
+                    <span class="card-number">1</span>
+                    <span class="card-suit">♣</span>
                 </button>
 
 
                 <button
-                    class="chronicle-entry chronicle-two"
+                    class="chronicle-entry chronicle-02"
                     aria-label="Chronique 02"
+                    type="button"
                 >
-                    <span class="entry-number">2</span>
-                    <span class="entry-symbol">♣</span>
+                    <span class="card-number">2</span>
+                    <span class="card-suit">♣</span>
                 </button>
 
 
                 <button
-                    class="chronicle-entry chronicle-three"
+                    class="chronicle-entry chronicle-03"
                     aria-label="Chronique 03"
+                    type="button"
                 >
-                    <span class="entry-number">10</span>
-                    <span class="entry-symbol">♣</span>
+                    <span class="card-number">3</span>
+                    <span class="card-suit">♣</span>
                 </button>
 
 
                 <button
-                    class="chronicle-entry chronicle-four"
+                    class="chronicle-entry chronicle-04"
                     aria-label="Chronique 04"
+                    type="button"
                 >
-                    <span class="entry-number">4</span>
-                    <span class="entry-symbol">♣</span>
+                    <span class="card-number">4</span>
+                    <span class="card-suit">♣</span>
                 </button>
 
 
                 <button
-                    class="chronicle-entry chronicle-five"
+                    class="chronicle-entry chronicle-05"
                     aria-label="Chronique 05"
+                    type="button"
                 >
-                    <span class="entry-number">9</span>
-                    <span class="entry-symbol">♣</span>
+                    <span class="card-number">5</span>
+                    <span class="card-suit">♣</span>
                 </button>
 
 
                 <button
-                    class="chronicle-entry chronicle-six"
+                    class="chronicle-entry chronicle-06"
                     aria-label="Chronique 06"
+                    type="button"
                 >
-                    <span class="entry-number">1</span>
-                    <span class="entry-symbol">♣</span>
+                    <span class="card-number">6</span>
+                    <span class="card-suit">♣</span>
                 </button>
 
 
                 <button
-                    class="chronicle-entry chronicle-seven"
+                    class="chronicle-entry chronicle-07"
                     aria-label="Chronique 07"
+                    type="button"
                 >
-                    <span class="entry-number">6</span>
-                    <span class="entry-symbol">♣</span>
+                    <span class="card-number">7</span>
+                    <span class="card-suit">♣</span>
                 </button>
 
 
                 <button
-                    class="chronicle-entry chronicle-eight"
+                    class="chronicle-entry chronicle-08"
                     aria-label="Chronique 08"
+                    type="button"
                 >
-                    <span class="entry-number">8</span>
-                    <span class="entry-symbol">♣</span>
+                    <span class="card-number">8</span>
+                    <span class="card-suit">♣</span>
                 </button>
 
 
                 <button
-                    class="chronicle-entry chronicle-nine"
+                    class="chronicle-entry chronicle-09"
                     aria-label="Chronique 09"
+                    type="button"
                 >
-                    <span class="entry-number">3</span>
-                    <span class="entry-symbol">♣</span>
+                    <span class="card-number">9</span>
+                    <span class="card-suit">♣</span>
                 </button>
 
 
                 <button
-                    class="chronicle-entry chronicle-ten"
+                    class="chronicle-entry chronicle-10"
                     aria-label="Chronique 10"
+                    type="button"
                 >
-                    <span class="entry-number">5</span>
-                    <span class="entry-symbol">♣</span>
+                    <span class="card-number">10</span>
+                    <span class="card-suit">♣</span>
                 </button>
 
-
-                <!-- SECRET -->
 
                 <button
                     class="chronicle-secret"
                     aria-label="Something hidden"
+                    type="button"
                 >
                     ?
                 </button>
@@ -878,111 +871,126 @@
                 >
 
 
-                <!-- TITLE PRINCIPAL -->
+                <!-- THE LIBRARY SUPPRIMÉ -->
+
+                <!-- TITRE CENTRÉ + PLUS PETIT -->
 
                 <div class="page-main-title library-title">
                     LIBRARY
                 </div>
 
 
-                <!-- 10 ENTRÉES — STYLE PIQUE -->
+                <!-- ═════════════════════════════
+                     10 ENTRÉES — PIQUES
+                ═════════════════════════════ -->
 
                 <button
-                    class="library-entry library-one"
-                    aria-label="Library entry one"
+                    class="library-entry library-01"
+                    aria-label="Library entry 01"
+                    type="button"
                 >
-                    <span class="library-number">7</span>
-                    <span class="library-mark">♠</span>
+                    <span class="card-number">1</span>
+                    <span class="card-suit">♠</span>
                 </button>
 
 
                 <button
-                    class="library-entry library-two"
+                    class="library-entry library-02"
+                    aria-label="Library entry 02"
+                    type="button"
+                >
+                    <span class="card-number">2</span>
+                    <span class="card-suit">♠</span>
+                </button>
+
+
+                <button
+                    class="library-entry library-03"
+                    aria-label="Library entry 03"
+                    type="button"
+                >
+                    <span class="card-number">3</span>
+                    <span class="card-suit">♠</span>
+                </button>
+
+
+                <button
+                    class="library-entry library-04"
+                    aria-label="Library entry 04"
+                    type="button"
+                >
+                    <span class="card-number">4</span>
+                    <span class="card-suit">♠</span>
+                </button>
+
+
+                <button
+                    class="library-entry library-05"
+                    aria-label="Library entry 05"
+                    type="button"
+                >
+                    <span class="card-number">5</span>
+                    <span class="card-suit">♠</span>
+                </button>
+
+
+                <!-- VISITOR BOOK = 6 -->
+
+                <button
+                    class="library-entry library-06"
                     onclick="showPage('page-visitor-book')"
                     aria-label="The Visitor Book"
+                    type="button"
                 >
-                    <span class="library-number">2</span>
-                    <span class="library-mark">♠</span>
+                    <span class="card-number">6</span>
+                    <span class="card-suit">♠</span>
                 </button>
 
 
                 <button
-                    class="library-entry library-three"
-                    aria-label="Library entry three"
+                    class="library-entry library-07"
+                    aria-label="Library entry 07"
+                    type="button"
                 >
-                    <span class="library-number">10</span>
-                    <span class="library-mark">♠</span>
+                    <span class="card-number">7</span>
+                    <span class="card-suit">♠</span>
                 </button>
 
 
                 <button
-                    class="library-entry library-four"
-                    aria-label="Library entry four"
+                    class="library-entry library-08"
+                    aria-label="Library entry 08"
+                    type="button"
                 >
-                    <span class="library-number">4</span>
-                    <span class="library-mark">♠</span>
+                    <span class="card-number">8</span>
+                    <span class="card-suit">♠</span>
                 </button>
 
 
                 <button
-                    class="library-entry library-five"
-                    aria-label="Library entry five"
+                    class="library-entry library-09"
+                    aria-label="Library entry 09"
+                    type="button"
                 >
-                    <span class="library-number">9</span>
-                    <span class="library-mark">♠</span>
+                    <span class="card-number">9</span>
+                    <span class="card-suit">♠</span>
                 </button>
 
 
                 <button
-                    class="library-entry library-six"
-                    aria-label="Library entry six"
+                    class="library-entry library-10"
+                    aria-label="Library entry 10"
+                    type="button"
                 >
-                    <span class="library-number">1</span>
-                    <span class="library-mark">♠</span>
+                    <span class="card-number">10</span>
+                    <span class="card-suit">♠</span>
                 </button>
 
-
-                <button
-                    class="library-entry library-seven"
-                    aria-label="Library entry seven"
-                >
-                    <span class="library-number">6</span>
-                    <span class="library-mark">♠</span>
-                </button>
-
-
-                <button
-                    class="library-entry library-eight"
-                    aria-label="Library entry eight"
-                >
-                    <span class="library-number">8</span>
-                    <span class="library-mark">♠</span>
-                </button>
-
-
-                <button
-                    class="library-entry library-nine"
-                    aria-label="Library entry nine"
-                >
-                    <span class="library-number">3</span>
-                    <span class="library-mark">♠</span>
-                </button>
-
-
-                <button
-                    class="library-entry library-ten"
-                    aria-label="Library entry ten"
-                >
-                    <span class="library-number">5</span>
-                    <span class="library-mark">♠</span>
-                </button>
-
-
-                <!-- CROSS -->
 
                 <button
                     class="library-secret"
                     aria-label="Something hidden"
+                    type="button"
                 >
                     †
                 </button>
@@ -1037,6 +1045,7 @@
                             WRITE SOMETHING
                         </div>
 
+
                         <input
                             type="text"
                             id="visitor-name"
@@ -1045,11 +1054,13 @@
                             autocomplete="off"
                         >
 
+
                         <textarea
                             id="visitor-message"
                             maxlength="500"
                             placeholder="leave your message here..."
                         ></textarea>
+
 
                         <button
                             id="visitor-submit"
@@ -1057,6 +1068,7 @@
                         >
                             LEAVE IT ✦
                         </button>
+
 
                         <div
                             id="visitor-status"
@@ -1066,6 +1078,7 @@
                     </div>
 
 
+
                     <!-- MESSAGES -->
 
                     <div class="visitor-messages">
@@ -1073,6 +1086,7 @@
                         <div class="visitor-label">
                             THOSE WHO CAME BEFORE
                         </div>
+
 
                         <div id="visitor-message-list">
 
@@ -1089,7 +1103,6 @@
                 </div>
 
 
-                <!-- CLOSE -->
 
                 <button
                     class="visitor-book-return"
@@ -1164,6 +1177,7 @@
                         remember this.
                     </span>
 
+
                     <button
                         id="enter-ephemeris"
                         type="button"
@@ -1213,8 +1227,8 @@
 
         </section>
 
-
     </main>
+
 
 
     <!-- ═════════════════════════════════════
