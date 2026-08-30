@@ -29,7 +29,8 @@ const strangeEvents = {
         "In between.", 
    
     "2026-08-29": [
-        "Simbiosis in Québec.",
+        "Simbiosis in Québec."
+        
         "First day of this year. Happy New Year!"
 ],
 };
