@@ -1997,3 +1997,29 @@ a {
         font-size: 12vw;
     }
 }
+.section-whisper {
+    position: absolute;
+
+    z-index: 55;
+
+    font-family: var(--font-mono);
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    text-transform: uppercase;
+
+    pointer-events: none;
+
+    text-shadow:
+        0 0 8px rgba(0, 0, 0, 0.9);
+}
+
+.divide-heading {
+    top: 4%;
+    left: 7%;
+
+    transform: rotate(-4deg);
+}
