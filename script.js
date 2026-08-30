@@ -673,3 +673,106 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 });
+/* ═══════════════════════════════════════
+   VISITOR BOOK → MYSTERY BOX
+═══════════════════════════════════════ */
+
+const visitorBookClose =
+    document.getElementById("visitor-book-close");
+
+const mysteryBoxOverlay =
+    document.getElementById("mystery-box-overlay");
+
+const mysteryBox =
+    document.getElementById("mystery-box");
+
+const boxMessage =
+    document.getElementById("box-message");
+
+const enterEphemeris =
+    document.getElementById("enter-ephemeris");
+
+const boxReturn =
+    document.getElementById("box-return");
+
+
+/* CLOSE THE BOOK */
+
+if (visitorBookClose) {
+
+    visitorBookClose.addEventListener("click", () => {
+
+        mysteryBoxOverlay.classList.add("visible");
+
+    });
+
+}
+
+
+/* OPEN THE BOX */
+
+if (mysteryBox) {
+
+    mysteryBox.addEventListener("click", () => {
+
+        if (mysteryBox.classList.contains("opened")) {
+            return;
+        }
+
+        mysteryBox.classList.add("opened");
+
+        setTimeout(() => {
+
+            boxMessage.classList.add("visible");
+
+        }, 650);
+
+    });
+
+}
+
+
+/* ENTER EPHEMERIS */
+
+if (enterEphemeris) {
+
+    enterEphemeris.addEventListener("click", () => {
+
+        mysteryBoxOverlay.classList.remove("visible");
+
+        mysteryBox.classList.remove("opened");
+
+        boxMessage.classList.remove("visible");
+
+        setTimeout(() => {
+
+            showPage("page-ephemeris");
+
+        }, 500);
+
+    });
+
+}
+
+
+/* RETURN TO LIBRARY */
+
+if (boxReturn) {
+
+    boxReturn.addEventListener("click", () => {
+
+        mysteryBoxOverlay.classList.remove("visible");
+
+        mysteryBox.classList.remove("opened");
+
+        boxMessage.classList.remove("visible");
+
+        setTimeout(() => {
+
+            showPage("page-library");
+
+        }, 500);
+
+    });
+
+}
